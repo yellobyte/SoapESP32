@@ -1,0 +1,15 @@
+17:45:41.771 -> 
+17:45:41.771 -> Initializing Ethernet...DHCP ok.
+17:45:42.481 -> Local IP: 192.168.1.38
+17:45:42.481 -> 
+17:45:42.481 -> Scanning local network for DLNA media servers...
+17:45:46.628 -> Number of discovered servers that deliver content: 3
+17:45:46.628 -> 
+17:45:46.628 -> Server[1]: IP address: 192.168.1.39, port: 5001, name: Universal Media Server
+17:45:46.628 ->   -> controlURL: upnp/control/content_directory
+17:45:46.628 -> Server[2]: IP address: 192.168.1.50, port: 9050, name: LINKSTATION2b: LinkStation
+17:45:46.662 ->   -> controlURL: TMSContentDirectory/Control
+17:45:46.662 -> Server[3]: IP address: 192.168.1.39, port: 2869, name: VIRTUAL-WIN10: MediaPlayerVM:
+17:45:46.662 ->   -> controlURL: upnphost/udhisapi.dll?control=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3+urn:upnp-org:serviceId:ContentDirectory
+17:45:46.662 -> 
+17:45:46.662 -> Sketch finished.

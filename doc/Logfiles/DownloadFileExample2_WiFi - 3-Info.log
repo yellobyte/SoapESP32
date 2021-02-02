@@ -1,0 +1,179 @@
+01:12:08.528 -> 
+01:12:08.528 -> Connecting to WiFi network .......
+01:12:12.078 -> Connected successfully. IP address: 192.168.1.37
+01:12:12.078 -> 
+01:12:12.078 -> Initializing SD card...done. Opening file on SD was successful.
+01:12:12.132 -> Scanning local network for DLNA media servers...
+01:12:12.132 -> [I][SoapESP32.cpp:448] seekServer(): SSDP search for media server started
+01:12:16.123 -> [I][SoapESP32.cpp:451] seekServer(): SSDP query discovered 1 media server
+01:12:16.123 -> [I][SoapESP32.cpp:454] seekServer(): checking all discovered media servers for service: ContentDirectory
+01:12:16.123 -> [I][SoapESP32.cpp:468] seekServer(): connected successfully to server 192.168.1.50:9050
+01:12:16.123 -> [I][SoapESP32.cpp:520] seekServer(): ok, this server delivers media content
+01:12:16.158 -> Number of discovered servers that deliver content: 1
+01:12:16.158 -> 
+01:12:16.158 -> Searching audio file on server: LINKSTATION2b: LinkStation
+01:12:16.158 -> Please be patient, this may take a while !
+01:12:16.158 -> [I][SoapESP32.cpp:820] browseServer(): server: "LINKSTATION2b: LinkStation", objectId: "0"
+01:12:16.158 -> [I][SoapESP32.cpp:838] browseServer(): connected successfully to server 192.168.1.50:9050
+01:12:16.205 -> [I][SoapESP32.cpp:861] browseServer(): scan answer from media server:
+01:12:16.205 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Music" (id: "0$1", childCount: 11) added to list
+01:12:16.205 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Photos" (id: "0$2", childCount: 8) added to list
+01:12:16.205 -> [I][SoapESP32.cpp:921] browseServer(): found 2 folders and 0 files
+01:12:16.205 -> [I][SoapESP32.cpp:820] browseServer(): server: "LINKSTATION2b: LinkStation", objectId: "0$1"
+01:12:16.443 -> [I][SoapESP32.cpp:838] browseServer(): connected successfully to server 192.168.1.50:9050
+01:12:16.443 -> [I][SoapESP32.cpp:861] browseServer(): scan answer from media server:
+01:12:16.443 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Album" (id: "0$1$12", childCount: 340) added to list
+01:12:16.443 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "All Tracks" (id: "0$1$8", childCount: 2633) added to list
+01:12:16.490 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Artist" (id: "0$1$11", childCount: 266) added to list
+01:12:16.490 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Artist Index" (id: "0$1$15", childCount: 8) added to list
+01:12:16.490 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Artist/Album" (id: "0$1$16", childCount: 266) added to list
+01:12:16.490 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "By Folder" (id: "0$1$13", childCount: 1) added to list
+01:12:16.490 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Genre/Album" (id: "0$1$17", childCount: 66) added to list
+01:12:16.544 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Genre/Artist" (id: "0$1$18", childCount: 67) added to list
+01:12:16.544 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Genre/Song" (id: "0$1$10", childCount: 66) added to list
+01:12:16.544 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Personal rating" (id: "0$1$14", childCount: 2) added to list
+01:12:16.544 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Playlists" (id: "0$1$9", childCount: 4) added to list
+01:12:16.544 -> [I][SoapESP32.cpp:921] browseServer(): found 11 folders and 0 files
+01:12:16.544 -> [I][SoapESP32.cpp:820] browseServer(): server: "LINKSTATION2b: LinkStation", objectId: "0$1$12"
+01:12:16.845 -> [I][SoapESP32.cpp:838] browseServer(): connected successfully to server 192.168.1.50:9050
+01:12:16.845 -> [I][SoapESP32.cpp:861] browseServer(): scan answer from media server:
+01:12:16.845 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "A Night At The Opera" (id: "0$1$12$6070", childCount: 12) added to list
+01:12:16.892 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "ABBA Greatest Hits" (id: "0$1$12$5810", childCount: 19) added to list
+01:12:16.892 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Aha - Best Of" (id: "0$1$12$5024", childCount: 16) added to list
+01:12:16.892 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "All The Best" (id: "0$1$12$5052", childCount: 18) added to list
+01:12:16.892 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "American III - Solitary Man" (id: "0$1$12$5108", childCount: 19) added to list
+01:12:16.945 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "American IV: The Man Comes Around" (id: "0$1$12$5097", childCount: 15) added to list
+01:12:16.945 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Amnesiac" (id: "0$1$12$4606", childCount: 1) added to list
+01:12:16.945 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "An Ancient Muse" (id: "0$1$12$6247", childCount: 9) added to list
+01:12:16.945 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Andrea Bocelli: Aria - The Opera Album" (id: "0$1$12$4459", childCount: 17) added to list
+01:12:16.945 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Ane Brun Mix" (id: "0$1$12$4715", childCount: 8) added to list
+01:12:16.993 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Aqualung [remastered 1996]" (id: "0$1$12$4781", childCount: 12) added to list
+01:12:16.993 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Autobahn" (id: "0$1$12$5706", childCount: 5) added to list
+01:12:16.993 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Avalon" (id: "0$1$12$6120", childCount: 10) added to list
+01:12:16.993 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Ave Maria" (id: "0$1$12$3976", childCount: 13) added to list
+01:12:16.993 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Bach in Einsiedeln - Orgelwerke" (id: "0$1$12$70", childCount: 11) added to list
+01:12:17.045 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Brandenburgisches Konzert Nr 1 BWV 1046" (id: "0$1$12$114", childCount: 4) added to list
+01:12:17.045 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Brandenburgisches Konzert Nr 2 BWV 1047" (id: "0$1$12$128", childCount: 3) added to list
+01:12:17.045 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Brandenburgisches Konzert Nr 3 BWV 1048" (id: "0$1$12$140", childCount: 3) added to list
+01:12:17.045 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Brandenburgisches Konzert Nr 4 BWV 1049" (id: "0$1$12$152", childCount: 3) added to list
+01:12:17.092 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Brandenburgisches Konzert Nr 5 BWV 1050" (id: "0$1$12$164", childCount: 3) added to list
+01:12:17.092 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Brandenburgisches Konzert Nr 6 BWV 1051" (id: "0$1$12$176", childCount: 3) added to list
+01:12:17.092 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Das Musikalische Opfer BWV 1079" (id: "0$1$12$288", childCount: 16) added to list
+01:12:17.092 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Flötensonata Es-Dur BWV 1031" (id: "0$1$12$216", childCount: 3) added to list
+01:12:17.145 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Flötensonate A-Dur BWV 1032" (id: "0$1$12$202", childCount: 3) added to list
+01:12:17.145 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Flötensonate g-Moll BWV 1020" (id: "0$1$12$228", childCount: 3) added to list
+01:12:17.145 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Flötensonate h-Moll BWV 1030" (id: "0$1$12$240", childCount: 3) added to list
+01:12:17.145 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Inventions & Sinfonias (The Two and Three Part Inventions) BWV 772 - 801" (id: "0$1$12$266", childCount: 30) added to list
+01:12:17.192 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Ouverture Nr 1 BWV 1066" (id: "0$1$12$300", childCount: 7) added to list
+01:12:17.192 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Ouverture Nr 2 BWV 1067" (id: "0$1$12$314", childCount: 7) added to list
+01:12:17.192 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Ouverture Nr 3 BWV 1068" (id: "0$1$12$326", childCount: 5) added to list
+01:12:17.192 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bach: Ouverture Nr 4 BWV 1069" (id: "0$1$12$338", childCount: 5) added to list
+01:12:17.246 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Beethoven:  Konzert für Klavier und Orchester Nr 2 B-dur op 19" (id: "0$1$12$992", childCount: 3) added to list
+01:12:17.246 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Beethoven: Konzert für Klavier und Orchester No 5 Es-dur op 73, 'Emperor'" (id: "0$1$12$1021", childCount: 3) added to list
+01:12:17.246 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Beethoven: Konzert für Klavier und Orchester Nr 4 G-dur op 58" (id: "0$1$12$1033", childCount: 3) added to list
+01:12:17.246 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Beethoven: Sinfonie Nr 5 c-moll op 67" (id: "0$1$12$1059", childCount: 4) added to list
+01:12:17.292 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Beethoven: Sinfonie Nr 8 F-dur op 93" (id: "0$1$12$1082", childCount: 4) added to list
+01:12:17.292 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Beethoven: Sinfonie Nr 9 d-Moll op 125" (id: "0$1$12$1103", childCount: 4) added to list
+01:12:17.292 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Beethoven: Violinkonzert" (id: "0$1$12$1124", childCount: 3) added to list
+01:12:17.346 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bellini: Trompetenkonzert Es-dur (Transkription des Oboenkonzerts)" (id: "0$1$12$2084", childCount: 3) added to list
+01:12:17.346 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Berühmte Opernchöre" (id: "0$1$12$4486", childCount: 6) added to list
+01:12:17.346 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Best Of" (id: "0$1$12$5169", childCount: 16) added to list
+01:12:17.346 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bizet: Carmen" (id: "0$1$12$2487", childCount: 49) added to list
+01:12:17.346 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Blow" (id: "0$1$12$5912", childCount: 9) added to list
+01:12:17.393 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bob Dylan Greatest Hits" (id: "0$1$12$5256", childCount: 10) added to list
+01:12:17.393 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Boccherini: Concerteo No 1 in Es-Dur G 474" (id: "0$1$12$918", childCount: 3) added to list
+01:12:17.393 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Boccherini: Concerteo No 2 in A-Dur G 475" (id: "0$1$12$941", childCount: 3) added to list
+01:12:17.393 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Boccherini: Concerteo No 3 in D-Dur G 476" (id: "0$1$12$953", childCount: 3) added to list
+01:12:17.446 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Boccherini: Concerteo No 8 in C-Dur G 481" (id: "0$1$12$965", childCount: 3) added to list
+01:12:17.446 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Brahms: Ungarische_Tänze" (id: "0$1$12$2513", childCount: 21) added to list
+01:12:17.446 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Brothers In Arms" (id: "0$1$12$5295", childCount: 9) added to list
+01:12:17.446 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Bury The Hatchet" (id: "0$1$12$5426", childCount: 14) added to list
+01:12:17.446 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Car-CD 1" (id: "0$1$12$6304", childCount: 16) added to list
+01:12:17.480 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Car-CD 2" (id: "0$1$12$6537", childCount: 18) added to list
+01:12:17.480 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Car-CD 3" (id: "0$1$12$6777", childCount: 17) added to list
+01:12:17.480 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Car-CD 4" (id: "0$1$12$7011", childCount: 17) added to list
+01:12:17.480 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Car-CD 5" (id: "0$1$12$7204", childCount: 19) added to list
+01:12:17.527 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Car-CD 6" (id: "0$1$12$7443", childCount: 7) added to list
+01:12:17.527 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Carmina Burana" (id: "0$1$12$3732", childCount: 28) added to list
+01:12:17.527 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Catfish Rising" (id: "0$1$12$4771", childCount: 13) added to list
+01:12:17.527 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chant Gregorien: Le chant du silence" (id: "0$1$12$4150", childCount: 19) added to list
+01:12:17.562 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Andante und Polonaise" (id: "0$1$12$2570", childCount: 1) added to list
+01:12:17.562 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Fantasie in f-moll op. 49" (id: "0$1$12$2651", childCount: 1) added to list
+01:12:17.562 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Grosse Fantasie" (id: "0$1$12$2579", childCount: 1) added to list
+01:12:17.609 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Impromptus" (id: "0$1$12$2537", childCount: 3) added to list
+01:12:17.609 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Klavierkonzert No 2 f-moll, op 21" (id: "0$1$12$2778", childCount: 3) added to list
+01:12:17.609 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Klavierkonzert Nr 1 e-moll, op 11" (id: "0$1$12$2752", childCount: 3) added to list
+01:12:17.609 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Klavierkonzert Nr 2 f-moll op 21" (id: "0$1$12$2766", childCount: 3) added to list
+01:12:17.647 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Konzertrondo" (id: "0$1$12$2561", childCount: 1) added to list
+01:12:17.647 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Mazurka in a-moll op. 68 No 2" (id: "0$1$12$2687", childCount: 1) added to list
+01:12:17.647 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Mazurka in As-Dur op. 41 No 4" (id: "0$1$12$2705", childCount: 1) added to list
+01:12:17.695 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Mazurka in Des-Dur op. 30 No 3" (id: "0$1$12$2723", childCount: 1) added to list
+01:12:17.695 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Mazurka in f-moll op. 68 No 4" (id: "0$1$12$2696", childCount: 1) added to list
+01:12:17.695 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Mazurka in g-moll op. 67 No 2" (id: "0$1$12$2732", childCount: 1) added to list
+01:12:17.695 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Mazurka in gis-moll op. 33 No 1" (id: "0$1$12$2714", childCount: 1) added to list
+01:12:17.747 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Mazurka in h-moll op. 33 No 4" (id: "0$1$12$2741", childCount: 1) added to list
+01:12:17.747 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Polonaise in fis-moll op 44" (id: "0$1$12$2599", childCount: 1) added to list
+01:12:17.747 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Préludes op 28" (id: "0$1$12$2620", childCount: 24) added to list
+01:12:17.747 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Scherzo No 1 in h-moll op. 20" (id: "0$1$12$2641", childCount: 1) added to list
+01:12:17.794 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Variationen über ''La ci darem la mano''" (id: "0$1$12$2551", childCount: 1) added to list
+01:12:17.794 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Walter in a-moll op. 34 No 2" (id: "0$1$12$2660", childCount: 1) added to list
+01:12:17.794 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Walzer in As-Dur Op. 34 No 1" (id: "0$1$12$2669", childCount: 1) added to list
+01:12:17.794 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Chopin: Walzer in As-Dur Op. 69 No 1" (id: "0$1$12$2678", childCount: 1) added to list
+01:12:17.848 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Cieli di Toscana" (id: "0$1$12$4444", childCount: 14) added to list
+01:12:17.848 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Concerto for Group and Orchestra" (id: "0$1$12$5725", childCount: 5) added to list
+01:12:17.848 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Concerto Nr 5 für King Ferdinand IV von Neabel" (id: "0$1$12$1290", childCount: 3) added to list
+01:12:17.848 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Creep" (id: "0$1$12$4615", childCount: 1) added to list
+01:12:17.848 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Damals hinterm Mond" (id: "0$1$12$6019", childCount: 11) added to list
+01:12:17.894 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Die Mensch-Maschine" (id: "0$1$12$5695", childCount: 6) added to list
+01:12:17.894 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Die schönen Rosen" (id: "0$1$12$6031", childCount: 11) added to list
+01:12:17.894 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Double Concerto" (id: "0$1$12$3607", childCount: 2) added to list
+01:12:17.894 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Dvorák: Romance, op. 11" (id: "0$1$12$2028", childCount: 1) added to list
+01:12:17.948 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Dvorák: Sinfonie Nr 9 e-moll op. 95 'Aus der Neuen Welt'" (id: "0$1$12$2072", childCount: 4) added to list
+01:12:17.948 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Dvorak: Slawische Tänze op. 46" (id: "0$1$12$2058", childCount: 3) added to list
+01:12:17.948 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Elements - Best Of" (id: "0$1$12$4903", childCount: 16) added to list
+01:12:17.948 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Fight For Your Mind" (id: "0$1$12$5327", childCount: 14) added to list
+01:12:17.948 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "God Shuffled His Feet" (id: "0$1$12$5487", childCount: 12) added to list
+01:12:17.995 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Good As I Been To You" (id: "0$1$12$5224", childCount: 13) added to list
+01:12:17.995 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Graceland" (id: "0$1$12$6050", childCount: 11) added to list
+01:12:17.995 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Grieg: Klavierkonzert a-moll, Op 16" (id: "0$1$12$2828", childCount: 3) added to list
+01:12:17.995 -> [I][SoapESP32.cpp:658] soapScanContainer(): folder "Grieg: Klavierkonzert a-moll, op. 16" (id: "0$1$12$2849", childCount: 3) added to list
+01:12:18.048 -> [I][SoapESP32.cpp:921] browseServer(): found 100 folders and 0 files
+01:12:18.048 -> [I][SoapESP32.cpp:820] browseServer(): server: "LINKSTATION2b: LinkStation", objectId: "0$1$12$6070"
+01:12:18.095 -> [I][SoapESP32.cpp:838] browseServer(): connected successfully to server 192.168.1.50:9050
+01:12:18.095 -> [I][SoapESP32.cpp:861] browseServer(): scan answer from media server:
+01:12:18.095 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.095 -> [I][SoapESP32.cpp:797] soapScanItem(): file "Death On Two Legs" (id: "0$1$12$6070R5737482", size: 7195644, type: audio) added to list
+01:12:18.148 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.148 -> [I][SoapESP32.cpp:797] soapScanItem(): file "Lazing On A Sunday Afternoon" (id: "0$1$12$6070R5737738", size: 2175138, type: audio) added to list
+01:12:18.148 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.148 -> [I][SoapESP32.cpp:797] soapScanItem(): file "I'm In Love With My Car" (id: "0$1$12$6070R5737994", size: 5947630, type: audio) added to list
+01:12:18.148 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.195 -> [I][SoapESP32.cpp:797] soapScanItem(): file "You're My Best Friend" (id: "0$1$12$6070R5738250", size: 5533010, type: audio) added to list
+01:12:18.195 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.195 -> [I][SoapESP32.cpp:797] soapScanItem(): file "'39" (id: "0$1$12$6070R5738506", size: 6767626, type: audio) added to list
+01:12:18.195 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.249 -> [I][SoapESP32.cpp:797] soapScanItem(): file "Sweet Lady" (id: "0$1$12$6070R5738762", size: 7814210, type: audio) added to list
+01:12:18.249 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.249 -> [I][SoapESP32.cpp:797] soapScanItem(): file "Seaside Rendezvous" (id: "0$1$12$6070R5739018", size: 4362719, type: audio) added to list
+01:12:18.249 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.249 -> [I][SoapESP32.cpp:797] soapScanItem(): file "The Prophet's Song" (id: "0$1$12$6070R5739274", size: 16037155, type: audio) added to list
+01:12:18.296 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.296 -> [I][SoapESP32.cpp:797] soapScanItem(): file "Love Of My Life" (id: "0$1$12$6070R5739530", size: 7016754, type: audio) added to list
+01:12:18.296 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.296 -> [I][SoapESP32.cpp:797] soapScanItem(): file "Good Company" (id: "0$1$12$6070R5736714", size: 6533587, type: audio) added to list
+01:12:18.296 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.349 -> [I][SoapESP32.cpp:797] soapScanItem(): file "Bohemian Rhapsody" (id: "0$1$12$6070R5736970", size: 11354338, type: audio) added to list
+01:12:18.349 -> [W][SoapESP32.cpp:592] soapScanAttribute(): attribute: "sampleFrequency=" not found.
+01:12:18.349 -> [I][SoapESP32.cpp:797] soapScanItem(): file "God Save The Queen" (id: "0$1$12$6070R5737226", size: 2352325, type: audio) added to list
+01:12:18.349 -> [I][SoapESP32.cpp:921] browseServer(): found 0 folders and 12 files
+01:12:18.349 -> Audio file was found:
+01:12:18.349 ->  name: Death On Two Legs, id: 0$1$12$6070R5737482, size: 7195644
+01:12:18.349 ->  URI: disk/DLNA-PNMP3-OP01-FLAGS01700000/O0$1$8I5737482.mp3
+01:12:18.396 -> [I][SoapESP32.cpp:940] readStart(): server ip: 192.168.1.50, port: 9050, uri: "disk/DLNA-PNMP3-OP01-FLAGS01700000/O0$1$8I5737482.mp3"
+01:12:18.597 -> Download request granted from server, announced file size: 7195644
+01:12:18.597 -> Start copying file from server to SD, please wait.
+01:12:19.098 -> ....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+01:12:59.571 -> File download was successful.
+01:12:59.571 -> Closing file on SD.
+01:12:59.725 -> 
+01:12:59.725 -> Sketch finished.

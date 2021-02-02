@@ -1,0 +1,28 @@
+20:09:56.363 -> 
+20:09:56.363 -> Initializing Ethernet...DHCP ok.
+20:09:57.068 -> Local IP: 192.168.1.40
+20:09:57.068 -> Additional task started. LED should blink.
+20:09:57.068 -> 
+20:09:57.068 -> Scanning local network for DLNA media servers...
+20:10:01.394 -> Number of discovered servers that deliver content: 3
+20:10:01.394 -> 
+20:10:01.394 -> Server[0]: IP address: 192.168.1.39, port: 5001, name: Universal Media Server
+20:10:01.674 -> Browsing root directory. Number of sub-directories: 3
+20:10:01.674 ->  Recently Played (child count: 1)
+20:10:01.674 ->  Music (child count: 1)
+20:10:01.674 ->  Web (child count: 1)
+20:10:01.674 -> 
+20:10:01.674 -> Server[1]: IP address: 192.168.1.50, port: 9050, name: LINKSTATION2b: LinkStation
+20:10:01.744 -> Browsing root directory. Number of sub-directories: 2
+20:10:01.744 ->  Music (child count: 11)
+20:10:01.744 ->  Photos (child count: 8)
+20:10:01.744 -> 
+20:10:01.744 -> Server[2]: IP address: 192.168.1.39, port: 2869, name: VIRTUAL-WIN10: MediaPlayerVM:
+20:10:02.021 -> Browsing root directory. Number of sub-directories: 4
+20:10:02.021 ->  Bilder (child count: 7)
+20:10:02.021 ->  Musik (child count: 10)
+20:10:02.021 ->  Videos (child count: 8)
+20:10:02.056 ->  Wiedergabelisten (child count: 2)
+20:10:02.056 -> 
+20:10:02.056 -> 
+20:10:02.056 -> Sketch finished.

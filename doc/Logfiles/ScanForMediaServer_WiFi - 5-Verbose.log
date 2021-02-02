@@ -1,0 +1,316 @@
+15:53:44.151 -> 
+15:53:44.151 -> Connecting to WiFi network [D][WiFiGeneric.cpp:337] _eventCallback(): Event: 0 - WIFI_READY
+15:53:44.252 -> [D][WiFiGeneric.cpp:337] _eventCallback(): Event: 2 - STA_START
+15:53:44.252 -> .[D][WiFiGeneric.cpp:337] _eventCallback(): Event: 4 - STA_CONNECTED
+15:53:44.724 -> .....[D][WiFiGeneric.cpp:337] _eventCallback(): Event: 7 - STA_GOT_IP
+15:53:47.221 -> [D][WiFiGeneric.cpp:381] _eventCallback(): STA IP: 192.168.1.44, MASK: 255.255.255.0, GW: 192.168.1.1
+15:53:47.221 -> 
+15:53:47.221 -> Connected successfully.
+15:53:47.221 -> IP address: 192.168.1.44
+15:53:47.254 -> 
+15:53:47.254 -> Scanning local network for DLNA media servers...
+15:53:47.254 -> [I][SoapESP32.cpp:440] seekServer(): SSDP search for media server started
+15:53:47.254 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 25 ms: packet size: 390
+15:53:47.288 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.288 -> HTTP/1.1 200 OK
+15:53:47.288 -> CACHE-CONTROL: max-age=1810
+15:53:47.288 -> DATE: Thu, 07 Jan 2021 14:53:46 GMT
+15:53:47.288 -> EXT:
+15:53:47.288 -> LOCATION: http://192.168.1.50:9050/TMSDeviceDescription.xml
+15:53:47.288 -> SERVER: Linux/2.x.x, UPnP/1.0, pvConnect UPnP SDK/1.0, TwonkyMedia UPnP SDK/1.1
+15:53:47.288 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.288 -> USN: uuid:55076f6e-6b79-4d65-64b7-106f3f21ee23::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.322 -> Content-Length: 0
+15:53:47.322 -> 
+15:53:47.322 -> 
+15:53:47.322 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:53:47.322 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 96 ms: packet size: 368
+15:53:47.355 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.355 -> HTTP/1.1 200 OK
+15:53:47.355 -> CACHE-CONTROL: max-age=1800
+15:53:47.355 -> DATE: Thu, 07 Jan 2021 14:53:47 GMT
+15:53:47.355 -> LOCATION: http://192.168.1.35:5001/description/fetch
+15:53:47.355 -> SERVER: Windows_10-amd64-10.0, UPnP/1.0 DLNADOC/1.50, UMS/9.8.0
+15:53:47.355 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.355 -> EXT: 
+15:53:47.355 -> USN: uuid:6056683d-9fdb-46ea-9ea6-5cfd0bf72c27::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.389 -> Content-Length: 0
+15:53:47.389 -> 
+15:53:47.389 -> 
+15:53:47.389 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=5001, location=description/fetch
+15:53:47.389 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 165 ms: packet size: 129
+15:53:47.423 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.423 -> M-SEARCH * HTTP/1.1
+15:53:47.423 -> ST: urn:schemas-upnp-org:device:MediaRenderer:1
+15:53:47.423 -> HOST: 239.255.255.250:1900
+15:53:47.423 -> MX: 3
+15:53:47.423 -> MAN: "ssdp:discover"
+15:53:47.423 -> 
+15:53:47.423 -> 
+15:53:47.457 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 204 ms: packet size: 121
+15:53:47.457 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.457 -> M-SEARCH * HTTP/1.1
+15:53:47.457 -> ST: urn:schemas-upnp-org:device:Basic:1
+15:53:47.457 -> HOST: 239.255.255.250:1900
+15:53:47.457 -> MX: 3
+15:53:47.457 -> MAN: "ssdp:discover"
+15:53:47.457 -> 
+15:53:47.457 -> 
+15:53:47.490 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 242 ms: packet size: 368
+15:53:47.490 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.490 -> HTTP/1.1 200 OK
+15:53:47.490 -> CACHE-CONTROL: max-age=1800
+15:53:47.490 -> DATE: Thu, 07 Jan 2021 14:53:47 GMT
+15:53:47.490 -> LOCATION: http://192.168.1.35:5001/description/fetch
+15:53:47.524 -> SERVER: Windows_10-amd64-10.0, UPnP/1.0 DLNADOC/1.50, UMS/9.8.0
+15:53:47.524 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.524 -> EXT: 
+15:53:47.524 -> USN: uuid:6056683d-9fdb-46ea-9ea6-5cfd0bf72c27::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.524 -> Content-Length: 0
+15:53:47.524 -> 
+15:53:47.524 -> 
+15:53:47.524 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=5001, location=description/fetch
+15:53:47.557 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 310 ms: packet size: 129
+15:53:47.557 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.557 -> M-SEARCH * HTTP/1.1
+15:53:47.557 -> ST: urn:schemas-upnp-org:device:MediaRenderer:1
+15:53:47.557 -> HOST: 239.255.255.250:1900
+15:53:47.557 -> MX: 3
+15:53:47.557 -> MAN: "ssdp:discover"
+15:53:47.557 -> 
+15:53:47.557 -> 
+15:53:47.591 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 349 ms: packet size: 390
+15:53:47.591 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.591 -> HTTP/1.1 200 OK
+15:53:47.591 -> CACHE-CONTROL: max-age=1810
+15:53:47.591 -> DATE: Thu, 07 Jan 2021 14:53:47 GMT
+15:53:47.624 -> EXT:
+15:53:47.624 -> LOCATION: http://192.168.1.50:9050/TMSDeviceDescription.xml
+15:53:47.624 -> SERVER: Linux/2.x.x, UPnP/1.0, pvConnect UPnP SDK/1.0, TwonkyMedia UPnP SDK/1.1
+15:53:47.624 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.624 -> USN: uuid:55076f6e-6b79-4d65-64b7-106f3f21ee23::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.624 -> Content-Length: 0
+15:53:47.624 -> 
+15:53:47.624 -> 
+15:53:47.624 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:53:47.658 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 420 ms: packet size: 390
+15:53:47.658 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.658 -> HTTP/1.1 200 OK
+15:53:47.658 -> CACHE-CONTROL: max-age=1810
+15:53:47.692 -> DATE: Thu, 07 Jan 2021 14:53:47 GMT
+15:53:47.692 -> EXT:
+15:53:47.692 -> LOCATION: http://192.168.1.50:9050/TMSDeviceDescription.xml
+15:53:47.692 -> SERVER: Linux/2.x.x, UPnP/1.0, pvConnect UPnP SDK/1.0, TwonkyMedia UPnP SDK/1.1
+15:53:47.692 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.692 -> USN: uuid:55076f6e-6b79-4d65-64b7-106f3f21ee23::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.692 -> Content-Length: 0
+15:53:47.692 -> 
+15:53:47.692 -> 
+15:53:47.692 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:53:47.725 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 491 ms: packet size: 390
+15:53:47.725 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.759 -> HTTP/1.1 200 OK
+15:53:47.759 -> CACHE-CONTROL: max-age=1810
+15:53:47.759 -> DATE: Thu, 07 Jan 2021 14:53:47 GMT
+15:53:47.759 -> EXT:
+15:53:47.759 -> LOCATION: http://192.168.1.50:9050/TMSDeviceDescription.xml
+15:53:47.759 -> SERVER: Linux/2.x.x, UPnP/1.0, pvConnect UPnP SDK/1.0, TwonkyMedia UPnP SDK/1.1
+15:53:47.759 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.759 -> USN: uuid:55076f6e-6b79-4d65-64b7-106f3f21ee23::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.792 -> Content-Length: 0
+15:53:47.792 -> 
+15:53:47.792 -> 
+15:53:47.792 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:53:47.792 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 562 ms: packet size: 390
+15:53:47.792 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.826 -> HTTP/1.1 200 OK
+15:53:47.826 -> CACHE-CONTROL: max-age=1810
+15:53:47.826 -> DATE: Thu, 07 Jan 2021 14:53:47 GMT
+15:53:47.826 -> EXT:
+15:53:47.826 -> LOCATION: http://192.168.1.50:9050/TMSDeviceDescription.xml
+15:53:47.826 -> SERVER: Linux/2.x.x, UPnP/1.0, pvConnect UPnP SDK/1.0, TwonkyMedia UPnP SDK/1.1
+15:53:47.826 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.826 -> USN: uuid:55076f6e-6b79-4d65-64b7-106f3f21ee23::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.860 -> Content-Length: 0
+15:53:47.860 -> 
+15:53:47.860 -> 
+15:53:47.860 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:53:47.860 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 633 ms: packet size: 390
+15:53:47.893 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.893 -> HTTP/1.1 200 OK
+15:53:47.893 -> CACHE-CONTROL: max-age=1810
+15:53:47.893 -> DATE: Thu, 07 Jan 2021 14:53:47 GMT
+15:53:47.893 -> EXT:
+15:53:47.893 -> LOCATION: http://192.168.1.50:9050/TMSDeviceDescription.xml
+15:53:47.893 -> SERVER: Linux/2.x.x, UPnP/1.0, pvConnect UPnP SDK/1.0, TwonkyMedia UPnP SDK/1.1
+15:53:47.893 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.927 -> USN: uuid:55076f6e-6b79-4d65-64b7-106f3f21ee23::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.927 -> Content-Length: 0
+15:53:47.927 -> 
+15:53:47.927 -> 
+15:53:47.927 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:53:47.927 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 704 ms: packet size: 489
+15:53:47.961 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:47.961 -> HTTP/1.1 200 OK
+15:53:47.961 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.961 -> USN: uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3::urn:schemas-upnp-org:device:MediaServer:1
+15:53:47.961 -> Location: http://192.168.1.35:2869/upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:53:47.994 -> OPT:"http://schemas.upnp.org/upnp/1/0/"; ns=01
+15:53:47.994 -> 01-NLS: b10511543419cdf7d77c446b8c99f388
+15:53:47.994 -> Cache-Control: max-age=900
+15:53:47.994 -> Server: Microsoft-Windows/10.0 UPnP/1.0 UPnP-Device-Host/1.0
+15:53:47.994 -> Ext: 
+15:53:47.994 -> Date: Thu, 07 Jan 2021 13:24:54 GMT
+15:53:47.994 -> 
+15:53:47.994 -> 
+15:53:47.994 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:53:48.061 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 813 ms: packet size: 332
+15:53:48.061 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:48.061 -> HTTP/1.1 200 OK
+15:53:48.061 -> Cache-Control: max-age=1800
+15:53:48.061 -> EXT: 
+15:53:48.061 -> Location: http://192.168.1.11:55247/dms/
+15:53:48.061 -> Server: Linux/3.10.24-rtk-nas-g0be9683+ UPnP/1.0 DiXiM/5.0
+15:53:48.095 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:48.095 -> USN: uuid:37393e38-50a9-11eb-8e42-18c2bf1c6fdf::urn:schemas-upnp-org:device:MediaServer:1
+15:53:48.095 -> Date: Thu, 07 Jan 2021 14:53:48 GMT
+15:53:48.095 -> 
+15:53:48.095 -> 
+15:53:48.095 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.11, port=55247, location=dms/
+15:53:48.600 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 1377 ms: packet size: 489
+15:53:48.633 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:48.633 -> HTTP/1.1 200 OK
+15:53:48.633 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:48.633 -> USN: uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3::urn:schemas-upnp-org:device:MediaServer:1
+15:53:48.633 -> Location: http://192.168.1.35:2869/upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:53:48.667 -> OPT:"http://schemas.upnp.org/upnp/1/0/"; ns=01
+15:53:48.667 -> 01-NLS: b10511543419cdf7d77c446b8c99f388
+15:53:48.667 -> Cache-Control: max-age=900
+15:53:48.667 -> Server: Microsoft-Windows/10.0 UPnP/1.0 UPnP-Device-Host/1.0
+15:53:48.667 -> Ext: 
+15:53:48.667 -> Date: Thu, 07 Jan 2021 13:24:54 GMT
+15:53:48.667 -> 
+15:53:48.667 -> 
+15:53:48.667 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:53:48.836 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 1611 ms: packet size: 489
+15:53:48.870 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:48.870 -> HTTP/1.1 200 OK
+15:53:48.870 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:48.870 -> USN: uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3::urn:schemas-upnp-org:device:MediaServer:1
+15:53:48.870 -> Location: http://192.168.1.35:2869/upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:53:48.903 -> OPT:"http://schemas.upnp.org/upnp/1/0/"; ns=01
+15:53:48.903 -> 01-NLS: b10511543419cdf7d77c446b8c99f388
+15:53:48.903 -> Cache-Control: max-age=900
+15:53:48.903 -> Server: Microsoft-Windows/10.0 UPnP/1.0 UPnP-Device-Host/1.0
+15:53:48.903 -> Ext: 
+15:53:48.903 -> Date: Thu, 07 Jan 2021 13:24:54 GMT
+15:53:48.903 -> 
+15:53:48.903 -> 
+15:53:48.903 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:53:48.937 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 1695 ms: packet size: 332
+15:53:48.937 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:48.937 -> HTTP/1.1 200 OK
+15:53:48.937 -> Cache-Control: max-age=1800
+15:53:48.937 -> EXT: 
+15:53:48.937 -> Location: http://192.168.1.11:55247/dms/
+15:53:48.971 -> Server: Linux/3.10.24-rtk-nas-g0be9683+ UPnP/1.0 DiXiM/5.0
+15:53:48.971 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:48.971 -> USN: uuid:37393e38-50a9-11eb-8e42-18c2bf1c6fdf::urn:schemas-upnp-org:device:MediaServer:1
+15:53:48.971 -> Date: Thu, 07 Jan 2021 14:53:49 GMT
+15:53:48.971 -> 
+15:53:48.971 -> 
+15:53:48.971 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.11, port=55247, location=dms/
+15:53:49.511 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 2259 ms: packet size: 489
+15:53:49.511 -> [V][SoapESP32.cpp:235] soapSSDPquery(): SSDP packet content:
+15:53:49.511 -> HTTP/1.1 200 OK
+15:53:49.511 -> ST: urn:schemas-upnp-org:device:MediaServer:1
+15:53:49.511 -> USN: uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3::urn:schemas-upnp-org:device:MediaServer:1
+15:53:49.511 -> Location: http://192.168.1.35:2869/upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:53:49.545 -> OPT:"http://schemas.upnp.org/upnp/1/0/"; ns=01
+15:53:49.545 -> 01-NLS: b10511543419cdf7d77c446b8c99f388
+15:53:49.545 -> Cache-Control: max-age=900
+15:53:49.545 -> Server: Microsoft-Windows/10.0 UPnP/1.0 UPnP-Device-Host/1.0
+15:53:49.545 -> Ext: 
+15:53:49.545 -> Date: Thu, 07 Jan 2021 13:24:54 GMT
+15:53:49.545 -> 
+15:53:49.545 -> 
+15:53:49.545 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:53:51.259 -> [I][SoapESP32.cpp:443] seekServer(): SSDP query discovered 4 media server
+15:53:51.259 -> [I][SoapESP32.cpp:446] seekServer(): checking all discovered media server for service: ContentDirectory
+15:53:51.293 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.50:9050
+15:53:51.293 -> [D][SoapESP32.cpp:290] soapReadHttpHeader(): header line: HTTP/1.1 200 OK
+15:53:51.293 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Content-Type: text/xml; charset="utf-8"
+15:53:51.293 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Content-Length: 3240
+15:53:51.293 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Date: Thu, 07 Jan 2021 14:53:51 GMT
+15:53:51.327 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Pragma: no-cache
+15:53:51.327 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Cache-control: no-cache
+15:53:51.327 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Connection: close
+15:53:51.327 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: EXT:
+15:53:51.327 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Server: Linux/2.x.x, UPnP/1.0, pvConnect UPnP SDK/1.0, TwonkyMedia UPnP SDK/1.1
+15:53:51.360 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: 
+15:53:51.360 -> [D][SoapESP32.cpp:323] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 3240
+15:53:51.360 -> [D][SoapESP32.cpp:490] seekServer(): scanned friendly name: LINKSTATION2b: LinkStation
+15:53:51.394 -> [D][SoapESP32.cpp:500] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+15:53:51.394 -> [D][SoapESP32.cpp:512] seekServer(): assigned controlURL: TMSContentDirectory/Control
+15:53:51.394 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+15:53:51.428 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.35:5001
+15:53:51.428 -> [D][SoapESP32.cpp:290] soapReadHttpHeader(): header line: HTTP/1.1 200 OK
+15:53:51.462 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Content-Type: text/xml; charset="utf-8"
+15:53:51.462 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Cache-Control: no-cache
+15:53:51.462 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Expires: 0
+15:53:51.462 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Accept-Ranges: bytes
+15:53:51.462 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Connection: keep-alive
+15:53:51.495 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Server: Windows_10-amd64-10.0, UPnP/1.0 DLNADOC/1.50, UMS/9.8.0
+15:53:51.495 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Content-Length: 3508
+15:53:51.495 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: 
+15:53:51.495 -> [D][SoapESP32.cpp:323] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 3508
+15:53:51.529 -> [D][SoapESP32.cpp:490] seekServer(): scanned friendly name: Universal Media Server
+15:53:51.529 -> [D][SoapESP32.cpp:500] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+15:53:51.529 -> [D][SoapESP32.cpp:512] seekServer(): assigned controlURL: upnp/control/content_directory
+15:53:51.529 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+15:53:51.563 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.35:2869
+15:53:51.563 -> [D][SoapESP32.cpp:290] soapReadHttpHeader(): header line: HTTP/1.1 200 OK
+15:53:51.563 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Content-Length: 4142
+15:53:51.563 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Content-Type: text/xml; charset="utf-8"
+15:53:51.597 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Server: Microsoft-Windows/10.0 UPnP/1.0 UPnP-Device-Host/1.0 Microsoft-HTTPAPI/2.0
+15:53:51.597 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Date: Thu, 07 Jan 2021 14:53:51 GMT
+15:53:51.597 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Connection: close
+15:53:51.597 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: 
+15:53:51.630 -> [D][SoapESP32.cpp:323] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 4142
+15:53:51.630 -> [D][SoapESP32.cpp:490] seekServer(): scanned friendly name: VIRTUAL-WIN10: tj:
+15:53:51.630 -> [D][SoapESP32.cpp:500] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+15:53:51.630 -> [D][SoapESP32.cpp:512] seekServer(): assigned controlURL: upnphost/udhisapi.dll?control=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3+urn:upnp-org:serviceId:ContentDirectory
+15:53:51.663 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+15:53:51.663 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.11:55247
+15:53:51.663 -> [D][SoapESP32.cpp:290] soapReadHttpHeader(): header line: HTTP/1.1 200 OK
+15:53:51.697 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Server: Linux/3.10.24-rtk-nas-g0be9683+ UPnP/1.0 DiXiM/5.0
+15:53:51.697 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Date: Thu, 07 Jan 2021 14:53:51 GMT
+15:53:51.697 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Connection: close
+15:53:51.697 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Content-Type: text/xml; charset="utf-8"
+15:53:51.731 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: Transfer-Encoding: chunked
+15:53:51.731 -> [V][SoapESP32.cpp:304] soapReadHttpHeader(): header line: 
+15:53:51.731 -> [D][SoapESP32.cpp:322] soapReadHttpHeader(): HTTP-Header ok, trailing content is chunked, no size announced
+15:53:51.731 -> [D][SoapESP32.cpp:365] soapReadXML(): announced chunk size: 0x4b0, 1200
+15:53:51.731 -> [D][SoapESP32.cpp:490] seekServer(): scanned friendly name: LINKSTATION2 [LinkStation Media Server]
+15:53:51.765 -> [D][SoapESP32.cpp:365] soapReadXML(): announced chunk size: 0x4b0, 1200
+15:53:51.765 -> [D][SoapESP32.cpp:500] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+15:53:51.765 -> [D][SoapESP32.cpp:365] soapReadXML(): announced chunk size: 0x4b0, 1200
+15:53:51.765 -> [D][SoapESP32.cpp:512] seekServer(): assigned controlURL: dms/control/ContentDirectory
+15:53:51.799 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+15:53:51.799 -> Number of discovered servers that deliver content: 4
+15:53:51.799 -> 
+15:53:51.799 -> Server[1]: IP address: 192.168.1.50, port: 9050, name: LINKSTATION2b: LinkStation
+15:53:51.799 ->   -> controlURL: TMSContentDirectory/Control
+15:53:51.799 -> Server[2]: IP address: 192.168.1.35, port: 5001, name: Universal Media Server
+15:53:51.799 ->   -> controlURL: upnp/control/content_directory
+15:53:51.832 -> Server[3]: IP address: 192.168.1.35, port: 2869, name: VIRTUAL-WIN10: tj:
+15:53:51.832 ->   -> controlURL: upnphost/udhisapi.dll?control=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3+urn:upnp-org:serviceId:ContentDirectory
+15:53:51.832 -> Server[4]: IP address: 192.168.1.11, port: 55247, name: LINKSTATION2 [LinkStation Media Server]
+15:53:51.832 ->   -> controlURL: dms/control/ContentDirectory
+15:53:51.832 -> 
+15:53:51.832 -> Some ESP32 memory stats after running this sketch:
+15:53:51.865 ->  1) minimum ever free memory of all regions [in bytes]: 252024
+15:53:51.865 ->  2) minimum ever free heap size [in bytes]:             198252
+15:53:51.865 ->  3) minimum ever stack size of this task [in bytes]:    5688
+15:53:51.865 -> 
+15:53:51.865 -> Sketch finished.

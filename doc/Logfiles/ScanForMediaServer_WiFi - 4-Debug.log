@@ -1,0 +1,88 @@
+15:50:25.806 -> 
+15:50:25.806 -> Connecting to WiFi network [D][WiFiGeneric.cpp:337] _eventCallback(): Event: 0 - WIFI_READY
+15:50:25.874 -> [D][WiFiGeneric.cpp:337] _eventCallback(): Event: 2 - STA_START
+15:50:25.907 -> .[D][WiFiGeneric.cpp:337] _eventCallback(): Event: 4 - STA_CONNECTED
+15:50:26.401 -> .[D][WiFiGeneric.cpp:337] _eventCallback(): Event: 7 - STA_GOT_IP
+15:50:26.814 -> [D][WiFiGeneric.cpp:381] _eventCallback(): STA IP: 192.168.1.44, MASK: 255.255.255.0, GW: 192.168.1.1
+15:50:26.882 -> 
+15:50:26.882 -> Connected successfully.
+15:50:26.882 -> IP address: 192.168.1.44
+15:50:26.882 -> 
+15:50:26.882 -> Scanning local network for DLNA media servers...
+15:50:26.882 -> [I][SoapESP32.cpp:440] seekServer(): SSDP search for media server started
+15:50:27.050 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 175 ms: packet size: 368
+15:50:27.084 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=5001, location=description/fetch
+15:50:27.084 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 206 ms: packet size: 129
+15:50:27.117 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 231 ms: packet size: 121
+15:50:27.151 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 256 ms: packet size: 368
+15:50:27.151 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=5001, location=description/fetch
+15:50:27.185 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 287 ms: packet size: 129
+15:50:27.185 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 312 ms: packet size: 121
+15:50:27.590 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 687 ms: packet size: 489
+15:50:27.590 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:50:27.624 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 723 ms: packet size: 390
+15:50:27.624 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:50:27.658 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 755 ms: packet size: 489
+15:50:27.658 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:50:27.691 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 791 ms: packet size: 390
+15:50:27.691 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:50:27.725 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 823 ms: packet size: 390
+15:50:27.725 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:50:27.759 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 855 ms: packet size: 390
+15:50:27.759 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.50, port=9050, location=TMSDeviceDescription.xml
+15:50:28.467 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 1587 ms: packet size: 489
+15:50:28.467 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:50:28.973 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 2098 ms: packet size: 332
+15:50:29.007 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.11, port=55247, location=dms/
+15:50:29.513 -> [D][SoapESP32.cpp:229] soapSSDPquery(): received SSDP packet within 2628 ms: packet size: 489
+15:50:29.513 -> [D][SoapESP32.cpp:253] soapSSDPquery(): scanned ip=192.168.1.35, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
+15:50:30.894 -> [I][SoapESP32.cpp:443] seekServer(): SSDP query discovered 4 media server
+15:50:30.894 -> [I][SoapESP32.cpp:446] seekServer(): checking all discovered media server for service: ContentDirectory
+15:50:30.928 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.35:5001
+15:50:30.928 -> [D][SoapESP32.cpp:290] soapReadHttpHeader(): header line: HTTP/1.1 200 OK
+15:50:30.962 -> [D][SoapESP32.cpp:323] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 3508
+15:50:30.962 -> [D][SoapESP32.cpp:490] seekServer(): scanned friendly name: Universal Media Server
+15:50:30.962 -> [D][SoapESP32.cpp:500] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+15:50:30.962 -> [D][SoapESP32.cpp:512] seekServer(): assigned controlURL: upnp/control/content_directory
+15:50:30.996 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+15:50:30.996 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.35:2869
+15:50:30.996 -> [D][SoapESP32.cpp:290] soapReadHttpHeader(): header line: HTTP/1.1 200 OK
+15:50:30.996 -> [D][SoapESP32.cpp:323] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 4142
+15:50:31.029 -> [D][SoapESP32.cpp:490] seekServer(): scanned friendly name: VIRTUAL-WIN10: tj:
+15:50:31.029 -> [D][SoapESP32.cpp:500] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+15:50:31.029 -> [D][SoapESP32.cpp:512] seekServer(): assigned controlURL: upnphost/udhisapi.dll?control=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3+urn:upnp-org:serviceId:ContentDirectory
+15:50:31.029 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+15:50:31.097 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.50:9050
+15:50:31.097 -> [D][SoapESP32.cpp:290] soapReadHttpHeader(): header line: HTTP/1.1 200 OK
+15:50:31.097 -> [D][SoapESP32.cpp:323] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 3240
+15:50:31.097 -> [D][SoapESP32.cpp:490] seekServer(): scanned friendly name: LINKSTATION2b: LinkStation
+15:50:31.131 -> [D][SoapESP32.cpp:500] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+15:50:31.131 -> [D][SoapESP32.cpp:512] seekServer(): assigned controlURL: TMSContentDirectory/Control
+15:50:31.131 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+15:50:31.164 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.11:55247
+15:50:31.164 -> [D][SoapESP32.cpp:290] soapReadHttpHeader(): header line: HTTP/1.1 200 OK
+15:50:31.164 -> [D][SoapESP32.cpp:322] soapReadHttpHeader(): HTTP-Header ok, trailing content is chunked, no size announced
+15:50:31.164 -> [D][SoapESP32.cpp:365] soapReadXML(): announced chunk size: 0x4b0, 1200
+15:50:31.198 -> [D][SoapESP32.cpp:490] seekServer(): scanned friendly name: LINKSTATION2 [LinkStation Media Server]
+15:50:31.198 -> [D][SoapESP32.cpp:365] soapReadXML(): announced chunk size: 0x4b0, 1200
+15:50:31.198 -> [D][SoapESP32.cpp:500] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+15:50:31.198 -> [D][SoapESP32.cpp:365] soapReadXML(): announced chunk size: 0x4b0, 1200
+15:50:31.198 -> [D][SoapESP32.cpp:512] seekServer(): assigned controlURL: dms/control/ContentDirectory
+15:50:31.232 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+15:50:31.232 -> Number of discovered servers that deliver content: 4
+15:50:31.232 -> 
+15:50:31.232 -> Server[1]: IP address: 192.168.1.35, port: 5001, name: Universal Media Server
+15:50:31.232 ->   -> controlURL: upnp/control/content_directory
+15:50:31.232 -> Server[2]: IP address: 192.168.1.35, port: 2869, name: VIRTUAL-WIN10: tj:
+15:50:31.265 ->   -> controlURL: upnphost/udhisapi.dll?control=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3+urn:upnp-org:serviceId:ContentDirectory
+15:50:31.265 -> Server[3]: IP address: 192.168.1.50, port: 9050, name: LINKSTATION2b: LinkStation
+15:50:31.265 ->   -> controlURL: TMSContentDirectory/Control
+15:50:31.265 -> Server[4]: IP address: 192.168.1.11, port: 55247, name: LINKSTATION2 [LinkStation Media Server]
+15:50:31.265 ->   -> controlURL: dms/control/ContentDirectory
+15:50:31.299 -> 
+15:50:31.299 -> Some ESP32 memory stats after running this sketch:
+15:50:31.299 ->  1) minimum ever free memory of all regions [in bytes]: 242464
+15:50:31.299 ->  2) minimum ever free heap size [in bytes]:             188692
+15:50:31.299 ->  3) minimum ever stack size of this task [in bytes]:    5688
+15:50:31.299 -> 
+15:50:31.299 -> Sketch finished.

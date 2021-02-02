@@ -1,0 +1,853 @@
+18:08:31.508 -> 
+18:08:31.508 -> Initializing Ethernet...DHCP ok.
+18:08:32.182 -> Local IP: 192.168.1.38
+18:08:32.182 -> 
+18:08:32.182 -> ----> server content follows:
+18:08:32.216 -> Music/
+18:08:32.451 ->   Album/
+18:08:34.104 ->     A Night At The Opera/
+18:08:34.104 ->     ABBA Greatest Hits/
+18:08:34.104 ->     Aha - Best Of/
+18:08:34.104 ->     All The Best/
+18:08:34.104 ->     American III - Solitary Man/
+18:08:34.104 ->     American IV: The Man Comes Around/
+18:08:34.104 ->     Amnesiac/
+18:08:34.104 ->     An Ancient Muse/
+18:08:34.104 ->     Andrea Bocelli: Aria - The Opera Album/
+18:08:34.104 ->     Ane Brun Mix/
+18:08:34.138 ->     Aqualung [remastered 1996]/
+18:08:34.138 ->     Autobahn/
+18:08:34.138 ->     Avalon/
+18:08:34.138 ->     Ave Maria/
+18:08:34.138 ->     Bach: Bach in Einsiedeln - Orgelwerke/
+18:08:34.138 ->     Bach: Brandenburgisches Konzert Nr 1 BWV 1046/
+18:08:34.138 ->     Bach: Brandenburgisches Konzert Nr 2 BWV 1047/
+18:08:34.138 ->     Bach: Brandenburgisches Konzert Nr 3 BWV 1048/
+18:08:34.138 ->     Bach: Brandenburgisches Konzert Nr 4 BWV 1049/
+18:08:34.138 ->     Bach: Brandenburgisches Konzert Nr 5 BWV 1050/
+18:08:34.138 ->     Bach: Brandenburgisches Konzert Nr 6 BWV 1051/
+18:08:34.172 ->     Bach: Das Musikalische Opfer BWV 1079/
+18:08:34.172 ->     Bach: Flötensonata Es-Dur BWV 1031/
+18:08:34.172 ->     Bach: Flötensonate A-Dur BWV 1032/
+18:08:34.172 ->     Bach: Flötensonate g-Moll BWV 1020/
+18:08:34.172 ->     Bach: Flötensonate h-Moll BWV 1030/
+18:08:34.172 ->     Bach: Inventions & Sinfonias (The Two and Three Part Inventions) BWV 772 - 801/
+18:08:34.172 ->     Bach: Ouverture Nr 1 BWV 1066/
+18:08:34.172 ->     Bach: Ouverture Nr 2 BWV 1067/
+18:08:34.206 ->     Bach: Ouverture Nr 3 BWV 1068/
+18:08:34.206 ->     Bach: Ouverture Nr 4 BWV 1069/
+18:08:34.206 ->     Beethoven:  Konzert für Klavier und Orchester Nr 2 B-dur op 19/
+18:08:34.206 ->     Beethoven: Konzert für Klavier und Orchester No 5 Es-dur op 73, 'Emperor'/
+18:08:34.206 ->     Beethoven: Konzert für Klavier und Orchester Nr 4 G-dur op 58/
+18:08:34.206 ->     Beethoven: Sinfonie Nr 5 c-moll op 67/
+18:08:34.206 ->     Beethoven: Sinfonie Nr 8 F-dur op 93/
+18:08:34.240 ->     Beethoven: Sinfonie Nr 9 d-Moll op 125/
+18:08:34.240 ->     Beethoven: Violinkonzert/
+18:08:34.240 ->     Bellini: Trompetenkonzert Es-dur (Transkription des Oboenkonzerts)/
+18:08:34.240 ->     Berühmte Opernchöre/
+18:08:34.240 ->     Best Of/
+18:08:34.240 ->     Bizet: Carmen/
+18:08:34.240 ->     Blow/
+18:08:34.240 ->     Bob Dylan Greatest Hits/
+18:08:34.240 ->     Boccherini: Concerteo No 1 in Es-Dur G 474/
+18:08:34.240 ->     Boccherini: Concerteo No 2 in A-Dur G 475/
+18:08:34.240 ->     Boccherini: Concerteo No 3 in D-Dur G 476/
+18:08:34.273 ->     Boccherini: Concerteo No 8 in C-Dur G 481/
+18:08:34.273 ->     Brahms: Ungarische_Tänze/
+18:08:34.273 ->     Brothers In Arms/
+18:08:34.273 ->     Bury The Hatchet/
+18:08:34.273 ->     Car-CD 1/
+18:08:34.273 ->     Car-CD 2/
+18:08:34.273 ->     Car-CD 3/
+18:08:34.273 ->     Car-CD 4/
+18:08:34.273 ->     Car-CD 5/
+18:08:34.273 ->     Car-CD 6/
+18:08:34.273 ->     Carmina Burana/
+18:08:34.273 ->     Catfish Rising/
+18:08:34.273 ->     Chant Gregorien: Le chant du silence/
+18:08:34.273 ->     Chopin: Andante und Polonaise/
+18:08:34.273 ->     Chopin: Fantasie in f-moll op. 49/
+18:08:34.307 ->     Chopin: Grosse Fantasie/
+18:08:34.307 ->     Chopin: Impromptus/
+18:08:34.307 ->     Chopin: Klavierkonzert No 2 f-moll, op 21/
+18:08:34.307 ->     Chopin: Klavierkonzert Nr 1 e-moll, op 11/
+18:08:34.307 ->     Chopin: Klavierkonzert Nr 2 f-moll op 21/
+18:08:34.307 ->     Chopin: Konzertrondo/
+18:08:34.307 ->     Chopin: Mazurka in a-moll op. 68 No 2/
+18:08:34.307 ->     Chopin: Mazurka in As-Dur op. 41 No 4/
+18:08:34.307 ->     Chopin: Mazurka in Des-Dur op. 30 No 3/
+18:08:34.307 ->     Chopin: Mazurka in f-moll op. 68 No 4/
+18:08:34.341 ->     Chopin: Mazurka in g-moll op. 67 No 2/
+18:08:34.341 ->     Chopin: Mazurka in gis-moll op. 33 No 1/
+18:08:34.341 ->     Chopin: Mazurka in h-moll op. 33 No 4/
+18:08:34.341 ->     Chopin: Polonaise in fis-moll op 44/
+18:08:34.341 ->     Chopin: Préludes op 28/
+18:08:34.341 ->     Chopin: Scherzo No 1 in h-moll op. 20/
+18:08:34.341 ->     Chopin: Variationen über ''La ci darem la mano''/
+18:08:34.341 ->     Chopin: Walter in a-moll op. 34 No 2/
+18:08:34.341 ->     Chopin: Walzer in As-Dur Op. 34 No 1/
+18:08:34.375 ->     Chopin: Walzer in As-Dur Op. 69 No 1/
+18:08:34.375 ->     Cieli di Toscana/
+18:08:34.375 ->     Concerto for Group and Orchestra/
+18:08:34.375 ->     Concerto Nr 5 für King Ferdinand IV von Neabel/
+18:08:34.375 ->     Creep/
+18:08:34.375 ->     Damals hinterm Mond/
+18:08:34.375 ->     Die Mensch-Maschine/
+18:08:34.375 ->     Die schönen Rosen/
+18:08:34.375 ->     Double Concerto/
+18:08:34.375 ->     Dvorák: Romance, op. 11/
+18:08:34.375 ->     Dvorák: Sinfonie Nr 9 e-moll op. 95 'Aus der Neuen Welt'/
+18:08:34.408 ->     Dvorak: Slawische Tänze op. 46/
+18:08:34.408 ->     Elements - Best Of/
+18:08:34.408 ->     Fight For Your Mind/
+18:08:34.408 ->     God Shuffled His Feet/
+18:08:34.408 ->     Good As I Been To You/
+18:08:34.408 ->     Graceland/
+18:08:34.408 ->     Grieg: Klavierkonzert a-moll, Op 16/
+18:08:34.408 ->     Grieg: Klavierkonzert a-moll, op. 16/
+18:08:34.408 ->   All Tracks/
+18:08:37.879 ->     Incantations (Part Four) (Excerpt)  size: 8980877, audio
+18:08:37.879 ->     #3  size: 4888376, audio
+18:08:37.879 ->     '39  size: 6767626, audio
+18:08:37.879 ->     (Are You) The One That I've Been Waiting For  size: 7893662, audio
+18:08:37.879 ->     (Are You) The One That I've Been Waiting For?  size: 7920573, audio
+18:08:37.879 ->     (I'm always touched by your) Presence dear  size: 5251729, audio
+18:08:37.913 ->     (Remember The Days Ff The) Old School Yard  size: 5328165, audio
+18:08:37.913 ->     1 Adagio cantabile  size: 6614202, audio
+18:08:37.913 ->     1 Adagio cantabile  size: 6214006, audio
+18:08:37.913 ->     1 Allegro  size: 9237122, audio
+18:08:37.913 ->     1 Allegro assai  size: 11553427, audio
+18:08:37.913 ->     1 Allegro Moderato  size: 35577864, audio
+18:08:37.913 ->     1 Allegro Moderato  size: 42485696, audio
+18:08:37.947 ->     1 Allegro spiritoso  size: 13933698, audio
+18:08:37.947 ->     1 Allegro(Cadenza Landowska)-Tempo 1  size: 35062278, audio
+18:08:37.947 ->     1 Allegro(Cadenza Mozart)  size: 28875272, audio
+18:08:37.947 ->     1 Allegro(Cadenza Mozart-Barenboim)-Tempo 1  size: 26812823, audio
+18:08:37.947 ->     1 Allegro(Cadenza Serkin)  size: 35209444, audio
+18:08:37.947 ->     1 Ave Maria (Bach-Gounod)  size: 7945148, audio
+18:08:37.947 ->     1 Idroduzione  size: 1672869, audio
+18:08:37.980 ->     1 Indroduzione  size: 13373639, audio
+18:08:37.980 ->     1 Larghetto cantabile  size: 6774077, audio
+18:08:37.980 ->     1 Rescuerdos de la Alhambra  size: 7416534, audio
+18:08:37.980 ->     1 Romance Antiguo  size: 9816825, audio
+18:08:37.980 ->     1 Rorate Caeli  size: 8361341, audio
+18:08:37.980 ->     1 Stabat mater dolorosa  size: 23683142, audio
+18:08:37.980 ->     1 Toccata  size: 23637282, audio
+18:08:37.980 ->     1.  Maestoso  size: 35457851, audio
+18:08:37.980 ->     1. Adagio  size: 17608982, audio
+18:08:38.014 ->     1. Adagio - Allegro  size: 14002260, audio
+18:08:38.014 ->     1. Adagio - Allegro  size: 27435452, audio
+18:08:38.014 ->     1. Adagio - Allegro molto  size: 30370718, audio
+18:08:38.014 ->     1. Adagio - Presto  size: 20493209, audio
+18:08:38.014 ->     1. Adagio - Vivace assai  size: 16329297, audio
+18:08:38.014 ->     1. Adagio Cantabile - Vivace assai  size: 23097134, audio
+18:08:38.014 ->     1. Adagio è spiccato  size: 3007565, audio
+18:08:38.014 ->     1. Adagio maestoso - Allegro con spirito  size: 19991011, audio
+18:08:38.048 ->     1. Adagio Sostenuto Assai, Allegro Agitato Assai  size: 19007209, audio
+18:08:38.048 ->     1. Allegro  size: 9993739, audio
+18:08:38.048 ->     1. Allegro  size: 56122438, audio
+18:08:38.048 ->     1. Allegro  size: 7409735, audio
+18:08:38.048 ->     1. Allegro  size: 10981097, audio
+18:08:38.048 ->     1. Allegro  size: 9152514, audio
+18:08:38.048 ->     1. Allegro  size: 11655019, audio
+18:08:38.048 ->     1. Allegro  size: 10613295, audio
+18:08:38.082 ->     1. Allegro  size: 24768652, audio
+18:08:38.082 ->     1. Allegro  size: 15044434, audio
+18:08:38.082 ->     1. Allegro  size: 7056511, audio
+18:08:38.082 ->     1. Allegro  size: 14627167, audio
+18:08:38.082 ->     1. Allegro  size: 15501432, audio
+18:08:38.082 ->     1. Allegro  size: 13746954, audio
+18:08:38.082 ->     1. Allegro  size: 51913024, audio
+18:08:38.082 ->     1. Allegro  size: 9578788, audio
+18:08:38.082 ->     1. Allegro affetuoso  size: 38578457, audio
+18:08:38.082 ->     1. Allegro assai  size: 17307269, audio
+18:08:38.115 ->     1. Allegro Aus Dem Konzert in C-Moll  size: 6641292, audio
+18:08:38.115 ->     1. Allegro con brio  size: 18260867, audio
+18:08:38.115 ->     1. Allegro con brio  size: 33263053, audio
+18:08:38.115 ->     1. Allegro con fermezza  size: 35560208, audio
+18:08:38.115 ->     1. Allegro con spirito  size: 14339765, audio
+18:08:38.115 ->     1. Allegro con spirito  size: 13850852, audio
+18:08:38.115 ->     1. Allegro Ma Non Troppo, Un Poco Maestoso  size: 33574657, audio
+18:08:38.149 ->     1. Allegro Maestoso  size: 15040747, audio
+18:08:38.149 ->     1. Allegro maestoso  size: 49895551, audio
+18:08:38.149 ->     1. Allegro moderato  size: 41330708, audio
+18:08:38.149 ->     1. Allegro molto moderato  size: 35701852, audio
+18:08:38.149 ->     1. Allegro vivace  size: 28850357, audio
+18:08:38.149 ->     1. Allegro vivace e con brio  size: 24821790, audio
+18:08:38.149 ->     1. Andante  size: 3791256, audio
+18:08:38.149 ->     1. Andante - Allegro ma non troppo  size: 32235867, audio
+18:08:38.183 ->     1. C major. Agitato  size: 1645902, audio
+18:08:38.183 ->     1. Grave  size: 7156852, audio
+18:08:38.183 ->     1. Il Lamento  size: 26067549, audio
+18:08:38.183 ->     1. Introitus. Requiem  size: 10869417, audio
+18:08:38.183 ->     1. Inventio 1 In C Major, BWV 772  size: 3623133, audio
+18:08:38.183 ->     1. Kyrie  size: 3930820, audio
+18:08:38.183 ->     1. Kyrie  size: 6256764, audio
+18:08:38.183 ->     1. Maestoso  size: 33496201, audio
+18:08:38.217 ->     1. Miniature Overture  size: 7850417, audio
+18:08:38.217 ->     1. Moderato E Grazioso  size: 7970857, audio
+18:08:38.217 ->     1. Molto Allegro  size: 20561066, audio
+18:08:38.217 ->     1. Nr 1 D major 'Drei Dutzend Klavierfantasien' (Allegro, Adagio)  size: 9853225, audio
+18:08:38.217 ->     1. Ouverture  size: 12024232, audio
+18:08:38.217 ->     1. Ouverture  size: 18890257, audio
+18:08:38.217 ->     1. Ricercar a 3 (Fortepiano)  size: 15747446, audio
+18:08:38.217 ->     1. Spring; Concerto E major, RV269 - Allegro  size: 8540698, audio
+18:08:38.250 ->     1. Tableau - Danse Du Rouet Et Scène. Allegro  size: 8486717, audio
+18:08:38.250 ->     1. Toccata  size: 7423704, audio
+18:08:38.250 ->     1. Waltz  size: 9481218, audio
+18:08:38.250 ->     1.Allegro Ma Non Troppo  size: 61034256, audio
+18:08:38.250 ->     10 Ave Maria (Mozart)  size: 9473829, audio
+18:08:38.250 ->     10 Danza Nr. 1  size: 4037321, audio
+18:08:38.250 ->     10 Dialogue  In Song  size: 6138068, audio
+18:08:38.284 ->     10 In sempiterna saecula  size: 14401309, audio
+18:08:38.284 ->     10 Praeludium (orig. laute)  size: 3817033, audio
+18:08:38.284 ->     10 Victimae Paschali  size: 3479571, audio
+18:08:38.284 ->     10. (Allegro)  size: 5001474, audio
+18:08:38.284 ->     10. Belfast Hornpipe  size: 6339189, audio
+18:08:38.284 ->     10. C-sharp minor. Allegro molto  size: 1432756, audio
+18:08:38.284 ->     10. Canon perpetuus (Traversflöte, Viline und B. c.)  size: 5507469, audio
+18:08:38.317 ->   Artist/
+18:08:39.498 ->     - ALL -/
+18:08:39.498 ->     A-ha/
+18:08:39.498 ->     ABBA/
+18:08:39.498 ->     Adele/
+18:08:39.498 ->     Agnes Obel/
+18:08:39.498 ->     Alanis Morissette/
+18:08:39.498 ->     Alle Farben/
+18:08:39.498 ->     Alphaville/
+18:08:39.498 ->     Amy Macdonald/
+18:08:39.498 ->     Anastacia/
+18:08:39.498 ->     Ane Brun/
+18:08:39.498 ->     Asaf Avidan & The Mojos/
+18:08:39.498 ->     Austra/
+18:08:39.498 ->     Barclay James Harvest/
+18:08:39.498 ->     Ben Harper/
+18:08:39.498 ->     Ben Harper & The Innocent Criminals/
+18:08:39.532 ->     Bing Austria & The Flippin' Soul Stompers/
+18:08:39.532 ->     Blondie/
+18:08:39.532 ->     Bob Dylan/
+18:08:39.532 ->     Bob Marley & The Wailers/
+18:08:39.532 ->     Bruce Hornsby/
+18:08:39.532 ->     Bruce Springsteen/
+18:08:39.532 ->     Carla Bruni/
+18:08:39.532 ->     Cat Stevens/
+18:08:39.532 ->     Celine Dion/
+18:08:39.532 ->     Choeur Des Moines De L'Abbaye D'En-Calcat/
+18:08:39.532 ->     Choeur Des Moines De L'Abbaye De Citeaux/
+18:08:39.532 ->     Choeur Des Moines De L'Abbaye De Ligugé/
+18:08:39.566 ->     Choeur Des Moines De L'Abbaye De Saint-Wandrille/
+18:08:39.566 ->     Choeur Des Moines De L'Abbaye De Sept-Fons/
+18:08:39.566 ->     Choeur Des Moines De L'Abbaye De Timadeuc/
+18:08:39.566 ->     Choeur Des Moines De L'Abbaye Saint-Pierre De Solesmes/
+18:08:39.566 ->     Choeur Grégorien De Paris/
+18:08:39.566 ->     Choralschola und Stiftschor des Klosters Einsiedeln/
+18:08:39.566 ->     Chris de Burgh/
+18:08:39.566 ->     Chris Isaac/
+18:08:39.566 ->     Coldplay/
+18:08:39.566 ->     Connells/
+18:08:39.566 ->     Crash Test Dummies/
+18:08:39.599 ->     Crowded House/
+18:08:39.599 ->     Culture Club/
+18:08:39.599 ->     D. Alberto Lizzio; O: Musici de San Marco/
+18:08:39.599 ->     D: Alberto Lizzio; O: Camerata Romana/
+18:08:39.599 ->     D: Alfred Scholz; O: Philharmonia Slavonica/
+18:08:39.599 ->     D: Alfred Scholz; O: Süddeutsche Philharmonie/
+18:08:39.599 ->     D: Anton Nanut; O: Rundfunk-Sinfonie-Orchester Ljubljana/
+18:08:39.599 ->     D: Arturo Toscanini/
+18:08:39.599 ->     D: Arturo Toscanini; O: NBC Symphony Orchestra; Westminster Choir/
+18:08:39.633 ->     D: August Wenzinger; O: Schola Cantorum Basiliensis/
+18:08:39.633 ->     D: Bernard Haitink - O:Concertgebouw Orchestra/
+18:08:39.633 ->     D: Bernhard Klee, O: Staatskapelle Dresden/
+18:08:39.633 ->     D: Carlos Kleiber; O: Bayerisches Staatsorchester/
+18:08:39.633 ->     D: Charles Dutoit - O: Orchestre symphonique de Montréal/
+18:08:39.633 ->     D: Christopher Hogwood, O: The Academy of Ancient Music/
+18:08:39.633 ->     D: Christopher Hogwood; O:The Academy of Ancient Music/
+18:08:39.667 ->     D: Claudio Abbado - O: London Symphony Orchestra/
+18:08:39.667 ->     D: Claudio Abbado, O: London Symphony Orchestra/
+18:08:39.667 ->     D: Clauio Abbado; O: Chicago Symphony Orchestra/
+18:08:39.667 ->     D: Dmitri Kitajenko; O: Philharmonic Orchestra/
+18:08:39.667 ->     D: Ettore Gracis, O: Solisti dell' Orchestra 'Scarlatti'-Napoli/
+18:08:39.667 ->     D: Frans Brüggen; O: Orchestra of the 18th Century/
+18:08:39.667 ->     D: Franz Welser-Möst/
+18:08:39.700 ->     D: Georg Solti; O: Wiener Philharmoniker/
+18:08:39.700 ->     D: Günther Arendt; O: Günther-Arndt-Chor/
+18:08:39.700 ->     D: Günther Arndt; O: Berliner Händel-Chor/
+18:08:39.700 ->     D: Horst Stein; O: L'Orchestre de la Suisse Romande/
+18:08:39.700 ->     D: John Eliot Gardiner; O English Barock Solists/
+18:08:39.700 ->     D: Karl Böhm, O: Berliner Philharmoniker/
+18:08:39.700 ->     D: Karl Böhm, O: Wiener Philharmoniker/
+18:08:39.700 ->     D: Karl Böhm; O: Wiener Philharmoniker/
+18:08:39.734 ->     D: Karl Richter; O: Münchener Bach-Orchester/
+18:08:39.734 ->     D: Karl Richter; O: Münchener Bach-Orchester, Münchener Bach-Chor/
+18:08:39.734 ->     D: Kurt Masur; O: Gewandhausorchester Leipzig/
+18:08:39.734 ->     D: Leonard Bernstein, O: Wiener Philharmoniker/
+18:08:39.734 ->     D: Leonard Bernstein; O: Concertgebouworkest Amsterdam/
+18:08:39.734 ->     D: Leonard Berstein, O: Israel Philharmonic Orchestra/
+18:08:39.734 ->     D: Lorin Maazel; O: Wiener Philharmoniker/
+18:08:39.768 ->     D: Marko Munih, O: Radio Symphony Orchestra/
+18:08:39.768 ->     D: Neville Marriner, O: Academy of St Martin in the Fields/
+18:08:39.768 ->     D: Neville Marriner; O: Philharmonia Orchestra/
+18:08:39.768 ->     D: Rafael Kubeli, O: Symphonieorchester des Bayerischen Rundfunks/
+18:08:39.768 ->     D: Rafael Kubelik, O: Berliner Philharmoniker/
+18:08:39.768 ->     D: Rafael Kubelik, O: Symphonie-Orchester des Bayerischen Rundfunks/
+18:08:39.802 ->     D: Rafael Kubelik; O: Boston Symphony Orchestra/
+18:08:39.802 ->     D: Rafael Kubelik; O: Chor und Symphonie-Orchester des Bayerischen Rundfunks/
+18:08:39.802 ->     D: Ricardo Muti; O: Orchestra e coro del Maggio Musicale Fliorentino/
+18:08:39.802 ->     D: Riccardo Muti; O: Philharmonia Orchestra/
+18:08:39.802 ->     D: Roger Norrington; O: The London Classical Players/
+18:08:39.802 ->     D: Seiji Ozawa; O: Boston Symphony Orchestra/
+18:08:39.802 ->     D: Simone Pittau; O: London Symphony Orchestra/
+18:08:39.835 ->     D: Sir Georg Solti - O: Wiener Philharmoniker/
+18:08:39.835 ->     D: Sir Neville Marriner -  O: Academy of St Martin-in-the-Fields/
+18:08:39.835 ->     D: Sir Neville Marriner - O: Academy of St Martin-in-the-Fields/
+18:08:39.835 ->     D: Sir Neville Marriner, O: London Symphony Orchestra/
+18:08:39.835 ->     D: Solti; O: Chicago Symphony Orchestra/
+18:08:39.835 ->     D: Suomi Sävelin/
+18:08:39.835 ->     D: Trevor Pinnock; O: The English Concert/
+18:08:39.869 ->     D: Vladimir Petroschoff; O: Philharmonic Festival Orchestra/
+18:08:39.869 ->     David Bowie/
+18:08:39.869 ->     Deep Purple/
+18:08:39.869 ->   Artist Index/
+18:08:39.970 ->     ABC/
+18:08:39.970 ->     DEF/
+18:08:39.970 ->     GHI/
+18:08:39.970 ->     JKL/
+18:08:39.970 ->     MNO/
+18:08:39.970 ->     PQR/
+18:08:39.970 ->     STU/
+18:08:39.970 ->     YZ/
+18:08:39.970 ->   Artist/Album/
+18:08:41.117 ->     - ALL -/
+18:08:41.117 ->     A-ha/
+18:08:41.117 ->     ABBA/
+18:08:41.117 ->     Adele/
+18:08:41.117 ->     Agnes Obel/
+18:08:41.117 ->     Alanis Morissette/
+18:08:41.151 ->     Alle Farben/
+18:08:41.151 ->     Alphaville/
+18:08:41.151 ->     Amy Macdonald/
+18:08:41.151 ->     Anastacia/
+18:08:41.151 ->     Ane Brun/
+18:08:41.151 ->     Asaf Avidan & The Mojos/
+18:08:41.151 ->     Austra/
+18:08:41.151 ->     Barclay James Harvest/
+18:08:41.151 ->     Ben Harper/
+18:08:41.151 ->     Ben Harper & The Innocent Criminals/
+18:08:41.151 ->     Bing Austria & The Flippin' Soul Stompers/
+18:08:41.151 ->     Blondie/
+18:08:41.151 ->     Bob Dylan/
+18:08:41.151 ->     Bob Marley & The Wailers/
+18:08:41.151 ->     Bruce Hornsby/
+18:08:41.151 ->     Bruce Springsteen/
+18:08:41.151 ->     Carla Bruni/
+18:08:41.185 ->     Cat Stevens/
+18:08:41.185 ->     Celine Dion/
+18:08:41.185 ->     Choeur Des Moines De L'Abbaye D'En-Calcat/
+18:08:41.185 ->     Choeur Des Moines De L'Abbaye De Citeaux/
+18:08:41.185 ->     Choeur Des Moines De L'Abbaye De Ligugé/
+18:08:41.185 ->     Choeur Des Moines De L'Abbaye De Saint-Wandrille/
+18:08:41.185 ->     Choeur Des Moines De L'Abbaye De Sept-Fons/
+18:08:41.185 ->     Choeur Des Moines De L'Abbaye De Timadeuc/
+18:08:41.185 ->     Choeur Des Moines De L'Abbaye Saint-Pierre De Solesmes/
+18:08:41.219 ->     Choeur Grégorien De Paris/
+18:08:41.219 ->     Choralschola und Stiftschor des Klosters Einsiedeln/
+18:08:41.219 ->     Chris de Burgh/
+18:08:41.219 ->     Chris Isaac/
+18:08:41.219 ->     Coldplay/
+18:08:41.219 ->     Connells/
+18:08:41.219 ->     Crash Test Dummies/
+18:08:41.219 ->     Crowded House/
+18:08:41.219 ->     Culture Club/
+18:08:41.219 ->     D. Alberto Lizzio; O: Musici de San Marco/
+18:08:41.219 ->     D: Alberto Lizzio; O: Camerata Romana/
+18:08:41.219 ->     D: Alfred Scholz; O: Philharmonia Slavonica/
+18:08:41.219 ->     D: Alfred Scholz; O: Süddeutsche Philharmonie/
+18:08:41.252 ->     D: Anton Nanut; O: Rundfunk-Sinfonie-Orchester Ljubljana/
+18:08:41.252 ->     D: Arturo Toscanini/
+18:08:41.252 ->     D: Arturo Toscanini; O: NBC Symphony Orchestra; Westminster Choir/
+18:08:41.252 ->     D: August Wenzinger; O: Schola Cantorum Basiliensis/
+18:08:41.252 ->     D: Bernard Haitink - O:Concertgebouw Orchestra/
+18:08:41.252 ->     D: Bernhard Klee, O: Staatskapelle Dresden/
+18:08:41.252 ->     D: Carlos Kleiber; O: Bayerisches Staatsorchester/
+18:08:41.286 ->     D: Charles Dutoit - O: Orchestre symphonique de Montréal/
+18:08:41.286 ->     D: Christopher Hogwood, O: The Academy of Ancient Music/
+18:08:41.286 ->     D: Christopher Hogwood; O:The Academy of Ancient Music/
+18:08:41.286 ->     D: Claudio Abbado - O: London Symphony Orchestra/
+18:08:41.286 ->     D: Claudio Abbado, O: London Symphony Orchestra/
+18:08:41.286 ->     D: Clauio Abbado; O: Chicago Symphony Orchestra/
+18:08:41.286 ->     D: Dmitri Kitajenko; O: Philharmonic Orchestra/
+18:08:41.319 ->     D: Ettore Gracis, O: Solisti dell' Orchestra 'Scarlatti'-Napoli/
+18:08:41.319 ->     D: Frans Brüggen; O: Orchestra of the 18th Century/
+18:08:41.319 ->     D: Franz Welser-Möst/
+18:08:41.319 ->     D: Georg Solti; O: Wiener Philharmoniker/
+18:08:41.319 ->     D: Günther Arendt; O: Günther-Arndt-Chor/
+18:08:41.319 ->     D: Günther Arndt; O: Berliner Händel-Chor/
+18:08:41.319 ->     D: Horst Stein; O: L'Orchestre de la Suisse Romande/
+18:08:41.353 ->     D: John Eliot Gardiner; O English Barock Solists/
+18:08:41.353 ->     D: Karl Böhm, O: Berliner Philharmoniker/
+18:08:41.353 ->     D: Karl Böhm, O: Wiener Philharmoniker/
+18:08:41.353 ->     D: Karl Böhm; O: Wiener Philharmoniker/
+18:08:41.353 ->     D: Karl Richter; O: Münchener Bach-Orchester/
+18:08:41.353 ->     D: Karl Richter; O: Münchener Bach-Orchester, Münchener Bach-Chor/
+18:08:41.353 ->     D: Kurt Masur; O: Gewandhausorchester Leipzig/
+18:08:41.386 ->     D: Leonard Bernstein, O: Wiener Philharmoniker/
+18:08:41.386 ->     D: Leonard Bernstein; O: Concertgebouworkest Amsterdam/
+18:08:41.386 ->     D: Leonard Berstein, O: Israel Philharmonic Orchestra/
+18:08:41.386 ->     D: Lorin Maazel; O: Wiener Philharmoniker/
+18:08:41.386 ->     D: Marko Munih, O: Radio Symphony Orchestra/
+18:08:41.386 ->     D: Neville Marriner, O: Academy of St Martin in the Fields/
+18:08:41.386 ->     D: Neville Marriner; O: Philharmonia Orchestra/
+18:08:41.420 ->     D: Rafael Kubeli, O: Symphonieorchester des Bayerischen Rundfunks/
+18:08:41.420 ->     D: Rafael Kubelik, O: Berliner Philharmoniker/
+18:08:41.420 ->     D: Rafael Kubelik, O: Symphonie-Orchester des Bayerischen Rundfunks/
+18:08:41.420 ->     D: Rafael Kubelik; O: Boston Symphony Orchestra/
+18:08:41.420 ->     D: Rafael Kubelik; O: Chor und Symphonie-Orchester des Bayerischen Rundfunks/
+18:08:41.420 ->     D: Ricardo Muti; O: Orchestra e coro del Maggio Musicale Fliorentino/
+18:08:41.453 ->     D: Riccardo Muti; O: Philharmonia Orchestra/
+18:08:41.453 ->     D: Roger Norrington; O: The London Classical Players/
+18:08:41.453 ->     D: Seiji Ozawa; O: Boston Symphony Orchestra/
+18:08:41.453 ->     D: Simone Pittau; O: London Symphony Orchestra/
+18:08:41.453 ->     D: Sir Georg Solti - O: Wiener Philharmoniker/
+18:08:41.453 ->     D: Sir Neville Marriner -  O: Academy of St Martin-in-the-Fields/
+18:08:41.453 ->     D: Sir Neville Marriner - O: Academy of St Martin-in-the-Fields/
+18:08:41.487 ->     D: Sir Neville Marriner, O: London Symphony Orchestra/
+18:08:41.487 ->     D: Solti; O: Chicago Symphony Orchestra/
+18:08:41.487 ->     D: Suomi Sävelin/
+18:08:41.487 ->     D: Trevor Pinnock; O: The English Concert/
+18:08:41.487 ->     D: Vladimir Petroschoff; O: Philharmonic Festival Orchestra/
+18:08:41.487 ->     David Bowie/
+18:08:41.487 ->     Deep Purple/
+18:08:41.487 ->   By Folder/
+18:08:41.520 ->     Audio/
+18:08:41.520 ->   Genre/Album/
+18:08:42.060 ->     Alternative/
+18:08:42.060 ->     Bläserwerk/
+18:08:42.060 ->     Blockflötenkonzert/
+18:08:42.060 ->     Blues/
+18:08:42.060 ->     Celtic/
+18:08:42.060 ->     Cembalokonzert/
+18:08:42.060 ->     Classic Rock/
+18:08:42.060 ->     Country/
+18:08:42.060 ->     Dance/
+18:08:42.060 ->     Deutsch-Rock/
+18:08:42.060 ->     Disco + 80/
+18:08:42.060 ->     Electronic/
+18:08:42.060 ->     Fagottkonzert/
+18:08:42.060 ->     Flöten- und Harfenkonzert/
+18:08:42.060 ->     Flötenkonzert/
+18:08:42.094 ->     Flötenwerk/
+18:08:42.094 ->     Folk/
+18:08:42.094 ->     Folk Rock/
+18:08:42.094 ->     General Indie Pop/
+18:08:42.094 ->     Gesang/
+18:08:42.094 ->     Gitarrenwerk/
+18:08:42.094 ->     Gregorian/
+18:08:42.094 ->     Indie/
+18:08:42.094 ->     Industrial/
+18:08:42.094 ->     Instrumentalwerk/
+18:08:42.094 ->     Italo Rock/
+18:08:42.094 ->     Kammermusik/
+18:08:42.094 ->     Kirchenmusik/
+18:08:42.094 ->     Kirchenwerk/
+18:08:42.094 ->     Klarinettenkonzert/
+18:08:42.094 ->     Klavierkonzert/
+18:08:42.094 ->     Klavierwerk/
+18:08:42.094 ->     Kyrie/
+18:08:42.094 ->     Messe/
+18:08:42.094 ->     Musikspiel/
+18:08:42.094 ->     National Folk/
+18:08:42.094 ->     NDW/
+18:08:42.128 ->     New Age/
+18:08:42.128 ->     Oboenkonzert/
+18:08:42.128 ->     Oldies/
+18:08:42.128 ->     Oper/
+18:08:42.128 ->     Orchesterwerk/
+18:08:42.128 ->     Orgelwerk/
+18:08:42.128 ->     Ouverture/
+18:08:42.128 ->     Pop/
+18:08:42.128 ->     Pop/Rock/
+18:08:42.128 ->     Progressive Rock/
+18:08:42.128 ->     Requiem/
+18:08:42.128 ->     Rock/
+18:08:42.128 ->     Schauspielmusik/
+18:08:42.128 ->     Serenade/
+18:08:42.128 ->     Sinfonie/
+18:08:42.128 ->     Sinfonische Dichtung/
+18:08:42.128 ->     Sinfonische Suite/
+18:08:42.128 ->     Sonate/
+18:08:42.128 ->     Suite/
+18:08:42.128 ->     Symphonic Rock/
+18:08:42.128 ->     szenische Kantate/
+18:08:42.128 ->     Tänze/
+18:08:42.128 ->     Trompetenkonzert/
+18:08:42.161 ->     Trompetenwerk/
+18:08:42.161 ->     Unknown/
+18:08:42.161 ->     Violine&Gitarre/
+18:08:42.161 ->     Violinkonzert/
+18:08:42.161 ->     Violinwerk/
+18:08:42.161 ->     Violoncello-Konzert/
+18:08:42.161 ->   Genre/Artist/
+18:08:42.701 ->     - ALL -/
+18:08:42.701 ->     Alternative/
+18:08:42.735 ->     Bläserwerk/
+18:08:42.735 ->     Blockflötenkonzert/
+18:08:42.735 ->     Blues/
+18:08:42.735 ->     Celtic/
+18:08:42.735 ->     Cembalokonzert/
+18:08:42.735 ->     Classic Rock/
+18:08:42.735 ->     Country/
+18:08:42.735 ->     Dance/
+18:08:42.735 ->     Deutsch-Rock/
+18:08:42.735 ->     Disco + 80/
+18:08:42.735 ->     Electronic/
+18:08:42.735 ->     Fagottkonzert/
+18:08:42.735 ->     Flöten- und Harfenkonzert/
+18:08:42.735 ->     Flötenkonzert/
+18:08:42.735 ->     Flötenwerk/
+18:08:42.735 ->     Folk/
+18:08:42.735 ->     Folk Rock/
+18:08:42.735 ->     General Indie Pop/
+18:08:42.735 ->     Gesang/
+18:08:42.735 ->     Gitarrenwerk/
+18:08:42.735 ->     Gregorian/
+18:08:42.735 ->     Indie/
+18:08:42.769 ->     Industrial/
+18:08:42.769 ->     Instrumentalwerk/
+18:08:42.769 ->     Italo Rock/
+18:08:42.769 ->     Kammermusik/
+18:08:42.769 ->     Kirchenmusik/
+18:08:42.769 ->     Kirchenwerk/
+18:08:42.769 ->     Klarinettenkonzert/
+18:08:42.769 ->     Klavierkonzert/
+18:08:42.769 ->     Klavierwerk/
+18:08:42.769 ->     Kyrie/
+18:08:42.769 ->     Messe/
+18:08:42.769 ->     Musikspiel/
+18:08:42.769 ->     National Folk/
+18:08:42.769 ->     NDW/
+18:08:42.769 ->     New Age/
+18:08:42.769 ->     Oboenkonzert/
+18:08:42.769 ->     Oldies/
+18:08:42.769 ->     Oper/
+18:08:42.769 ->     Orchesterwerk/
+18:08:42.769 ->     Orgelwerk/
+18:08:42.769 ->     Ouverture/
+18:08:42.769 ->     Pop/
+18:08:42.769 ->     Pop/Rock/
+18:08:42.769 ->     Progressive Rock/
+18:08:42.802 ->     Requiem/
+18:08:42.802 ->     Rock/
+18:08:42.802 ->     Schauspielmusik/
+18:08:42.802 ->     Serenade/
+18:08:42.802 ->     Sinfonie/
+18:08:42.802 ->     Sinfonische Dichtung/
+18:08:42.802 ->     Sinfonische Suite/
+18:08:42.802 ->     Sonate/
+18:08:42.802 ->     Suite/
+18:08:42.802 ->     Symphonic Rock/
+18:08:42.802 ->     szenische Kantate/
+18:08:42.802 ->     Tänze/
+18:08:42.802 ->     Trompetenkonzert/
+18:08:42.802 ->     Trompetenwerk/
+18:08:42.802 ->     Unknown/
+18:08:42.802 ->     Violine&Gitarre/
+18:08:42.802 ->     Violinkonzert/
+18:08:42.802 ->     Violinwerk/
+18:08:42.802 ->     Violoncello-Konzert/
+18:08:42.802 ->   Genre/Song/
+18:08:43.377 ->     Alternative/
+18:08:43.377 ->     Bläserwerk/
+18:08:43.377 ->     Blockflötenkonzert/
+18:08:43.377 ->     Blues/
+18:08:43.377 ->     Celtic/
+18:08:43.377 ->     Cembalokonzert/
+18:08:43.377 ->     Classic Rock/
+18:08:43.377 ->     Country/
+18:08:43.377 ->     Dance/
+18:08:43.377 ->     Deutsch-Rock/
+18:08:43.377 ->     Disco + 80/
+18:08:43.410 ->     Electronic/
+18:08:43.410 ->     Fagottkonzert/
+18:08:43.410 ->     Flöten- und Harfenkonzert/
+18:08:43.410 ->     Flötenkonzert/
+18:08:43.410 ->     Flötenwerk/
+18:08:43.410 ->     Folk/
+18:08:43.410 ->     Folk Rock/
+18:08:43.410 ->     General Indie Pop/
+18:08:43.410 ->     Gesang/
+18:08:43.410 ->     Gitarrenwerk/
+18:08:43.410 ->     Gregorian/
+18:08:43.410 ->     Indie/
+18:08:43.410 ->     Industrial/
+18:08:43.410 ->     Instrumentalwerk/
+18:08:43.410 ->     Italo Rock/
+18:08:43.410 ->     Kammermusik/
+18:08:43.410 ->     Kirchenmusik/
+18:08:43.410 ->     Kirchenwerk/
+18:08:43.410 ->     Klarinettenkonzert/
+18:08:43.410 ->     Klavierkonzert/
+18:08:43.410 ->     Klavierwerk/
+18:08:43.444 ->     Kyrie/
+18:08:43.444 ->     Messe/
+18:08:43.444 ->     Musikspiel/
+18:08:43.444 ->     National Folk/
+18:08:43.444 ->     NDW/
+18:08:43.444 ->     New Age/
+18:08:43.444 ->     Oboenkonzert/
+18:08:43.444 ->     Oldies/
+18:08:43.444 ->     Oper/
+18:08:43.444 ->     Orchesterwerk/
+18:08:43.444 ->     Orgelwerk/
+18:08:43.444 ->     Ouverture/
+18:08:43.444 ->     Pop/
+18:08:43.444 ->     Pop/Rock/
+18:08:43.444 ->     Progressive Rock/
+18:08:43.444 ->     Requiem/
+18:08:43.444 ->     Rock/
+18:08:43.444 ->     Schauspielmusik/
+18:08:43.444 ->     Serenade/
+18:08:43.444 ->     Sinfonie/
+18:08:43.444 ->     Sinfonische Dichtung/
+18:08:43.444 ->     Sinfonische Suite/
+18:08:43.444 ->     Sonate/
+18:08:43.444 ->     Suite/
+18:08:43.444 ->     Symphonic Rock/
+18:08:43.478 ->     szenische Kantate/
+18:08:43.478 ->     Tänze/
+18:08:43.478 ->     Trompetenkonzert/
+18:08:43.478 ->     Trompetenwerk/
+18:08:43.478 ->     Unknown/
+18:08:43.478 ->     Violine&Gitarre/
+18:08:43.478 ->     Violinkonzert/
+18:08:43.478 ->     Violinwerk/
+18:08:43.478 ->     Violoncello-Konzert/
+18:08:43.478 ->   Personal rating/
+18:08:43.511 ->     */
+18:08:43.511 ->     *****/
+18:08:43.511 ->   Playlists/
+18:08:43.579 ->     Most Played/
+18:08:43.579 ->     Last Played/
+18:08:43.579 ->     Recently Added/
+18:08:43.579 ->     Highly Rated/
+18:08:43.579 -> Photos/
+18:08:43.680 ->   Album/
+18:08:44.523 ->     Academy_of_Ancient_Music/
+18:08:44.557 ->     Adagio_und_Fuge/
+18:08:44.557 ->     Alpensinfonie/
+18:08:44.557 ->     Andante_für_Flöte/
+18:08:44.557 ->     Ane Brun/
+18:08:44.557 ->     Ave_Maria/
+18:08:44.557 ->     Ave_verum_corpus/
+18:08:44.557 ->     Bach_in_Einsiedeln/
+18:08:44.557 ->     Bilder_einer_Ausstellung/
+18:08:44.557 ->     Bilder_einer_Ausstellung_einzelne_Tracks/
+18:08:44.557 ->     Blockflötenkonzert/
+18:08:44.557 ->     Bocelli_Cieli_di_Toscana/
+18:08:44.557 ->     Bocelli_The_Opera_Album/
+18:08:44.557 ->     Bolero_Abbado/
+18:08:44.557 ->     Bolero_Ozawa/
+18:08:44.557 ->     Capricio_Espagnol/
+18:08:44.590 ->     Carmen/
+18:08:44.590 ->     Carmina_Burana/
+18:08:44.590 ->     Celli/
+18:08:44.590 ->     Chorgesänge/
+18:08:44.590 ->     Concertino_für_Oboe/
+18:08:44.590 ->     Concerto_1/
+18:08:44.590 ->     Concerto_2/
+18:08:44.590 ->     Concerto_3/
+18:08:44.590 ->     Concerto_8/
+18:08:44.590 ->     Concerto_a-moll/
+18:08:44.590 ->     Concerto_C-Dur_PV78/
+18:08:44.590 ->     Concerto_C-Dur_PV79/
+18:08:44.590 ->     Concerto_c-moll/
+18:08:44.590 ->     Concerto_Nr-5/
+18:08:44.590 ->     Corea-Chick/
+18:08:44.590 ->     Die_Moldau/
+18:08:44.590 ->     Divertimento_KV136/
+18:08:44.590 ->     Divertimento_KV137/
+18:08:44.590 ->     Divertimento_KV138/
+18:08:44.590 ->     Doppelkonzert_Flöte_Harfe/
+18:08:44.624 ->     Eine_kleine_Nachtmusik_1971/
+18:08:44.624 ->     Eine_kleine_Nachtmusik_1974/
+18:08:44.624 ->     Esxultate_jubilate/
+18:08:44.624 ->     Etudes_de_concert/
+18:08:44.624 ->     Fagottkonzert/
+18:08:44.624 ->     Fantasien_für_Cembalo/
+18:08:44.624 ->     Feuerwerksmusik/
+18:08:44.624 ->     Flötenkonzert/
+18:08:44.624 ->     Galway_Dances_for_Flute/
+18:08:44.624 ->     Glenn-Gould_Edition/
+18:08:44.624 ->     Gould_Inventions/
+18:08:44.624 ->     Gregorianische_Gesänge/
+18:08:44.624 ->     Griffes-Charles_1884-1920/
+18:08:44.658 ->     Gulda-Friedrich/
+18:08:44.658 ->     Impromptus/
+18:08:44.658 ->     Karelia_Suite/
+18:08:44.658 ->     Klarinettenkonzert/
+18:08:44.658 ->     Klavierkonzert/
+18:08:44.658 ->     Klavierkonzert_Nr-1/
+18:08:44.658 ->     Klavierkonzert_Nr-15/
+18:08:44.658 ->     Klavierkonzert_Nr-17/
+18:08:44.658 ->     Klavierkonzert_Nr-1_Arrau/
+18:08:44.658 ->     Klavierkonzert_Nr-2/
+18:08:44.658 ->     Klavierkonzert_Nr-20/
+18:08:44.658 ->     Klavierkonzert_Nr-21/
+18:08:44.658 ->     Klavierkonzert_Nr-22/
+18:08:44.658 ->     Klavierkonzert_Nr-24/
+18:08:44.658 ->     Klavierkonzert_Nr-26/
+18:08:44.658 ->     Klavierkonzert_Nr-27/
+18:08:44.691 ->     Klavierkonzert_Nr-2_Arrau/
+18:08:44.691 ->     Klavierkonzert_Nr-2_Pogorerlich/
+18:08:44.691 ->     Klavierkonzert_Nr-4/
+18:08:44.691 ->     Klavierkonzert_Nr-5/
+18:08:44.691 ->     Klavierkonzert_op16_Arrau/
+18:08:44.691 ->     Klavierkonzert_op16_Ousset/
+18:08:44.691 ->     Klavierkonzert_op54/
+18:08:44.691 ->     Klavier_Doppelkonzert/
+18:08:44.691 ->     Konzert_1/
+18:08:44.691 ->     Konzert_2/
+18:08:44.691 ->     Konzert_3/
+18:08:44.691 ->     Konzert_4/
+18:08:44.691 ->     Konzert_5/
+18:08:44.691 ->     Konzert_6/
+18:08:44.691 ->     Konzert_C-Dur_PV537/
+18:08:44.691 ->     Konzert_C-Dur_PV75/
+18:08:44.725 ->     Konzert_c-moll_Holliger/
+18:08:44.725 ->     Konzert_c-moll_Williams/
+18:08:44.725 ->     Konzert_D-dur/
+18:08:44.725 ->     Konzert_d-moll/
+18:08:44.725 ->     Konzert_e-moll/
+18:08:44.725 ->     Konzert_Es-Dur/
+18:08:44.725 ->     Konzert_f-moll/
+18:08:44.725 ->     Korngold-Erich_1897-1957/
+18:08:44.725 ->     Krönungsmesse/
+18:08:44.725 ->     Kyrie/
+18:08:44.725 ->     Lang-Lang_Dreams-of-China/
+18:08:44.725 ->     La_Traviata/
+18:08:44.725 ->     Liebe_zu_3_Orangen/
+18:08:44.725 ->     Lieutenant_Kijé/
+18:08:44.725 ->     Mandolinen/
+18:08:44.725 ->     Ma_Mère_l'Oye/
+18:08:44.725 ->     Mein_Vaterland/
+18:08:44.759 ->     Messa_da_Requiem/
+18:08:44.759 ->     Musici_di_San_Marco/
+18:08:44.759 ->   All Photos/
+18:08:47.624 ->     - Aria- The Opera Album  size: 25367, image
+18:08:47.624 ->     - Ave Maria (Beliebte Chore)  size: 89102, image
+18:08:47.624 ->     - Beliebte Ouvertüren  size: 22428, image
+18:08:47.624 ->     - Beliebte Ouvertüren, Volume I  size: 22428, image
+18:08:47.624 ->     - Cieli di Toscana  size: 26507, image
+18:08:47.624 ->     - Dreams of China  size: 23761, image
+18:08:47.624 ->     - Le Chant Du Silence  size: 28805, image
+18:08:47.624 ->     - Salve Regina - Vesper zum Fest Mariä Himmelfahrt  size: 77213, image
+18:08:47.658 ->     - The Glenn Gould Edition- Byrd, Gibbons, Sweelinck  size: 11652, image
+18:08:47.658 ->     - The Violin Player  size: 7902, image
+18:08:47.658 ->     Ane Brun  size: 12488, image
+18:08:47.658 ->     Antonio Vivaldi - Vivaldi_Vier_Jahreszeiten  size: 84718, image
+18:08:47.658 ->     Bach_Flötensonate_Es-Dur  size: 13384, image
+18:08:47.658 ->     Bach_Flute_Sonatas  size: 13384, image
+18:08:47.658 ->     Bach_Flute_Sonatas  size: 13384, image
+18:08:47.692 ->     Bach_Flute_Sonatas  size: 13384, image
+18:08:47.692 ->     Bach_in_Einsiedeln  size: 11522, image
+18:08:47.692 ->     Beethoven Ludwig van - Beethoven-Sinfonie_No_9  size: 80949, image
+18:08:47.692 ->     Beethoven_KK2_4_Pollini  size: 16666, image
+18:08:47.692 ->     Beethoven_KK2_4_Pollini  size: 16666, image
+18:08:47.692 ->     Beethoven_KK_5  size: 12071, image
+18:08:47.692 ->     Beethoven_Sinfonie-5  size: 54007, image
+18:08:47.692 ->     Beethoven_Sinfonie-No-8  size: 54007, image
+18:08:47.725 ->     Bellini Trompetenkonzert  size: 13233, image
+18:08:47.725 ->     Berühmte_Opernchöre  size: 12424, image
+18:08:47.725 ->     Boccherini Luigi - Boccherini - 12 Concerti il Violoncello  size: 11033, image
+18:08:47.725 ->     Boccherini Luigi - Boccherini - 12 Concerti il Violoncello  size: 11033, image
+18:08:47.725 ->     Boccherini Luigi - Boccherini - 12 Concerti il Violoncello  size: 11033, image
+18:08:47.725 ->     Boccherini Luigi - Boccherini - 12 Concerti il Violoncello  size: 11033, image
+18:08:47.759 ->     Car-CD  size: 85644, image
+18:08:47.759 ->     Car-CD  size: 85644, image
+18:08:47.759 ->     Car-CD  size: 85644, image
+18:08:47.759 ->     Car-CD  size: 85644, image
+18:08:47.759 ->     Car-CD  size: 85644, image
+18:08:47.759 ->     Car-CD  size: 85644, image
+18:08:47.759 ->     Carl Orff - Carmina Burana  size: 13849, image
+18:08:47.759 ->     Chopin_2_Benedetti  size: 12936, image
+18:08:47.759 ->     Dovrak_Romance  size: 9691, image
+18:08:47.793 ->     DvořákAntonín - Dvořák Symphonie Nr 9 - 3 Slawische Tänze  size: 83785, image
+18:08:47.793 ->     DvořákAntonín - Dvořák Symphonie Nr 9 - 3 Slawische Tänze  size: 83785, image
+18:08:47.793 ->     Felix Mendelssohn - A Midsummer Night's Dream  size: 22406, image
+18:08:47.793 ->     Franz Schubert - Schubert_Symponien_No_8_5  size: 50920, image
+18:08:47.793 ->     Franz Schubert - Schubert_Symponien_No_8_5  size: 50920, image
+18:08:47.827 ->     Frédéric Chopin - Chopin Klavierkonzert Nr 2  size: 75645, image
+18:08:47.827 ->     Frédéric Chopin - Chopin Klavierkonzert Nr 2  size: 75645, image
+18:08:47.827 ->     Frédéric Chopin - Chopin Werke für Klavier und Orchester - CD2  size: 10151, image
+18:08:47.827 ->     Frédéric Chopin - Chopin Werke für Klavier und Orchester - CD2  size: 10151, image
+18:08:47.827 ->     Frédéric Chopin - Chopin Werke für Klavier und Orchester - CD2  size: 10151, image
+18:08:47.860 ->     Frédéric Chopin - Chopin Werke für Klavier und Orchester - CD2  size: 10151, image
+18:08:47.860 ->     Frédéric Chopin - Chopin_Preludes  size: 51813, image
+18:08:47.860 ->     Galway_Dances_for_Flute  size: 8506, image
+18:08:47.860 ->     Georg Friedrich Händel - Feuerwerksmusik  size: 56342, image
+18:08:47.860 ->     Georg Friedrich Händel - Wassermusik  size: 56342, image
+18:08:47.860 ->     Georg Philipp Telemann - Oboenkonzert - Konzert in c-moll  size: 68659, image
+18:08:47.894 ->     Georg Philipp Telemann - Oboenkonzert - Konzert in D-dur  size: 68659, image
+18:08:47.894 ->     Georg Philipp Telemann - Oboenkonzert - Konzert in d-moll  size: 68659, image
+18:08:47.894 ->     Georg Philipp Telemann - Oboenkonzert - Konzert in e-moll  size: 68659, image
+18:08:47.894 ->     Georg Philipp Telemann - Oboenkonzert - Konzert in f-moll  size: 68659, image
+18:08:47.928 ->     Georges Bizet - Bizet_Carmen  size: 16602, image
+18:08:47.928 ->     Gioachino Rossini - Rossini_Overtures  size: 30232, image
+18:08:47.928 ->     Gioachino Rossini - Stabat Mater  size: 14581, image
+18:08:47.928 ->     Giuseppe Verdi - Verdi - Nabucco CD1  size: 298780, image
+18:08:47.928 ->     Glenn Gould Edition  size: 11652, image
+18:08:47.928 ->     Gould_Bach_Inventions  size: 5754, image
+18:08:47.928 ->     Grieg_Klavierkonzert  size: 9586, image
+18:08:47.928 ->     Grieg_Klavierkonzert_op16  size: 9094, image
+18:08:47.961 ->     Grieg_Peer_Gynt  size: 7203, image
+18:08:47.961 ->     Griffes Roman Sketches  size: 8767, image
+18:08:47.961 ->     Gustav Mahler - Mahler- Symphonie No 1 ''Der Titan''  size: 6492, image
+18:08:47.961 ->     Händel_Trompetenkonzert  size: 21673, image
+18:08:47.961 ->     Händel_Trompetenkonzert  size: 21673, image
+18:08:47.961 ->     Haydn Trompetenkonzert  size: 13233, image
+18:08:47.961 ->     Haydn_Symphonien_100_104  size: 9043, image
+18:08:47.996 ->     Haydn_Symphonien_100_104  size: 9043, image
+18:08:47.996 ->     Haydn_Trompetenkonzert  size: 21673, image
+18:08:47.996 ->     Haydn_Trompetenkonzert  size: 21673, image
+18:08:47.996 ->     Hummel Trompetenwerke  size: 13233, image
+18:08:47.996 ->     Jacques Ibert - Flötenkonzert  size: 62477, image
+18:08:47.996 ->     Jacques Ibert - Piece de flute  size: 62477, image
+18:08:47.996 ->     Jean Sibelius - Sibelius - Beautiful Songs for Choir  size: 8951, image
+18:08:48.029 ->     Johann Nepomuk Hummel - Concertine für Flöte  size: 9543, image
+18:08:48.029 ->     Johann Nepomuk Hummel - Oktett-Parthia  size: 9543, image
+18:08:48.029 ->     Johann Nepomuk Hummel - Sektett für Bläser  size: 9543, image
+18:08:48.029 ->     Johann Nepomuk Hummel - Serenade für Bläseroktett  size: 9543, image
+18:08:48.029 ->     Johann Sebastian Bach - Bach_Das Musikalische Opfer  size: 59818, image
+18:08:48.029 ->     Johann Sebastian Bach - Brandenburgisches Konzert No 1  size: 25362, image
+18:08:48.063 ->     Johann Sebastian Bach - Brandenburgisches Konzert No 2  size: 25362, image
+18:08:48.063 ->     Johann Sebastian Bach - Brandenburgisches Konzert No 3  size: 25362, image
+18:08:48.063 ->     Johann Sebastian Bach - Brandenburgisches Konzert No 4  size: 25362, image
+18:08:48.063 ->     Johann Sebastian Bach - Brandenburgisches Konzert No 5  size: 25362, image
+18:08:48.063 ->     Johann Sebastian Bach - Brandenburgisches Konzert No 6  size: 25362, image
+18:08:48.096 ->     Johann Sebastian Bach - Ouvertüren No 1  size: 25362, image
+18:08:48.096 ->     Johann Sebastian Bach - Ouvertüren No 2  size: 25362, image
+18:08:48.096 ->     Johann Sebastian Bach - Ouvertüren No 3  size: 25362, image
+18:08:48.096 ->     Johann Sebastian Bach - Ouvertüren No 4  size: 25362, image
+18:08:48.096 ->     Johannes Brahms - Brahms_Ungarische_Tänze  size: 21856, image
+18:08:48.130 ->     Joseph Haydn - Haydn - Symphonies No. 99 & 101  size: 6513, image
+18:08:48.130 ->     Joseph Haydn - Haydn - Symphonies No. 99 & 101  size: 6513, image
+18:08:48.130 ->     Joseph Haydn - Haydn - Symphonies No. 99 & 101  size: 6513, image
+18:08:48.130 ->     Joseph Haydn - Haydn - Symphonies No. 99 & 101  size: 6513, image
+18:08:48.130 ->   By Date/
+18:08:48.197 ->     - ALL -/
+18:08:48.197 ->     2010/
+18:08:48.197 ->     2017/
+18:08:48.197 ->     2019/
+18:08:48.197 ->     2020/
+18:08:48.197 ->   By Folder/
+18:08:48.231 ->     Audio/
+18:08:48.231 ->   By Year/
+18:08:48.265 ->     2010/
+18:08:48.299 ->     2017/
+18:08:48.299 ->     2019/
+18:08:48.299 ->     2020/
+18:08:48.299 ->   Keywords/
+18:08:48.299 ->   Personal rating/
+18:08:48.333 ->   Slideshows/
+18:08:48.366 ->     Recently Added/
+18:08:48.366 -> 
+18:08:48.366 -> Sketch finished.

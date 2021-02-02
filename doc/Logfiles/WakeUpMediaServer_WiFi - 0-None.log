@@ -1,0 +1,23 @@
+16:32:51.701 -> 
+16:32:51.701 -> Connecting to WiFi network ......
+16:32:54.795 -> Connected successfully.
+16:32:54.795 -> IP address: 192.168.1.30
+16:32:54.795 -> 
+16:32:54.795 -> Scanning local network for DLNA media servers...
+16:32:58.825 -> Number of discovered servers that deliver content: 1
+16:32:58.825 -> 
+16:32:58.825 -> Server[1]: IP address: 192.168.1.11, port: 55247, name: LINKSTATION2 [LinkStation Media Server]
+16:32:58.825 ->   -> controlURL: dms/control/ContentDirectory
+16:32:58.825 -> 
+16:32:58.825 -> Send WOL message to device with MAC: 10:6f:3F:21:EE:23
+16:32:58.825 -> Now waiting a few seconds before scanning local network again.
+16:32:59.839 -> ........................................................................................................................
+16:34:58.855 -> Scanning local network for DLNA media servers...
+16:35:02.900 -> Number of discovered servers that deliver content: 2
+16:35:02.900 -> 
+16:35:02.900 -> Server[1]: IP address: 192.168.1.50, port: 9050, name: LINKSTATION2b: LinkStation
+16:35:02.947 ->   -> controlURL: TMSContentDirectory/Control
+16:35:02.947 -> Server[2]: IP address: 192.168.1.11, port: 55247, name: LINKSTATION2 [LinkStation Media Server]
+16:35:02.947 ->   -> controlURL: dms/control/ContentDirectory
+16:35:02.947 -> 
+16:35:02.947 -> Sketch finished.

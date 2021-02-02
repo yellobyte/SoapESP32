@@ -1,0 +1,86 @@
+00:27:25.725 -> 
+00:27:25.725 -> Connecting to WiFi network ..
+00:27:26.803 -> Connected successfully. IP address: 192.168.1.44
+00:27:26.803 -> 
+00:27:26.803 -> Scanning local network for DLNA media servers...
+00:27:26.803 -> [I][SoapESP32.cpp:440] seekServer(): SSDP search for media server started
+00:27:30.814 -> [I][SoapESP32.cpp:443] seekServer(): SSDP query discovered 4 media server
+00:27:30.814 -> [I][SoapESP32.cpp:446] seekServer(): checking all discovered media server for service: ContentDirectory
+00:27:30.848 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.35:5001
+00:27:30.848 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+00:27:30.848 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.11:55247
+00:27:30.882 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+00:27:30.882 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.50:9050
+00:27:30.915 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+00:27:30.915 -> [I][SoapESP32.cpp:460] seekServer(): connected successfully to server 192.168.1.35:2869
+00:27:30.915 -> [I][SoapESP32.cpp:513] seekServer(): ok, this server delivers media content
+00:27:30.915 -> Number of discovered servers that deliver content: 4
+00:27:30.949 -> 
+00:27:30.949 -> Server[0]: IP address: 192.168.1.35, port: 5001, name: Universal Media Server
+00:27:30.949 -> [I][SoapESP32.cpp:788] browseServer(): server: "Universal Media Server", objectId: "0"
+00:27:30.983 -> [I][SoapESP32.cpp:805] browseServer(): connected successfully to server 192.168.1.35:5001
+00:27:31.016 -> [I][SoapESP32.cpp:828] browseServer(): scan answer from media server:
+00:27:31.016 -> [W][SoapESP32.cpp:584] soapScanAttribute(): attribute: "searchable=" not found.
+00:27:31.016 -> [W][SoapESP32.cpp:620] soapScanContainer(): attribute "searchable=" is missing, we set it true
+00:27:31.050 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Recently Played" (id: "332", childCount: 1) added to list
+00:27:31.050 -> [W][SoapESP32.cpp:584] soapScanAttribute(): attribute: "searchable=" not found.
+00:27:31.050 -> [W][SoapESP32.cpp:620] soapScanContainer(): attribute "searchable=" is missing, we set it true
+00:27:31.050 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Music" (id: "333", childCount: 1) added to list
+00:27:31.084 -> [W][SoapESP32.cpp:584] soapScanAttribute(): attribute: "searchable=" not found.
+00:27:31.084 -> [W][SoapESP32.cpp:620] soapScanContainer(): attribute "searchable=" is missing, we set it true
+00:27:31.084 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Web" (id: "334", childCount: 1) added to list
+00:27:31.084 -> [I][SoapESP32.cpp:888] browseServer(): found 3 folders and 0 files
+00:27:31.118 -> Browsing root directory. Number of sub-directories: 3
+00:27:31.118 ->  Recently Played (child count: 1)
+00:27:31.118 ->  Music (child count: 1)
+00:27:31.118 ->  Web (child count: 1)
+00:27:31.118 -> 
+00:27:31.118 -> Server[1]: IP address: 192.168.1.11, port: 55247, name: LINKSTATION2 [LinkStation Media Server]
+00:27:31.118 -> [I][SoapESP32.cpp:788] browseServer(): server: "LINKSTATION2 [LinkStation Media Server]", objectId: "0"
+00:27:31.186 -> [I][SoapESP32.cpp:805] browseServer(): connected successfully to server 192.168.1.11:55247
+00:27:31.220 -> [I][SoapESP32.cpp:828] browseServer(): scan answer from media server:
+00:27:31.220 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Video" (id: "CAT-VIDEO", childCount: 8) added to list
+00:27:31.220 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Music" (id: "CAT-AUDIO", childCount: 9) added to list
+00:27:31.220 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Photos" (id: "CAT-IMAGE", childCount: 7) added to list
+00:27:31.254 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Folders" (id: "FS-Folder", childCount: 2) added to list
+00:27:31.254 -> [I][SoapESP32.cpp:888] browseServer(): found 4 folders and 0 files
+00:27:31.254 -> Browsing root directory. Number of sub-directories: 4
+00:27:31.254 ->  Video (child count: 8)
+00:27:31.287 ->  Music (child count: 9)
+00:27:31.287 ->  Photos (child count: 7)
+00:27:31.287 ->  Folders (child count: 2)
+00:27:31.287 -> 
+00:27:31.287 -> Server[2]: IP address: 192.168.1.50, port: 9050, name: LINKSTATION2b: LinkStation
+00:27:31.287 -> [I][SoapESP32.cpp:788] browseServer(): server: "LINKSTATION2b: LinkStation", objectId: "0"
+00:27:31.287 -> [I][SoapESP32.cpp:805] browseServer(): connected successfully to server 192.168.1.50:9050
+00:27:31.321 -> [I][SoapESP32.cpp:828] browseServer(): scan answer from media server:
+00:27:31.321 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Music" (id: "0$1", childCount: 11) added to list
+00:27:31.321 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Photos" (id: "0$2", childCount: 8) added to list
+00:27:31.321 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Videos" (id: "0$3", childCount: 7) added to list
+00:27:31.355 -> [I][SoapESP32.cpp:888] browseServer(): found 3 folders and 0 files
+00:27:31.355 -> Browsing root directory. Number of sub-directories: 3
+00:27:31.355 ->  Music (child count: 11)
+00:27:31.355 ->  Photos (child count: 8)
+00:27:31.355 ->  Videos (child count: 7)
+00:27:31.355 -> 
+00:27:31.355 -> Server[3]: IP address: 192.168.1.35, port: 2869, name: VIRTUAL-WIN10: tj:
+00:27:31.388 -> [I][SoapESP32.cpp:788] browseServer(): server: "VIRTUAL-WIN10: tj:", objectId: "0"
+00:27:31.388 -> [I][SoapESP32.cpp:805] browseServer(): connected successfully to server 192.168.1.35:2869
+00:27:31.422 -> [I][SoapESP32.cpp:828] browseServer(): scan answer from media server:
+00:27:31.422 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Bilder" (id: "3", childCount: 7) added to list
+00:27:31.422 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Musik" (id: "1", childCount: 10) added to list
+00:27:31.422 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Videos" (id: "2", childCount: 8) added to list
+00:27:31.455 -> [I][SoapESP32.cpp:646] soapScanContainer(): folder "Wiedergabelisten" (id: "12", childCount: 2) added to list
+00:27:31.455 -> [I][SoapESP32.cpp:888] browseServer(): found 4 folders and 0 files
+00:27:31.455 -> Browsing root directory. Number of sub-directories: 4
+00:27:31.489 ->  Bilder (child count: 7)
+00:27:31.489 ->  Musik (child count: 10)
+00:27:31.489 ->  Videos (child count: 8)
+00:27:31.489 ->  Wiedergabelisten (child count: 2)
+00:27:31.489 -> 
+00:27:31.489 -> Some ESP32 memory stats after running this sketch:
+00:27:31.489 ->  1) minimum ever free memory of all regions [in bytes]: 253624
+00:27:31.489 ->  2) minimum ever free heap size [in bytes]:             199852
+00:27:31.489 ->  3) minimum ever stack size of this task [in bytes]:    5720
+00:27:31.523 -> 
+00:27:31.523 -> Sketch finished.

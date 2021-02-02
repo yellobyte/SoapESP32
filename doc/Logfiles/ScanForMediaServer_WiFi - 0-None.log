@@ -1,0 +1,36 @@
+15:40:32.397 -> ets Jun  8 2016 00:22:57
+15:40:32.397 -> 
+15:40:32.397 -> rst:0x1 (POWERON_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
+15:40:32.397 -> configsip: 0, SPIWP:0xee
+15:40:32.397 -> clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+15:40:32.431 -> mode:DIO, clock div:1
+15:40:32.431 -> load:0x3fff0018,len:4
+15:40:32.431 -> load:0x3fff001c,len:1216
+15:40:32.431 -> ho 0 tail 12 room 4
+15:40:32.431 -> load:0x40078000,len:9720
+15:40:32.431 -> ho 0 tail 12 room 4
+15:40:32.431 -> load:0x40080400,len:6352
+15:40:32.431 -> entry 0x400806b8
+15:40:32.702 -> 
+15:40:32.702 -> Connecting to WiFi network ......
+15:40:35.768 -> Connected successfully.
+15:40:35.768 -> IP address: 192.168.1.44
+15:40:35.768 -> 
+15:40:35.768 -> Scanning local network for DLNA media servers...
+15:40:39.913 -> Number of discovered servers that deliver content: 4
+15:40:39.913 -> 
+15:40:39.913 -> Server[1]: IP address: 192.168.1.11, port: 55247, name: LINKSTATION2 [LinkStation Media Server]
+15:40:39.913 ->   -> controlURL: dms/control/ContentDirectory
+15:40:39.913 -> Server[2]: IP address: 192.168.1.35, port: 5001, name: Universal Media Server
+15:40:39.947 ->   -> controlURL: upnp/control/content_directory
+15:40:39.947 -> Server[3]: IP address: 192.168.1.50, port: 9050, name: LINKSTATION2b: LinkStation
+15:40:39.947 ->   -> controlURL: TMSContentDirectory/Control
+15:40:39.947 -> Server[4]: IP address: 192.168.1.35, port: 2869, name: VIRTUAL-WIN10: tj:
+15:40:39.947 ->   -> controlURL: upnphost/udhisapi.dll?control=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3+urn:upnp-org:serviceId:ContentDirectory
+15:40:39.981 -> 
+15:40:39.981 -> Some ESP32 memory stats after running this sketch:
+15:40:39.981 ->  1) minimum ever free memory of all regions [in bytes]: 250836
+15:40:39.981 ->  2) minimum ever free heap size [in bytes]:             197064
+15:40:40.015 ->  3) minimum ever stack size of this task [in bytes]:    5752
+15:40:40.015 -> 
+15:40:40.015 -> Sketch finished.

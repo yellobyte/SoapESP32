@@ -1,0 +1,39 @@
+00:35:21.243 -> 
+00:35:21.243 -> Connecting to WiFi network ..
+00:35:22.354 -> Connected successfully. IP address: 192.168.1.44
+00:35:22.354 -> 
+00:35:22.354 -> Scanning local network for DLNA media servers...
+00:35:26.436 -> Number of discovered servers that deliver content: 4
+00:35:26.436 -> 
+00:35:26.436 -> Server[0]: IP address: 192.168.1.50, port: 9050, name: LINKSTATION2b: LinkStation
+00:35:26.469 -> Browsing root directory. Number of sub-directories: 3
+00:35:26.504 ->  Music (child count: 11)
+00:35:26.504 ->  Photos (child count: 8)
+00:35:26.504 ->  Videos (child count: 7)
+00:35:26.504 -> 
+00:35:26.504 -> Server[1]: IP address: 192.168.1.11, port: 55247, name: LINKSTATION2 [LinkStation Media Server]
+00:35:29.168 -> Browsing root directory. Number of sub-directories: 4
+00:35:29.168 ->  Video (child count: 8)
+00:35:29.168 ->  Music (child count: 9)
+00:35:29.168 ->  Photos (child count: 7)
+00:35:29.168 ->  Folders (child count: 2)
+00:35:29.168 -> 
+00:35:29.168 -> Server[2]: IP address: 192.168.1.35, port: 5001, name: Universal Media Server
+00:35:29.269 -> Browsing root directory. Number of sub-directories: 3
+00:35:29.269 ->  Recently Played (child count: 1)
+00:35:29.303 ->  Music (child count: 1)
+00:35:29.303 ->  Web (child count: 1)
+00:35:29.303 -> 
+00:35:29.303 -> Server[3]: IP address: 192.168.1.35, port: 2869, name: VIRTUAL-WIN10: tj:
+00:35:29.438 -> Browsing root directory. Number of sub-directories: 4
+00:35:29.438 ->  Bilder (child count: 7)
+00:35:29.438 ->  Musik (child count: 10)
+00:35:29.438 ->  Videos (child count: 8)
+00:35:29.438 ->  Wiedergabelisten (child count: 2)
+00:35:29.438 -> 
+00:35:29.438 -> Some ESP32 memory stats after running this sketch:
+00:35:29.438 ->  1) minimum ever free memory of all regions [in bytes]: 236096
+00:35:29.438 ->  2) minimum ever free heap size [in bytes]:             182324
+00:35:29.471 ->  3) minimum ever stack size of this task [in bytes]:    5752
+00:35:29.471 -> 
+00:35:29.471 -> Sketch finished.
