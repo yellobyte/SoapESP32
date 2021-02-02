@@ -1,39 +1,39 @@
 {
-		"name": "SoapESP32",
-		"repository":	{
-				"type": "git",
-				"url": "https://github.com/yellobyte/SoapESP32.git"
-		},
-    "frameworks": [
-        "arduino"
-    ], 
-		"keywords": [
-				"SoapESP32",
-				"SSDP",
-				"SOAP",
-				"DLNA",
-				"NAS",
-				"share",
-				"universal",
-				"media",
-				"server",
-				"DiXim",
-				"Twinky"
-		],
-		"description": [
-				"Scan local network for DLNA media servers, browse them and retrieve files."
-		],
-    "platforms": [
-        "espressif32"
-		], 
-    "version": "1.0.0", 
-		"authors":
-		[
-				{
-						"name": "Thomas Jentzsch",
-						"email": "yellobyte@bluewin.ch",
-						"maintainer": true,
-						"url": null
-				}
-		]
+  "name": "SoapESP32",
+  "version": "1.0.0", 
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/yellobyte/SoapESP32.git"
+  },
+  "frameworks": "arduino", 
+  "keywords":
+  [
+    "ESP32",
+    "SoapESP32",
+    "SSDP",
+    "SOAP",
+    "DLNA",
+    "NAS",
+    "share",
+    "universal",
+    "media",
+    "server",
+    "DiXim",
+    "Twinky"
+  ],
+  "description": "Scan local network for DLNA media servers, browse them and retrieve files",
+  "platforms":
+  [
+    "espressif32"
+  ], 
+  "authors":
+  [
+    {
+      "name": "Thomas Jentzsch",
+      "email": "yellobyte@bluewin.ch",
+      "maintainer": true,
+      "url": null
+    }
+  ]
 }
