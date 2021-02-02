@@ -36,8 +36,10 @@ a) use addServer() to manually add a server to the server list (which I recommen
 
 b) modify "socket.cpp" in Arduino Ethernet library to use a >>source<< port between 49152 & 65535. Which is not only a dirty solution but puts you under risk to forget about it and then loose those changes when updating the Ethernet lib a year later in a hurry.
 
+Here just a short snippet with the needed changes:
+
 W5100.writeSnIR(s, 0xFF);
-if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {     <----- !!!
+if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {
   W5100.writeSnPORT(s, port);
 } 
 else {
@@ -55,13 +57,16 @@ If you use an Ethernet module/shield instead of builtin WiFi you must set the co
 Unfortunately we can't set project wide compiler options in *.ino sketches though. 
 
 In case you use the Arduino IDE:
+
 Add any needed additional compiler options to line 'compiler.cpreprocessor.flags' in your Arduino IDE file "platform.txt". 
 On my PC for example I find this file in the following directory:
 	C:\Users\tj\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.4
 But be reminded, those options will stay permanent until you delete them. So having "-DUSE_ETHERNET" in platform.txt does NOT work with examples that use WiFi (..._WiFi.ino).
+
 Alternatively you could just uncomment the line //#define USE_ETHERNET in SoapESP32.h. Whatever you prefer.
 
 In case you use VSCode/PlatformIO:
+
 You are lucky. Simply add/remove global compiler options in your platformio.ini project file:
 
 build_flags = -D__GNU_VISIBLE, -DUSE_ETHERNET
