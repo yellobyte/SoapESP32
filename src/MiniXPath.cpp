@@ -1,7 +1,7 @@
 /*
   MiniXPath is part of SoapESP32 library and used for scanning XML streams.
-  It is based on Thomas Mittets (code@lookout.no) "MicroXPath" but
-  needs substantially more RAM and the following features have been added:
+  It is based on Thomas Mittets (code@lookout.no) "MicroXPath" but needs
+  substantially more RAM and the following features have been added:
   - extracting attributes
   - extracting whole sub trees if requested
   - using C++ strings
