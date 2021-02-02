@@ -36,7 +36,6 @@ a) use addServer() to manually add a server to the server list (which I recommen
 
 b) modify "socket.cpp" in Arduino Ethernet library to use a >>source<< port between 49152 & 65535. Which is not only a dirty solution but puts you under risk to forget about it and then loose those changes when updating the Ethernet lib a year later in a hurry.
 
-...
 W5100.writeSnIR(s, 0xFF);
 if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {     <----- !!!
   W5100.writeSnPORT(s, port);
@@ -45,9 +44,6 @@ else {
   if (++local_port < 49152) local_port = 49152;
   W5100.writeSnPORT(s, local_port);
 }
-// Calculate MAC address from Multicast IP Address
-byte mac[] = {  0x01, 0x00, 0x5E, 0x00, 0x00, 0x00 };
-...
 
 ## Compiling the examples
 
@@ -67,16 +63,15 @@ Alternatively you could just uncomment the line //#define USE_ETHERNET in SoapES
 
 In case you use VSCode/PlatformIO:
 You are lucky. Simply add/remove global compiler options in your platformio.ini project file:
-build_flags = 
-  -D__GNU_VISIBLE		<-- this option will be passed on to compiler
-;  -DUSE_ETHERNET		<-- but not this one
+
+build_flags = -D__GNU_VISIBLE, -DUSE_ETHERNET
 	
 ## Doc 
 
 Folder "doc" contains log files showing Serial Monitor output of different core debug levels of the various examples and of my ESP32-Radio with integrated SoapESP32. They might help you in adding this lib to your project.
 		
-After merging this library with an existing ESP32-Radio I have it running for a few month now without any problems. No need to fiddle around with SD cards anymore.
-The lib is not perfect but I hope you might find it useful.
+After merging this library with an existing ESP32-Radio I have it running for a few month now without any problems. No need to fiddle around with SD cards anymore. :-)
 
-Have fun
+The lib is not perfect but I hope you might find it useful. Have fun!
+
 Thomas J. <yellobyte@bluewin.ch>
