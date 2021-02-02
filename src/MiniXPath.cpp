@@ -175,17 +175,15 @@ bool MiniXPath::find(char charToParse, bool subTree)
           case XML_PARSER_START_TAG_NAME:
             if (elementPathMatch()) matchLevel++;
             state = XML_PARSER_ATTRIBUTES;
-            position = 0;   // needed for attribute delivery functionality
+            position = 0;
             break;
           case XML_PARSER_PROLOG_TAG_NAME:
             state = XML_PARSER_PROLOG_ATTRIBUTES;
             break;
-          // for getting attribute delivery functionality
           case XML_PARSER_ATTRIBUTES:
           case XML_PARSER_ATTRIBUTE_VALUE:
             position++;
             break;
-          //
         }
         break;
       // Attribute start character and end character        
@@ -197,11 +195,11 @@ bool MiniXPath::find(char charToParse, bool subTree)
         {
           case XML_PARSER_ATTRIBUTES:
             state = XML_PARSER_ATTRIBUTE_VALUE;
-            position++;   // needed for attribute delivery functionality
+            position++;
             break;
           case XML_PARSER_ATTRIBUTE_VALUE:
             state = XML_PARSER_ATTRIBUTES;
-            position++;   // needed for attribute delivery functionality
+            position++;
             break;
         }
         break;
