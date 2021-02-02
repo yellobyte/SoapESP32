@@ -11,8 +11,8 @@
   directory holds more infos.
   
   Since memory is limited, by default a maximum of only 100 entries 
-  per directory will be returned	by browseServer(). This limit is 
-  defined in "SoapESP32.h" with parameter	SOAP_DEFAULT_BROWSE_MAX_COUNT.
+  per directory will be returned by browseServer(). This limit is 
+  defined in "SoapESP32.h" with parameter SOAP_DEFAULT_BROWSE_MAX_COUNT.
   Increasing this parameter means using more memory.
 	
   If a directory contains more than that number, you will have to browse

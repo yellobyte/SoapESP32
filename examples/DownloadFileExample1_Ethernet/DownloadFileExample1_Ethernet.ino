@@ -9,8 +9,8 @@
   find proper values. We use a Wiznet W5x00 Ethernet module/shield
   attached to ESP32 instead of builtin WiFi.
 
-  Ethernet module/shield is attached to GPIO 18, 19, 23 and	GPIO 25 (CS).
-  SD card module/shield is attached to GPIO 18, 19, 23 andGPIO 5 (CS).
+  Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
+  SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
   Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
 */

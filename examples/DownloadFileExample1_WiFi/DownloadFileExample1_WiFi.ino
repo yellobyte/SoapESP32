@@ -8,7 +8,7 @@
   You find a snapshot in the doc directory, showing you how to use VLC 
   to find proper values.
 
-  SD card  module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
+  SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
   Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
 */
