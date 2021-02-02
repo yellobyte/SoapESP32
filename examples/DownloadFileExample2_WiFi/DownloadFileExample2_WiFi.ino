@@ -176,11 +176,11 @@ void setup() {
             break;
           }         
           else if (res > 0) {
-						// Remark: At this point instead of writing to SD card you 
-						// could write the data into a buffer/queue which feeds an 
-						// audio codec (e.g. VS1053) for example
+            // Remark: At this point instead of writing to SD card you 
+            // could write the data into a buffer/queue which feeds an 
+            // audio codec (e.g. VS1053) for example
             myFile.write(buffer, res);
-						//
+            //
             bytesRead += res;
             Serial.print(".");
           }  

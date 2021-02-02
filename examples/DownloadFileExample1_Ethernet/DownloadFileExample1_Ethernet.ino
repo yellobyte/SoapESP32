@@ -18,7 +18,6 @@
 #include <Arduino.h>
 #include <Ethernet.h>
 #include <SD.h>
-
 #include "SoapESP32.h"
 
 // == IMPORTANT ==
@@ -50,7 +49,7 @@ SoapESP32 soap(&client, &udp);
 void setup() {
   Serial.begin(115200);
 
-  Ethernet.init(25);    // CS to ESP32 GPIO 25
+  Ethernet.init(25);         // CS to ESP32 GPIO 25
   Serial.print("\nInitializing Ethernet...");
 
   if (Ethernet.begin(mac))
@@ -71,7 +70,7 @@ void setup() {
 
   // preparing SD card 
   Serial.print("Initializing SD card...");
-  if (!SD.begin(5)) {          // CS to ESP32 GPIO 5
+  if (!SD.begin(5)) {        // CS to ESP32 GPIO 5
     Serial.println("failed!");
     Serial.println("Sketch finished.");
     return;
@@ -112,7 +111,7 @@ void setup() {
     Serial.println("Start copying file from server to SD, please wait."); 
     delay(1000);
     
-		bytesRead = 0;
+    bytesRead = 0;
     do {
       int res = soap.read(buffer, READ_BUFFER_SIZE);
       if (res < 0) {
@@ -120,16 +119,16 @@ void setup() {
         break;
       }         
       else if (res > 0) {
-				// Remark: At this point instead of writing to SD card you 
-				// could write the data into a buffer/queue which feeds an 
-				// audio codec (e.g. VS1053) for example
+        // Remark: At this point instead of writing to SD card you 
+        // could write the data into a buffer/queue which feeds an 
+        // audio codec (e.g. VS1053) for example
         myFile.write(buffer, res);
         //
-				bytesRead += res;
+        bytesRead += res;
         Serial.print(".");
       }  
       else { 
-				// res == 0, momentarily no data available
+        // res == 0, momentarily no data available
       }
     } 
     while (soap.available());

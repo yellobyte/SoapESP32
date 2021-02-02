@@ -16,7 +16,6 @@
 
 #include <Arduino.h>
 #include <Ethernet.h>
-
 #include "SoapESP32.h"
 
 // == IMPORTANT ==
@@ -34,10 +33,10 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 EthernetClient client;
 EthernetUDP    udp;
 
-const int led = 2;                                  		// LED pin on ESP32 board
-int8_t ledStat = 0;                                 		// counter needed to let LED blink
-TaskHandle_t      xAnotherTask;                     		// task handle for an additional task
-SemaphoreHandle_t SPIsem = NULL;                    		// smeaphore used as global mutex
+const int led = 2;                                		// LED pin on ESP32 board
+int8_t ledStat = 0;                                 	// counter needed to let LED blink
+TaskHandle_t      xAnotherTask;                     	// task handle for an additional task
+SemaphoreHandle_t SPIsem = NULL;                   	// smeaphore used as global mutex
 SoapESP32         soap(&client, &udp, &SPIsem);
 
 // example for another task using the SPI bus
@@ -45,8 +44,8 @@ void anotherTask (void *parameter)
 {
   while (true) {
     while (xSemaphoreTake(SPIsem, 10) != pdTRUE) {};    // claim SPI bus
-      // do something, e.g. SD writes/reads via SPI
-			delayMicroseconds(200);														// make the other tasks wait
+    // do something, e.g. SD writes/reads via SPI
+    delayMicroseconds(200);                             // make the other tasks wait
     xSemaphoreGive(SPIsem);                             // release SPI bus
 
     // just needed for this example: yields processor and resets task switcher watchdog 
@@ -56,8 +55,8 @@ void anotherTask (void *parameter)
     digitalWrite(led, (++ledStat > 0) ? 1 : 0);
 
     while (xSemaphoreTake(SPIsem, 10) != pdTRUE) {};    // claim SPI bus
-      // do something, e.g. write audio data to codec via SPI
-			delayMicroseconds(200);														// make the other tasks wait
+    // do something, e.g. write audio data to codec via SPI
+    delayMicroseconds(200);                             // make the other tasks wait
     xSemaphoreGive(SPIsem);                             // release SPI bus
     //
     // etc...
@@ -90,7 +89,7 @@ void setup() {
   SPIsem = xSemaphoreCreateMutex();
   pinMode(led, OUTPUT);
 
-	// start another task that will use SPI as well
+  // start another task that will use SPI as well
   xTaskCreate(
     anotherTask,                       // pointer to task defined above
     "anotherTask",                     // name of task.

@@ -13,7 +13,6 @@
 
 #include <Arduino.h>
 #include <Ethernet.h>
-
 #include "SoapESP32.h"
 
 // == IMPORTANT ==

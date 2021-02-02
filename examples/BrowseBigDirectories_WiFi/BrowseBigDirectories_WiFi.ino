@@ -49,7 +49,7 @@ bool findBigDirectory(SoapESP32 *soap, int servNum, soapObject_t *object) {
   }
   else {
     for (int i = 0; i < browseResult.size(); i++) {
-			// go through each item in list and recurse for directories, break if directory with 
+      // go through each item in list and recurse for directories, break if directory with 
       // more than SOAP_DEFAULT_BROWSE_MAX_COUNT items (subdirs and/or files) is found
       if (browseResult[i].isDirectory ) {
         if (browseResult[i].size > SOAP_DEFAULT_BROWSE_MAX_COUNT) {
@@ -103,7 +103,7 @@ void setup() {
   soapObject_t     directory;
   soapObjectVect_t directoryContent;
   soapServer_t     srvInfo;
-  int srvNum = 0,  // start with first server in list
+  int srvNum = 0,             // start with first server in list
       startingIndex;
 
   while (soap.getServerInfo(srvNum, &srvInfo)) {
@@ -163,13 +163,13 @@ void setup() {
               }
             }
           }
-					// increase index to get next chunk
+          // increase index to get next chunk
           startingIndex += directoryContent.size();
         }  
       }
       break;
     }
-    // try next server
+    // try next server in list
     srvNum++;
   }
 

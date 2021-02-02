@@ -47,7 +47,7 @@
 //    #define SERVER_PORT        55247
 //    #define SERVER_CONTROL_URL "dms/control/ContentDirectory"	
 	
-#define SERVER_IP 				 192,168,...,...
+#define SERVER_IP          192,168,...,...
 #define SERVER_PORT        ...
 #define SERVER_CONTROL_URL "..."
 
@@ -74,7 +74,7 @@ void printServerContent(SoapESP32 *soap, int servNum, String objectId, int numTa
   }
   else {
     for (int i = 0; i < browseResult.size(); i++) {
-			// go through each item in list
+      // go through each item in list
       for (uint8_t j=0; j<numTabs; j++) {
         Serial.print("  ");                 // indentation
       }
@@ -85,11 +85,11 @@ void printServerContent(SoapESP32 *soap, int servNum, String objectId, int numTa
         // directory: append '/' to name
         Serial.println("/");
         if ((numTabs + 1) < BROWSE_LEVELS) { 
-					// recurse
+          // recurse
           printServerContent(soap, servNum, browseResult[i].id, numTabs + 1);
         }  
       } 
-			else {
+      else {
         // file: append size in bytes and file type
         Serial.print("  ");
         Serial.print("size: ");
@@ -138,6 +138,7 @@ void setup() {
 
   // print server content recursively
   Serial.println("----> server content follows:");
+
   printServerContent(&soap, // pointer to soap object
                      0,     // the first and only server in our server list
                      "0");  // we start with root

@@ -34,7 +34,7 @@ void showServer(SoapESP32 *soap)
   uint8_t srvNum = 0;
 
   // scan local network for DLNA media servers,
-	// your server (if sleeping) shouldn't be detected at this stage !
+  // your server (if sleeping) shouldn't be detected at this stage !
   Serial.println();
   Serial.println("Scanning local network for DLNA media servers...");
   soap->seekServer();

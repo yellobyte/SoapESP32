@@ -5,7 +5,7 @@
   and browses root of each server found.
 
   Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
- */
+*/
 
 #include <Arduino.h>
 #include <WiFi.h>

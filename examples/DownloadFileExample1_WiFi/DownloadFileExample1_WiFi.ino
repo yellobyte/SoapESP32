@@ -95,7 +95,7 @@ void setup() {
     Serial.println(fileSize);
     Serial.println("Start copying file from server to SD, please wait."); 
 
-		bytesRead = 0;
+    bytesRead = 0;
     do {
       int res = soap.read(buffer, READ_BUFFER_SIZE);
       if (res < 0) {
@@ -103,16 +103,16 @@ void setup() {
         break;
       }         
       else if (res > 0) {
-				// Remark: At this point instead of writing to SD card you 
-				// could write the data into a buffer/queue which feeds an 
-				// audio codec (e.g. VS1053) for example
+        // Remark: At this point instead of writing to SD card you 
+        // could write the data into a buffer/queue which feeds an 
+        // audio codec (e.g. VS1053) for example
         myFile.write(buffer, res);
-				//
+        //
         bytesRead += res;
         Serial.print(".");
       }  
       else { 
-				// res == 0, momentarily no data available
+        // res == 0, momentarily no data available
       }
     } 
     while (soap.available());
