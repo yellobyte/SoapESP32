@@ -57,8 +57,8 @@ void printServerContent(SoapESP32 *soap, int servNum, String objectId, int numTa
   soapObjectVect_t browseResult;
 
   if (!soap->browseServer(servNum,          // server number in our internal server list
-                         objectId.c_str(),  // unique id of object (directory) to search in
-                         &browseResult)) {  // pointer to vector storing directory content
+                          objectId.c_str(), // unique id of object (directory) to search in
+                          &browseResult)) { // pointer to vector storing directory content
     Serial.print("error browsing server, object id: ");
     Serial.println(objectId);
     return;
