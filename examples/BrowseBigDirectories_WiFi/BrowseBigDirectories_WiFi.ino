@@ -10,7 +10,7 @@
   this parameter means using more memory.	
 
   If a directory contains more entries than that number, you have to browse
-  that directory	multiple times, each time with a higher starting index
+  that directory multiple times, each time with a higher starting index
   (0, 100, 200,...). This sketch demonstrates how to do it.
     
   Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
