@@ -789,8 +789,11 @@ bool SoapESP32::soapScanItem(const String *parentId,
     i++;
   }
 
-  if (!gotTitle || !gotRes) return false;   // title & ressource info is a must
-  
+  if (!gotTitle || !gotRes) {
+    log_i("title or ressource info missing, file not added to list");
+    return false;   // title & ressource info is a must
+  }  
+
   // add valid file to result list
   info.isDirectory = false;
   browseResult->push_back(info);
