@@ -37,14 +37,15 @@ b) modify "socket.cpp" in Arduino Ethernet library to use a >>source<< port betw
    Which is not only a dirty solution but puts you under risk to forget about it and then loose those changes when updating the Ethernet lib a year later in a hurry.
 
   ...
-	W5100.writeSnIR(s, 0xFF);
-	if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {	<----- !!!
-		W5100.writeSnPORT(s, port);
-	} else {
-		if (++local_port < 49152) local_port = 49152;
-		W5100.writeSnPORT(s, local_port);
-	}
-	// Calculate MAC address from Multicast IP Address
+  W5100.writeSnIR(s, 0xFF);
+  if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {     <----- !!!
+    W5100.writeSnPORT(s, port);
+  } 
+  else {
+  if (++local_port < 49152) local_port = 49152;
+    W5100.writeSnPORT(s, local_port);
+  }
+  // Calculate MAC address from Multicast IP Address
   byte mac[] = {  0x01, 0x00, 0x5E, 0x00, 0x00, 0x00 };
   ...
 
@@ -57,17 +58,18 @@ If you use an Ethernet module/shield instead of builtin WiFi you must set the co
 
 Unfortunately we can't set project wide compiler options in *.ino sketches though. 
 
-- In case you use the Arduino IDE:
-Add any needed additional compiler options to line 'compiler.cpreprocessor.flags' in your Arduino IDE file "platform.txt". On my PC for example I find this file in the following directory:
+In case you use the Arduino IDE:
+Add any needed additional compiler options to line 'compiler.cpreprocessor.flags' in your Arduino IDE file "platform.txt". 
+On my PC for example I find this file in the following directory:
 	C:\Users\tj\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.4
-But be reminded, those options will stay permanent until you delete them. So having "-DUSE_ETHERNET" in platform.txt does NOT work with examples that use WiFi (..._WiFi.ino).	
+But be reminded, those options will stay permanent until you delete them. So having "-DUSE_ETHERNET" in platform.txt does NOT work with examples that use WiFi (..._WiFi.ino).
 Alternatively you could just uncomment the line //#define USE_ETHERNET in SoapESP32.h. Whatever you prefer.
 
-- In case you use VSCode/PlatformIO:
+In case you use VSCode/PlatformIO:
 You are lucky. Simply add/remove global compiler options in your platformio.ini project file:
 build_flags = 
-  -D__GNU_VISIBLE				<-- this option will be passed on to compiler
-;  -DUSE_ETHERNET       <-- but not this one
+  -D__GNU_VISIBLE		<-- this option will be passed on to compiler
+;  -DUSE_ETHERNET		<-- but not this one
 	
 ## Doc 
 
