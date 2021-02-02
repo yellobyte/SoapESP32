@@ -33,21 +33,21 @@ Unfortunately when using the standard Arduino Ethernet library (instead of WiFi)
 There are two solutions to this problem:
 
 a) use addServer() to manually add a server to the server list (which I recommend), or
-b) modify "socket.cpp" in Arduino Ethernet library to use a >>source<< port between 49152 & 65535. 
-   Which is not only a dirty solution but puts you under risk to forget about it and then loose those changes when updating the Ethernet lib a year later in a hurry.
 
-  ...
-  W5100.writeSnIR(s, 0xFF);
-  if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {     <----- !!!
-    W5100.writeSnPORT(s, port);
-  } 
-  else {
+b) modify "socket.cpp" in Arduino Ethernet library to use a >>source<< port between 49152 & 65535. Which is not only a dirty solution but puts you under risk to forget about it and then loose those changes when updating the Ethernet lib a year later in a hurry.
+
+...
+W5100.writeSnIR(s, 0xFF);
+if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {     <----- !!!
+  W5100.writeSnPORT(s, port);
+} 
+else {
   if (++local_port < 49152) local_port = 49152;
-    W5100.writeSnPORT(s, local_port);
-  }
-  // Calculate MAC address from Multicast IP Address
-  byte mac[] = {  0x01, 0x00, 0x5E, 0x00, 0x00, 0x00 };
-  ...
+  W5100.writeSnPORT(s, local_port);
+}
+// Calculate MAC address from Multicast IP Address
+byte mac[] = {  0x01, 0x00, 0x5E, 0x00, 0x00, 0x00 };
+...
 
 ## Compiling the examples
 
