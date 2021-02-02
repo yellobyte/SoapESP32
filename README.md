@@ -9,7 +9,7 @@ Motivation for writing it was the missing capability of my ESP32-Radio (based on
 I tested this library with different media servers: 
 
   - DiXim and Twonky running on Linux (NAS devices) and 
-	- UMS (Universal Media Server) & Windows Media Player running on Win10 (in a virtual machine)
+  - UMS (Universal Media Server) & Windows Media Player running on Win10 (in a virtual machine)
 	
 If you run into trouble with your particular DLNA media server or NAS, increase CORE_DEBUG_LEVEL and it gives you an indication where the problem is. Tracing the communication with Wireshark helps a lot!
 
