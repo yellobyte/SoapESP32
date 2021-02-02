@@ -244,8 +244,7 @@ bool MiniXPath::find(char charToParse, bool subTree)
                   charTP, pathSize, state, level, matchCount, matchLevel, position, treeFlag, matchLevel == pathSize);  
   //}                
 #endif									
-  return
-    matchLevel == pathSize;
+  return matchLevel == pathSize;
 }
 
 bool MiniXPath::elementPathMatch()
