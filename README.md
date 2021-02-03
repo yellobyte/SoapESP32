@@ -1,12 +1,12 @@
 # SoapESP32
 
-This library provides only the most basic & simple UPnP/SOAP functionality, enabling an ESP32 device to scan the local network for DLNA media servers, scan their contents and finally retrieve files.
+This Arduino library provides only the most basic & simple UPnP/SOAP functionality, enabling an ESP32 device to scan the local network for DLNA media servers, scan their contents and finally retrieve files.
 
 Since EPS32 speed and memory are limited, focus was on using as little ESP32 resources as possible.
 
 Motivation for writing it was the missing capability of my ESP32-Radio (based on Ed Smallenburg's great project) to play audio content stored on my different NAS devices (running a DLNA server).
 
-I tested this library with different media servers: 
+The library has been tested so far with the following DLNA media servers: 
 
   - DiXim and Twonky running on Linux (NAS devices) and 
   - UMS (Universal Media Server) & Windows Media Player running on Win10 (in a virtual machine)
@@ -36,16 +36,7 @@ a) use addServer() to manually add a server to the server list (which I recommen
 
 b) modify "socket.cpp" in Arduino Ethernet library to use a >>source<< port between 49152 & 65535. Which is not only a dirty solution but puts you under risk to forget about it and then loose those changes when updating the Ethernet lib a year later in a hurry.
 
-Here just a short snippet with the needed changes:
-
-W5100.writeSnIR(s, 0xFF);
-if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {
-  W5100.writeSnPORT(s, port);
-} 
-else {
-  if (++local_port < 49152) local_port = 49152;
-  W5100.writeSnPORT(s, local_port);
-}
+Have a look at doc/Readme.txt to see the suggested modification.
 
 ## Compiling the examples
 
@@ -75,8 +66,8 @@ build_flags = -D__GNU_VISIBLE, -DUSE_ETHERNET
 
 Folder "doc" contains log files showing Serial Monitor output of different core debug levels of the various examples and of my ESP32-Radio with integrated SoapESP32. They might help you in adding this lib to your project.
 		
-After merging this library with an existing ESP32-Radio I have it running for a few month now without any problems. No need to fiddle around with SD cards anymore. :-)
+After merging this library with an existing ESP32-Radio it's running for a few month now without any problems. No need to fiddle around with SD cards anymore.
 
-The lib is not perfect but I hope you might find it useful. Have fun!
+The lib is not perfect but I hope you might find it useful.
 
 Thomas J. <yellobyte@bluewin.ch>

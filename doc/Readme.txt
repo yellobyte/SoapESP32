@@ -17,5 +17,23 @@ If you want to integrate this library into an existing ESP32-Radio project, plea
 mp4 clip and the corresponding logfile. They might be helpful.
 
 
+The proposed modification for socket.cpp as mentioned in Readme.md to get around the SSDP problem is as follows:
+
+uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint16_t port)
+{
+  ...
+  ...
+  if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {	<------ modification
+    W5100.writeSnPORT(s, port);
+  } else {
+    // if don't set the source port, set local_port number.
+    if (++local_port < 49152) local_port = 49152;
+    W5100.writeSnPORT(s, local_port);
+  }
+  // Calculate MAC address from Multicast IP Address
+  byte mac[] = {  0x01, 0x00, 0x5E, 0x00, 0x00, 0x00 };
+  ...
+  ...
+
 
 

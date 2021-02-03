@@ -70,9 +70,9 @@ char *strcasestr(const char *s, const char *what)
     c = tolower((unsigned char)c);
     len = strlen(what);
     do {
-	do {
-	  if ((sc = *s++) == 0) return (NULL);
-	} 
+      do {
+        if ((sc = *s++) == 0) return (NULL);
+      } 
       while ((char)tolower((unsigned char)sc) != c);
     } 
     while (strncasecmp(s, what, len) != 0);
@@ -153,19 +153,20 @@ bool SoapESP32::wakeUpServer(const char *macAddress)
 //
 int SoapESP32::soapClientTimedRead()
 {
-    int c;
-    unsigned long startMillis = millis();
-    do {
-        claimSPI();
-        c = m_client->read();
-        releaseSPI();
-        if(c >= 0) {
-            return c;
-        }
-    } 
-    while (millis() - startMillis < SERVER_READ_TIMEOUT);
+  int c;
+  unsigned long startMillis = millis();
 
-    return -1;     // read timeout
+  do {
+    claimSPI();
+    c = m_client->read();
+    releaseSPI();
+    if(c >= 0) {
+      return c;
+    }
+  } 
+  while (millis() - startMillis < SERVER_READ_TIMEOUT);
+
+  return -1;     // read timeout
 }
 
 //
@@ -328,8 +329,12 @@ bool SoapESP32::soapReadHttpHeader(size_t *contentLength, bool *chunked)
   }
   if (ok) {
     m_xmlReplaceState = xmlPassthrough;
-    if (chunked && *chunked) log_d("HTTP-Header ok, trailing content is chunked, no size announced"); 
-    else log_d("HTTP-Header ok, trailing content is not chunked, announced size: %d", *contentLength); 
+    if (chunked && *chunked) {
+      log_d("HTTP-Header ok, trailing content is chunked, no size announced"); 
+    }
+    else {
+      log_d("HTTP-Header ok, trailing content is not chunked, announced size: %d", *contentLength); 
+    }
   }
   return ok;
 }
@@ -353,9 +358,10 @@ int SoapESP32::soapReadXML(bool chunked, bool replace)
 GET_MORE:    
     if (!chunked) {
       // data is not chunked
-      if ((c = soapClientTimedRead()) < 0)
+      if ((c = soapClientTimedRead()) < 0) {
         // Timeout or connection closed
         return -1;   
+      }
     }
     else {
       // de-chunk XML data   
@@ -366,23 +372,28 @@ GET_MORE:
         claimSPI();
         int len = m_client->readBytesUntil('\n', tmpBuffer, sizeof(tmpBuffer) - 1);
         releaseSPI();
-        if (len < 2) 
+        if (len < 2) {
           return -2;   // we expect at least 1 digit chunk size + '\r'
+        }
         tmpBuffer[len-1] = 0;     // replace '\r' with '\0'
-        if (sscanf(tmpBuffer, "%x", &m_xmlChunkCount) != 1) 
+        if (sscanf(tmpBuffer, "%x", &m_xmlChunkCount) != 1) {
           return -3;
+        }
         log_d("announced chunk size: 0x%x, %d", m_xmlChunkCount, m_xmlChunkCount);
-        if (m_xmlChunkCount <= 0) 
+        if (m_xmlChunkCount <= 0) {
           return -4;  // Not necessarily an error...final chunk size can be 0
+        }
       }
-      if ((c = soapClientTimedRead()) < 0)
+      if ((c = soapClientTimedRead()) < 0) {
         return -5;    // receive timeout error
+      }
 
       // check for end of chunk
       if (--m_xmlChunkCount == 0) {
         // skip "\r\n" trailing each chunk
-        if (soapClientTimedRead() < 0 || soapClientTimedRead() < 0)
+        if (soapClientTimedRead() < 0 || soapClientTimedRead() < 0) {
           return -6;   
+        }
       }
     }
   }
@@ -943,8 +954,9 @@ bool SoapESP32::readStart(soapObject_t *object, size_t *size)
   }
 
   // establish connection to server and send GET request
-  if (!soapGet(object->downloadIp, object->downloadPort, object->uri.c_str())) 
-		return false;
+  if (!soapGet(object->downloadIp, object->downloadPort, object->uri.c_str())) {
+    return false;
+  }
 
   // connection established, read HTTP header
   if (!soapReadHttpHeader(&m_clientDataAvailable)) {
@@ -964,8 +976,9 @@ bool SoapESP32::readStart(soapObject_t *object, size_t *size)
   } 
 
   m_clientDataConOpen = true;
-  if (size)                              // pointer valid ?
+  if (size) {                            // pointer valid ?
     *size = m_clientDataAvailable;       // return size of file
+  }
 
   return true; 
 }
@@ -1010,9 +1023,9 @@ int SoapESP32::read(uint8_t *buf, size_t size, uint32_t timeout) {
 
 int SoapESP32::read(void)
 {
-	uint8_t b;
-	if (read(&b, 1) > 0) return b;
-	return -1;
+  uint8_t b;
+  if (read(&b, 1) > 0) return b;
+  return -1;
 }
 
 //
