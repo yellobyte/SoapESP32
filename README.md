@@ -34,9 +34,7 @@ There are two solutions to this problem:
 
 a) use addServer() to manually add a server to the server list (which I recommend), or
 
-b) modify "socket.cpp" in Arduino Ethernet library to use a >>source<< port between 49152 & 65535. Which is not only a dirty solution but puts you under risk to forget about it and then loose those changes when updating the Ethernet lib a year later in a hurry.
-
-Have a look at doc/Readme.txt to see the suggested modification.
+b) modify "socket.cpp" in Arduino Ethernet library to use a >>source<< port between 49152 & 65535. Which is not only a dirty solution but puts you under risk to forget about it and then loose those changes when updating the Ethernet lib a year later in a hurry. Have a look at doc/Readme.txt to see the suggested modification.
 
 ## Compiling the examples
 
