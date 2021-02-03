@@ -48,11 +48,7 @@ Unfortunately we can't set project wide compiler options in *.ino sketches thoug
 In case you use the Arduino IDE:
 
 Add any needed additional compiler options to line 'compiler.cpreprocessor.flags' in your Arduino IDE file "platform.txt". 
-On my PC for example I find this file in the following directory:
-	C:\Users\tj\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.4
-But be reminded, those options will stay permanent until you delete them. So having "-DUSE_ETHERNET" in platform.txt does NOT work with examples that use WiFi (..._WiFi.ino).
-
-Alternatively you could just uncomment the line //#define USE_ETHERNET in SoapESP32.h. Whatever you prefer.
+On my PC for example I find this file in the following directory:  	C:\Users\tj\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.4.  But be reminded, those options will stay permanent until you delete them. So having "-DUSE_ETHERNET" in platform.txt does NOT work with examples that use WiFi (..._WiFi.ino).  Alternatively you could just uncomment the line //#define USE_ETHERNET in SoapESP32.h. Whatever you prefer.
 
 In case you use VSCode/PlatformIO:
 
