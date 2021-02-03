@@ -435,7 +435,8 @@ GET_MORE:
         }
       }
     }
-    else {  // xmlTakeFromBuffer
+    else {  
+      // xmlTakeFromBuffer
       c = m_xmlReplaceBuffer[m_xmlReplaceOffset++];
       if (m_xmlReplaceBuffer[m_xmlReplaceOffset] == '\0') {
         m_xmlReplaceState = xmlPassthrough;

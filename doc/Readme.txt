@@ -23,7 +23,7 @@ uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint
 {
   ...
   ...
-  if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {	<------ modification
+  if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {	<------ modification !!
     W5100.writeSnPORT(s, port);
   } else {
     // if don't set the source port, set local_port number.

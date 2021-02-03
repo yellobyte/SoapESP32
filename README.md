@@ -64,7 +64,7 @@ build_flags = -D__GNU_VISIBLE, -DUSE_ETHERNET
 	
 ## Doc 
 
-Folder "doc" contains log files showing Serial Monitor output of different core debug levels of the various examples and of my ESP32-Radio with integrated SoapESP32. They might help you in adding this lib to your project.
+Folder "doc" contains log files showing Serial Monitor output of different core debug levels of the various examples and of an ESP32-Radio with integrated SoapESP32. They might help you in adding this lib to your project.
 		
 After merging this library with an existing ESP32-Radio it's running for a few month now without any problems. No need to fiddle around with SD cards anymore.
 
