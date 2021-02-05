@@ -1,7 +1,7 @@
 /*
   SoapESP32, a simple library for accessing DLNA media servers with ESP32 devices
 	
-  Copyright (c) 2021 Thomas Jentzsch <yellobyte@bluewin.ch>
+  Copyright (c) 2021 Thomas Jentzsch
 
   Permission is hereby granted, free of charge, to any person
   obtaining a copy of this software and associated documentation 
