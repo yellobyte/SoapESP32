@@ -27,7 +27,7 @@
     "DiXim",
     "Twinky"
   ],
-  "description": "Enables an ESP32 to scan the local network for DLNA media servers, browse them and retrieve files",
+  "description": "Enables an ESP32 to scan the local network for DLNA media servers, browse their content and download files",
   "authors":
   [
     {
