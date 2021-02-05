@@ -100,9 +100,15 @@ Folder **Doc** contains various files to help you implement this library into yo
 * VLC snapshots to help you find server & file download parameters needed for some examples
 * the platformio.ini file I used when testing examples with VSCode/PlatformIO
 
-## Example for an implementation: ESP32-Radio
+## Example of an implementation: ESP32-Radio
 
-After merging this library with an existing ESP32-Radio it's been running for a few month now without any problems. Biggest advantage is not having to fiddle around with SD cards anymore!  
+After merging this library with an existing ESP32-Radio I did 2 years ago (based on Ed Smallenburgs code) it's been running for a few month now without any problems. Biggest advantage is not having to fiddle around with SD cards anymore!
+
+Using the rotary switch encoder is all it needs to browse through the content of a media server in the local network. Going up and down the directory levels and finally selecting an audio file for playing can be done very fast.
+
+Instead of downloading the file to SD card (as explained in examples) we only read a chunk of data into the queue which feeds the audio codec VS1053B. When the queue accepts another chunk of data we read more from the media server until the song has finished. Then we close the data connection to the server and select the next audio file from the list, provided we are in repeat file/folder mode.  
+
+The following picture sequence shows the implementation in my ESP32-Radio:
 
 ![github](https://github.com/yellobyte/SoapESP32/raw/main/doc/ESP32-Radio-DLNA.jpg)
 
