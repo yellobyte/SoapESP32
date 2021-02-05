@@ -1,6 +1,10 @@
 {
   "name": "SoapESP32",
-  "version": "1.0.0", 
+  "version": "1.0.1", 
+  "platforms":
+  [
+    "espressif32"
+  ], 
   "repository":
   {
     "type": "git",
@@ -12,6 +16,7 @@
     "ESP32",
     "SoapESP32",
     "SSDP",
+    "UPnP",
     "SOAP",
     "DLNA",
     "NAS",
@@ -22,11 +27,7 @@
     "DiXim",
     "Twinky"
   ],
-  "description": "Scan local network for DLNA media servers, browse them and retrieve files",
-  "platforms":
-  [
-    "espressif32"
-  ], 
+  "description": "Enables an ESP32 to scan the local network for DLNA media servers, browse them and retrieve files",
   "authors":
   [
     {
