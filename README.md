@@ -2,7 +2,7 @@
 
 This Arduino library provides basic UPnP/SOAP functionality, enabling an ESP32 device to scan the local network for DLNA media servers, browse their content and finally download files.
 
-Motivation for writing it was the missing capability of my ESP32-Radio (based on Ed Smallenburg's great project) to play audio content stored on the various NAS devices in the local network at home (most of them running a DLNA server).
+Motivation for writing it was the missing capability of an existing ESP32-Radio (based on Ed Smallenburg's code) to play audio content stored on the various NAS devices in the local network at home (most of them running a DLNA server).
 
 The library has been tested so far with the following DLNA media servers: 
 
