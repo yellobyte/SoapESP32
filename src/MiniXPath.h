@@ -6,8 +6,6 @@
   - extracting whole sub trees if requested
   - using C++ strings
  
-  Release Notes:
-  V1.0.0  2021-02-02 Initial Version
 */
 
 #ifndef MiniXPath_h

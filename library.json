@@ -1,6 +1,6 @@
 {
   "name": "SoapESP32",
-  "version": "1.0.1", 
+  "version": "1.0.3", 
   "platforms":
   [
     "espressif32"
