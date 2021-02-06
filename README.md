@@ -108,7 +108,7 @@ Using the rotary switch encoder is all it needs to browse through the content of
 
 Instead of downloading the file to SD card (as explained in examples) we only read a chunk of data into the queue which feeds the audio codec VS1053B. When the queue accepts another chunk of data we read more from the media server until the song has finished. Then we close the data connection to the server and select the next audio file from the list, provided we are in repeat file/folder mode.  
 
-The following picture sequence shows the implementation in my ESP32-Radio:
+The following picture sequence shows how it is implemented:
 
 ![github](https://github.com/yellobyte/SoapESP32/raw/main/doc/ESP32-Radio-DLNA.jpg)
 
