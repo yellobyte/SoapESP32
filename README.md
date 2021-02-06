@@ -100,7 +100,7 @@ Folder **Doc** contains various files to help you implement this library into yo
 * VLC snapshots to help you find server & file download parameters needed for some examples
 * the platformio.ini file I used when testing examples with VSCode/PlatformIO
 
-## Example of an implementation: ESP32-Radio
+## Example of an implementation: ESP32-Radio using SoapESP32
 
 After merging this library with the ESP32-Radio code it has been running for a few month now without any problems. Biggest advantage is not having to fiddle around with SD cards anymore!
 
