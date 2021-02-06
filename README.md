@@ -62,7 +62,7 @@ Four of the examples, namely
 
 require some parameters (that apply to your specific DLNA media server) be defined manually.  
 
-The 3 snapshots _Using_VLC_to_find_....._parameter.JPG_ in folder **Doc** show you how to use the program **VLC** to find proper values.
+The three snapshots _Using_VLC_to_find_....._parameter.JPG_ in folder **Doc** show you how to use the program **VLC** to find proper values.
 
 ## Compiling the examples
 
@@ -102,7 +102,7 @@ Folder **Doc** contains various files to help you implement this library into yo
 
 ## Example of an implementation: ESP32-Radio
 
-After merging this library with an existing ESP32-Radio I did 2 years ago (based on Ed Smallenburgs code) it's been running for a few month now without any problems. Biggest advantage is not having to fiddle around with SD cards anymore!
+After merging this library with the ESP32-Radio code it has been running for a few month now without any problems. Biggest advantage is not having to fiddle around with SD cards anymore!
 
 Using the rotary switch encoder is all it needs to browse through the content of a media server in the local network. Going up and down the directory levels and finally selecting an audio file for playing can be done very fast.
 
