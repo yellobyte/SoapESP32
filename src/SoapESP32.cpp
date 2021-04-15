@@ -64,6 +64,7 @@ char *strcasestr(const char *s, const char *what)
 {
   char c, sc;
   size_t len;
+
   if ((c = *what++) != 0) {
     c = tolower((unsigned char)c);
     len = strlen(what);
@@ -76,6 +77,7 @@ char *strcasestr(const char *s, const char *what)
     while (strncasecmp(s, what, len) != 0);
     s--;
   }
+
   return ((char *)s);
 }
 #endif
@@ -201,6 +203,7 @@ bool SoapESP32::soapUDPmulticast(uint8_t repeats)
   m_udp->stop();
   releaseSPI();
   log_e("error sending SSDP multicast packets");
+
   return false; 
 }
 
@@ -247,9 +250,11 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
             // NOTIFY packets sent out regularly by media servers (we ignore ssdp:byebye's)
           (strstr(tmpBuffer,SSDP_NOTIFICATION) &&
            ((p = strcasestr(tmpBuffer,SSDP_LOCATION)) != NULL) &&
-           strcasestr(tmpBuffer,SSDP_NOTIFICATION_TYPE) && strcasestr(tmpBuffer,SSDP_NOTIFICATION_SUB_TYPE))
+           strcasestr(tmpBuffer,SSDP_NOTIFICATION_TYPE) && strcasestr(tmpBuffer,SSDP_NOTIFICATION_SUB_TYPE)
+          )
          ) {  
         char format[30];
+
         snprintf(format, sizeof(format), "http://%%[0-9.]:%%d/%%%ds", SSDP_LOCATION_BUF_SIZE - 1);
         if (sscanf(p + 10, format, address, &port, location) != 3) continue;
         if (!ip.fromString(address)) continue;
@@ -271,9 +276,11 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
     }
   }
   while ((millis() - start) < msWait);
+
   claimSPI();
   m_udp->stop();
   releaseSPI();
+
   return true;
 }
 
@@ -334,6 +341,7 @@ bool SoapESP32::soapReadHttpHeader(size_t *contentLength, bool *chunked)
       log_d("HTTP-Header ok, trailing content is not chunked, announced size: %d", *contentLength); 
     }
   }
+
   return ok;
 }
 
@@ -542,6 +550,7 @@ end_stop:
 end:
     j++;
   }
+
   return m_server.size();
 }
 
@@ -641,6 +650,7 @@ bool SoapESP32::soapScanContainer(const String *parentId,
   // scan searchable flag...not always provided (e.g. Universal Media Server)
   if (!soapScanAttribute(attributes, &str, DIDL_ATTR_SEARCHABLE)) {
     log_w("attribute \"%s\" is missing, we set it true", DIDL_ATTR_SEARCHABLE);
+    info.searchable = true;
   }  
   else {
     log_d("%s\"%s\"", DIDL_ATTR_SEARCHABLE, str.c_str());

@@ -196,7 +196,7 @@ class SoapESP32
 #endif    
     bool               m_clientDataConOpen;     // marker: socket open for reading file
     size_t             m_clientDataAvailable;   // file read count
-    std::vector<soapServer_t> m_server ;        // list of usable media servers in local network
+    soapServerVect_t   m_server ;               // list of usable media servers in local network
     int                m_xmlChunkCount;         // nr of bytes left of chunk (0 = end of chunk, next line delivers chunk size)
     eXmlReplaceState   m_xmlReplaceState;       // state machine for replacing XML entities
     uint8_t            m_xmlReplaceOffset;

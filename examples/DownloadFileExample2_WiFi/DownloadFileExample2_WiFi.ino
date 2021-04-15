@@ -55,7 +55,7 @@ bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
   }
   else {
     for (int i = 0; i < browseResult.size(); i++) {
-			// go through each object in list and recurse for directories or
+      // go through each object in list and recurse for directories or
       // break if we find an audio file
       if (browseResult[i].isDirectory ) {
         if ((level + 1) < BROWSE_LEVELS) { 
@@ -144,8 +144,8 @@ void setup() {
     size_t fileSize;          // will store size of file
     soapObject_t object;
 
-    object.id = "0";					// we start with root
-    object.name = "root";			// only needed for printing in case of error
+    object.id = "0";          // we start with root
+    object.name = "root";     // only needed for printing in case of error
     
     if (findAudioFile(&soap, srvNum, &object)) {
 
