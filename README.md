@@ -11,7 +11,7 @@ The library has been tested so far with the following DLNA media servers:
 	
 If you run into trouble with your particular DLNA media server or NAS, increase `CORE_DEBUG_LEVEL` and it gives you an indication where the problem is. Tracing the communication with Wireshark helps a lot!
 
-## Using W5x00 Ethernet shield/boards instead of builtin WiFi
+## Using W5x00 Ethernet shield/boards instead of builtin WiFi (optional)
 
 Using a Wiznet W5x00 board and the standard Arduino Ethernet lib for communication produced some sporadic issues. Especially client.read() calls returned corrupted data every now and then, esp. with other threads using the SPI bus simultaneously.
 This problem is mentioned a few times in forums on the internet, so it seems to be a known ESP32 Arduino SPI library issue.
@@ -66,7 +66,7 @@ The three snapshots _Using_VLC_to_find_....._parameter.JPG_ in folder **Doc** sh
 
 ## Compiling the examples
 
-All examples were compiled & tested with ArduinoIDE V1.8.9 and VSCode V1.52.1/PlatformIO Core5.0.4/Home 3.3.1.
+All examples were compiled & tested with ArduinoIDE V1.8.9 and VSCode/PlatformIO.
 
 If possible, please always set project wide preprocessor option `__GNU_VISIBLE` which enables usage of strcasestr() provided in _string.h_. 
 However, if `__GNU_VISIBLE` is not defined, a quick and dirty version of strcasestr() defined in _SoapESP32.cpp_ will be used instead.
@@ -75,20 +75,20 @@ If you use an Ethernet module/shield instead of builtin WiFi you MUST set the pr
 
 Unfortunately we can't set project wide preprocessor/compiler options in *.ino sketches though. 
 
-### So in case you use the Arduino IDE:
+### In case you use Arduino IDE:
 
-Add any needed additional options to line **compiler.cpreprocessor.flags** in your Arduino IDE file _platform.txt_.  
-On my PC for example I find this file in the following directory:  	
+Uncomment the line **//#define USE_ETHERNET** in _SoapESP32.h_.
+
+Alternatively you could add any needed additional options to line **compiler.cpreprocessor.flags** in your Arduino IDE file _platform.txt_.  
+On my PC for example I find this file in directory:  	
 * _C:\Users\tj\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.4_
 
 But be reminded, those options will stay permanent until you delete them.  
-So having `-DUSE_ETHERNET` in _platform.txt_ does NOT work with examples that use WiFi (..._WiFi.ino).  
+Having `-DUSE_ETHERNET` in _platform.txt_ does NOT work with examples that use WiFi (..._WiFi.ino) !  
 
-Alternatively you could just uncomment the line **//#define USE_ETHERNET** in _SoapESP32.h_. Whatever you prefer.
+### In case you use VSCode/PlatformIO:
 
-### And in case you use VSCode/PlatformIO:
-
-You are lucky. Simply add the options to your _platformio.ini_ project file:
+Add needed options to your _platformio.ini_ project file, e.g.:
 
 build_flags = `-D__GNU_VISIBLE, -DUSE_ETHERNET`
 	
