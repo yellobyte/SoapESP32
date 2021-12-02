@@ -79,8 +79,7 @@ Unfortunately we can't set project wide preprocessor/compiler options in *.ino s
 
 Uncomment the line **//#define USE_ETHERNET** in _SoapESP32.h_.
 
-Alternatively you could add any needed additional options to line **compiler.cpreprocessor.flags** in your Arduino IDE file _platform.txt_.  
-On my PC for example I find this file in directory:  	
+Alternatively you could add any needed additional options to line **compiler.cpreprocessor.flags** in your Arduino IDE file _platform.txt_.  On my PC for example I find this file in directory:  	
 * _C:\Users\tj\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.4_
 
 But be reminded, those options will stay permanent until you delete them.  
