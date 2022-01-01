@@ -774,8 +774,14 @@ bool SoapESP32::soapScanItem(const String *parentId,
       log_d("uri=\"%s\"", info.uri.c_str());
 
       // scan file size
-      if (!soapScanAttribute(&strAttr, &str, DIDL_ATTR_SIZE)) return false;
-      if ((info.size = (size_t)str.toInt()) == 0) {
+      if (!soapScanAttribute(&strAttr, &str, DIDL_ATTR_SIZE)) {
+          info.size = -1; 
+      } 
+      else {
+        info.size = (size_t)str.toInt();
+      }
+      
+      if (info.size == 0) {
         log_e("file size=0"); 
         // to allow for empty files comment next line out
         return false; // we ignore empty files
