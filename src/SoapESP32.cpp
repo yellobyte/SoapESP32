@@ -775,7 +775,7 @@ bool SoapESP32::soapScanItem(const String *parentId,
 
       // scan file size
       if (!soapScanAttribute(&strAttr, &str, DIDL_ATTR_SIZE)) {
-          info.size = -1; 
+          info.size = SIZE_MAX; 
       } 
       else {
         info.size = (size_t)str.toInt();
