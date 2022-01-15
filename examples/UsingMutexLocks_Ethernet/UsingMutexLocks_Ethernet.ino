@@ -11,7 +11,7 @@
   We use a Wiznet W5x00 Ethernet module/shield instead of builtin WiFi.
   It's connected to ESP32 GPIO 18, 19, 23 and GPIO 25 (Chip Select).
 
-  Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-15, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -141,10 +141,16 @@ void setup() {
         }
         else {
           // root shouldn't host files so it's unlikely we get here
-          Serial.print(" (File, Size: ");
+          Serial.print(" (file, size: ");
         }
-        Serial.print(browseResult[j].size);
+        if (browseResult[j].sizeMissing) {
+          Serial.print("missing");
+        }
+        else {
+          Serial.print(browseResult[j].size);
+        }
         Serial.println(")");
+
       }
     }
     Serial.println("");

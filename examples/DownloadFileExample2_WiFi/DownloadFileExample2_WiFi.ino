@@ -2,12 +2,12 @@
   DownloadFileExample2_WiFi
 
   This sketch scans the local network for media servers and if found, 
-  browses them for a small MP3 audio file. If found, the file is copied
+  browses them for a small audio file. If found, the file is copied
   to SD card. 
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-15, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -18,15 +18,20 @@
 // uncomment in case you want to know
 //#define SHOW_ESP32_MEMORY_STATISTICS
 
+// set IP and uncomment if you want to browse only a single system
+//#define THIS_IP_ONLY 192,168,1,42
+
 // How many sub-directory levels to browse (incl. root) at maximum in 
 // search for a file. 
 #define BROWSE_LEVELS 3
 
 // File download settings
 #define FILE_MAX_SIZE    8000000
-#define FILE_EXTENSION   ".mp3"
+#define FILE_MIN_SIZE    500000
 #define FILE_NAME_ON_SD  "/myFile.mp3"
 #define READ_BUFFER_SIZE 5000
+// set a lower speed and uncomment in case you experience SD card write errors
+//#define SPI_SPEED_SDCARD 2000000U     // SD library default is 4MHz
 
 const char ssid[] = "MySSID";
 const char pass[] = "MyPassword"; 
@@ -37,7 +42,7 @@ WiFiUDP    udp;
 SoapESP32 soap(&client, &udp);
 File myFile;
 
-// browse a server recursively until an audio file with extension ".mp3" is found.
+// browse a server recursively until an audio file is found.
 // parameter "object": 
 //  - when entering the function it contains the directory to browse
 //  - when function returns true it contains the file info
@@ -61,21 +66,23 @@ bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
         if ((level + 1) < BROWSE_LEVELS) { 
           // recurse
           *object = browseResult[i];
+          level++;
           if (findAudioFile(soap, servNum, object)) {
             return true;
           }
+          level--;
         }  
       } 
       else {
         if (browseResult[i].fileType == fileTypeAudio &&
-            browseResult[i].size < FILE_MAX_SIZE &&
-            browseResult[i].uri.indexOf(FILE_EXTENSION) > 0) {
-          // object is a MP3 audio file with a size smaller than 8MB
+            browseResult[i].size <= FILE_MAX_SIZE &&
+            browseResult[i].size >= FILE_MIN_SIZE) {
+          // object is an audio file with a size between 0.5-8MB
           *object = browseResult[i];
           Serial.println("Audio file was found:");
-          Serial.print(" name: ");
+          Serial.print(" name: \"");
           Serial.print(object->name);
-          Serial.print(", id: ");
+          Serial.print("\", id: ");
           Serial.print(object->id);
           Serial.print(", size: ");
           Serial.println(object->size);
@@ -107,7 +114,11 @@ void setup() {
 
   // preparing SD card 
   Serial.print("Initializing SD card...");
-  if (!SD.begin(5)) {          // CS to ESP32 GPIO 5
+#ifdef SPI_SPEED_SDCARD  
+  if (!SD.begin(5, SPI, SPI_SPEED_SDCARD)) {  // CS to ESP32 GPIO 5
+#else
+  if (!SD.begin(5)) {                         // CS to ESP32 GPIO 5, uses SD library default SPI speed
+#endif
     Serial.println("failed!");
     Serial.println("Sketch finished.");
     return;
@@ -127,18 +138,16 @@ void setup() {
   Serial.println(soap.getServerCount());
   Serial.println();
 
-  // now search all servers for an audio file & if we find one, copy it to SD
+  // now browse all servers for an audio file & if we find one, copy it to SD
   soapServer_t srvInfo;       // single server info
   uint8_t srvNum;             // server number in list
 
   for (srvNum = 0; soap.getServerInfo(srvNum, &srvInfo); srvNum++) {
-    
-    // set IP and uncomment if you want to pick a single server
-    //if (srvInfo.ip != IPAddress(192,168,1,35)) continue;
-    //
-    Serial.print("Searching audio file on server: ");
+#ifdef THIS_IP_ONLY
+    if (srvInfo.ip != IPAddress(THIS_IP_ONLY)) continue;
+#endif
+    Serial.print("Please be patient, searching audio file on server: ");
     Serial.println(srvInfo.friendlyName);
-    Serial.println("Please be patient, this may take a while !");
 
     // browse server beginning with root ("0")
     size_t fileSize;          // will store size of file
@@ -173,13 +182,17 @@ void setup() {
           int res = soap.read(buffer, READ_BUFFER_SIZE);
           if (res < 0) {
             // read error or timeout 
+            Serial.println("Error reading from media server."); 
             break;
           }         
           else if (res > 0) {
             // Remark: At this point instead of writing to SD card you 
             // could write the data into a buffer/queue which feeds an 
             // audio codec (e.g. VS1053) for example
-            myFile.write(buffer, res);
+            if (!myFile.write(buffer, res)) {
+              Serial.println("Error writing to SD card."); 
+              break;
+            }
             //
             bytesRead += res;
             Serial.print(".");
@@ -189,6 +202,7 @@ void setup() {
           }
         } 
         while (soap.available());
+        Serial.println();
 
         // close connection to server
         soap.readStop();

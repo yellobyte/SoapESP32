@@ -21,7 +21,6 @@
   ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
   CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION 
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 */
 
 #include "SoapESP32.h"
@@ -37,8 +36,8 @@
 #define releaseSPI() 
 #endif
 
-enum eXpath { xpFriendlyName = 0, xpServiceType, xpControlUrl, xpBrowseContainer, xpBrowseContainerAlt, 
-             xpBrowseItem, xpBrowseItemAlt, xpBrowseNumberReturned, xpBrowseNumberReturnedAlt,
+enum eXpath { xpFriendlyName = 0, xpServiceType, xpControlUrl, xpBrowseContainer, xpBrowseContainerAlt1, xpBrowseContainerAlt2,
+             xpBrowseItem, xpBrowseItemAlt1, xpBrowseItemAlt2, xpBrowseNumberReturned, xpBrowseNumberReturnedAlt1, xpBrowseNumberReturnedAlt2,
              xpTitle, xpAlbum, xpArtist, xpClass, xpResource };
 
 xPathParser_t xmlParserPaths[] = { 
@@ -47,16 +46,21 @@ xPathParser_t xmlParserPaths[] = {
   { .num = 5, .tagNames = { "root", "device", "serviceList", "service", "controlURL" } },
   { .num = 6, .tagNames = { "s:Envelope", "s:Body", "u:BrowseResponse", "Result", "DIDL-Lite", "container" } },
   { .num = 6, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:BrowseResponse", "Result", "DIDL-Lite", "container" } },
+  { .num = 6, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:BrowseResponse", "Result", "DIDL-Lite", "container" } },
   { .num = 6, .tagNames = { "s:Envelope", "s:Body", "u:BrowseResponse", "Result", "DIDL-Lite", "item" } },
   { .num = 6, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:BrowseResponse", "Result", "DIDL-Lite", "item" } },
+  { .num = 6, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:BrowseResponse", "Result", "DIDL-Lite", "item" } },
   { .num = 4, .tagNames = { "s:Envelope", "s:Body", "u:BrowseResponse", "NumberReturned" } },
   { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:BrowseResponse", "NumberReturned" } },
+  { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:BrowseResponse", "NumberReturned" } },
   { .num = 1, .tagNames = { "dc:title" } },
   { .num = 1, .tagNames = { "upnp:album" } },
   { .num = 1, .tagNames = { "upnp:artist" } },
   { .num = 1, .tagNames = { "upnp:class" } },
   { .num = 1, .tagNames = { "res" } }
 };
+
+const char *fileTypes[] = { "other", "audio", "picture", "video", "stream" };
 
 #if !defined(__GNU_VISIBLE)
 // find the first occurrence of what in s, ignore case.
@@ -97,7 +101,7 @@ SoapESP32::SoapESP32(WiFiClient *client, WiFiUDP *udp)
 
 //
 // broadcast 3 WOL packets carrying a specified MAC address
-// parameter is a pointer to a c string in the format "00:1:23:Aa:bC:D0" as an unusual example
+// parameter is a pointer to a C string in the format "00:1:23:Aa:bC:D0" as an unusual example
 //
 #define WOL_PACKET_SIZE 102
 bool SoapESP32::wakeUpServer(const char *macAddress)
@@ -263,7 +267,7 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
         log_d("scanned ip=%s, port=%d, location=%s", ip.toString().c_str(), port, location);
 
         // avoid multiple entries of same server (ip & port are identical) but accept multiple media servers
-        // running under the same ip but using different ports
+        // running under the same ip and using different ports
         for (i = 0; i < result->size(); i++) {
           if (result->operator[](i).ip == ip && result->operator[](i).port == port) break;               
         }
@@ -287,7 +291,7 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
 //
 // read & evaluate HTTP header
 //
-bool SoapESP32::soapReadHttpHeader(size_t *contentLength, bool *chunked)
+bool SoapESP32::soapReadHttpHeader(uint64_t *contentLength, bool *chunked)
 {
   size_t len;
   bool ok = false;
@@ -295,7 +299,7 @@ bool SoapESP32::soapReadHttpHeader(size_t *contentLength, bool *chunked)
 
   // first line contains status code
   claimSPI();
-  len = m_client->readBytesUntil('\n', tmpBuffer, sizeof(tmpBuffer) - 1);   // returns length without terminator '\n')
+  len = m_client->readBytesUntil('\n', tmpBuffer, sizeof(tmpBuffer) - 1);   // returns length without terminator '\n'
   releaseSPI();
   tmpBuffer[len] = 0;
   if (!strstr(tmpBuffer, HTTP_HEADER_200_OK)) {
@@ -320,7 +324,7 @@ bool SoapESP32::soapReadHttpHeader(size_t *contentLength, bool *chunked)
     if (len == 1) break;      // End of header: finishing line contains only "\r\n"
     if (!ok) {
       if ((p = strcasestr(tmpBuffer,HEADER_CONTENT_LENGTH)) != NULL) {
-        if (sscanf(p+strlen(HEADER_CONTENT_LENGTH),"%d", contentLength) == 1) {
+        if (sscanf(p+strlen(HEADER_CONTENT_LENGTH),"%llu", contentLength) == 1) {
           ok = true;
           continue;           // continue to read rest of header
         }  
@@ -338,7 +342,7 @@ bool SoapESP32::soapReadHttpHeader(size_t *contentLength, bool *chunked)
       log_d("HTTP-Header ok, trailing content is chunked, no size announced"); 
     }
     else {
-      log_d("HTTP-Header ok, trailing content is not chunked, announced size: %d", *contentLength); 
+      log_d("HTTP-Header ok, trailing content is not chunked, announced size: %llu", *contentLength); 
     }
   }
 
@@ -358,15 +362,15 @@ const replaceWith_t replaceWith[] = { {"&lt;", '<'},
 int SoapESP32::soapReadXML(bool chunked, bool replace)
 {
   bool match;
-  int i, c = -1;
+  int i, c = -10;
 
   if (!replace || (replace && (m_xmlReplaceState == xmlPassthrough))) {
 GET_MORE:    
     if (!chunked) {
       // data is not chunked
       if ((c = soapClientTimedRead()) < 0) {
-        // Timeout or connection closed
-        return -1;   
+        // timeout or connection closed
+        return -1;
       }
     }
     else {
@@ -374,7 +378,7 @@ GET_MORE:
       if (m_xmlChunkCount <= 0) {
         char tmpBuffer[10];
       
-        // Next line contains chunck size
+        // next line contains chunk size
         claimSPI();
         int len = m_client->readBytesUntil('\n', tmpBuffer, sizeof(tmpBuffer) - 1);
         releaseSPI();
@@ -387,11 +391,11 @@ GET_MORE:
         }
         log_d("announced chunk size: 0x%x, %d", m_xmlChunkCount, m_xmlChunkCount);
         if (m_xmlChunkCount <= 0) {
-          return -4;  // Not necessarily an error...final chunk size can be 0
+          return -4;  // not necessarily an error...final chunk size can be 0
         }
       }
       if ((c = soapClientTimedRead()) < 0) {
-        return -5;    // receive timeout error
+        return -5;
       }
 
       // check for end of chunk
@@ -449,7 +453,8 @@ GET_MORE:
       }
     }
   }
-
+  // TEST
+  //Serial.printf("%c", (char)c);
   return c;
 }
 
@@ -473,7 +478,7 @@ uint8_t SoapESP32::seekServer()
   log_i("checking all discovered media servers for service ContentDirectory");
 
   int j = 0;
-  size_t xmlSize;
+  uint64_t contentSize;
   bool chunked, gotFriendlyName, gotServiceType;
   String result((char *)0);
   MiniXPath xPath;
@@ -492,10 +497,10 @@ uint8_t SoapESP32::seekServer()
     gotServiceType = false;
 
     // reading HTTP header
-    if (!soapReadHttpHeader(&xmlSize, &chunked)) {
+    if (!soapReadHttpHeader(&contentSize, &chunked)) {
       goto end_stop_error;
     }
-    if (!chunked && xmlSize == 0) {  
+    if (!chunked && contentSize == 0) {  
       log_w("announced XML size: 0, we can stop here"); 
       goto end_stop_error;
     }  
@@ -535,6 +540,11 @@ uint8_t SoapESP32::seekServer()
         // we finally got all infos we need
         if (srv.location.endsWith("/")) srv.controlURL = srv.location;  // location string becomes first part of controlURL 
         srv.controlURL += result;
+        if (srv.controlURL.startsWith("http://")) {
+          // remove "http://ip:port/" from begin of string
+          srv.controlURL.replace("http://", "");        
+          srv.controlURL = srv.controlURL.substring(srv.controlURL.indexOf("/") + 1); 
+        }
         log_d("assigned controlURL: %s", srv.controlURL.c_str());
         log_i("ok, this server delivers media content");
         m_server.push_back(srv);  // add server to server list
@@ -609,7 +619,7 @@ bool SoapESP32::soapScanAttribute(const String *attributes, String *result, cons
   }
 
   *result = "";   // empty for next call
-  log_w("attribute: \"%s\" not found.", what);
+  log_w("attribute: \"%s\" missing.", what);
 
   return false;
 }
@@ -627,27 +637,33 @@ bool SoapESP32::soapScanContainer(const String *parentId,
   String str((char *)0);
 
   // scan container id
-  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_ID)) return false;
+  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_ID)) return false;           // container id is a must
   log_d("%s\"%s\"", DIDL_ATTR_ID, str.c_str());
   info.id = str;
 
   // scan parent id
-  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_PARENT_ID)) return false;
-  // make sure requested and scanned parent id's match
+  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_PARENT_ID)) return false;    // parent id is a must
+  // make sure requested and scanned parent id match
   if (!strcasestr(str.c_str(), parentId->c_str())) {
-    log_e("scanned parent id \"%s\" != requested parent id \"%s\"", str.c_str(), parentId);
+    log_e("scanned parent id \"%s\" != requested parent id \"%s\"", str.c_str(), parentId->c_str());
     return false;
   }
   info.parentId = *parentId;  
+  info.size = 0;
+  info.sizeMissing = false;
 
-  // scan child count
-  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_CHILD_COUNT)) return false;
-  log_d("%s\"%s\"", DIDL_ATTR_CHILD_COUNT, str.c_str());
-  if ((info.size = (int)str.toInt()) == 0) {
-    log_i("container \"%s\" is empty", info.id.c_str());
+  // scan child count...not always provided (e.g. Kodi)
+  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_CHILD_COUNT)) { 
+    info.sizeMissing = true;
+  }
+  else {
+    log_d("%s\"%s\"", DIDL_ATTR_CHILD_COUNT, str.c_str());
+    if ((info.size = (int)str.toInt()) == 0) {
+      log_i("container \"%s\" child count=0", info.id.c_str());
+    }
   }
 
-  // scan searchable flag...not always provided (e.g. Universal Media Server)
+  // scan searchable flag...not always provided (e.g. UMS)
   if (!soapScanAttribute(attributes, &str, DIDL_ATTR_SEARCHABLE)) {
     log_w("attribute \"%s\" is missing, we set it true", DIDL_ATTR_SEARCHABLE);
     info.searchable = true;
@@ -656,7 +672,7 @@ bool SoapESP32::soapScanContainer(const String *parentId,
     log_d("%s\"%s\"", DIDL_ATTR_SEARCHABLE, str.c_str());
     info.searchable = (1 == (int)str.toInt()) ? true : false;
     if (!info.searchable) {
-      log_i("\"%s\" is not searchable", info.id.c_str());
+      log_i("\"%s\" attribute searchable=0", info.id.c_str());
     }
   }
 
@@ -665,7 +681,7 @@ bool SoapESP32::soapScanContainer(const String *parentId,
   xPath.setPath(xmlParserPaths[xpTitle].tagNames, xmlParserPaths[xpTitle].num);
   while (i < container->length()) {
     if (xPath.getValue((char)container->operator[](i), &str)) {
-      if (str.length() == 0) return false;    // Valid title is a must
+      if (str.length() == 0) return false;    // valid title is a must
       info.name = str;
       log_d("title=\"%s\"", str.c_str());
       break;
@@ -676,7 +692,7 @@ bool SoapESP32::soapScanContainer(const String *parentId,
   // add valid container to result list
   info.isDirectory = true;
   browseResult->push_back(info);
-  log_i("folder \"%s\" (id: \"%s\", childCount: %d) added to list", info.name.c_str(), info.id.c_str(), info.size);
+  log_i("folder \"%s\" (id: \"%s\", childCount: %llu) added to list", info.name.c_str(), info.id.c_str(), info.size);
 
   return true; 
 }
@@ -698,24 +714,26 @@ bool SoapESP32::soapScanItem(const String *parentId,
   log_d("function entered, parentId: %s", parentId->c_str());
 
   // scan item id
-  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_ID)) return false;
+  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_ID)) return false;         // id is a must
   log_d("%s\"%s\"", DIDL_ATTR_ID, str.c_str());
   info.id = str; 
 
   // scan parent id
-  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_PARENT_ID)) return false;
+  if (!soapScanAttribute(attributes, &str, DIDL_ATTR_PARENT_ID)) return false;  // parent id is a must
   if (!strcasestr(str.c_str(), parentId->c_str())) {
+    // wrong parent id can't be ignored
     log_e("scanned parent id \"%s\" != requested parent id \"%s\"", str.c_str(), parentId);
     return false;
   }
 
-  // some needed initializations at this point
   info.parentId = *parentId; 
   info.fileType = fileTypeOther;
   info.album = "";
   info.artist = "";
   info.bitrate = 0;
   info.sampleFrequency = 0;
+  info.size = 0;
+  info.sizeMissing = false;
 
   // scan for uri, size, album (sometimes dir name when picture file) and title, artist (when audio file)
   MiniXPath xPathTitle, xPathAlbum, xPathArtist, xPathClass, xPathRes;
@@ -740,7 +758,7 @@ bool SoapESP32::soapScanItem(const String *parentId,
       gotAlbum = true;
     }
     if (!gotArtist && xPathArtist.getValue((char)item->operator[](i), &str)) {
-      info.artist = str;                      // mising artist not a showstopper
+      info.artist = str;                      // missing artist not a showstopper
       log_d("artist=\"%s\"", str.c_str());
       gotArtist = true;
     }
@@ -770,19 +788,26 @@ bool SoapESP32::soapScanItem(const String *parentId,
       else {
         info.uri = str;
       }
-      if (info.uri.length() == 0) return false;    // URI is a must     
+      if (info.uri.length() == 0) return false;   // valid URI is a must     
       log_d("uri=\"%s\"", info.uri.c_str());
 
-      // scan file size
-      if (!soapScanAttribute(&strAttr, &str, DIDL_ATTR_SIZE)) return false;
-      if ((info.size = (size_t)str.toInt()) == 0) {
-        log_e("file size=0"); 
-        // to allow for empty files comment next line out
-        return false; // we ignore empty files
+      // scan item size
+      if (!soapScanAttribute(&strAttr, &str, DIDL_ATTR_SIZE)) {
+        // indicates missing attribute "size" (e.g. Kodi audio files, Fritzbox/Serviio stream items )
+        info.sizeMissing = true;
+      } 
+      else {
+        info.size = strtoull(str.c_str(), NULL, 10);
+        log_d("size=%llu", info.size);
       }
-      log_d("size=%d", info.size);
+#if !defined(SHOW_EMPTY_FILES)
+      if (info.size == 0 && !info.sizeMissing) {        
+        log_w("reported size=0, item ignored"); 
+        return false;
+      }
+#endif        
 
-      // scan bitrate (only provided when audio file)
+      // scan bitrate (often provided when audio file)
       if (soapScanAttribute(&strAttr, &str, DIDL_ATTR_BITRATE)) {
         info.bitrate = (size_t)str.toInt();
         if (info.bitrate == 0) {
@@ -793,7 +818,7 @@ bool SoapESP32::soapScanItem(const String *parentId,
         }  
       }  
 
-      // scan sample frequency (only provided when audio file)
+      // scan sample frequency (often provided when audio file)
       if (soapScanAttribute(&strAttr, &str, DIDL_ATTR_SAMPLEFREQU)) {
         info.sampleFrequency = (size_t)str.toInt();
         if (info.sampleFrequency == 0) {
@@ -817,8 +842,9 @@ bool SoapESP32::soapScanItem(const String *parentId,
   // add valid file to result list
   info.isDirectory = false;
   browseResult->push_back(info);
-  log_i("file \"%s\" (id: \"%s\", size: %d, type: %s) added to list", 
-        info.name.c_str(), info.id.c_str(), info.size, info.fileType == fileTypeAudio ? "audio" : "picture");
+
+  log_i("\"%s\" (id: \"%s\", size: %llu, type: %s) added to list", 
+        info.name.c_str(), info.id.c_str(), info.size, getFileTypeName(info.fileType));
 
   return true;
 }
@@ -837,7 +863,7 @@ bool SoapESP32::browseServer(const uint8_t srv,              // server number in
     log_e("invalid server number: %d", srv);
     return false;
   }
-  log_i("server: \"%s\", objectId: \"%s\"", m_server[srv].friendlyName.c_str(), objectId);
+  log_i("new search on server: \"%s\", objectId: \"%s\"", m_server[srv].friendlyName.c_str(), objectId);
 
   if (startingIndex != SOAP_DEFAULT_BROWSE_STARTING_INDEX) 
     log_d("special browse parameter \"startingIndex\": %d", startingIndex);
@@ -852,23 +878,23 @@ bool SoapESP32::browseServer(const uint8_t srv,              // server number in
   log_i("connected successfully to server %s:%d", m_server[srv].ip.toString().c_str(), m_server[srv].port);
 
   // evaluate SOAP answer
-  size_t xmlSize;
+  uint64_t contentSize;
   bool chunked = false;
   int count = 0, countContainer = 0, countItem = 0;
-  MiniXPath xPathContainer, xPathContainerAlt,
-            xPathItem, xPathItemAlt,
-            xPathNumberReturned, xPathNumberReturnedAlt;
+  MiniXPath xPathContainer, xPathContainerAlt1, xPathContainerAlt2,
+            xPathItem, xPathItemAlt1, xPathItemAlt2,
+            xPathNumberReturned, xPathNumberReturnedAlt1, xPathNumberReturnedAlt2;
   String str((char *)0), strAttribute((char *)0);
 
   // reading HTTP header
-  if (!soapReadHttpHeader(&xmlSize, &chunked)) {
+  if (!soapReadHttpHeader(&contentSize, &chunked)) {
     log_e("HTTP Header not ok or reply status not 200");
     claimSPI();
     m_client->stop();
     releaseSPI();
     return false;
   }
-  if (!chunked && xmlSize == 0) {  
+  if (!chunked && contentSize == 0) {  
     log_e("announced XML size: 0 !"); 
     return false;
   } 
@@ -880,41 +906,47 @@ bool SoapESP32::browseServer(const uint8_t srv,              // server number in
   // HTTP header ok, now scan XML/SOAP reply
   String objId = objectId;  
   xPathContainer.setPath(xmlParserPaths[xpBrowseContainer].tagNames, xmlParserPaths[xpBrowseContainer].num);
-  xPathContainerAlt.setPath(xmlParserPaths[xpBrowseContainerAlt].tagNames, xmlParserPaths[xpBrowseContainerAlt].num);
+  xPathContainerAlt1.setPath(xmlParserPaths[xpBrowseContainerAlt1].tagNames, xmlParserPaths[xpBrowseContainerAlt1].num);
+  xPathContainerAlt2.setPath(xmlParserPaths[xpBrowseContainerAlt2].tagNames, xmlParserPaths[xpBrowseContainerAlt2].num);
   xPathItem.setPath(xmlParserPaths[xpBrowseItem].tagNames, xmlParserPaths[xpBrowseItem].num);
-  xPathItemAlt.setPath(xmlParserPaths[xpBrowseItemAlt].tagNames, xmlParserPaths[xpBrowseItemAlt].num);
+  xPathItemAlt1.setPath(xmlParserPaths[xpBrowseItemAlt1].tagNames, xmlParserPaths[xpBrowseItemAlt1].num);
+  xPathItemAlt2.setPath(xmlParserPaths[xpBrowseItemAlt2].tagNames, xmlParserPaths[xpBrowseItemAlt2].num);
   xPathNumberReturned.setPath(xmlParserPaths[xpBrowseNumberReturned].tagNames, xmlParserPaths[xpBrowseNumberReturned].num);
-  xPathNumberReturnedAlt.setPath(xmlParserPaths[xpBrowseNumberReturnedAlt].tagNames, xmlParserPaths[xpBrowseNumberReturnedAlt].num);
+  xPathNumberReturnedAlt1.setPath(xmlParserPaths[xpBrowseNumberReturnedAlt1].tagNames, xmlParserPaths[xpBrowseNumberReturnedAlt1].num);
+  xPathNumberReturnedAlt2.setPath(xmlParserPaths[xpBrowseNumberReturnedAlt2].tagNames, xmlParserPaths[xpBrowseNumberReturnedAlt2].num);
   while (true) {
     int ret = soapReadXML(chunked, true);  // de-chunk data stream and replace XML-entities (if found)
     if (ret < 0) {
-      log_w("soapReadXML() returned: %d", ret); 
+      log_e("soapReadXML() returned: %d", ret); 
       goto end_stop;
     }  
     // TEST
     //Serial.print((char)ret);
     //
-    // its either/or, never both 
+    // only one will return a result
     if (xPathContainer.getValue((char)ret, &str, &strAttribute, true) ||
-        xPathContainerAlt.getValue((char)ret, &str, &strAttribute, true)) {
-      log_v("container attribute (size=%d): %s", strAttribute.length(), strAttribute.c_str());
-      log_v("container (size=%d): %s", str.length(), str.c_str());
+        xPathContainerAlt1.getValue((char)ret, &str, &strAttribute, true) ||
+        xPathContainerAlt2.getValue((char)ret, &str, &strAttribute, true)) {
+      log_v("container attribute (length=%d): %s", strAttribute.length(), strAttribute.c_str());
+      log_v("container (length=%d): %s", str.length(), str.c_str());
       if (soapScanContainer(&objId, &strAttribute, &str, browseResult))
         countContainer++;
         // TEST
         delay(1); // resets task switcher watchdog, just in case it's needed
     }
     if (xPathItem.getValue((char)ret, &str, &strAttribute, true) ||
-        xPathItemAlt.getValue((char)ret, &str, &strAttribute, true)) {
-      log_v("item attribute (size=%d): %s", strAttribute.length(), strAttribute.c_str());
-      log_v("item (size=%d): %s", str.length(), str.c_str());
+        xPathItemAlt1.getValue((char)ret, &str, &strAttribute, true) ||
+        xPathItemAlt2.getValue((char)ret, &str, &strAttribute, true)) {
+      log_v("item attribute (length=%d): %s", strAttribute.length(), strAttribute.c_str());
+      log_v("item (length=%d): %s", str.length(), str.c_str());
       if (soapScanItem(&objId, &strAttribute, &str, browseResult))
         countItem++;
         // TEST
         delay(1); // resets task switcher watchdog, just in case it's needed
     }
     if (xPathNumberReturned.getValue((char)ret, &str) ||
-        xPathNumberReturnedAlt.getValue((char)ret, &str)) {
+        xPathNumberReturnedAlt1.getValue((char)ret, &str) ||
+        xPathNumberReturnedAlt2.getValue((char)ret, &str)) {
       count = str.toInt();
       log_d("announced number of folders and/or files: %d", count);
       break;  // numberReturned comes last, so we can break here
@@ -935,8 +967,10 @@ end_stop:
   log_i("found %d folders and %d files", countContainer, countItem);
 
   // TEST
-#if CORE_DEBUG_LEVEL > 0
+#if CORE_DEBUG_LEVEL > 3
   delay(10);	// allow pending serial monitor output to be sent, can be massive when verbose
+#elif CORE_DEBUG_LEVEL > 0  
+  delay(2);
 #endif  
 
   return true;
@@ -947,6 +981,8 @@ end_stop:
 //
 bool SoapESP32::readStart(soapObject_t *object, size_t *size)
 {
+  uint64_t contentSize;
+
   if (object->isDirectory) return false;
   m_clientDataAvailable = 0;
 
@@ -968,13 +1004,25 @@ bool SoapESP32::readStart(soapObject_t *object, size_t *size)
   }
 
   // connection established, read HTTP header
-  if (!soapReadHttpHeader(&m_clientDataAvailable)) {
+  if (!soapReadHttpHeader(&contentSize)) {
     // error returned
+    log_e("soapReadHttpHeader() was unsuccessful.");
     claimSPI();
     m_client->stop();
     releaseSPI();
     return false;
   }
+
+  // max allowed file size for download is 4GB-1 (SIZE_MAX)
+  if (contentSize > (uint64_t)SIZE_MAX) {
+    log_e("file too big for download. Maximum allowed file size is 4GB-1.");
+    claimSPI();
+    m_client->stop();
+    releaseSPI();
+    return false;
+  }
+
+  m_clientDataAvailable = (size_t)contentSize;
   if (m_clientDataAvailable == 0) {  
     // no data available
     log_e("announced file size: 0 !"); 
@@ -1078,13 +1126,19 @@ bool SoapESP32::soapGet(const IPAddress ip, const uint16_t port, const char *uri
     delay(100);  
   }
 
-  char buffer[120];
+  // memory allocation for assembling HTTP header
+  size_t length = strlen(uri) + 25;
+  char *buffer = (char *)malloc(length);
+  if (!buffer) {
+    log_e("malloc() couldn't allocate memory");    
+    return false;
+  }
   String str((char *)0);
 
   // assemble HTTP header
-  snprintf(buffer, sizeof(buffer), "GET /%s %s\r\n", uri, HTTP_VERSION);
+  snprintf(buffer, length, "GET /%s %s\r\n", uri, HTTP_VERSION);
   str += buffer;
-  snprintf(buffer, sizeof(buffer), HEADER_HOST, ip.toString().c_str(), port); // 29 bytes max
+  snprintf(buffer, length, HEADER_HOST, ip.toString().c_str(), port);
   str += buffer;
   str += HEADER_CONNECTION_CLOSE;
   str += HEADER_USER_AGENT;
@@ -1107,9 +1161,11 @@ bool SoapESP32::soapGet(const IPAddress ip, const uint16_t port, const char *uri
       m_client->stop();
       releaseSPI();
       log_e("GET: no reply from server for %d ms", SERVER_RESPONSE_TIMEOUT);
+      free(buffer);
       return false;
     }
   }
+  free(buffer);
 
   return true;
 }
@@ -1183,7 +1239,7 @@ bool SoapESP32::soapPost(const IPAddress ip,
   str += HEADER_USER_AGENT;
   str += HEADER_EMPTY_LINE;                    // empty line marks end of HTTP header !
 
-  // assemble SOAP message (using str+= instead of str+=..+..+.. reduces allocations)
+  // assemble SOAP message (multiple str+= instead of a single str+=..+..+.. reduces allocations)
   str += SOAP_ENVELOPE_START;
   str += SOAP_BODY_START;
   str += SOAP_BROWSE_START;
@@ -1260,5 +1316,14 @@ size_t SoapESP32::available()
 {
   return m_clientDataConOpen ? m_clientDataAvailable : 0;
 }
+
+//
+// returns pointer to string (item type name)
+//
+const char *SoapESP32::getFileTypeName(eFileType fileType)
+{
+  return (fileTypeAudio <= fileType && fileType <= fileTypeVideo) ? fileTypes[fileType] : fileTypes[fileTypeOther];
+}
+
 
 

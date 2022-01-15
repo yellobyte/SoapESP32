@@ -5,7 +5,6 @@
   - extracting attributes
   - extracting whole sub trees if requested
   - using C++ strings
- 
 */
 
 #include "MiniXPath.h"

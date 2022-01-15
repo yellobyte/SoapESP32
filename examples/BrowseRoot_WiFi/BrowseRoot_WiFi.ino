@@ -4,7 +4,7 @@
   This sketch scans the local network for DLNA media servers via builtin WiFi
   and browses root of each server found.
 
-  Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-14, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -61,7 +61,7 @@ void setup() {
     Serial.print(", name: ");
     Serial.println(serv.friendlyName);
 
-    // browse root (always represented by "0" according to spec)
+    // browse root (always represented by "0" according to SOAP spec)
     if (!soap.browseServer(i, "0", &browseResult)) {
       Serial.println("error browsing server.");
     }
@@ -78,9 +78,14 @@ void setup() {
         }
         else {
           // root shouldn't host files so it's unlikely we get here
-          Serial.print(" (File, Size: ");
+          Serial.print(" (Item, Size: ");
         }
-        Serial.print(browseResult[j].size);
+        if (browseResult[j].sizeMissing) {
+          Serial.print("missing");
+        }
+        else {
+          Serial.print(browseResult[j].size);
+        }
         Serial.println(")");
       }
     }

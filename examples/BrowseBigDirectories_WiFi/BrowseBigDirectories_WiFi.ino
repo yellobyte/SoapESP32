@@ -13,7 +13,7 @@
   that directory multiple times, each time with a higher starting index
   (0, 100, 200,...). This sketch demonstrates how to do it.
     
-  Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-15, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -48,28 +48,33 @@ bool findBigDirectory(SoapESP32 *soap, int servNum, soapObject_t *object) {
     return false;
   }
   else {
+    // check this level first
     for (int i = 0; i < browseResult.size(); i++) {
-      // go through each item in list and recurse for directories, break if directory with 
-      // more than SOAP_DEFAULT_BROWSE_MAX_COUNT items (subdirs and/or files) is found
-      if (browseResult[i].isDirectory ) {
-        if (browseResult[i].size > SOAP_DEFAULT_BROWSE_MAX_COUNT) {
-          // found a big directory
-          *object = browseResult[i];
-          Serial.print("Big directory found, name: ");
-          Serial.print(object->name);
-          Serial.print(", id: ");
-          Serial.print(object->id);
-          Serial.print(", size: ");
-          Serial.println(object->size);
+      // go through each item in list, break if directory with more 
+      // than SOAP_DEFAULT_BROWSE_MAX_COUNT items (subdirs and/or files) is found
+      if (browseResult[i].isDirectory &&
+          browseResult[i].size > SOAP_DEFAULT_BROWSE_MAX_COUNT) {
+        // found a big directory
+        *object = browseResult[i];
+        Serial.print("Big directory found, name: \"");
+        Serial.print(object->name);
+        Serial.print("\", id: ");
+        Serial.print(object->id);
+        Serial.print(", size: ");
+        Serial.println(object->size);
+        return true;
+      }
+    }
+    // we need to dig deeper
+    for (int i = 0; i < browseResult.size(); i++) {
+      if (browseResult[i].isDirectory && (level + 1) < BROWSE_LEVELS) { 
+        // recurse
+        *object = browseResult[i];
+        level++;
+        if (findBigDirectory(soap, servNum, object)) {
           return true;
         }
-        else if ((level + 1) < BROWSE_LEVELS) { 
-          // recurse
-          *object = browseResult[i];
-          if (findBigDirectory(soap, servNum, object)) {
-            return true;
-          }
-        }  
+        level--;
       } 
     }
   }
@@ -107,18 +112,15 @@ void setup() {
       startingIndex;
 
   while (soap.getServerInfo(srvNum, &srvInfo)) {
-
     // Scan each server
-    Serial.print("Searching big directory on server: ");
+    Serial.print("Please be patient, searching big directory on server: ");
     Serial.println(srvInfo.friendlyName);
-    Serial.println("Please be patient, it might take a while...");
-		
+    
     startingIndex = 0;        // start browsing a directory with offset 0
     directory.id = "0";       // start with root ("0")
     directory.name = "root";  // only needed for printing in case of error
     
     if (findBigDirectory(&soap, srvNum, &directory)) {
-
       // found big directory, now print entire content 
       while (startingIndex < directory.size) {
         Serial.print("------> Browse directory with starting index: ");
@@ -145,22 +147,17 @@ void setup() {
               Serial.println("/");
             } 
             else {
-              // file: append size in bytes and file type
-              Serial.print("  ");
-              Serial.print("size: ");
-              Serial.print(directoryContent[i].size, DEC);
-              if (directoryContent[i].fileType == fileTypeAudio) {
-                Serial.println(", audio");
-              }
-              else if (directoryContent[i].fileType == fileTypeVideo) {
-                Serial.println(", video");
-              }
-              else if (directoryContent[i].fileType == fileTypeImage) {
-                Serial.println(", image");
+              // item: append item type and size
+              Serial.print("   ");
+              Serial.print("item size: ");
+              if (directoryContent[i].sizeMissing) {
+                Serial.print("missing");
               }
               else {
-                Serial.println(", other");
+                Serial.print(directoryContent[i].size, DEC);
               }
+              Serial.print(", ");
+              Serial.println(soap.getFileTypeName(directoryContent[i].fileType));
             }
           }
           // increase index to get next chunk
@@ -168,6 +165,9 @@ void setup() {
         }  
       }
       break;
+    }
+    else {
+      Serial.println("No big directory was found on this server.");
     }
     // try next server in list
     srvNum++;
@@ -191,5 +191,3 @@ void setup() {
 void loop() {
   // 
 }
-
-

@@ -10,7 +10,7 @@
   by hand. VLC for example can help to find those parameters. The doc 
   directory holds more infos.
   
-  Since memory is limited, by default a maximum of only 100 entries 
+  Since memory is limited, by default only a maximum of 100 entries 
   per directory will be returned by browseServer(). This limit is 
   defined in "SoapESP32.h" with parameter SOAP_DEFAULT_BROWSE_MAX_COUNT.
   Increasing this parameter means using more memory.
@@ -21,12 +21,11 @@
   Have a look at example "BrowseBigDirectories_WiFi.ino" where this is
   demonstrated.
     
-  Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-15, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
 #include <Ethernet.h>
-
 #include "SoapESP32.h"
 
 // == IMPORTANT ==
@@ -39,20 +38,32 @@
 // #define SHOW_ESP32_MEMORY_STATISTICS
 
 // Please set definitions that apply to your media server / NAS.
-// Here are just two examples for server settings:
-// 1) Buffalo NAS LinkstationMini, running Twonky media server on Linux.
+// Following some examples for server settings:
+// 1) Twonky media server on Linux:
 //    #define SERVER_PORT        9050
 //    #define SERVER_CONTROL_URL "TMSContentDirectory/Control"
-// 2) Buffalo NAS LS520D, running DiXim media server on Linux.
+// 2) DiXim media server on Linux:
 //    #define SERVER_PORT        55247
 //    #define SERVER_CONTROL_URL "dms/control/ContentDirectory"	
+// 3) UMS media server on Windows 10:
+//    #define SERVER_PORT        5001
+//    #define SERVER_CONTROL_URL "upnp/control/content_directory"
+// 4) Serviio media server on Windows 10:
+//    #define SERVER_PORT        8895
+//    #define SERVER_CONTROL_URL "serviceControl"	
+// 5) Kodi media server on Windows 10:
+//    #define SERVER_PORT        1557
+//    #define SERVER_CONTROL_URL "ContentDirectory/1960b02b-2618-c8eb-e6aa-2367704dac98/control.xml"	
+// 6) Jellyfin media server on Windows 10:
+//    #define SERVER_PORT        8096
+//    #define SERVER_CONTROL_URL "dlna/5737229bc09f48d88c7d1bd4881c073e/contentdirectory/control"
 	
 #define SERVER_IP          192,168,...,...
 #define SERVER_PORT        ...
 #define SERVER_CONTROL_URL "..."
 
 // How many directory levels to browse (incl. root).
-#define BROWSE_LEVELS 3
+#define BROWSE_LEVELS 4
 
 // MAC address for your Ethernet module/shield 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
@@ -90,22 +101,17 @@ void printServerContent(SoapESP32 *soap, int servNum, String objectId, int numTa
         }  
       } 
       else {
-        // file: append size in bytes and file type
-        Serial.print("  ");
-        Serial.print("size: ");
-        Serial.print(browseResult[i].size, DEC);
-        if (browseResult[i].fileType == fileTypeAudio) {
-          Serial.println(", audio");
-        }
-        else if (browseResult[i].fileType == fileTypeVideo) {
-          Serial.println(", video");
-        }
-        else if (browseResult[i].fileType == fileTypeImage) {
-          Serial.println(", image");
+        // item: append item type and size
+        Serial.print("   ");
+        Serial.print("item size: ");
+        if (browseResult[i].sizeMissing) {
+          Serial.print("missing");
         }
         else {
-          Serial.println(", other");
+          Serial.print(browseResult[i].size, DEC);
         }
+        Serial.print(", ");
+        Serial.println(soap->getFileTypeName(browseResult[i].fileType));
       }
     }
   }

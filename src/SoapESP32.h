@@ -21,7 +21,6 @@
   ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
   CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION 
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 */
 
 #ifndef SoapESP32_h
@@ -29,7 +28,7 @@
 
 #include <Arduino.h>
 
-// Please uncomment if you use Ethernet instead of WiFi 
+// Please uncomment if you use an Ethernet board/shield instead of builtin WiFi 
 //#define USE_ETHERNET
 
 #if defined(ethernet_h_) && !defined(USE_ETHERNET)
@@ -129,16 +128,19 @@ struct replaceWith_t
   const char with;
 };
 
-// info collection of a single SOAP object (directory <container> or file <item>) 
+// defines the data content of a reported item (file/stream)
 enum eFileType { fileTypeOther = 0, fileTypeAudio, fileTypeImage, fileTypeVideo };
+
+// info collection of a single SOAP object (<container> or <item>) 
 struct soapObject_t
 {
   bool isDirectory;         // true if directory
-  size_t size;              // directory child count or file size (32bit -> max 4.2GB)
+  uint64_t size;            // directory child count or item size, zero in case of missing size/child count attribute
+  bool sizeMissing;         // true in case server did not provide size
   int  bitrate;             // bitrate (music files only)
   int  sampleFrequency;     // sample frequency (music files only)
   bool searchable;          // only used for directories, some media servers don't provide it
-  eFileType  fileType;      // audio, picture, movie or other
+  eFileType fileType;       // audio, picture, movie, stream or other
   String parentId;          // parent directory id
   String id;                // unique id of directory/file on media server
   String name;              // directory name or file name
@@ -170,20 +172,21 @@ class SoapESP32
 #else
     SoapESP32(WiFiClient *client, WiFiUDP *udp = NULL);
 #endif
-    bool    wakeUpServer(const char *macWOL);
-    void    clearServerList(void);
-    bool    addServer(IPAddress ip, uint16_t port, const char *controlURL, const char *name = "My Media Server");
-    uint8_t seekServer(void);
-    uint8_t getServerCount(void);
-    bool    getServerInfo(uint8_t srv, soapServer_t *serverInfo);
-    bool    browseServer(const uint8_t srv, const char *objectId, soapObjectVect_t *browseResult, 
-                         const uint32_t startingIndex = SOAP_DEFAULT_BROWSE_STARTING_INDEX, 
-                         const uint16_t maxCount      = SOAP_DEFAULT_BROWSE_MAX_COUNT);
-    bool    readStart(soapObject_t *object, size_t *size);
-    int     read(uint8_t *buf, size_t size, uint32_t timeout = SERVER_READ_TIMEOUT);
-    int     read(void);
-    void    readStop(void);
-    size_t  available(void);
+    bool        wakeUpServer(const char *macWOL);
+    void        clearServerList(void);
+    bool        addServer(IPAddress ip, uint16_t port, const char *controlURL, const char *name = "My Media Server");
+    uint8_t     seekServer(void);
+    uint8_t     getServerCount(void);
+    bool        getServerInfo(uint8_t srv, soapServer_t *serverInfo);
+    bool        browseServer(const uint8_t srv, const char *objectId, soapObjectVect_t *browseResult, 
+                             const uint32_t startingIndex = SOAP_DEFAULT_BROWSE_STARTING_INDEX, 
+                             const uint16_t maxCount      = SOAP_DEFAULT_BROWSE_MAX_COUNT);
+    bool        readStart(soapObject_t *object, size_t *size);
+    int         read(uint8_t *buf, size_t size, uint32_t timeout = SERVER_READ_TIMEOUT);
+    int         read(void);
+    void        readStop(void);
+    size_t      available(void);
+    const char *getFileTypeName(eFileType fileType);
 
   private:
 #ifdef USE_ETHERNET
@@ -208,7 +211,7 @@ class SoapESP32
     bool soapGet(const IPAddress ip, const uint16_t port, const char *uri);
     bool soapPost(const IPAddress ip, const uint16_t port, const char *uri, const char *objectId, 
                   const uint32_t startingIndex, const uint16_t maxCount);
-    bool soapReadHttpHeader(size_t *contentLength, bool *chunked = NULL);
+    bool soapReadHttpHeader(uint64_t *contentLength, bool *chunked = NULL);
     int  soapReadXML(bool chunked = false, bool replace = false);
     bool soapScanAttribute(const String *attributes, String *result, const char *searchFor);
     bool soapScanContainer(const String *parentId, const String *attributes, const String *container, soapObjectVect_t *browseResult);

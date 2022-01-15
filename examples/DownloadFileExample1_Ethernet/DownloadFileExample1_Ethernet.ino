@@ -12,7 +12,7 @@
   Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-14, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -30,13 +30,15 @@
 //#define SHOW_ESP32_MEMORY_STATISTICS
 
 // Example settings only, please change:
-#define FILE_DOWNLOAD_IP   192,168,1,39
-#define FILE_DOWNLOAD_PORT 10243 
-#define FILE_DOWNLOAD_URI  "WMPNSSv4/142089801/1_N19jZTNjNzcxNC0zMDIz.mp3"
+#define FILE_DOWNLOAD_IP   192,168,1,42
+#define FILE_DOWNLOAD_PORT 1557 
+#define FILE_DOWNLOAD_URI  "%25/ad9b0c9f4cc1b5940a42962422d62eba/VideoNr2.mp4"
 
 // File download settings
 #define FILE_NAME_ON_SD    "/myFile.mp3"
 #define READ_BUFFER_SIZE   5000
+// set a lower speed and uncomment in case you experience SD card write errors
+//#define SPI_SPEED_SDCARD 2000000U     // SD library default is 4MHz
 
 // MAC address for your Ethernet module/shield
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
@@ -70,7 +72,11 @@ void setup() {
 
   // preparing SD card 
   Serial.print("Initializing SD card...");
-  if (!SD.begin(5)) {        // CS to ESP32 GPIO 5
+#ifdef SPI_SPEED_SDCARD  
+  if (!SD.begin(5, SPI, SPI_SPEED_SDCARD)) {  // CS to ESP32 GPIO 5
+#else
+  if (!SD.begin(5)) {                         // CS to ESP32 GPIO 5, uses SD library default SPI speed
+#endif
     Serial.println("failed!");
     Serial.println("Sketch finished.");
     return;
@@ -99,6 +105,7 @@ void setup() {
   object.downloadPort = FILE_DOWNLOAD_PORT;
   object.uri          = FILE_DOWNLOAD_URI;
 
+  // attempting to download a file bigger than 4GB-1 will fail !
   if (!soap.readStart(&object, &fileSize)) {
     // Error
     Serial.println("Error requesting file from media server.");
@@ -122,7 +129,10 @@ void setup() {
         // Remark: At this point instead of writing to SD card you 
         // could write the data into a buffer/queue which feeds an 
         // audio codec (e.g. VS1053) for example
-        myFile.write(buffer, res);
+        if (!myFile.write(buffer, res)) {
+          Serial.println("Error writing to SD card."); 
+          break;
+        }
         //
         bytesRead += res;
         Serial.print(".");
@@ -132,6 +142,7 @@ void setup() {
       }
     } 
     while (soap.available());
+    Serial.println();
 
     // close connection to server
     soap.readStop();

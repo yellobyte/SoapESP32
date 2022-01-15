@@ -1,6 +1,6 @@
 {
   "name": "SoapESP32",
-  "version": "1.0.4", 
+  "version": "1.1.0", 
   "platforms":
   [
     "espressif32"
@@ -21,13 +21,16 @@
     "DLNA",
     "NAS",
     "share",
-    "universal",
+    "UMS",
     "media",
     "server",
     "DiXim",
-    "Twinky"
+    "Twonky",
+    "Serviio",
+    "Kodi",
+    "Jellyfin"
   ],
-  "description": "Enables an ESP32 to scan the local network for DLNA media servers, browse their content and download files",
+  "description": "Enables ESP32 devices to scan the local network for DLNA media servers, browse their content and download files.",
   "authors":
   [
     {
