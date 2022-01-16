@@ -109,8 +109,9 @@ The three snapshots _Using_VLC_to_find_....._parameter.JPG_ in folder **Doc** sh
 ## Documentation
 
 Folder **Doc** contains a big collection of files to help you implement this library into your projects:
-* the platformio.ini file I used when testing examples with VSCode/PlatformIO
-* log files (Serial Monitor output) of all examples, mostly with different core debug levels
+* The platformio.ini file I used when testing examples with VSCode/PlatformIO
+* Build log
+* Log files (serial monitor output) of all examples, mostly with different core debug levels
 * Schematic diagram (wiring) plus picture of the test set used
 * VLC snapshots to help you find server & file download parameters needed for some examples
 
