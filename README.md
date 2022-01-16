@@ -4,7 +4,7 @@ This Arduino library provides basic UPnP/SOAP functionality, enabling an ESP32 d
 
 Motivation for writing it was the missing capability of an existing ESP32-Radio (based on Ed Smallenburg's code) to play audio content stored on the various NAS devices in the local network at home (most of them running a DLNA server).
 
-The library has been successfully tested so far with the following DLNA media servers: 
+The library in this Version 1.1.0 has been successfully tested so far with the following DLNA media servers: 
 
   - **DiXim** and **Twonky** running on Linux (NAS devices) and 
   - **UMS** (Universal Media Server), **Jellyfin**, **Kodi**, **Serviio** and **Windows Media Player** running on Win10 (in a virtual machine)
@@ -15,7 +15,7 @@ If you run into trouble with your particular DLNA media server or NAS, increase 
 
 Make sure you have the latest version of Arduino core for ESP32 installed. Older versions might produce build errors with some examples.
 
-In SoapESP32 library Version 1.1.0 the struct *soapObject_t* has seen two modifications:  
+In library Version 1.1.0 the struct *soapObject_t* has seen two modifications:  
 Firstly, the type of member variable *size* has changed from size_t to uint64_t. If you use this variable in your existing projects, you might have to adjust your code.  
 Secondly, a new member variable *sizeMissing* (boolean) has been added. See below for further explanation.
 
