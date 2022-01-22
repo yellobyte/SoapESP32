@@ -7,7 +7,7 @@
 #######################################
 
 SoapESP32	KEYWORD1
-soapObject_t	KEYWORD1
+soapObject_t  KEYWORD1
 soapObjectVect_t	KEYWORD1
 soapServer_t	KEYWORD1
 
@@ -23,9 +23,10 @@ getServerCount	KEYWORD2
 getServerInfo	KEYWORD2
 clearServerList	KEYWORD2
 readStart	KEYWORD2
-read		KEYWORD2           
+read		KEYWORD2
 readStop	KEYWORD2
 available	KEYWORD2
+getFileTypeName	KEYWORD2
   
 #######################################
 # Constants (LITERAL1)

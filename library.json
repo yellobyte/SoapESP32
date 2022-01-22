@@ -1,6 +1,6 @@
 {
   "name": "SoapESP32",
-  "version": "1.1.0", 
+  "version": "1.1.1", 
   "platforms":
   [
     "espressif32"
@@ -28,7 +28,9 @@
     "Twonky",
     "Serviio",
     "Kodi",
-    "Jellyfin"
+    "Jellyfin",
+    "Subsonic",
+    "Plex"
   ],
   "description": "Enables ESP32 devices to scan the local network for DLNA media servers, browse their content and download files.",
   "authors":
