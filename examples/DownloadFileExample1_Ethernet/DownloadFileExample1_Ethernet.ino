@@ -12,7 +12,7 @@
   Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2022-01-14, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-20, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -43,6 +43,9 @@
 // MAC address for your Ethernet module/shield
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
+#define GPIO_ETHCS 25
+#define GPIO_SDCS   5
+
 EthernetClient client;
 EthernetUDP    udp;
 
@@ -51,7 +54,7 @@ SoapESP32 soap(&client, &udp);
 void setup() {
   Serial.begin(115200);
 
-  Ethernet.init(25);         // CS to ESP32 GPIO 25
+  Ethernet.init(GPIO_ETHCS);
   Serial.print("\nInitializing Ethernet...");
 
   if (Ethernet.begin(mac))
@@ -73,9 +76,9 @@ void setup() {
   // preparing SD card 
   Serial.print("Initializing SD card...");
 #ifdef SPI_SPEED_SDCARD  
-  if (!SD.begin(5, SPI, SPI_SPEED_SDCARD)) {  // CS to ESP32 GPIO 5
+  if (!SD.begin(GPIO_SDCS, SPI, SPI_SPEED_SDCARD)) {
 #else
-  if (!SD.begin(5)) {                         // CS to ESP32 GPIO 5, uses SD library default SPI speed
+  if (!SD.begin(GPIO_SDCS)) {
 #endif
     Serial.println("failed!");
     Serial.println("Sketch finished.");

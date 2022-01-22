@@ -7,7 +7,7 @@
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2022-01-15, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-20, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -27,11 +27,12 @@
 
 // File download settings
 #define FILE_MAX_SIZE    8000000
-#define FILE_MIN_SIZE    500000
+#define FILE_MIN_SIZE    500000         // set to 0 in case your server doesn't provide a size
 #define FILE_NAME_ON_SD  "/myFile.mp3"
 #define READ_BUFFER_SIZE 5000
 // set a lower speed and uncomment in case you experience SD card write errors
 //#define SPI_SPEED_SDCARD 2000000U     // SD library default is 4MHz
+#define GPIO_SDCS   5
 
 const char ssid[] = "MySSID";
 const char pass[] = "MyPassword"; 
@@ -115,9 +116,9 @@ void setup() {
   // preparing SD card 
   Serial.print("Initializing SD card...");
 #ifdef SPI_SPEED_SDCARD  
-  if (!SD.begin(5, SPI, SPI_SPEED_SDCARD)) {  // CS to ESP32 GPIO 5
+  if (!SD.begin(GPIO_SDCS, SPI, SPI_SPEED_SDCARD)) {
 #else
-  if (!SD.begin(5)) {                         // CS to ESP32 GPIO 5, uses SD library default SPI speed
+  if (!SD.begin(GPIO_SDCS)) {
 #endif
     Serial.println("failed!");
     Serial.println("Sketch finished.");

@@ -10,7 +10,7 @@
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2022-01-14, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -24,7 +24,7 @@
 // example settings only, please change:
 #define FILE_DOWNLOAD_IP   192,168,1,42
 #define FILE_DOWNLOAD_PORT 8895 
-#define FILE_DOWNLOAD_URI  "resource/109/MEDIA_ITEM/MP3-0/ORIGINAL"
+#define FILE_DOWNLOAD_URI  "resource/227/MEDIA_ITEM/MP3-0/ORIGINAL"
 
 const char ssid[] = "MySSID";
 const char pass[] = "MyPassword"; 
@@ -34,6 +34,7 @@ const char pass[] = "MyPassword";
 #define READ_BUFFER_SIZE   5000
 // set a lower speed and uncomment in case you experience SD card write errors
 //#define SPI_SPEED_SDCARD 2000000U     // SD library default is 4MHz
+#define GPIO_SDCS   5
 
 WiFiClient client;
 WiFiUDP    udp;
@@ -59,9 +60,9 @@ void setup() {
   // preparing SD card 
   Serial.print("Initializing SD card...");
 #ifdef SPI_SPEED_SDCARD  
-  if (!SD.begin(5, SPI, SPI_SPEED_SDCARD)) {  // CS to ESP32 GPIO 5
+  if (!SD.begin(GPIO_SDCS, SPI, SPI_SPEED_SDCARD)) {
 #else
-  if (!SD.begin(5)) {                         // CS to ESP32 GPIO 5, uses SD library default SPI speed
+  if (!SD.begin(GPIO_SDCS)) {
 #endif
     Serial.println("failed!");
     Serial.println("Sketch finished.");
@@ -91,7 +92,7 @@ void setup() {
   object.downloadPort = FILE_DOWNLOAD_PORT;
   object.uri          = FILE_DOWNLOAD_URI;
 
-  // attempting to download a file bigger than 4GB-1 will fail !
+  // attempting to download a file bigger than 4.2GB will fail !
   if (!soap.readStart(&object, &fileSize)) {
     // Error
     Serial.println("Error requesting file from media server.");

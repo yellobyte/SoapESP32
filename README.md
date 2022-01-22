@@ -7,27 +7,29 @@ Motivation for writing it was the missing capability of an existing ESP32-Radio 
 The library has been successfully tested so far with the following DLNA media servers: 
 
   - **DiXim** and **Twonky** running on Linux (NAS devices) and 
-  - **UMS** (Universal Media Server), **Jellyfin**, **Kodi**, **Serviio** and **Windows Media Player** running on Win10 (in a virtual machine)
+  - **UMS** (Universal Media Server), **Jellyfin**, **Kodi**, **Plex**, **Serviio**, **Subsonic** and **Windows Media Player** running on Win10 (in a virtual machine)
 	
-If you run into trouble with your particular DLNA media server or NAS, increase `CORE_DEBUG_LEVEL` and it gives you an indication where the problem is. Tracing the communication with Wireshark helps a lot.
+If you run into trouble with your particular DLNA media server or NAS, increase `CORE_DEBUG_LEVEL` and it gives you an indication where the problem is. Tracing the communication with Wireshark can help as well.
 
 ## Application notes
 
 Make sure you have the latest version of Arduino core for ESP32 installed. Older versions might produce build errors with some examples.
 
-In library Version 1.1.0 the struct *soapObject_t* has seen two modifications:  
+As of Version 1.1.0 the struct *soapObject_t* has seen two modifications:  
 Firstly, the type of member variable *size* has changed from size_t to uint64_t. If used in your projects, you might have to adjust some code.  
 Secondly, a new member variable *sizeMissing* (boolean) has been added. 
 
-All the various DLNA media servers I tested the library with showed some oddities. However, I fixed all compatibility issues I ran across. Please note the following:
+Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
 
 - Streams/podcasts: Some media servers (e.g. Fritzbox, Serviio) do **not** provide a size for items (media content) located in their Web/Online/InternetRadio folders. Thanks to Github user KiloOscarRomeo for drawing my attention to this fact. In contrast, UMS (Universal Media Server) always provides a fixed size=9223372034707292159 for items in directory Web (incl. subdirectories Radio, Podcasts, etc.). 
 
-- Empty files: Some media servers (MS MediaPlayer/Kodi/Jellyfin) show empty files, others don't. However, this library by default ignores files with reported size zero. They will not show up in browse results. You can change this behaviour with build option `SHOW_EMPTY_FILES`.
+- Empty files: Some media servers (MS MediaPlayer/Kodi/Jellyfin) show empty files, others don't. This library by default ignores files with reported size zero. They will not show up in browse results. You can change this behaviour with build option `SHOW_EMPTY_FILES`.
 
 - Empty directories: They always show up in browse results.
 
 - Missing attribute size: Media servers often show items without telling their size. That applies to all item types: streams, video files, audio files, image files, etc. In this case the library will return them in browse results with size=0 and sizeMissing=true. 
+
+- Parent-ID Mismatch: The id of a directory and the parent id of it's content should match. Sometimes it does not (e.g. Subsonic). As of V1.1.1 this mismatch is ignored by default. You can go back to strict behaviour with build option `PARENT_ID_MUST_MATCH`
 
 - Downloading big files/reading streams: Files with reported size bigger than 4.2GB (SIZE_MAX) will be shown in browse results but an attempt to download them with readStart()/read()/readEnd() will fail. If you want to download them or read endless streams you will have to do it outside this library in your own code.
 
@@ -40,7 +42,7 @@ The only remedy I found was to wrap all function calls that use SPI with a globa
 
 Of course, the ESP32 Arduino SPI library already uses locks (SPI_MUTEX_LOCK/SPI_MUTEX_UNLOCK) but doesn't seem to be 100% thread proof though. Please correct me if I'm wrong or you do find a better solution.
 
-### SSDP multicast issue:
+####  Ethernet SSDP multicast issue:
 
 SSDP M-SEARCH multicast packets carry a destination ip 239.255.255.250 / port 1900. However, some NAS devices (e.g. Buffalo's NAS LS520D) unexpectedly do NOT reply to such packets when the **source** port is 1900 as well. Some articles on the internet state that NAS devices might show this behaviour to prevent SSDP (r)DDoS storms.
 
@@ -78,7 +80,7 @@ However, if `__GNU_VISIBLE` is not defined, a quick and dirty version of strcase
 
 If you use an Ethernet module/shield instead of builtin WiFi you **must** set the preprocessor option `USE_ETHERNET`. This option must **not** be set when compiling examples that use WiFi (..._WiFi.ino).
 
-### Arduino IDE:
+#### Arduino IDE:
 
 Unfortunately we can't set project wide build options in *.ino sketches. So the easiest way is to uncomment the line **//#define USE_ETHERNET** in _SoapESP32.h_.
 
@@ -87,8 +89,7 @@ Alternatively you could add any needed build options to line **compiler.cpreproc
 
 Be reminded, those options will stay permanent until you delete them!  
 
-
-### VSCode/PlatformIO:
+#### VSCode/PlatformIO:
 
 Simply add/remove build options to your _platformio.ini_ project file as required, e.g.:
 
@@ -103,8 +104,7 @@ Four of the examples, namely
 * _DownloadFileExample1_WiFi.ino_
 
 require some parameters (that apply to your specific DLNA media server) be defined manually.  
-
-The three snapshots _Using_VLC_to_find_....._parameter.JPG_ in folder **Doc** show you how to use the program **VLC** to find proper values.
+The three snapshots _Using_VLC_to_find_....._parameter.JPG_ in folder **Doc** show how to use  **VLC** to find the right values.
 
 ## Documentation
 
@@ -113,7 +113,7 @@ Folder **Doc** contains a big collection of files to help you implement this lib
 * Build log
 * Log files (serial monitor output) of all examples, mostly with different core debug levels
 * Schematic diagram (wiring) plus picture of the test set used
-* VLC snapshots to help you find server & file download parameters needed for some examples
+* VLC snapshots to help you find server & file download parameters needed for above mentioned examples
 
 ## Example of an implementation: ESP32-Radio using SoapESP32
 

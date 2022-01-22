@@ -308,6 +308,10 @@ bool SoapESP32::soapReadHttpHeader(uint64_t *contentLength, bool *chunked)
   }
   else {
     log_v("header line: %s", tmpBuffer);
+    // TEST
+#if CORE_DEBUG_LEVEL == 5
+    delay(1);	// allow pending serial monitor output to be sent
+#endif      
   }
   *contentLength = 0;
   if (chunked) *chunked = false;
@@ -636,6 +640,8 @@ bool SoapESP32::soapScanContainer(const String *parentId,
   soapObject_t info;
   String str((char *)0);
 
+  log_d("function entered, parent id: %s", parentId->c_str());
+
   // scan container id
   if (!soapScanAttribute(attributes, &str, DIDL_ATTR_ID)) return false;           // container id is a must
   log_d("%s\"%s\"", DIDL_ATTR_ID, str.c_str());
@@ -643,10 +649,13 @@ bool SoapESP32::soapScanContainer(const String *parentId,
 
   // scan parent id
   if (!soapScanAttribute(attributes, &str, DIDL_ATTR_PARENT_ID)) return false;    // parent id is a must
-  // make sure requested and scanned parent id match
   if (!strcasestr(str.c_str(), parentId->c_str())) {
+#ifdef PARENT_ID_MUST_MATCH
     log_e("scanned parent id \"%s\" != requested parent id \"%s\"", str.c_str(), parentId->c_str());
     return false;
+#else
+    log_w("scanned parent id \"%s\" != requested parent id \"%s\"", str.c_str(), parentId->c_str());
+#endif  
   }
   info.parentId = *parentId;  
   info.size = 0;
@@ -711,7 +720,7 @@ bool SoapESP32::soapScanItem(const String *parentId,
   IPAddress ip;
   String str((char *)0);
 
-  log_d("function entered, parentId: %s", parentId->c_str());
+  log_d("function entered, parent id: %s", parentId->c_str());
 
   // scan item id
   if (!soapScanAttribute(attributes, &str, DIDL_ATTR_ID)) return false;         // id is a must
@@ -721,9 +730,12 @@ bool SoapESP32::soapScanItem(const String *parentId,
   // scan parent id
   if (!soapScanAttribute(attributes, &str, DIDL_ATTR_PARENT_ID)) return false;  // parent id is a must
   if (!strcasestr(str.c_str(), parentId->c_str())) {
-    // wrong parent id can't be ignored
-    log_e("scanned parent id \"%s\" != requested parent id \"%s\"", str.c_str(), parentId);
+#ifdef PARENT_ID_MUST_MATCH
+    log_e("scanned parent id \"%s\" != requested parent id \"%s\"", str.c_str(), parentId->c_str());
     return false;
+#else
+    log_w("scanned parent id \"%s\" != requested parent id \"%s\"", str.c_str(), parentId->c_str());
+#endif
   }
 
   info.parentId = *parentId; 
@@ -793,7 +805,7 @@ bool SoapESP32::soapScanItem(const String *parentId,
 
       // scan item size
       if (!soapScanAttribute(&strAttr, &str, DIDL_ATTR_SIZE)) {
-        // indicates missing attribute "size" (e.g. Kodi audio files, Fritzbox/Serviio stream items )
+        // indicates missing attribute "size" (e.g. Kodi audio files, Fritzbox/Serviio stream items)
         info.sizeMissing = true;
       } 
       else {
@@ -843,8 +855,8 @@ bool SoapESP32::soapScanItem(const String *parentId,
   info.isDirectory = false;
   browseResult->push_back(info);
 
-  log_i("\"%s\" (id: \"%s\", size: %llu, type: %s) added to list", 
-        info.name.c_str(), info.id.c_str(), info.size, getFileTypeName(info.fileType));
+  log_i("\"%s\" (id: \"%s\", size: %llu, sizeMissing: %s, type: %s) added to list", 
+        info.name.c_str(), info.id.c_str(), info.size, info.sizeMissing ? "true" : "false", getFileTypeName(info.fileType));
 
   return true;
 }
@@ -1013,9 +1025,9 @@ bool SoapESP32::readStart(soapObject_t *object, size_t *size)
     return false;
   }
 
-  // max allowed file size for download is 4GB-1 (SIZE_MAX)
+  // max allowed file size for download is 4.2GB (SIZE_MAX)
   if (contentSize > (uint64_t)SIZE_MAX) {
-    log_e("file too big for download. Maximum allowed file size is 4GB-1.");
+    log_e("file too big for download. Maximum allowed file size is 4.2GB.");
     claimSPI();
     m_client->stop();
     releaseSPI();

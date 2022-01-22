@@ -11,7 +11,7 @@
   We use a Wiznet W5x00 Ethernet module/shield instead of builtin WiFi.
   It's connected to ESP32 GPIO 18, 19, 23 and GPIO 25 (Chip Select).
 
-  Last updated 2022-01-15, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -27,8 +27,9 @@
 // uncomment in case you want to know
 //#define SHOW_ESP32_MEMORY_STATISTICS
 
-// MAC address for your Ethernet module/shield
+// Ethernet module/shield settings
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+#define GPIO_ETHCS 25
 
 EthernetClient client;
 EthernetUDP    udp;
@@ -67,7 +68,7 @@ void anotherTask (void *parameter)
 void setup() {
   Serial.begin(115200);
 
-  Ethernet.init(25);    // CS to ESP32 GPIO 25
+  Ethernet.init(GPIO_ETHCS);
   Serial.print("\nInitializing Ethernet...");
 
   if (Ethernet.begin(mac))

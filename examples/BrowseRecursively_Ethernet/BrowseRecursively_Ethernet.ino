@@ -21,7 +21,7 @@
   Have a look at example "BrowseBigDirectories_WiFi.ino" where this is
   demonstrated.
     
-  Last updated 2022-01-15, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-01-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -37,26 +37,24 @@
 // uncomment in case you want to know
 // #define SHOW_ESP32_MEMORY_STATISTICS
 
-// Please set definitions that apply to your media server / NAS.
-// Following some examples for server settings:
-// 1) Twonky media server on Linux:
-//    #define SERVER_PORT        9050
-//    #define SERVER_CONTROL_URL "TMSContentDirectory/Control"
-// 2) DiXim media server on Linux:
-//    #define SERVER_PORT        55247
-//    #define SERVER_CONTROL_URL "dms/control/ContentDirectory"	
-// 3) UMS media server on Windows 10:
-//    #define SERVER_PORT        5001
-//    #define SERVER_CONTROL_URL "upnp/control/content_directory"
-// 4) Serviio media server on Windows 10:
-//    #define SERVER_PORT        8895
-//    #define SERVER_CONTROL_URL "serviceControl"	
-// 5) Kodi media server on Windows 10:
-//    #define SERVER_PORT        1557
-//    #define SERVER_CONTROL_URL "ContentDirectory/1960b02b-2618-c8eb-e6aa-2367704dac98/control.xml"	
-// 6) Jellyfin media server on Windows 10:
-//    #define SERVER_PORT        8096
-//    #define SERVER_CONTROL_URL "dlna/5737229bc09f48d88c7d1bd4881c073e/contentdirectory/control"
+// Please set definitions that apply to your actual media server/NAS !
+// Following some examples for media server settings:
+// 1) Twonky on Linux
+//    Port: 9050,  Control Url: "TMSContentDirectory/Control"
+// 2) DiXim on Linux
+//    Port: 55247, Control Url: "dms/control/ContentDirectory"
+// 3) UMS on Windows
+//    Port: 5001,  Control Url: "upnp/control/content_directory"
+// 4) Serviio on Windows 
+//    Port: 8895,  Control Url: "serviceControl"	
+// 5) Kodi on Windows
+//    Port: 1557,  Control Url: "ContentDirectory/1960b02b-2618-c8eb-e6aa-2367704dac98/control.xml"	
+// 6) Jellyfin on Windows
+//    Port: 8096,  Control Url: "dlna/5737229bc09f48d88c7d1bd4881c073e/contentdirectory/control"
+// 7) Subsonic on Windows
+//    Port: 54988, Control Url: "dev/3eafef82-e2d2-c47f-ffff-ffff88fe3c0c/svc/upnp-org/ContentDirectory/action"
+// 8) Plex on Windows
+//    Port: 32469, Control Url: "ContentDirectory/1b9ec67b-810c-2747-a8c0-2a221c74df01/control.xml"
 	
 #define SERVER_IP          192,168,...,...
 #define SERVER_PORT        ...
@@ -65,8 +63,9 @@
 // How many directory levels to browse (incl. root).
 #define BROWSE_LEVELS 4
 
-// MAC address for your Ethernet module/shield 
+// Ethernet module/shield settings
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+#define GPIO_ETHCS 25
 
 EthernetClient client;
 EthernetUDP    udp;
@@ -108,7 +107,7 @@ void printServerContent(SoapESP32 *soap, int servNum, String objectId, int numTa
           Serial.print("missing");
         }
         else {
-          Serial.print(browseResult[i].size, DEC);
+          Serial.print(browseResult[i].size);
         }
         Serial.print(", ");
         Serial.println(soap->getFileTypeName(browseResult[i].fileType));
@@ -120,7 +119,7 @@ void printServerContent(SoapESP32 *soap, int servNum, String objectId, int numTa
 void setup() {
   Serial.begin(115200);
 
-  Ethernet.init(25);    // CS on ESP32 pin 25
+  Ethernet.init(GPIO_ETHCS);
   Serial.print("\nInitializing Ethernet...");
 
   if (Ethernet.begin(mac))
