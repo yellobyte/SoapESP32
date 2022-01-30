@@ -95,7 +95,7 @@ uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint
 
 All examples were build & tested with ArduinoIDE V1.8.9 and VSCode/PlatformIO.
 
-If possible, please always set project wide preprocessor option `__GNU_VISIBLE` which enables usage of strcasestr() provided in _string.h_. However, if `__GNU_VISIBLE` is not defined, a quick and dirty version of strcasestr() defined in _SoapESP32.cpp_ will be used instead.
+If possible, always set project wide preprocessor option `__GNU_VISIBLE` which enables usage of strcasestr() provided in _string.h_. However, if `__GNU_VISIBLE` is not defined, a quick and dirty version of strcasestr() defined in _SoapESP32.cpp_ will be used instead.
 
 If you use an Ethernet module/shield instead of builtin WiFi you must set the preprocessor option `USE_ETHERNET`. Otherwise the build will fail.
 
