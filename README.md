@@ -6,7 +6,7 @@ Motivation for writing it was the missing capability of an existing ESP32-Radio 
 
 The library has been successfully tested so far with the following DLNA media servers: **DiXim**, **Twonky**, **UMS** (Universal Media Server), **Jellyfin**, **Emby**, **Kodi**, **Plex**, **Serviio**, **Subsonic** and **Windows Media Player**.
 
-Integrating this library into your ESP32 Arduino project is easy. Here e.g. the basics for searching and printing media servers in your local network. For detailed info have a look at the many [examples](https://github.com/yellobyte/soapESP32/blob/main/examples) included.
+Integrating this library into your ESP32 Arduino projects is easy. Here e.g. the basics for searching and printing media servers in your local network. For detailed info have a look at the many [examples](https://github.com/yellobyte/soapESP32/blob/main/examples) included.
 ```c
 ...
 #include "SoapESP32.h"
