@@ -23,7 +23,7 @@ setup() {
   ...
   // searching local network for media servers
   soap.seekServer();
-  // print details of discovered servers
+  // print details of all discovered servers
   while (soap.getServerInfo(srvNum++, &srv)) {
     Serial.print("Server name: ");
     Serial.println(srv.friendlyName);
