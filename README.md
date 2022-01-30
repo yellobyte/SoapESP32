@@ -27,6 +27,7 @@ setup() {
     // print server details
     Serial.print("Server name: ");
     Serial.println(srv.friendlyName);
+    ...
   }
 }
 ```
