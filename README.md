@@ -37,9 +37,9 @@ setup() {
 
 To install SoapESP32 into your **Arduino IDE** you can use the **Library Manager** (available from IDE version 1.6.2). Open the IDE and click to the **Sketch** menu and then **Include Library > Manage Libraries**. Search for SoapESP32, select the newest release and click on **install**.  
 
-In **VSCode/PlatformIO** click the **platformio sidebar icon**, open the **libraries view** and search for SoapESP32. Once found, click on the installation tab for it.
+In **VSCode/PlatformIO** click the **platformio sidebar icon**, open the **libraries** view and search for SoapESP32. Once found, select the newest release and click on **Add to Project**.
 
-Make sure you have one of the latest versions of **Arduino core for ESP32** installed in your IDE. Older versions might produce build errors with some examples.
+Always make sure you have one of the latest versions of **Arduino core for ESP32** installed in your IDE. Older versions might produce build errors with some examples.
 
 As of Version 1.1.0 the struct *soapObject_t* has seen two modifications:  
 Firstly, the type of member variable *size* has changed from size_t to uint64_t. If used in your projects, you might have to adjust some code. Secondly, a new member variable *sizeMissing* (boolean) has been added. 
