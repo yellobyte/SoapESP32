@@ -106,7 +106,7 @@ Simply put build options to your _platformio.ini_ project file, e.g.:  build_fla
 	
 ## :mag: How to find correct server parameters needed in some examples
 
-Four examples, _BrowseRecursively_Ethernet.ino_, _BrowseRecursively_WiFi.ino_, _DownloadFileExample1_Ethernet.ino_ and _DownloadFileExample1_WiFi.ino_ require some parameters (that apply to your specific DLNA media server) be defined manually. The three snapshots _Using_VLC_to_find_....._parameter.JPG_ in folder **Doc** show how to use  **VLC** to find the right values.
+Four examples, _BrowseRecursively_Ethernet.ino_, _BrowseRecursively_WiFi.ino_, _DownloadFileExample1_Ethernet.ino_ and _DownloadFileExample1_WiFi.ino_ require some parameters (that apply to your specific DLNA media server) be defined manually. The three snapshots _Using_VLC_to_find_....._parameter.JPG_ in folder [**Doc**](https://github.com/yellobyte/soapESP32/blob/main/doc) show how to use  **VLC** to find the right values.
 
 ## :file_folder: Documentation
 
