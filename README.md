@@ -65,7 +65,7 @@ If you run into trouble with your particular DLNA media server or NAS, increase 
 Using a Wiznet W5x00 board and the standard Arduino Ethernet lib for communication produced some sporadic issues. Especially client.read() calls returned corrupted data every now and then, esp. with other threads using the SPI bus simultaneously.
 This problem is mentioned a few times in forums on the internet, so it seems to be a known ESP32 Arduino SPI library issue.
 
-The only remedy I found was to wrap all function calls that use SPI with a global/project wide mutex lock (realized within this library with the aid of claimSPI()/releaseSPI()). This completely wiped all those problems and none of the garbling issues happened ever again. See example *UsingMutexLocks_Ethernet.ino* for more details.
+The only remedy I found was to wrap all function calls that use SPI with a global/project wide mutex lock (realized within this library with the aid of claimSPI()/releaseSPI()). This completely wiped all those problems. See example [*UsingMutexLocks_Ethernet.ino*](https://github.com/yellobyte/SoapESP32/tree/main/examples/UsingMutexLocks_Ethernet/UsingMutexLocks_Ethernet.ino) for more details.
 
 Of course, the ESP32 Arduino SPI library already uses locks (SPI_MUTEX_LOCK/SPI_MUTEX_UNLOCK) but doesn't seem to be 100% thread proof though. Please correct me if I'm wrong or you do find a better solution.
 
