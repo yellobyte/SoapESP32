@@ -21,7 +21,7 @@ uint8_t srvNum = 0;
 setup() {
   // setting up Wifi, serial output, etc.
   ...
-  // searching for media server
+  // searching local network for media server
   soap.seekServer();
   while (soap.getServerInfo(srvNum++, &srv)) {
     // print server details
