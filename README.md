@@ -14,9 +14,9 @@ Integrating this library into your ESP32 Arduino projects is easy. Here e.g. the
 WiFiClient client;
 WiFiUDP    udp;
 
-SoapESP32 soap(&client, &udp);
+SoapESP32    soap(&client, &udp);
 soapServer_t srv;
-uint8_t srvNum = 0;
+uint8_t      srvNum = 0;
 
 setup() {
   // setting up Wifi, serial output, etc.
@@ -30,6 +30,7 @@ setup() {
     ...
   }
 }
+...
 ```
 
 ## :zap: Application notes
