@@ -91,7 +91,7 @@ uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint
   ...
 ```
 
-### 🛠️ Setting compiler/build options:
+### :hammer_and_wrench: Setting compiler/build options:
 
 All examples were build & tested with ArduinoIDE V1.8.9 and VSCode/PlatformIO.
 
