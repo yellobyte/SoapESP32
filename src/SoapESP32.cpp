@@ -60,7 +60,7 @@ xPathParser_t xmlParserPaths[] = {
   { .num = 1, .tagNames = { "res" } }
 };
 
-const char *fileTypes[] = { "other", "audio", "picture", "video", "stream" };
+const char *fileTypes[] = { "other", "audio", "picture", "video", "" };
 
 #if !defined(__GNU_VISIBLE)
 // find the first occurrence of what in s, ignore case.
@@ -101,7 +101,7 @@ SoapESP32::SoapESP32(WiFiClient *client, WiFiUDP *udp)
 
 //
 // broadcast 3 WOL packets carrying a specified MAC address
-// parameter is a pointer to a C string in the format "00:1:23:Aa:bC:D0" as an unusual example
+// parameter is a pointer to a C string in the format "00:1:23:Aa:bC:D4" as an unusual example
 //
 #define WOL_PACKET_SIZE 102
 bool SoapESP32::wakeUpServer(const char *macAddress)
@@ -220,7 +220,7 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
   size_t len;
   IPAddress ip;
   char tmpBuffer[SSDP_TMP_BUFFER_SIZE],
-       location[SSDP_LOCATION_BUF_SIZE],
+       location[SSDP_LOCATION_BUF_SIZE] = "",
        address[20];
 
   // send SSDP multicast packets (parameter: nr of repeats)
@@ -259,12 +259,14 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
          ) {  
         char format[30];
 
+        strtok(p, "\r\n");
         snprintf(format, sizeof(format), "http://%%[0-9.]:%%d/%%%ds", SSDP_LOCATION_BUF_SIZE - 1);
-        if (sscanf(p + 10, format, address, &port, location) != 3) continue;
+        if (sscanf(p + 10, format, address, &port, location) < 2) continue;
         if (!ip.fromString(address)) continue;
 
-        // scanning of ip address, port and location was successful
-        log_d("scanned ip=%s, port=%d, location=%s", ip.toString().c_str(), port, location);
+        // scanning of ip address & port successful, missing location string possible (e.g. D-Link NAS DNS-320L)
+        log_d("scanned ip=%s, port=%d, location=\"%s\"", ip.toString().c_str(), port, location);
+        if (!strlen(location)) log_d("empty location string!");
 
         // avoid multiple entries of same server (ip & port are identical) but accept multiple media servers
         // running under the same ip and using different ports
@@ -1148,8 +1150,10 @@ bool SoapESP32::soapGet(const IPAddress ip, const uint16_t port, const char *uri
   String str((char *)0);
 
   // assemble HTTP header
-  snprintf(buffer, length, "GET /%s %s\r\n", uri, HTTP_VERSION);
+  snprintf(buffer, length, "GET /%s %s", uri, HTTP_VERSION);
   str += buffer;
+  log_d("%s:%d %s", ip.toString().c_str(), port, buffer);
+  str += "\r\n";
   snprintf(buffer, length, HEADER_HOST, ip.toString().c_str(), port);
   str += buffer;
   str += HEADER_CONNECTION_CLOSE;
@@ -1235,8 +1239,10 @@ bool SoapESP32::soapPost(const IPAddress ip,
   messageLength += sizeof(SOAP_ENVELOPE_END) - 1;
 
   // assemble HTTP header
-  snprintf(buffer, sizeof(buffer), "POST /%s %s\r\n", uri, HTTP_VERSION);
+  snprintf(buffer, sizeof(buffer), "POST /%s %s", uri, HTTP_VERSION);
   str += buffer;
+  log_d("%s:%d %s", ip.toString().c_str(), port, buffer);
+  str += "\r\n";
   snprintf(buffer, sizeof(buffer), HEADER_HOST, ip.toString().c_str(), port); // 29 bytes max
   str += buffer;
   // TEST
