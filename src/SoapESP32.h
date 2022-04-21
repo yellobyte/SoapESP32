@@ -27,6 +27,7 @@
 #define SoapESP32_h
 
 #include <Arduino.h>
+#include <vector>
 
 // Please uncomment if you use an Ethernet board/shield instead of builtin WiFi 
 //#define USE_ETHERNET
