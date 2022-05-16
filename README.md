@@ -54,6 +54,8 @@ Most DLNA media servers I tested the library with showed some oddities. All comp
 
 - Missing attribute size: Media servers often show items without telling their size. That applies to all item types: streams, video files, audio files, image files, etc. In this case the library will return them in browse results with size=0 and sizeMissing=true. 
 
+- Missing attributes child count & searchable: Some servers report container (directories) without child count or even give size 0 when in fact they are not empty. Same applies to attribute searchable. This is very annoying for it forces you to dig into each (sub)directory not to overlook anything.
+
 - Parent-ID Mismatch: The id of a directory and the parent id of it's content should match. Sometimes it does not (e.g. Subsonic). As of V1.1.1 this mismatch is ignored by default. You can go back to strict behaviour with build option `PARENT_ID_MUST_MATCH`
 
 - Downloading big files/reading streams: Files with reported size bigger than 4.2GB (SIZE_MAX) will be shown in browse results but an attempt to download them with readStart()/read()/readEnd() will fail. If you want to download them or read endless streams you will have to do it outside this library in your own code.
