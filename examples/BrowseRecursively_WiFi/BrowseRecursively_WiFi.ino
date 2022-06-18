@@ -19,7 +19,7 @@
   Have a look at example "BrowseBigDirectories_WiFi.ino" where this
   is demonstrated.
     
-  Last updated 2022-01-20, ThJ <yellobyte@bluewin.ch>
+  Last updated 2022-06-18, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -30,7 +30,7 @@
 //#define SHOW_ESP32_MEMORY_STATISTICS
 
 // Please set definitions that apply to your actual media server/NAS !
-// Following some examples for media server settings:
+// Following some examples for encountered media server settings:
 // 1) Twonky on Linux
 //    Port: 9050,  Control Url: "TMSContentDirectory/Control"
 // 2) DiXim on Linux
@@ -41,12 +41,16 @@
 //    Port: 8895,  Control Url: "serviceControl"	
 // 5) Kodi on Windows
 //    Port: 1557,  Control Url: "ContentDirectory/1960b02b-2618-c8eb-e6aa-2367704dac98/control.xml"	
-// 6) Jellyfin on Windows
+// 6) Jellyfin/Emby on Windows
 //    Port: 8096,  Control Url: "dlna/5737229bc09f48d88c7d1bd4881c073e/contentdirectory/control"
 // 7) Subsonic on Windows
 //    Port: 54988, Control Url: "dev/3eafef82-e2d2-c47f-ffff-ffff88fe3c0c/svc/upnp-org/ContentDirectory/action"
 // 8) Plex on Windows
 //    Port: 32469, Control Url: "ContentDirectory/1b9ec67b-810c-2747-a8c0-2a221c74df01/control.xml"
+// 9) MinimServer on Windows
+//    Port: 9791, Control Url: "6ced4d6a-7ccc-4b95-92c7-ab504b45afe0/upnp.org-ContentDirectory-1/control"
+// 10) Standard QNAP-DLNA Server
+//    Port: 8200, Control Url: "ctl/ContentDir"
 
 #define SERVER_IP          192,168,...,...
 #define SERVER_PORT        ...

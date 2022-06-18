@@ -625,7 +625,7 @@ bool SoapESP32::soapScanAttribute(const String *attributes, String *result, cons
   }
 
   *result = "";   // empty for next call
-  log_w("attribute: \"%s\" missing.", what);
+  log_i("attribute: \"%s\" missing.", what);
 
   return false;
 }

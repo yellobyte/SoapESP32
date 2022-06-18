@@ -4,7 +4,7 @@ This Arduino library provides basic UPnP/SOAP functionality, enabling an ESP32 d
 
 Motivation for writing it was the missing capability of an existing ESP32-Radio (based on Ed Smallenburg's code) to play audio content stored on the various NAS devices in the local network at home (most of them running a DLNA server).
 
-The library has been successfully tested so far with the following DLNA media servers: **DiXim**, **Twonky**, **UMS** (Universal Media Server), **Jellyfin**, **Emby**, **Kodi**, **Plex**, **Serviio**, **Subsonic** and **Windows Media Player**.
+The library has been successfully tested so far with the following DLNA media servers: **DiXim**, **Twonky**, **UMS** (Universal Media Server), **Jellyfin**, **Emby**, **Kodi**, **Plex**, **Serviio**, **Subsonic**, **MinimServer**, **QNAP-DLNA** and **Windows Media Player**.
 
 Integrating this library into your ESP32 Arduino projects is easy. Here e.g. the basics for searching and printing media servers in your local network. For detailed info have a look at the many [examples](https://github.com/yellobyte/soapESP32/blob/main/examples) included.
 ```c
@@ -35,7 +35,7 @@ setup() {
 
 ## :zap: Application notes
 
-To install SoapESP32 into your **Arduino IDE** you can use the **Library Manager** (available from IDE version 1.6.2). Open the IDE and click to the **Sketch** menu and then **Include Library > Manage Libraries**. Search for SoapESP32, select the newest release and click on **install**.  
+To install SoapESP32 into your **Arduino IDE** you can use the **Library Manager**. Open the IDE and click to the **Sketch** menu and then **Include Library > Manage Libraries**. Search for SoapESP32, select the newest release and click on **install**.  
 
 In **VSCode/PlatformIO** click the **platformio sidebar icon**, open the **libraries** view and search for SoapESP32. Once found, select the newest release and click on **Add to Project**.
 
@@ -54,7 +54,7 @@ Most DLNA media servers I tested the library with showed some oddities. All comp
 
 - Missing attribute size: Media servers often show items without telling their size. That applies to all item types: streams, video files, audio files, image files, etc. In this case the library will return them in browse results with size=0 and sizeMissing=true. 
 
-- Missing attributes child count & searchable: Some servers report container (directories) with child count 0 or missing child count when in fact they are not empty. Same applies to attribute searchable. This is very annoying for it forces you to dig into each (sub)directory not to overlook anything.
+- Missing attributes child count & searchable: Some servers report container (directories) with child count 0 or missing attribute child count when in fact they are not empty. Same applies to attribute searchable. This is very annoying for it forces you to dig into each (sub)directory not to overlook anything.
 
 - Parent-ID Mismatch: The id of a directory and the parent id of it's content should match. Sometimes it does not (e.g. Subsonic). As of V1.1.1 this mismatch is ignored by default. You can go back to strict behaviour with build option `PARENT_ID_MUST_MATCH`
 
