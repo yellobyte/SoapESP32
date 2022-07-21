@@ -134,8 +134,3 @@ The following picture sequence shows how the library has been implemented:
 ![github](https://github.com/yellobyte/SoapESP32/raw/main/doc/ESP32-Radio-DLNA.jpg)
 
 Alternatively have a look at the short clip _ESP32-Radio-DLNA.mp4_ in folder **Doc** to see the final implementation in action. To watch now, click [Here](https://github.com/yellobyte/SoapESP32/raw/main/doc/ESP32-Radio-DLNA.mp4)
-
-## :clap:  Supporters
-
-[![Stargazers repo roster for @yellobyte/SoapESP32](https://reporoster.com/stars/yellobyte/SoapESP32)](https://github.com/yellobyte/SoapESP32/stargazers)  
-[![Forkers repo roster for @yellobyte/SoapESP32](https://reporoster.com/forks/yellobyte/SoapESP32)](https://github.com/yellobyte/SoapESP32/network/members)
