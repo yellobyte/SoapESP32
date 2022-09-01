@@ -134,3 +134,9 @@ The following picture sequence shows how the library has been implemented:
 ![github](https://github.com/yellobyte/SoapESP32/raw/main/doc/ESP32-Radio-DLNA.jpg)
 
 Alternatively have a look at the short clip _ESP32-Radio-DLNA.mp4_ in folder **Doc** to see the final implementation in action. To watch now, click [Here](https://github.com/yellobyte/SoapESP32/raw/main/doc/ESP32-Radio-DLNA.mp4)
+
+## :relaxed: Postscript
+
+If you run into trouble with your mediaserver or have suggestions how to improve the lib, feel free to contact me.
+
+And a last remark: Putting this library together took endless hours and quite a lot of coffee. So if you like it, please give it a star. Thanks !

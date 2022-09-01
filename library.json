@@ -33,7 +33,7 @@
     "Subsonic",
     "Plex",
     "MinimServer",
-    "QNAP-DLNA"
+    "QNAP"
   ],
   "description": "Enables ESP32 devices to scan the local network for DLNA media servers, browse their content and download files.",
   "authors":
