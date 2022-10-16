@@ -6,7 +6,7 @@ Motivation for writing it was the missing capability of an existing ESP32-Radio 
 
 The library has been successfully tested so far with the following DLNA media servers: **DiXim**, **Twonky**, **UMS** (Universal Media Server), **Jellyfin**, **Emby**, **Kodi**, **Plex**, **Serviio**, **Subsonic**, **MinimServer**, **QNAP-DLNA** and **Windows Media Player**.
 
-Integrating this library into your ESP32 Arduino projects is easy. Here e.g. the basics for searching and printing media servers in your local network. For detailed info have a look at the many [examples](https://github.com/yellobyte/soapESP32/blob/main/examples) included.
+Integrating this library into your ESP32 Arduino projects is easy. For detailed info have a look at the many [examples](https://github.com/yellobyte/soapESP32/blob/main/examples) included. Below the basics for searching and printing media servers in your local network. 
 ```c
 ...
 #include "SoapESP32.h"
@@ -44,7 +44,7 @@ Always make sure you have one of the latest versions of **Arduino core for ESP32
 As of Version 1.1.0 the struct *soapObject_t* has seen two modifications:  
 Firstly, the type of member variable *size* has changed from size_t to uint64_t. If used in your projects, you might have to adjust some code. Secondly, a new member variable *sizeMissing* (boolean) has been added. 
 
-Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
+Most DLNA media servers I tested the library with showed some oddities (which might depend on their particular settings). However, all compatibility issues I ran across have been fixed. Please note the following:
 
 - Streams/podcasts: Some media servers (e.g. Fritzbox, Serviio) do **not** provide a size for items (media content) located in their Web/Online/InternetRadio folders. Thanks to Github user KiloOscarRomeo for drawing my attention to this fact. In contrast, UMS (Universal Media Server) always provides a fixed size=9223372034707292159 for items in directory Web (incl. subdirectories Radio, Podcasts, etc.). 
 
@@ -137,4 +137,5 @@ Alternatively have a look at the short clip _ESP32-Radio-DLNA.mp4_ in folder **D
 
 ## :relaxed: Postscript
 
-If you run into trouble with your mediaserver or have suggestions how to improve the lib, feel free to contact me.
+If you run into trouble with your mediaserver or have suggestions how to improve the lib, feel free to contact me.  
+If you like it, please give it a star.
