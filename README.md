@@ -138,4 +138,3 @@ Alternatively have a look at the short clip _ESP32-Radio-DLNA.mp4_ in folder **D
 ## :relaxed: Postscript
 
 If you run into trouble with your mediaserver or have suggestions how to improve the lib, feel free to contact me.  
-If you like it, please give it a star.
