@@ -41,7 +41,7 @@ Always make sure you have one of the latest versions of **Arduino core for ESP32
 
 Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
 
-- Streams/podcasts: Some media servers (e.g. Fritzbox, Serviio) do **not** provide a size for items (media content) located in their Web/Online/InternetRadio folders. Thanks to Github user KiloOscarRomeo for drawing my attention to this fact. In contrast, UMS (Universal Media Server) always provides a fixed size=9223372034707292159 (0x7FFFFFFF7FFFFFFF) for items in directory Web (incl. subdirectories Radio, Podcasts, etc.). 
+- Streams/podcasts: Some media servers (e.g. Fritzbox, Serviio) do **not** provide a size for items (media content) located in their Web/Online/InternetRadio folders. Thanks to Github user KiloOscarRomeo for drawing my attention to this fact. In contrast, UMS (Universal Media Server) always provides a fixed size of 9223372034707292159 (0x7FFFFFFF7FFFFFFF) for items in directory Web (incl. subdirectories Radio, Podcasts, etc.). 
 
 - Empty files: Some media servers (MS MediaPlayer/Kodi/Jellyfin) show empty files, others don't. This library by default ignores files with reported size zero. They will not show up in browse results. You can change this behaviour with build option `SHOW_EMPTY_FILES`.
 
