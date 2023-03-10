@@ -21,7 +21,7 @@
   Have a look at example "BrowseBigDirectories_WiFi.ino" where this is
   demonstrated.
     
-  Last updated 2022-06-18, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-03-10, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -56,9 +56,11 @@
 // 8) Plex on Windows
 //    Port: 32469, Control Url: "ContentDirectory/1b9ec67b-810c-2747-a8c0-2a221c74df01/control.xml"
 // 9) MinimServer on Windows
-//    Port: 9791, Control Url: "6ced4d6a-7ccc-4b95-92c7-ab504b45afe0/upnp.org-ContentDirectory-1/control"
+//    Port: 9791,  Control Url: "6ced4d6a-7ccc-4b95-92c7-ab504b45afe0/upnp.org-ContentDirectory-1/control"
 // 10) Standard QNAP-DLNA Server
-//    Port: 8200, Control Url: "ctl/ContentDir"
+//    Port: 8200,  Control Url: "ctl/ContentDir"
+// 11) Mezzmo on Windows
+//    Port: 53168, Control Url: "ContentDirectory/control"
 	
 #define SERVER_IP          192,168,...,...
 #define SERVER_PORT        ...
@@ -146,6 +148,8 @@ void setup() {
   soap.addServer(IPAddress(SERVER_IP), SERVER_PORT, SERVER_CONTROL_URL);
 
   // print server content recursively
+  Serial.printf("Media server ip: %s, port: %d, controlUrl: %s\n", 
+                IPAddress(SERVER_IP).toString().c_str(), SERVER_PORT, SERVER_CONTROL_URL);
   Serial.println("----> server content follows:");
 
   printServerContent(&soap, // pointer to soap object

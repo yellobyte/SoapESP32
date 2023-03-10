@@ -62,8 +62,10 @@ xPathParser_t xmlParserPaths[] = {
 
 const char *fileTypes[] = { "other", "audio", "picture", "video", "" };
 
+//
+// helper function, find the first occurrence of substring "what" in string "s", ignore case
+//
 #if !defined(__GNU_VISIBLE)
-// find the first occurrence of what in s, ignore case.
 char *strcasestr(const char *s, const char *what)
 {
   char c, sc;
@@ -123,7 +125,7 @@ bool SoapESP32::wakeUpServer(const char *macAddress)
       return false;
     }
     // build WOL udp packet: 6 bytes 0xFF followed by 16 x mac of target device
-    memset(packetBuffer, 0xFF, sizeof(packetBuffer));   // set all bytes in the buffer to FF
+    memset(packetBuffer, 0xFF, sizeof(packetBuffer));
     for (i = 6; i < WOL_PACKET_SIZE; i++) {
       packetBuffer[i] = (uint8_t)*(mac + (i % 6));
     }
@@ -254,7 +256,7 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
             // NOTIFY packets sent out regularly by media servers (we ignore ssdp:byebye's)
           (strstr(tmpBuffer,SSDP_NOTIFICATION) &&
            ((p = strcasestr(tmpBuffer,SSDP_LOCATION)) != NULL) &&
-           strcasestr(tmpBuffer,SSDP_NOTIFICATION_TYPE) && strcasestr(tmpBuffer,SSDP_NOTIFICATION_SUB_TYPE)
+            strcasestr(tmpBuffer,SSDP_NOTIFICATION_TYPE) && strcasestr(tmpBuffer,SSDP_NOTIFICATION_SUB_TYPE)
           )
          ) {  
         char format[30];
@@ -264,12 +266,11 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
         if (sscanf(p + 10, format, address, &port, location) < 2) continue;
         if (!ip.fromString(address)) continue;
 
-        // scanning of ip address & port successful, missing location string possible (e.g. D-Link NAS DNS-320L)
+        // scanning of ip address & port successful, location string can be missing (e.g. D-Link NAS DNS-320L)
         log_d("scanned ip=%s, port=%d, location=\"%s\"", ip.toString().c_str(), port, location);
         if (!strlen(location)) log_d("empty location string!");
 
-        // avoid multiple entries of same server (ip & port are identical) but accept multiple media servers
-        // running under the same ip and using different ports
+        // avoid multiple entries of same server (identical ip & port)
         for (i = 0; i < result->size(); i++) {
           if (result->operator[](i).ip == ip && result->operator[](i).port == port) break;               
         }
@@ -490,7 +491,7 @@ uint8_t SoapESP32::seekServer()
   MiniXPath xPath;
   soapServer_t srv;
 
-  // examine all media servers that answered our SSDP multicast enquiry
+  // examine all media servers that answered our SSDP multicast query
   while (j < rcvd.size()) {
 
     // try to establish connection to server and send GET request
@@ -586,7 +587,7 @@ bool SoapESP32::addServer(IPAddress ip, uint16_t port, const char *controlURL, c
     return false;
   }
 
-  // refuse entry in list when ip & port are identical
+  // refuse entry in list in case of identical ip & port
   for (i = 0; i < m_server.size(); i++) {
     if (m_server.operator[](i).ip == ip && m_server.operator[](i).port == port) break;               
   }
@@ -945,8 +946,8 @@ bool SoapESP32::browseServer(const uint8_t srv,              // server number in
       log_v("container (length=%d): %s", str.length(), str.c_str());
       if (soapScanContainer(&objId, &strAttribute, &str, browseResult))
         countContainer++;
-        // TEST
-        delay(1); // resets task switcher watchdog, just in case it's needed
+      // TEST
+      delay(1); // resets task switcher watchdog, just in case it's needed
     }
     if (xPathItem.getValue((char)ret, &str, &strAttribute, true) ||
         xPathItemAlt1.getValue((char)ret, &str, &strAttribute, true) ||
@@ -955,8 +956,8 @@ bool SoapESP32::browseServer(const uint8_t srv,              // server number in
       log_v("item (length=%d): %s", str.length(), str.c_str());
       if (soapScanItem(&objId, &strAttribute, &str, browseResult))
         countItem++;
-        // TEST
-        delay(1); // resets task switcher watchdog, just in case it's needed
+      // TEST
+      delay(1); // resets task switcher watchdog, just in case it's needed
     }
     if (xPathNumberReturned.getValue((char)ret, &str) ||
         xPathNumberReturnedAlt1.getValue((char)ret, &str) ||
@@ -971,7 +972,7 @@ bool SoapESP32::browseServer(const uint8_t srv,              // server number in
     log_i("XML scanned, no elements announced");
   }
   else if (count != (countContainer + countItem)) {
-    log_w("XML scanned, elements announced: %d != found: %d", count, countContainer + countItem);
+    log_w("XML scanned, elements announced %d != found %d (possible reason: empty file or vital attributes missing)", count, countContainer + countItem);
   }
 
 end_stop:
@@ -1092,6 +1093,9 @@ int SoapESP32::read(uint8_t *buf, size_t size, uint32_t timeout) {
   return res;
 }
 
+//
+// read a single byte from server, return -1 in case of error
+//
 int SoapESP32::read(void)
 {
   uint8_t b;
@@ -1217,8 +1221,15 @@ bool SoapESP32::soapPost(const IPAddress ip,
     delay(100);  
   }
 
+  // memory allocation for assembling HTTP header
+  size_t length = strlen(uri) + 30;
+  char *buffer = (char *)malloc(length);
+  if (!buffer) {
+    log_e("malloc() couldn't allocate memory");    
+    return false;
+  }
+
   uint16_t messageLength;
-  char buffer[200];
   char index[12], count[6];
   String str((char *)0);
 
@@ -1239,25 +1250,25 @@ bool SoapESP32::soapPost(const IPAddress ip,
   messageLength += sizeof(SOAP_ENVELOPE_END) - 1;
 
   // assemble HTTP header
-  snprintf(buffer, sizeof(buffer), "POST /%s %s", uri, HTTP_VERSION);
+  snprintf(buffer, length, "POST /%s %s", uri, HTTP_VERSION);
   str += buffer;
   log_d("%s:%d %s", ip.toString().c_str(), port, buffer);
   str += "\r\n";
-  snprintf(buffer, sizeof(buffer), HEADER_HOST, ip.toString().c_str(), port); // 29 bytes max
+  snprintf(buffer, length, HEADER_HOST, ip.toString().c_str(), port); // 29 bytes max
   str += buffer;
   // TEST
   str += "CACHE-CONTROL: no-cache\r\nPRAGMA: no-cache\r\n";
   //str += "FRIENDLYNAME.DLNA.ORG: ESP32-Radio\r\n";
   //
   str += HEADER_CONNECTION_CLOSE;
-  snprintf(buffer, sizeof(buffer), HEADER_CONTENT_LENGTH_D, messageLength);
+  snprintf(buffer, length, HEADER_CONTENT_LENGTH_D, messageLength);
   str += buffer;
   str += HEADER_CONTENT_TYPE;
   str += HEADER_SOAP_ACTION;
   str += HEADER_USER_AGENT;
-  str += HEADER_EMPTY_LINE;                    // empty line marks end of HTTP header !
+  str += HEADER_EMPTY_LINE;                    // empty line marks end of HTTP header
 
-  // assemble SOAP message (multiple str+= instead of a single str+=..+..+.. reduces allocations)
+  // assemble SOAP message (multiple str+= instead of a single str+=..+..+.. reduces allocation depth)
   str += SOAP_ENVELOPE_START;
   str += SOAP_BODY_START;
   str += SOAP_BROWSE_START;
@@ -1301,9 +1312,11 @@ bool SoapESP32::soapPost(const IPAddress ip,
       m_client->stop();
       releaseSPI();
       log_e("POST: no reply from server within %d ms", SERVER_RESPONSE_TIMEOUT);
+      free(buffer);
       return false;
     }
   }
+  free(buffer);
 
   return true;
 }
@@ -1342,6 +1355,3 @@ const char *SoapESP32::getFileTypeName(eFileType fileType)
 {
   return (fileTypeAudio <= fileType && fileType <= fileTypeVideo) ? fileTypes[fileType] : fileTypes[fileTypeOther];
 }
-
-
-
