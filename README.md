@@ -35,7 +35,7 @@ setup() {
 
 ## :zap: Application notes
 
-To install SoapESP32 into your **IDE** open the **Library Manager**, search for **SoapESP32** and choose **install**, **Add to Project** or similar.  
+To install the library into your **IDE** open the **Library Manager**, search for **SoapESP32** and choose **install**, **Add to Project** or similar.  
 
 Always make sure you have one of the latest versions of **Arduino core for ESP32** installed. Older versions might produce build errors with some examples.
 
