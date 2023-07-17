@@ -10,7 +10,7 @@
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2022-01-22, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-07-17, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -37,9 +37,7 @@ const char pass[] = "MyPassword";
 #define GPIO_SDCS   5
 
 WiFiClient client;
-WiFiUDP    udp;
-
-SoapESP32 soap(&client, &udp);
+SoapESP32 soap(&client);
 
 void setup() {
   Serial.begin(115200);

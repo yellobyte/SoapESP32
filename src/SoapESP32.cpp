@@ -112,6 +112,8 @@ bool SoapESP32::wakeUpServer(const char *macAddress)
   int mac[6];
   char lower[20];
 
+  if (!m_udp) return false;
+
   if (strlen(macAddress) > 10 && strlen(macAddress) < 18) {
     int i;
     for (i = 0; i < strlen(macAddress); i++) {
