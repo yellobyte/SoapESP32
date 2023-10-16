@@ -45,9 +45,9 @@ Most DLNA media servers I tested the library with showed some oddities. All comp
 
 - Empty directories: They always show up in browse results.
 
-- Missing attribute size: Media servers often show items without telling their size. That applies to all item types: streams, video files, audio files, image files, etc. In this case the library will return them in browse results with *size=0* and *sizeMissing=true*. 
+- Missing attribute size: Media servers often show items without telling their size. That applies to all item types: streams, video/audio/image files, etc. In this case the library will return them in browse results with *size=0* and *sizeMissing=true*. 
 
-- Missing attributes "size" (means child count in case of directories) & "searchable" (for directories): Some servers report containers (directories) with size (child count) = 0 or even missing attribute size when in fact they are not empty. Same applies to attribute searchable. This is very annoying for it forces you to dig into each (sub)directory not to overlook anything.
+- Missing attributes "size" (means child count in case of directories) & "searchable" (for directories): Some servers report containers (directories) with size=0 or without this attribute when in fact they are not empty. Same applies to attribute searchable. This is very annoying for it forces you to dig into each (sub)directory not to overlook anything.
 
 - Parent-ID Mismatch: The id of a directory and the parent id of it's content should match. Sometimes it does not (e.g. Subsonic). As of V1.1.1 this mismatch is ignored by default. You can go back to strict behaviour with build option `PARENT_ID_MUST_MATCH`
 
@@ -92,24 +92,30 @@ uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint
 
 All examples were build & tested with various versions of ArduinoIDE and VSCode/PlatformIO.
 
-If possible, always set project wide preprocessor option `__GNU_VISIBLE` which enables usage of strcasestr() provided in _string.h_. However, if `__GNU_VISIBLE` is not defined, a quick and dirty version of strcasestr() defined in _SoapESP32.cpp_ will be used instead.
+If preprocessor option `__GNU_VISIBLE` is defined then strcasestr() provided by toolchain is used, if not then its equivalent from _SoapESP32.cpp_ will be used.
 
 If you use an Ethernet module/shield instead of builtin WiFi you must set the preprocessor option `USE_ETHERNET`. Otherwise the build will fail.
 
 #### Building with Arduino IDE:
 
-Unfortunately we can't set project wide build options in *.ino sketches. So the easiest way is to uncomment the line **//#define USE_ETHERNET** in _SoapESP32.h_. Alternatively you could add any needed build options to line _compiler.cpreprocessor.flags_ in your Arduino IDE file _platform.txt_.  On my PC for example I find this file in directory:  	
-* _C:\Users\tj\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.4_
-
-Be reminded, those options will stay permanent until you delete them!  
+Add a file named "build_opt.h" containing your wanted build options to your sketch directory, e.g.:  
+```c
+-DUSE_ETHERNET
+```
+Please note: Changes made to "build_opt.h" after a first build will not be detected by the Arduino IDE. Restarting the IDE will fix that.  
 
 #### Building with VSCode/PlatformIO:
 
-Simply add needed build options to your _platformio.ini_ project file, e.g.:  build_flags = `-D__GNU_VISIBLE, -DUSE_ETHERNET`
-	
+Add wanted build options to your _platformio.ini_ project file, e.g.:  
+```c
+build_flags = -DUSE_ETHERNET`
+```
+
 ## :mag: How to find correct server parameters needed in some examples
 
-Four examples (_BrowseRecursively_Ethernet.ino_, _BrowseRecursively_WiFi.ino_, _DownloadFileExample1_Ethernet.ino_ and _DownloadFileExample1_WiFi.ino_) require some parameters (that apply to your specific DLNA media server) be defined manually. The three provided snapshots (_Using_VLC_to_find_....._parameter.JPG_) in folder [**Doc**](https://github.com/yellobyte/soapESP32/blob/main/doc) show you how to use the open source **VLC** media player to find the right values.
+Four examples (_BrowseRecursively_Ethernet.ino_, _BrowseRecursively_WiFi.ino_, _DownloadFileExample1_Ethernet.ino_ and _DownloadFileExample1_WiFi.ino_) require some parameters (that apply to your specific DLNA media server) be defined manually.  
+
+The three provided snapshots (_Using_VLC_to_find_....._parameter.JPG_) in folder [**Doc**](https://github.com/yellobyte/soapESP32/blob/main/doc) show you how to use the open source **VLC** media player to find the right values.
 
 ## :file_folder: Documentation
 
@@ -130,5 +136,5 @@ Alternatively have a look at the short clip _ESP32-Radio-DLNA.mp4_ in folder **D
 
 ## :relaxed: Postscript
 
-If you run into trouble with your mediaserver or have suggestions how to improve the lib, feel free to contact me.  
+If you run into trouble with your mediaserver or have suggestions how to improve the lib, feel free to contact me or create an issue.  
 
