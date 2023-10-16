@@ -102,7 +102,7 @@ Add a file named "build_opt.h" containing your wanted build options to your sket
 ```c
 -DUSE_ETHERNET
 ```
-Please note: Changes made to "build_opt.h" after a first build will not be detected by the Arduino IDE. Restarting the IDE will fix that.  
+Please note: Changes made to "build_opt.h" after a first build will not be detected by the Arduino IDE. Rebuilding the whole project or restarting the IDE will fix that.  
 
 #### Building with VSCode/PlatformIO:
 
