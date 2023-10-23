@@ -8,7 +8,7 @@
 22:37:44.362 > [   170][V][WiFiGeneric.cpp:97] set_esp_interface_ip(): Configuring Station static IP: 0.0.0.0, MASK: 0.0.0.0, GW: 0.0.0.0
 22:37:44.362 > [   168][V][WiFiGeneric.cpp:340] _arduino_event_cb(): STA Started
 22:37:44.362 > [   175][D][WiFiGeneric.cpp:931] _eventCallback(): Arduino Event: 2 - STA_START
-22:37:44.362 > .[   236][V][WiFiGeneric.cpp:355] _arduino_event_cb(): STA Connected: SSID: Moudi-Net2, BSSID: 94:a6:7e:b0:9c:2b, Channel: 7, Auth: WPA2_PSK
+22:37:44.362 > .[   236][V][WiFiGeneric.cpp:355] _arduino_event_cb(): STA Connected: SSID: M-Net2, BSSID: 94:a6:7e:b0:9c:2b, Channel: 7, Auth: WPA2_PSK
 22:37:44.362 > [   238][D][WiFiGeneric.cpp:931] _eventCallback(): Arduino Event: 4 - STA_CONNECTED
 22:37:44.362 > [   277][V][WiFiGeneric.cpp:369] _arduino_event_cb(): STA Got New IP:192.168.1.46
 22:37:44.362 > [   278][D][WiFiGeneric.cpp:931] _eventCallback(): Arduino Event: 7 - STA_GOT_IP
