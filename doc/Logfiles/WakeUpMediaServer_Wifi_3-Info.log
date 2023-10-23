@@ -1,0 +1,139 @@
+--- Terminal on COM7 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+21:59:56.369 >
+21:59:56.369 > Connecting to WiFi network .
+21:59:56.474 > Connected successfully.
+21:59:56.476 > IP address: 192.168.1.46
+21:59:56.478 >
+21:59:56.479 > Scanning local network for DLNA media servers...
+21:59:56.483 > [   673][I][SoapESP32.cpp:513] seekServer(): SSDP search for media servers started, scan duration: 45 sec
+21:59:56.941 > [  1140][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+21:59:57.242 > [  1441][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+21:59:58.286 > [  2485][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+21:59:58.474 > [  2673][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+21:59:58.885 > [  3084][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+21:59:59.804 > [  4003][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+21:59:59.817 > [  4007][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:00.110 > [  4309][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:00.332 > [  4532][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:00.930 > [  5129][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:00.943 > [  5133][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:01.340 > [  5539][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:01.353 > [  5543][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:01.548 > [  5748][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:01.749 > [  5949][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:02.977 > [  7177][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:00:24.490 > [ 28691][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+22:00:24.500 > [ 28694][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+22:00:24.509 > [ 28701][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+22:00:24.683 > [ 28885][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+22:00:41.492 > [ 45695][I][SoapESP32.cpp:516] seekServer(): SSDP query discovered 2 media servers
+22:00:41.500 > [ 45695][I][SoapESP32.cpp:519] seekServer(): checking all discovered media servers for service ContentDirectory
+22:00:41.530 > [ 45733][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.40:8895
+22:00:41.542 > [ 45745][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+22:00:41.571 > [ 45773][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.40:5001
+22:00:41.587 > [ 45790][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+22:00:41.595 > Number of discovered servers that deliver content: 2
+22:00:41.600 >
+22:00:41.600 > Server[1]: IP address: 192.168.1.40, port: 8895, name: Serviio (Virtual-Win10)
+22:00:41.607 >   -> controlURL: serviceControl
+22:00:41.610 > Server[2]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
+22:00:41.616 >   -> controlURL: upnp/control/content_directory
+22:00:41.622 >
+22:00:41.622 > Send WOL message to device with MAC: 24:5E:BE:5D:EE:23
+22:00:41.627 > Now waiting a few seconds before scanning local network again.
+22:00:43.628 > ............................................................
+22:02:41.619 > Scanning local network for DLNA media servers...
+22:02:41.623 > [165831][I][SoapESP32.cpp:513] seekServer(): SSDP search for media servers started, scan duration: 45 sec
+22:02:41.639 > [165851][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=8200, loc="rootDesc.xml"
+22:02:41.649 > [165857][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=8200, loc="rootDesc.xml"
+22:02:41.659 > [165862][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=8200, loc="rootDesc.xml"
+22:02:41.667 > [165869][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:41.677 > [165879][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=8200, loc="rootDesc.xml"
+22:02:41.687 > [165888][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=8200, loc="rootDesc.xml"
+22:02:41.695 > [165898][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=8200, loc="rootDesc.xml"
+22:02:41.706 > [165909][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:41.997 > [166209][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:42.008 > [166211][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:42.203 > [166415][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:42.217 > [166419][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:42.226 > [166428][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9791, loc="dd45fb96-3cd4-4e11-8ebe-9f9dbd56d4ed/Upnp/device.xml"
+22:02:42.239 > [166441][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:42.831 > [167043][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:42.842 > [167045][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.025 > [167237][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.035 > [167239][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.045 > [167247][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:43.058 > [167262][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:43.235 > [167447][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.245 > [167449][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.331 > [167543][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.434 > [167646][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.542 > [167754][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:43.626 > [167838][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.726 > [167938][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:43.769 > [167981][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:44.058 > [168270][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:44.250 > [168462][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9791, loc="dd45fb96-3cd4-4e11-8ebe-9f9dbd56d4ed/Upnp/device.xml"
+22:02:44.662 > [168873][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:44.671 > [168875][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:44.681 > [168883][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:44.690 > [168898][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:44.704 > [168916][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:44.714 > [168918][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:44.732 > [168944][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:45.072 > [169284][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.082 > [169286][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.091 > [169294][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.101 > [169303][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.111 > [169313][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.120 > [169322][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.276 > [169488][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.286 > [169490][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.296 > [169498][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.305 > [169507][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.315 > [169517][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.324 > [169526][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.719 > [169931][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:45.733 > [169935][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.742 > [169944][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9791, loc="dd45fb96-3cd4-4e11-8ebe-9f9dbd56d4ed/Upnp/device.xml"
+22:02:45.755 > [169957][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.889 > [170101][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:45.903 > [170105][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:45.933 > [170145][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:46.329 > [170541][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:46.339 > [170543][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:02:46.349 > [170551][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:46.708 > [170920][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:47.529 > [171741][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+22:02:59.408 > [183621][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+22:02:59.610 > [183823][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+22:02:59.620 > [183826][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+22:02:59.630 > [183834][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+22:03:26.634 > [210850][I][SoapESP32.cpp:516] seekServer(): SSDP query discovered 5 media servers
+22:03:26.642 > [210850][I][SoapESP32.cpp:519] seekServer(): checking all discovered media servers for service ContentDirectory
+22:03:26.678 > [210893][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.11:8200
+22:03:26.687 > [210896][I][SoapESP32.cpp:339] soapReadHttpHeader(): header line: HTTP/1.1 500 Internal Server Error
+22:03:26.696 > [210900][I][SoapESP32.cpp:596] seekServer(): this Server does not deliver media content
+22:03:26.723 > [210938][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.11:9000
+22:03:26.738 > [210953][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+22:03:26.780 > [210995][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.40:8895
+22:03:26.792 > [211007][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+22:03:26.821 > [211036][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.11:9791
+22:03:26.834 > [211049][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+22:03:26.869 > [211085][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.40:5001
+22:03:26.885 > [211100][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+22:03:26.893 > Number of discovered servers that deliver content: 4
+22:03:26.898 >
+22:03:26.898 > Server[1]: IP address: 192.168.1.11, port: 9000, name: Twonky [QNAP-TS253D]
+22:03:26.904 >   -> controlURL: dev0/srv1/control
+22:03:26.908 > Server[2]: IP address: 192.168.1.40, port: 8895, name: Serviio (Virtual-Win10)
+22:03:26.914 >   -> controlURL: serviceControl
+22:03:26.917 > Server[3]: IP address: 192.168.1.11, port: 9791, name: MinimServer[QNAP-TS253D]
+22:03:26.924 >   -> controlURL: dd45fb96-3cd4-4e11-8ebe-9f9dbd56d4ed/upnp.org-ContentDirectory-1/control
+22:03:26.932 > Server[4]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
+22:03:26.939 >   -> controlURL: upnp/control/content_directory
+22:03:26.943 >
+22:03:26.944 > Sketch finished.

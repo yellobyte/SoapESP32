@@ -1,0 +1,20 @@
+--- Terminal on COM7 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+22:43:28.647 >
+22:43:28.647 > Connecting to WiFi network .E (663) wifi:Association refused temporarily, comeback time 1024 mSec
+22:43:28.772 > ....
+22:43:30.774 > Connected successfully.
+22:43:30.775 > IP address: 192.168.1.46
+22:43:30.777 >
+22:43:30.777 > Scanning local network for DLNA media servers...
+22:44:30.935 > Number of discovered servers that deliver content: 3
+22:44:30.940 >
+22:44:30.940 > Server[1]: IP address: 192.168.1.40, port: 8895, name: Serviio (Virtual-Win10)
+22:44:30.947 >   -> controlURL: serviceControl
+22:44:30.949 > Server[2]: IP address: 192.168.1.11, port: 9000, name: Twonky [QNAP-TS253D]
+22:44:30.957 >   -> controlURL: dev0/srv1/control
+22:44:30.960 > Server[3]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
+22:44:30.967 >   -> controlURL: upnp/control/content_directory
+22:44:30.971 >

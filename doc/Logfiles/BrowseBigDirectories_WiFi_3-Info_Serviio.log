@@ -1,0 +1,565 @@
+
+01:38:39.360 -> Connecting to WiFi network ....E (3547) wifi:Association refused temporarily, comeback time 1024 mSec
+01:38:41.500 -> ....[  3709][W][WiFiGeneric.cpp:1057] _eventCallback(): Reason: 203 - ASSOC_FAIL
+01:38:43.457 -> .
+01:38:43.969 -> Connected successfully. IP address: 192.168.1.46
+01:38:43.969 -> 
+01:38:43.969 -> Scanning local network for DLNA media servers...
+01:38:43.969 -> [  4676][I][SoapESP32.cpp:513] seekServer(): SSDP search for media servers started, scan duration: 10 sec
+01:38:44.107 -> [  4798][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+01:38:44.434 -> [  5152][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+01:38:44.480 -> [  5166][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+01:38:45.317 -> [  6008][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+01:38:45.363 -> [  6075][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+01:38:45.877 -> [  6585][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+01:38:46.717 -> [  7405][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+01:38:48.773 -> [  9454][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+01:38:54.002 -> [ 14690][I][SoapESP32.cpp:516] seekServer(): SSDP query discovered 1 media servers
+01:38:54.002 -> [ 14690][I][SoapESP32.cpp:519] seekServer(): checking all discovered media servers for service ContentDirectory
+01:38:54.002 -> [ 14710][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.40:8895
+01:38:54.002 -> [ 14718][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+01:38:54.049 -> Number of discovered servers that deliver content: 1
+01:38:54.049 -> 
+01:38:54.049 -> Please be patient, searching big directory on server: Serviio (Virtual-Win10)
+01:38:54.049 -> [ 14730][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "0"
+01:38:54.049 -> [ 14754][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+01:38:54.049 -> [ 14757][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+01:38:54.095 -> [ 14765][I][SoapESP32.cpp:721] soapScanContainer(): "A" attribute searchable=0
+01:38:54.095 -> [ 14766][I][SoapESP32.cpp:741] soapScanContainer(): folder "Audio" (id: "A", childCount: 14) added to list
+01:38:54.095 -> [ 14777][I][SoapESP32.cpp:721] soapScanContainer(): "I" attribute searchable=0
+01:38:54.095 -> [ 14782][I][SoapESP32.cpp:741] soapScanContainer(): folder "Image" (id: "I", childCount: 7) added to list
+01:38:54.095 -> [ 14794][I][SoapESP32.cpp:721] soapScanContainer(): "V" attribute searchable=0
+01:38:54.095 -> [ 14798][I][SoapESP32.cpp:741] soapScanContainer(): folder "Video" (id: "V", childCount: 12) added to list
+01:38:54.141 -> [ 14810][I][SoapESP32.cpp:1016] browseServer(): found 3 folders and 0 files
+01:38:54.141 -> [ 14816][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "A"
+01:38:54.141 -> [ 14859][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+01:38:54.188 -> [ 14862][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+01:38:54.188 -> [ 14870][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB" attribute searchable=0
+01:38:54.188 -> [ 14871][I][SoapESP32.cpp:741] soapScanContainer(): folder "Albums" (id: "A_ALB", childCount: 96) added to list
+01:38:54.188 -> [ 14883][I][SoapESP32.cpp:721] soapScanContainer(): "A_A" attribute searchable=0
+01:38:54.188 -> [ 14888][I][SoapESP32.cpp:741] soapScanContainer(): folder "Artists" (id: "A_A", childCount: 19) added to list
+01:38:54.233 -> [ 14900][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A" attribute searchable=0
+01:38:54.233 -> [ 14905][I][SoapESP32.cpp:741] soapScanContainer(): folder "Album Artists" (id: "AL_A", childCount: 19) added to list
+01:38:54.233 -> [ 14919][I][SoapESP32.cpp:721] soapScanContainer(): "A_F" attribute searchable=0
+01:38:54.233 -> [ 14922][I][SoapESP32.cpp:741] soapScanContainer(): folder "Folders" (id: "A_F", childCount: 1) added to list
+01:38:54.233 -> [ 14934][I][SoapESP32.cpp:721] soapScanContainer(): "A_G" attribute searchable=0
+01:38:54.233 -> [ 14939][I][SoapESP32.cpp:741] soapScanContainer(): folder "Genres" (id: "A_G", childCount: 18) added to list
+01:38:54.280 -> [ 14951][I][SoapESP32.cpp:721] soapScanContainer(): "A_C" attribute searchable=0
+01:38:54.280 -> [ 14956][I][SoapESP32.cpp:741] soapScanContainer(): folder "Composers" (id: "A_C", childCount: 1) added to list
+01:38:54.280 -> [ 14968][I][SoapESP32.cpp:721] soapScanContainer(): "A_T" attribute searchable=0
+01:38:54.280 -> [ 14973][I][SoapESP32.cpp:741] soapScanContainer(): folder "Titles" (id: "A_T", childCount: 24) added to list
+01:38:54.280 -> [ 14985][I][SoapESP32.cpp:721] soapScanContainer(): "A_R" attribute searchable=0
+01:38:54.327 -> [ 14990][I][SoapESP32.cpp:741] soapScanContainer(): folder "Random Music" (id: "A_R", childCount: 100) added to list
+01:38:54.327 -> [ 15002][I][SoapESP32.cpp:721] soapScanContainer(): "A_RA" attribute searchable=0
+01:38:54.327 -> [ 15007][I][SoapESP32.cpp:741] soapScanContainer(): folder "Random Albums" (id: "A_RA", childCount: 10) added to list
+01:38:54.327 -> [ 15020][I][SoapESP32.cpp:721] soapScanContainer(): "A_LVA" attribute searchable=0
+01:38:54.327 -> [ 15025][I][SoapESP32.cpp:741] soapScanContainer(): folder "Last Listened" (id: "A_LVA", childCount: 2) added to list
+01:38:54.373 -> [ 15037][I][SoapESP32.cpp:721] soapScanContainer(): "A_LAA" attribute searchable=0
+01:38:54.373 -> [ 15042][I][SoapESP32.cpp:741] soapScanContainer(): folder "Last Added Albums" (id: "A_LAA", childCount: 10) added to list
+01:38:54.373 -> [ 15055][I][SoapESP32.cpp:1016] browseServer(): found 11 folders and 0 files
+01:38:54.373 -> [ 15061][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "A_ALB"
+01:38:54.421 -> [ 15114][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+01:38:54.421 -> [ 15117][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+01:38:54.421 -> [ 15129][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*3" attribute searchable=0
+01:38:54.421 -> [ 15129][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*3", childCount: 2) added to list
+01:38:54.467 -> [ 15144][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*4" attribute searchable=0
+01:38:54.467 -> [ 15145][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*4", childCount: 2) added to list
+01:38:54.467 -> [ 15162][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*9" attribute searchable=0
+01:38:54.467 -> [ 15163][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*9", childCount: 1) added to list
+01:38:54.467 -> [ 15181][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*14" attribute searchable=0
+01:38:54.514 -> [ 15182][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*14", childCount: 1) added to list
+01:38:54.514 -> [ 15198][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*15" attribute searchable=0
+01:38:54.514 -> [ 15200][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*15", childCount: 1) added to list
+01:38:54.514 -> [ 15218][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*17" attribute searchable=0
+01:38:54.514 -> [ 15218][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*17", childCount: 1) added to list
+01:38:54.560 -> [ 15235][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*19" attribute searchable=0
+01:38:54.560 -> [ 15237][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*19", childCount: 1) added to list
+01:38:54.560 -> [ 15254][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*22" attribute searchable=0
+01:38:54.560 -> [ 15255][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*22", childCount: 1) added to list
+01:38:54.560 -> [ 15272][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*27" attribute searchable=0
+01:38:54.606 -> [ 15274][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*27", childCount: 1) added to list
+01:38:54.606 -> [ 15292][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*28" attribute searchable=0
+01:38:54.606 -> [ 15292][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*28", childCount: 1) added to list
+01:38:54.606 -> [ 15309][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*33" attribute searchable=0
+01:38:54.606 -> [ 15310][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*33", childCount: 1) added to list
+01:38:54.653 -> [ 15328][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*35" attribute searchable=0
+01:38:54.653 -> [ 15329][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*35", childCount: 1) added to list
+01:38:54.653 -> [ 15345][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*37" attribute searchable=0
+01:38:54.653 -> [ 15347][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*37", childCount: 1) added to list
+01:38:54.653 -> [ 15365][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*41" attribute searchable=0
+01:38:54.700 -> [ 15366][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*41", childCount: 1) added to list
+01:38:54.700 -> [ 15382][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*43" attribute searchable=0
+01:38:54.700 -> [ 15384][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*43", childCount: 1) added to list
+01:38:54.700 -> [ 15402][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*48" attribute searchable=0
+01:38:54.700 -> [ 15402][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 1" (id: "A_ALB^ALB*48", childCount: 1) added to list
+01:38:54.747 -> [ 15419][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*2" attribute searchable=0
+01:38:54.747 -> [ 15421][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*2", childCount: 1) added to list
+01:38:54.747 -> [ 15438][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*6" attribute searchable=0
+01:38:54.747 -> [ 15439][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*6", childCount: 1) added to list
+01:38:54.747 -> [ 15456][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*7" attribute searchable=0
+01:38:54.794 -> [ 15457][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*7", childCount: 1) added to list
+01:38:54.794 -> [ 15475][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*11" attribute searchable=0
+01:38:54.794 -> [ 15475][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*11", childCount: 1) added to list
+01:38:54.794 -> [ 15492][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*13" attribute searchable=0
+01:38:54.794 -> [ 15494][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*13", childCount: 1) added to list
+01:38:54.840 -> [ 15512][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*16" attribute searchable=0
+01:38:54.840 -> [ 15512][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*16", childCount: 1) added to list
+01:38:54.840 -> [ 15529][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*18" attribute searchable=0
+01:38:54.840 -> [ 15531][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*18", childCount: 1) added to list
+01:38:54.840 -> [ 15548][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*21" attribute searchable=0
+01:38:54.887 -> [ 15549][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*21", childCount: 1) added to list
+01:38:54.887 -> [ 15566][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*23" attribute searchable=0
+01:38:54.887 -> [ 15567][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*23", childCount: 1) added to list
+01:38:54.887 -> [ 15585][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*25" attribute searchable=0
+01:38:54.887 -> [ 15586][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*25", childCount: 1) added to list
+01:38:54.933 -> [ 15603][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*29" attribute searchable=0
+01:38:54.933 -> [ 15604][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*29", childCount: 1) added to list
+01:38:54.933 -> [ 15622][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*32" attribute searchable=0
+01:38:54.933 -> [ 15623][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*32", childCount: 1) added to list
+01:38:54.933 -> [ 15639][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*34" attribute searchable=0
+01:38:54.979 -> [ 15641][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*34", childCount: 1) added to list
+01:38:54.979 -> [ 15659][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*39" attribute searchable=0
+01:38:54.979 -> [ 15659][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*39", childCount: 1) added to list
+01:38:54.979 -> [ 15676][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*42" attribute searchable=0
+01:38:54.979 -> [ 15678][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*42", childCount: 1) added to list
+01:38:55.023 -> [ 15696][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*44" attribute searchable=0
+01:38:55.023 -> [ 15696][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*44", childCount: 1) added to list
+01:38:55.023 -> [ 15713][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*46" attribute searchable=0
+01:38:55.023 -> [ 15715][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*46", childCount: 1) added to list
+01:38:55.023 -> [ 15732][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*50" attribute searchable=0
+01:38:55.070 -> [ 15733][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 2" (id: "A_ALB^ALB*50", childCount: 1) added to list
+01:38:55.070 -> [ 15750][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*1" attribute searchable=0
+01:38:55.070 -> [ 15751][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*1", childCount: 2) added to list
+01:38:55.070 -> [ 15769][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*5" attribute searchable=0
+01:38:55.070 -> [ 15770][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*5", childCount: 1) added to list
+01:38:55.116 -> [ 15786][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*8" attribute searchable=0
+01:38:55.116 -> [ 15788][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*8", childCount: 1) added to list
+01:38:55.116 -> [ 15805][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*10" attribute searchable=0
+01:38:55.116 -> [ 15806][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*10", childCount: 1) added to list
+01:38:55.116 -> [ 15823][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*12" attribute searchable=0
+01:38:55.116 -> [ 15825][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*12", childCount: 1) added to list
+01:38:55.163 -> [ 15842][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*20" attribute searchable=0
+01:38:55.163 -> [ 15843][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*20", childCount: 1) added to list
+01:38:55.163 -> [ 15860][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*24" attribute searchable=0
+01:38:55.163 -> [ 15861][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*24", childCount: 1) added to list
+01:38:55.208 -> [ 15879][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*26" attribute searchable=0
+01:38:55.208 -> [ 15880][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*26", childCount: 1) added to list
+01:38:55.208 -> [ 15896][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*30" attribute searchable=0
+01:38:55.208 -> [ 15898][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*30", childCount: 1) added to list
+01:38:55.208 -> [ 15916][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*31" attribute searchable=0
+01:38:55.208 -> [ 15917][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*31", childCount: 1) added to list
+01:38:55.255 -> [ 15933][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*36" attribute searchable=0
+01:38:55.255 -> [ 15935][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*36", childCount: 1) added to list
+01:38:55.255 -> [ 15953][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*40" attribute searchable=0
+01:38:55.255 -> [ 15953][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*40", childCount: 1) added to list
+01:38:55.301 -> [ 15970][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*45" attribute searchable=0
+01:38:55.301 -> [ 15972][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*45", childCount: 1) added to list
+01:38:55.301 -> [ 15989][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*47" attribute searchable=0
+01:38:55.301 -> [ 15990][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*47", childCount: 1) added to list
+01:38:55.301 -> [ 16007][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*49" attribute searchable=0
+01:38:55.301 -> [ 16009][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*49", childCount: 1) added to list
+01:38:55.349 -> [ 16026][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*51" attribute searchable=0
+01:38:55.349 -> [ 16027][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 3" (id: "A_ALB^ALB*51", childCount: 1) added to list
+01:38:55.349 -> [ 16044][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*55" attribute searchable=0
+01:38:55.349 -> [ 16045][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*55", childCount: 2) added to list
+01:38:55.349 -> [ 16063][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*62" attribute searchable=0
+01:38:55.396 -> [ 16064][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*62", childCount: 1) added to list
+01:38:55.396 -> [ 16081][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*65" attribute searchable=0
+01:38:55.396 -> [ 16082][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*65", childCount: 1) added to list
+01:38:55.396 -> [ 16100][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*67" attribute searchable=0
+01:38:55.396 -> [ 16101][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*67", childCount: 1) added to list
+01:38:55.442 -> [ 16117][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*73" attribute searchable=0
+01:38:55.442 -> [ 16119][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*73", childCount: 1) added to list
+01:38:55.442 -> [ 16137][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*76" attribute searchable=0
+01:38:55.442 -> [ 16137][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*76", childCount: 1) added to list
+01:38:55.442 -> [ 16154][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*77" attribute searchable=0
+01:38:55.489 -> [ 16156][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*77", childCount: 1) added to list
+01:38:55.489 -> [ 16174][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*82" attribute searchable=0
+01:38:55.489 -> [ 16174][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*82", childCount: 1) added to list
+01:38:55.489 -> [ 16191][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*86" attribute searchable=0
+01:38:55.489 -> [ 16193][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*86", childCount: 1) added to list
+01:38:55.534 -> [ 16210][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*87" attribute searchable=0
+01:38:55.534 -> [ 16211][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*87", childCount: 1) added to list
+01:38:55.534 -> [ 16228][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*88" attribute searchable=0
+01:38:55.534 -> [ 16229][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*88", childCount: 1) added to list
+01:38:55.534 -> [ 16246][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*90" attribute searchable=0
+01:38:55.581 -> [ 16248][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*90", childCount: 1) added to list
+01:38:55.581 -> [ 16266][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*91" attribute searchable=0
+01:38:55.581 -> [ 16266][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*91", childCount: 1) added to list
+01:38:55.581 -> [ 16283][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*93" attribute searchable=0
+01:38:55.581 -> [ 16285][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*93", childCount: 1) added to list
+01:38:55.628 -> [ 16302][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*95" attribute searchable=0
+01:38:55.628 -> [ 16304][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*95", childCount: 1) added to list
+01:38:55.628 -> [ 16320][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*96" attribute searchable=0
+01:38:55.628 -> [ 16321][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 4" (id: "A_ALB^ALB*96", childCount: 1) added to list
+01:38:55.628 -> [ 16339][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*52" attribute searchable=0
+01:38:55.674 -> [ 16340][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*52", childCount: 1) added to list
+01:38:55.674 -> [ 16357][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*56" attribute searchable=0
+01:38:55.674 -> [ 16358][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*56", childCount: 1) added to list
+01:38:55.674 -> [ 16376][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*58" attribute searchable=0
+01:38:55.674 -> [ 16377][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*58", childCount: 2) added to list
+01:38:55.721 -> [ 16394][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*60" attribute searchable=0
+01:38:55.721 -> [ 16395][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*60", childCount: 1) added to list
+01:38:55.721 -> [ 16413][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*64" attribute searchable=0
+01:38:55.721 -> [ 16413][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*64", childCount: 1) added to list
+01:38:55.721 -> [ 16430][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*66" attribute searchable=0
+01:38:55.768 -> [ 16432][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*66", childCount: 1) added to list
+01:38:55.768 -> [ 16450][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*68" attribute searchable=0
+01:38:55.768 -> [ 16450][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*68", childCount: 1) added to list
+01:38:55.768 -> [ 16467][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*69" attribute searchable=0
+01:38:55.768 -> [ 16469][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*69", childCount: 1) added to list
+01:38:55.815 -> [ 16486][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*72" attribute searchable=0
+01:38:55.815 -> [ 16487][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*72", childCount: 1) added to list
+01:38:55.815 -> [ 16504][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*75" attribute searchable=0
+01:38:55.815 -> [ 16505][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*75", childCount: 1) added to list
+01:38:55.815 -> [ 16523][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*79" attribute searchable=0
+01:38:55.860 -> [ 16524][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*79", childCount: 1) added to list
+01:38:55.860 -> [ 16541][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*80" attribute searchable=0
+01:38:55.860 -> [ 16542][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*80", childCount: 1) added to list
+01:38:55.860 -> [ 16560][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*83" attribute searchable=0
+01:38:55.860 -> [ 16561][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*83", childCount: 1) added to list
+01:38:55.906 -> [ 16577][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*84" attribute searchable=0
+01:38:55.906 -> [ 16579][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*84", childCount: 1) added to list
+01:38:55.906 -> [ 16597][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*85" attribute searchable=0
+01:38:55.906 -> [ 16597][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*85", childCount: 1) added to list
+01:38:55.906 -> [ 16614][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*89" attribute searchable=0
+01:38:55.953 -> [ 16616][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*89", childCount: 1) added to list
+01:38:55.953 -> [ 16634][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*92" attribute searchable=0
+01:38:55.953 -> [ 16634][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*92", childCount: 1) added to list
+01:38:55.953 -> [ 16651][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*94" attribute searchable=0
+01:38:55.953 -> [ 16653][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 5" (id: "A_ALB^ALB*94", childCount: 1) added to list
+01:38:56.001 -> [ 16670][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*53" attribute searchable=0
+01:38:56.001 -> [ 16671][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*53", childCount: 1) added to list
+01:38:56.001 -> [ 16688][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*54" attribute searchable=0
+01:38:56.001 -> [ 16689][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*54", childCount: 1) added to list
+01:38:56.001 -> [ 16707][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*57" attribute searchable=0
+01:38:56.001 -> [ 16708][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*57", childCount: 1) added to list
+01:38:56.048 -> [ 16725][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*59" attribute searchable=0
+01:38:56.048 -> [ 16726][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*59", childCount: 1) added to list
+01:38:56.048 -> [ 16744][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*61" attribute searchable=0
+01:38:56.048 -> [ 16745][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*61", childCount: 1) added to list
+01:38:56.048 -> [ 16761][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*70" attribute searchable=0
+01:38:56.094 -> [ 16763][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*70", childCount: 1) added to list
+01:38:56.094 -> [ 16781][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*71" attribute searchable=0
+01:38:56.094 -> [ 16782][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*71", childCount: 1) added to list
+01:38:56.094 -> [ 16798][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*74" attribute searchable=0
+01:38:56.094 -> [ 16800][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*74", childCount: 1) added to list
+01:38:56.139 -> [ 16818][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*78" attribute searchable=0
+01:38:56.139 -> [ 16818][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*78", childCount: 1) added to list
+01:38:56.139 -> [ 16835][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*81" attribute searchable=0
+01:38:56.139 -> [ 16837][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD 6" (id: "A_ALB^ALB*81", childCount: 5) added to list
+01:38:56.139 -> [ 16853][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*38" attribute searchable=0
+01:38:56.186 -> [ 16855][I][SoapESP32.cpp:741] soapScanContainer(): folder "The Eagles Best Of" (id: "A_ALB^ALB*38", childCount: 1) added to list
+01:38:56.186 -> [ 16873][I][SoapESP32.cpp:721] soapScanContainer(): "A_ALB^ALB*63" attribute searchable=0
+01:38:56.186 -> [ 16874][I][SoapESP32.cpp:741] soapScanContainer(): folder "Vincent" (id: "A_ALB^ALB*63", childCount: 1) added to list
+01:38:56.186 -> [ 16887][I][SoapESP32.cpp:1016] browseServer(): found 96 folders and 0 files
+01:38:56.186 -> [ 16894][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "A_A"
+01:38:56.232 -> [ 16916][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+01:38:56.232 -> [ 16919][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+01:38:56.232 -> [ 16926][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*65" attribute searchable=0
+01:38:56.232 -> [ 16928][I][SoapESP32.cpp:741] soapScanContainer(): folder "A" (id: "A_A^INI*65", childCount: 10) added to list
+01:38:56.232 -> [ 16940][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*66" attribute searchable=0
+01:38:56.279 -> [ 16945][I][SoapESP32.cpp:741] soapScanContainer(): folder "B" (id: "A_A^INI*66", childCount: 5) added to list
+01:38:56.279 -> [ 16957][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*67" attribute searchable=0
+01:38:56.279 -> [ 16963][I][SoapESP32.cpp:741] soapScanContainer(): folder "C" (id: "A_A^INI*67", childCount: 6) added to list
+01:38:56.279 -> [ 16977][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*68" attribute searchable=0
+01:38:56.279 -> [ 16980][I][SoapESP32.cpp:741] soapScanContainer(): folder "D" (id: "A_A^INI*68", childCount: 2) added to list
+01:38:56.326 -> [ 16992][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*69" attribute searchable=0
+01:38:56.326 -> [ 16998][I][SoapESP32.cpp:741] soapScanContainer(): folder "E" (id: "A_A^INI*69", childCount: 4) added to list
+01:38:56.326 -> [ 17010][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*70" attribute searchable=0
+01:38:56.326 -> [ 17015][I][SoapESP32.cpp:741] soapScanContainer(): folder "F" (id: "A_A^INI*70", childCount: 4) added to list
+01:38:56.326 -> [ 17027][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*71" attribute searchable=0
+01:38:56.326 -> [ 17033][I][SoapESP32.cpp:741] soapScanContainer(): folder "G" (id: "A_A^INI*71", childCount: 3) added to list
+01:38:56.373 -> [ 17045][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*72" attribute searchable=0
+01:38:56.373 -> [ 17050][I][SoapESP32.cpp:741] soapScanContainer(): folder "H" (id: "A_A^INI*72", childCount: 5) added to list
+01:38:56.373 -> [ 17062][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*74" attribute searchable=0
+01:38:56.373 -> [ 17068][I][SoapESP32.cpp:741] soapScanContainer(): folder "J" (id: "A_A^INI*74", childCount: 3) added to list
+01:38:56.373 -> [ 17080][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*76" attribute searchable=0
+01:38:56.420 -> [ 17085][I][SoapESP32.cpp:741] soapScanContainer(): folder "L" (id: "A_A^INI*76", childCount: 5) added to list
+01:38:56.420 -> [ 17097][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*77" attribute searchable=0
+01:38:56.420 -> [ 17102][I][SoapESP32.cpp:741] soapScanContainer(): folder "M" (id: "A_A^INI*77", childCount: 6) added to list
+01:38:56.420 -> [ 17115][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*78" attribute searchable=0
+01:38:56.420 -> [ 17120][I][SoapESP32.cpp:741] soapScanContainer(): folder "N" (id: "A_A^INI*78", childCount: 3) added to list
+01:38:56.465 -> [ 17132][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*79" attribute searchable=0
+01:38:56.465 -> [ 17137][I][SoapESP32.cpp:741] soapScanContainer(): folder "O" (id: "A_A^INI*79", childCount: 1) added to list
+01:38:56.465 -> [ 17149][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*80" attribute searchable=0
+01:38:56.465 -> [ 17155][I][SoapESP32.cpp:741] soapScanContainer(): folder "P" (id: "A_A^INI*80", childCount: 7) added to list
+01:38:56.465 -> [ 17167][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*82" attribute searchable=0
+01:38:56.465 -> [ 17172][I][SoapESP32.cpp:741] soapScanContainer(): folder "R" (id: "A_A^INI*82", childCount: 8) added to list
+01:38:56.512 -> [ 17184][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*83" attribute searchable=0
+01:38:56.512 -> [ 17190][I][SoapESP32.cpp:741] soapScanContainer(): folder "S" (id: "A_A^INI*83", childCount: 7) added to list
+01:38:56.512 -> [ 17202][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*84" attribute searchable=0
+01:38:56.512 -> [ 17207][I][SoapESP32.cpp:741] soapScanContainer(): folder "T" (id: "A_A^INI*84", childCount: 6) added to list
+01:38:56.512 -> [ 17219][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*85" attribute searchable=0
+01:38:56.558 -> [ 17225][I][SoapESP32.cpp:741] soapScanContainer(): folder "U" (id: "A_A^INI*85", childCount: 2) added to list
+01:38:56.558 -> [ 17237][I][SoapESP32.cpp:721] soapScanContainer(): "A_A^INI*90" attribute searchable=0
+01:38:56.558 -> [ 17242][I][SoapESP32.cpp:741] soapScanContainer(): folder "Z" (id: "A_A^INI*90", childCount: 1) added to list
+01:38:56.558 -> [ 17254][I][SoapESP32.cpp:1016] browseServer(): found 19 folders and 0 files
+01:38:56.558 -> [ 17260][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "AL_A"
+01:38:56.606 -> [ 17286][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+01:38:56.606 -> [ 17290][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+01:38:56.606 -> [ 17297][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*65" attribute searchable=0
+01:38:56.606 -> [ 17299][I][SoapESP32.cpp:741] soapScanContainer(): folder "A" (id: "AL_A^INI*65", childCount: 10) added to list
+01:38:56.606 -> [ 17311][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*66" attribute searchable=0
+01:38:56.653 -> [ 17316][I][SoapESP32.cpp:741] soapScanContainer(): folder "B" (id: "AL_A^INI*66", childCount: 5) added to list
+01:38:56.653 -> [ 17329][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*67" attribute searchable=0
+01:38:56.653 -> [ 17334][I][SoapESP32.cpp:741] soapScanContainer(): folder "C" (id: "AL_A^INI*67", childCount: 6) added to list
+01:38:56.653 -> [ 17348][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*68" attribute searchable=0
+01:38:56.653 -> [ 17352][I][SoapESP32.cpp:741] soapScanContainer(): folder "D" (id: "AL_A^INI*68", childCount: 2) added to list
+01:38:56.700 -> [ 17364][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*69" attribute searchable=0
+01:38:56.700 -> [ 17369][I][SoapESP32.cpp:741] soapScanContainer(): folder "E" (id: "AL_A^INI*69", childCount: 4) added to list
+01:38:56.700 -> [ 17381][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*70" attribute searchable=0
+01:38:56.700 -> [ 17387][I][SoapESP32.cpp:741] soapScanContainer(): folder "F" (id: "AL_A^INI*70", childCount: 4) added to list
+01:38:56.700 -> [ 17399][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*71" attribute searchable=0
+01:38:56.700 -> [ 17405][I][SoapESP32.cpp:741] soapScanContainer(): folder "G" (id: "AL_A^INI*71", childCount: 3) added to list
+01:38:56.747 -> [ 17417][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*72" attribute searchable=0
+01:38:56.747 -> [ 17422][I][SoapESP32.cpp:741] soapScanContainer(): folder "H" (id: "AL_A^INI*72", childCount: 5) added to list
+01:38:56.747 -> [ 17434][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*74" attribute searchable=0
+01:38:56.747 -> [ 17440][I][SoapESP32.cpp:741] soapScanContainer(): folder "J" (id: "AL_A^INI*74", childCount: 3) added to list
+01:38:56.747 -> [ 17452][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*76" attribute searchable=0
+01:38:56.794 -> [ 17457][I][SoapESP32.cpp:741] soapScanContainer(): folder "L" (id: "AL_A^INI*76", childCount: 5) added to list
+01:38:56.794 -> [ 17471][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*77" attribute searchable=0
+01:38:56.794 -> [ 17475][I][SoapESP32.cpp:741] soapScanContainer(): folder "M" (id: "AL_A^INI*77", childCount: 6) added to list
+01:38:56.794 -> [ 17487][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*78" attribute searchable=0
+01:38:56.794 -> [ 17493][I][SoapESP32.cpp:741] soapScanContainer(): folder "N" (id: "AL_A^INI*78", childCount: 3) added to list
+01:38:56.794 -> [ 17505][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*79" attribute searchable=0
+01:38:56.841 -> [ 17510][I][SoapESP32.cpp:741] soapScanContainer(): folder "O" (id: "AL_A^INI*79", childCount: 1) added to list
+01:38:56.841 -> [ 17522][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*80" attribute searchable=0
+01:38:56.841 -> [ 17528][I][SoapESP32.cpp:741] soapScanContainer(): folder "P" (id: "AL_A^INI*80", childCount: 7) added to list
+01:38:56.841 -> [ 17540][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*82" attribute searchable=0
+01:38:56.841 -> [ 17546][I][SoapESP32.cpp:741] soapScanContainer(): folder "R" (id: "AL_A^INI*82", childCount: 8) added to list
+01:38:56.888 -> [ 17558][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*83" attribute searchable=0
+01:38:56.888 -> [ 17563][I][SoapESP32.cpp:741] soapScanContainer(): folder "S" (id: "AL_A^INI*83", childCount: 7) added to list
+01:38:56.888 -> [ 17575][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*84" attribute searchable=0
+01:38:56.888 -> [ 17581][I][SoapESP32.cpp:741] soapScanContainer(): folder "T" (id: "AL_A^INI*84", childCount: 6) added to list
+01:38:56.888 -> [ 17593][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*85" attribute searchable=0
+01:38:56.935 -> [ 17598][I][SoapESP32.cpp:741] soapScanContainer(): folder "U" (id: "AL_A^INI*85", childCount: 2) added to list
+01:38:56.935 -> [ 17610][I][SoapESP32.cpp:721] soapScanContainer(): "AL_A^INI*90" attribute searchable=0
+01:38:56.935 -> [ 17616][I][SoapESP32.cpp:741] soapScanContainer(): folder "Z" (id: "AL_A^INI*90", childCount: 1) added to list
+01:38:56.935 -> [ 17628][I][SoapESP32.cpp:1016] browseServer(): found 19 folders and 0 files
+01:38:56.935 -> [ 17634][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "A_F"
+01:38:56.983 -> [ 17659][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+01:38:56.983 -> [ 17662][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+01:38:56.983 -> [ 17673][I][SoapESP32.cpp:721] soapScanContainer(): "A_F^FOL*R1" attribute searchable=0
+01:38:56.983 -> [ 17673][I][SoapESP32.cpp:741] soapScanContainer(): folder "Music" (id: "A_F^FOL*R1", childCount: 103) added to list
+01:38:56.983 -> [ 17683][I][SoapESP32.cpp:1016] browseServer(): found 1 folders and 0 files
+01:38:56.983 -> Big directory found, name: "Music", id: A_F^FOL*R1, size: 103
+01:38:57.030 -> ------> Browse directory with starting index: 0
+01:38:57.030 -> [ 17700][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "A_F^FOL*R1"
+01:38:57.076 -> [ 17751][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+01:38:57.076 -> [ 17754][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+01:38:57.076 -> [ 17765][I][SoapESP32.cpp:721] soapScanContainer(): "A_F^FOL*R1$F2" attribute searchable=0
+01:38:57.076 -> [ 17765][I][SoapESP32.cpp:741] soapScanContainer(): folder "Car-CD1" (id: "A_F^FOL*R1$F2", childCount: 3) added to list
+01:38:57.076 -> [ 17788][I][SoapESP32.cpp:896] soapScanItem(): "01 Alphaville - Forever Young.mp3" (id: "A_F^FOL*R1$MI1", size: 4556304, sizeMissing: false, type: audio) added to list
+01:38:57.122 -> [ 17806][I][SoapESP32.cpp:896] soapScanItem(): "01 Amy McDonald - This Is The Life.mp3" (id: "A_F^FOL*R1$MI2", size: 4688488, sizeMissing: false, type: audio) added to list
+01:38:57.122 -> [ 17824][I][SoapESP32.cpp:896] soapScanItem(): "01 Ben Harper- Excuse me Mr.mp3" (id: "A_F^FOL*R1$MI3", size: 11870222, sizeMissing: false, type: audio) added to list
+01:38:57.168 -> [ 17842][I][SoapESP32.cpp:896] soapScanItem(): "02 Anastacia - Sick And Tired.mp3" (id: "A_F^FOL*R1$MI4", size: 8348435, sizeMissing: false, type: audio) added to list
+01:38:57.168 -> [ 17860][I][SoapESP32.cpp:896] soapScanItem(): "02 Celine Dion - A new day has come.mp3" (id: "A_F^FOL*R1$MI5", size: 6251473, sizeMissing: false, type: audio) added to list
+01:38:57.168 -> [ 17877][I][SoapESP32.cpp:896] soapScanItem(): "02 Nelly Furtado - All good things.mp3" (id: "A_F^FOL*R1$MI6", size: 12455337, sizeMissing: false, type: audio) added to list
+01:38:57.214 -> [ 17895][I][SoapESP32.cpp:896] soapScanItem(): "03 Chris Isaac - Wicked Games.mp3" (id: "A_F^FOL*R1$MI7", size: 4644994, sizeMissing: false, type: audio) added to list
+01:38:57.214 -> [ 17913][I][SoapESP32.cpp:896] soapScanItem(): "03 David Bowie - China Girl.mp3" (id: "A_F^FOL*R1$MI8", size: 6706178, sizeMissing: false, type: audio) added to list
+01:38:57.214 -> [ 17931][I][SoapESP32.cpp:896] soapScanItem(): "03 Peter Schilling - Major Tom (German version).mp3" (id: "A_F^FOL*R1$MI9", size: 3855747, sizeMissing: false, type: audio) added to list
+01:38:57.261 -> [ 17951][I][SoapESP32.cpp:896] soapScanItem(): "04 Falco - Der Kommissar.mp3" (id: "A_F^FOL*R1$MI10", size: 7459426, sizeMissing: false, type: audio) added to list
+01:38:57.261 -> [ 17968][I][SoapESP32.cpp:896] soapScanItem(): "04 Maria Mena - Just hold me.mp3" (id: "A_F^FOL*R1$MI11", size: 6199684, sizeMissing: false, type: audio) added to list
+01:38:57.308 -> [ 17985][I][SoapESP32.cpp:896] soapScanItem(): "05 Gabriella Cilmi - Sweet About Me.mp3" (id: "A_F^FOL*R1$MI12", size: 5006892, sizeMissing: false, type: audio) added to list
+01:38:57.308 -> [ 18004][I][SoapESP32.cpp:896] soapScanItem(): "05 Lovin' Spoonful - Summer In The City.mp3" (id: "A_F^FOL*R1$MI13", size: 3888715, sizeMissing: false, type: audio) added to list
+01:38:57.308 -> [ 18023][I][SoapESP32.cpp:896] soapScanItem(): "05 Rory Gallagher - A million miles away.mp3" (id: "A_F^FOL*R1$MI14", size: 22771074, sizeMissing: false, type: audio) added to list
+01:38:57.355 -> [ 18042][I][SoapESP32.cpp:896] soapScanItem(): "06 Alphaville - Sounds like a melody.mp3" (id: "A_F^FOL*R1$MI15", size: 9210144, sizeMissing: false, type: audio) added to list
+01:38:57.355 -> [ 18061][I][SoapESP32.cpp:896] soapScanItem(): "06 Nits - Dutch Mountains.mp3" (id: "A_F^FOL*R1$MI16", size: 8555384, sizeMissing: false, type: audio) added to list
+01:38:57.403 -> [ 18079][I][SoapESP32.cpp:896] soapScanItem(): "06 Phil Carmen - On my way to LA (long).mp3" (id: "A_F^FOL*R1$MI17", size: 6695426, sizeMissing: false, type: audio) added to list
+01:38:57.403 -> [ 18097][I][SoapESP32.cpp:896] soapScanItem(): "07 Hooters - 500 Miles.mp3" (id: "A_F^FOL*R1$MI18", size: 6359038, sizeMissing: false, type: audio) added to list
+01:38:57.403 -> [ 18114][I][SoapESP32.cpp:896] soapScanItem(): "07 Stranglers - Always The Sun .mp3" (id: "A_F^FOL*R1$MI19", size: 9829742, sizeMissing: false, type: audio) added to list
+01:38:57.450 -> [ 18132][I][SoapESP32.cpp:896] soapScanItem(): "08 Men at Work - Land down under.mp3" (id: "A_F^FOL*R1$MI20", size: 3542515, sizeMissing: false, type: audio) added to list
+01:38:57.450 -> [ 18150][I][SoapESP32.cpp:896] soapScanItem(): "08 Murray Head - One Night In Bangkok.mp3" (id: "A_F^FOL*R1$MI21", size: 5003572, sizeMissing: false, type: audio) added to list
+01:38:57.450 -> [ 18169][I][SoapESP32.cpp:896] soapScanItem(): "08 Travis - Sing.mp3" (id: "A_F^FOL*R1$MI22", size: 5434021, sizeMissing: false, type: audio) added to list
+01:38:57.497 -> [ 18185][I][SoapESP32.cpp:896] soapScanItem(): "09 Police - Material World.mp3" (id: "A_F^FOL*R1$MI23", size: 7104618, sizeMissing: false, type: audio) added to list
+01:38:57.497 -> [ 18202][I][SoapESP32.cpp:896] soapScanItem(): "09 Roxette - Stars.mp3" (id: "A_F^FOL*R1$MI24", size: 4746949, sizeMissing: false, type: audio) added to list
+01:38:57.544 -> [ 18220][I][SoapESP32.cpp:896] soapScanItem(): "09 Shakira - Whenever, Wherever.mp3" (id: "A_F^FOL*R1$MI25", size: 4789962, sizeMissing: false, type: audio) added to list
+01:38:57.544 -> [ 18238][I][SoapESP32.cpp:896] soapScanItem(): "10 James Brown - I feel good.mp3" (id: "A_F^FOL*R1$MI26", size: 2701318, sizeMissing: false, type: audio) added to list
+01:38:57.544 -> [ 18256][I][SoapESP32.cpp:896] soapScanItem(): "10 Lana Del Rey - Ride.mp3" (id: "A_F^FOL*R1$MI27", size: 11630482, sizeMissing: false, type: audio) added to list
+01:38:57.590 -> [ 18274][I][SoapESP32.cpp:896] soapScanItem(): "10 Rainbirds - Blueprint.mp3" (id: "A_F^FOL*R1$MI28", size: 7962597, sizeMissing: false, type: audio) added to list
+01:38:57.590 -> [ 18290][I][SoapESP32.cpp:896] soapScanItem(): "11 Connells - 74-75.mp3" (id: "A_F^FOL*R1$MI29", size: 6753175, sizeMissing: false, type: audio) added to list
+01:38:57.590 -> [ 18307][I][SoapESP32.cpp:896] soapScanItem(): "11 Escobar & Heather Nova - Someone new.mp3" (id: "A_F^FOL*R1$MI30", size: 5096159, sizeMissing: false, type: audio) added to list
+01:38:57.636 -> [ 18326][I][SoapESP32.cpp:896] soapScanItem(): "11 Pet Shop Boys - Go West.mp3" (id: "A_F^FOL*R1$MI31", size: 4833196, sizeMissing: false, type: audio) added to list
+01:38:57.636 -> [ 18347][I][SoapESP32.cpp:896] soapScanItem(): "12 Sinéad O'Connor - Nothing Compares 2 U.mp3" (id: "A_F^FOL*R1$MI32", size: 7516934, sizeMissing: false, type: audio) added to list
+01:38:57.683 -> [ 18366][I][SoapESP32.cpp:896] soapScanItem(): "12 Suzanne Vega - My Name Is Luka.mp3" (id: "A_F^FOL*R1$MI33", size: 7354786, sizeMissing: false, type: audio) added to list
+01:38:57.683 -> [ 18384][I][SoapESP32.cpp:896] soapScanItem(): "12 Ten thousand maniacs - because the night.mp3" (id: "A_F^FOL*R1$MI34", size: 8944456, sizeMissing: false, type: audio) added to list
+01:38:57.683 -> [ 18403][I][SoapESP32.cpp:896] soapScanItem(): "13 Adele - Set Fire to the Rain.mp3" (id: "A_F^FOL*R1$MI35", size: 9696150, sizeMissing: false, type: audio) added to list
+01:38:57.731 -> [ 18421][I][SoapESP32.cpp:896] soapScanItem(): "13 Madness - Our house.mp3" (id: "A_F^FOL*R1$MI36", size: 5756679, sizeMissing: false, type: audio) added to list
+01:38:57.731 -> [ 18438][I][SoapESP32.cpp:896] soapScanItem(): "13 Reamonn - Super Girl.mp3" (id: "A_F^FOL*R1$MI37", size: 5577366, sizeMissing: false, type: audio) added to list
+01:38:57.778 -> [ 18455][I][SoapESP32.cpp:896] soapScanItem(): "14 Alanis Morissette - Hands Clean.mp3" (id: "A_F^FOL*R1$MI38", size: 6528589, sizeMissing: false, type: audio) added to list
+01:38:57.778 -> [ 18474][I][SoapESP32.cpp:896] soapScanItem(): "14 Eagles - Hotel California (Acoustic Live With Eric Clapton).mp3" (id: "A_F^FOL*R1$MI39", size: 17327932, sizeMissing: false, type: audio) added to list
+01:38:57.778 -> [ 18496][I][SoapESP32.cpp:896] soapScanItem(): "14 Steve Miller Band - Abracadabra.mp3" (id: "A_F^FOL*R1$MI40", size: 12353263, sizeMissing: false, type: audio) added to list
+01:38:57.824 -> [ 18514][I][SoapESP32.cpp:896] soapScanItem(): "15 Hermans Hermits - No Milk Today.mp3" (id: "A_F^FOL*R1$MI41", size: 5489679, sizeMissing: false, type: audio) added to list
+01:38:57.824 -> [ 18533][I][SoapESP32.cpp:896] soapScanItem(): "15 Rihanna - Stay.mp3" (id: "A_F^FOL*R1$MI42", size: 9647394, sizeMissing: false, type: audio) added to list
+01:38:57.870 -> [ 18550][I][SoapESP32.cpp:896] soapScanItem(): "15 Roy Orbison - You Got It.mp3" (id: "A_F^FOL*R1$MI43", size: 5152689, sizeMissing: false, type: audio) added to list
+01:38:57.870 -> [ 18568][I][SoapESP32.cpp:896] soapScanItem(): "16 Genesis - Carpet Crawl.mp3" (id: "A_F^FOL*R1$MI44", size: 12556493, sizeMissing: false, type: audio) added to list
+01:38:57.870 -> [ 18585][I][SoapESP32.cpp:896] soapScanItem(): "16 Heather Nova - Talk To Me.mp3" (id: "A_F^FOL*R1$MI45", size: 7881646, sizeMissing: false, type: audio) added to list
+01:38:57.918 -> [ 18603][I][SoapESP32.cpp:896] soapScanItem(): "16 Uriah Heep - Lady In Black.mp3" (id: "A_F^FOL*R1$MI46", size: 6774204, sizeMissing: false, type: audio) added to list
+01:38:57.918 -> [ 18620][I][SoapESP32.cpp:896] soapScanItem(): "17 Bruce Springsteen - Down To The River.mp3" (id: "A_F^FOL*R1$MI47", size: 14473215, sizeMissing: false, type: audio) added to list
+01:38:57.965 -> [ 18639][I][SoapESP32.cpp:896] soapScanItem(): "17 Scott Mc Kenzie - San Francisco.mp3" (id: "A_F^FOL*R1$MI48", size: 4341799, sizeMissing: false, type: audio) added to list
+01:38:57.965 -> [ 18658][I][SoapESP32.cpp:896] soapScanItem(): "18 Nazareth - Love Hurts.mp3" (id: "A_F^FOL*R1$MI49", size: 9284867, sizeMissing: false, type: audio) added to list
+01:38:57.965 -> [ 18675][I][SoapESP32.cpp:896] soapScanItem(): "18 Passenger - Let Her Go.mp3" (id: "A_F^FOL*R1$MI50", size: 10143623, sizeMissing: false, type: audio) added to list
+01:38:58.012 -> [ 18692][I][SoapESP32.cpp:896] soapScanItem(): "18 U2 - One Love.mp3" (id: "A_F^FOL*R1$MI51", size: 7689152, sizeMissing: false, type: audio) added to list
+01:38:58.012 -> [ 18709][I][SoapESP32.cpp:896] soapScanItem(): "19 Feargal Sharkey - A Good Heart.mp3" (id: "A_F^FOL*R1$MI52", size: 9195418, sizeMissing: false, type: audio) added to list
+01:38:58.012 -> [ 18726][I][SoapESP32.cpp:896] soapScanItem(): "Agnes Obel - Broken Sleep.mp3" (id: "A_F^FOL*R1$MI53", size: 7115834, sizeMissing: false, type: audio) added to list
+01:38:58.059 -> [ 18744][I][SoapESP32.cpp:896] soapScanItem(): "Agnes Obel - Riverside.mp3" (id: "A_F^FOL*R1$MI54", size: 5557406, sizeMissing: false, type: audio) added to list
+01:38:58.059 -> [ 18761][I][SoapESP32.cpp:896] soapScanItem(): "Alice Boman - Don't forget about me.mp3" (id: "A_F^FOL*R1$MI55", size: 5705448, sizeMissing: false, type: audio) added to list
+01:38:58.106 -> [ 18780][I][SoapESP32.cpp:896] soapScanItem(): "Alle Farben - Bad Ideas.mp3" (id: "A_F^FOL*R1$MI56", size: 6688084, sizeMissing: false, type: audio) added to list
+01:38:58.106 -> [ 18797][I][SoapESP32.cpp:896] soapScanItem(): "Alle Farben - She Moves (Far Away).mp3" (id: "A_F^FOL*R1$MI57", size: 7784102, sizeMissing: false, type: audio) added to list
+01:38:58.106 -> [ 18815][I][SoapESP32.cpp:896] soapScanItem(): "Alphaville - Big In Japan.mp3" (id: "A_F^FOL*R1$MI58", size: 6892958, sizeMissing: false, type: audio) added to list
+01:38:58.230 -> [ 18832][I][SoapESP32.cpp:896] soapScanItem(): "Antony And The Johnsons - Cripple And The Starfish.mp3" (id: "A_F^FOL*R1$MI59", size: 6172531, sizeMissing: false, type: audio) added to list
+01:38:58.230 -> [ 18850][I][SoapESP32.cpp:896] soapScanItem(): "Austra - Home.mp3" (id: "A_F^FOL*R1$MI60", size: 6157651, sizeMissing: false, type: audio) added to list
+01:38:58.230 -> [ 18867][I][SoapESP32.cpp:896] soapScanItem(): "Austra - Its Amazing.mp3" (id: "A_F^FOL*R1$MI61", size: 6273323, sizeMissing: false, type: audio) added to list
+01:38:58.230 -> [ 18884][I][SoapESP32.cpp:896] soapScanItem(): "Austra - Lose It.mp3" (id: "A_F^FOL*R1$MI62", size: 10791332, sizeMissing: false, type: audio) added to list
+01:38:58.230 -> [ 18902][I][SoapESP32.cpp:896] soapScanItem(): "Bing Austria & The Flippin' Soul Stompers - Ruined Heart.mp3" (id: "A_F^FOL*R1$MI63", size: 10102568, sizeMissing: false, type: audio) added to list
+01:38:58.230 -> [ 18930][I][SoapESP32.cpp:896] soapScanItem(): "Bobo in White Wooden Houses - Keep Moving On - Live.mp3" (id: "A_F^FOL*R1$MI64", size: 12127204, sizeMissing: false, type: audio) added to list
+01:38:58.230 -> [ 18949][I][SoapESP32.cpp:896] soapScanItem(): "Bruce Hornsby - The Way It Is.mp3" (id: "A_F^FOL*R1$MI65", size: 11945276, sizeMissing: false, type: audio) added to list
+01:38:58.276 -> [ 18967][I][SoapESP32.cpp:896] soapScanItem(): "Carla Bruni - Enjoy The Silence.mp3" (id: "A_F^FOL*R1$MI69", size: 4628781, sizeMissing: false, type: audio) added to list
+01:38:58.276 -> [ 18985][I][SoapESP32.cpp:896] soapScanItem(): "Coldplay - Clocks.mp3" (id: "A_F^FOL*R1$MI70", size: 12374596, sizeMissing: false, type: audio) added to list
+01:38:58.322 -> [ 19002][I][SoapESP32.cpp:896] soapScanItem(): "Culture Club - Do You Really Want To Hurt Me.mp3" (id: "A_F^FOL*R1$MI71", size: 10425164, sizeMissing: false, type: audio) added to list
+01:38:58.322 -> [ 19022][I][SoapESP32.cpp:896] soapScanItem(): "Disturbed - The Sound Of Silence.mp3" (id: "A_F^FOL*R1$MI72", size: 8332259, sizeMissing: false, type: audio) added to list
+01:38:58.322 -> [ 19040][I][SoapESP32.cpp:896] soapScanItem(): "Eilen Jewell - Working Hard For Your Love.mp3" (id: "A_F^FOL*R1$MI73", size: 7438165, sizeMissing: false, type: audio) added to list
+01:38:58.369 -> [ 19058][I][SoapESP32.cpp:896] soapScanItem(): "Ellie Goulding - Vincent.mp3" (id: "A_F^FOL*R1$MI74", size: 8967826, sizeMissing: false, type: audio) added to list
+01:38:58.369 -> [ 19076][I][SoapESP32.cpp:896] soapScanItem(): "Father John Misty - One of us cannot be wrong (cover).mp3" (id: "A_F^FOL*R1$MI75", size: 14082497, sizeMissing: false, type: audio) added to list
+01:38:58.417 -> [ 19097][I][SoapESP32.cpp:896] soapScanItem(): "Frazey Ford - Done.mp3" (id: "A_F^FOL*R1$MI76", size: 6905292, sizeMissing: false, type: audio) added to list
+01:38:58.417 -> [ 19114][I][SoapESP32.cpp:896] soapScanItem(): "Grace Carter - Why Her Not Me.mp3" (id: "A_F^FOL*R1$MI77", size: 9367318, sizeMissing: false, type: audio) added to list
+01:38:58.417 -> [ 19132][I][SoapESP32.cpp:896] soapScanItem(): "Harry Styles - Sign of the Times.mp3" (id: "A_F^FOL*R1$MI78", size: 13667400, sizeMissing: false, type: audio) added to list
+01:38:58.463 -> [ 19150][I][SoapESP32.cpp:896] soapScanItem(): "Harry Styles - Watermelon Sugar.mp3" (id: "A_F^FOL*R1$MI79", size: 4405070, sizeMissing: false, type: audio) added to list
+01:38:58.463 -> [ 19167][I][SoapESP32.cpp:896] soapScanItem(): "Jake Bugg - Broken.mp3" (id: "A_F^FOL*R1$MI80", size: 6073871, sizeMissing: false, type: audio) added to list
+01:38:58.510 -> [ 19184][I][SoapESP32.cpp:896] soapScanItem(): "John Legend - All Of Me.mp3" (id: "A_F^FOL*R1$MI81", size: 8668133, sizeMissing: false, type: audio) added to list
+01:38:58.510 -> [ 19201][I][SoapESP32.cpp:896] soapScanItem(): "Lana Del Rey - Summertime Sadness.mp3" (id: "A_F^FOL*R1$MI82", size: 9115457, sizeMissing: false, type: audio) added to list
+01:38:58.510 -> [ 19219][I][SoapESP32.cpp:896] soapScanItem(): "Laurie Anderson - Slip Away.mp3" (id: "A_F^FOL*R1$MI83", size: 8462013, sizeMissing: false, type: audio) added to list
+01:38:58.557 -> [ 19237][I][SoapESP32.cpp:896] soapScanItem(): "Luke Winslow-King - Blue Mesa.mp3" (id: "A_F^FOL*R1$MI84", size: 9666929, sizeMissing: false, type: audio) added to list
+01:38:58.557 -> [ 19255][I][SoapESP32.cpp:896] soapScanItem(): "Lynyrd Skynyrd - Simple Man.mp3" (id: "A_F^FOL*R1$MI85", size: 14386127, sizeMissing: false, type: audio) added to list
+01:38:58.557 -> [ 19272][I][SoapESP32.cpp:896] soapScanItem(): "Madrugada - Electric.mp3" (id: "A_F^FOL*R1$MI86", size: 10179145, sizeMissing: false, type: audio) added to list
+01:38:58.604 -> [ 19289][I][SoapESP32.cpp:896] soapScanItem(): "Madrugada - Majesty live.mp3" (id: "A_F^FOL*R1$MI87", size: 14136935, sizeMissing: false, type: audio) added to list
+01:38:58.604 -> [ 19306][I][SoapESP32.cpp:896] soapScanItem(): "Madrugada - Vocal (Live in Norway).mp3" (id: "A_F^FOL*R1$MI88", size: 10303735, sizeMissing: false, type: audio) added to list
+01:38:58.651 -> [ 19325][I][SoapESP32.cpp:896] soapScanItem(): "Madrugada - Vocal.mp3" (id: "A_F^FOL*R1$MI89", size: 11521263, sizeMissing: false, type: audio) added to list
+01:38:58.651 -> [ 19342][I][SoapESP32.cpp:896] soapScanItem(): "Madrugada - Whats On Your Mind.mp3" (id: "A_F^FOL*R1$MI90", size: 5861481, sizeMissing: false, type: audio) added to list
+01:38:58.651 -> [ 19359][I][SoapESP32.cpp:896] soapScanItem(): "Maria Mena - All This Time.mp3" (id: "A_F^FOL*R1$MI91", size: 4177264, sizeMissing: false, type: audio) added to list
+01:38:58.698 -> [ 19377][I][SoapESP32.cpp:896] soapScanItem(): "Marillion - Incubus Live.mp3" (id: "A_F^FOL*R1$MI92", size: 9670576, sizeMissing: false, type: audio) added to list
+01:38:58.698 -> [ 19394][I][SoapESP32.cpp:896] soapScanItem(): "Omega - Gyöngyhajú lány.mp3" (id: "A_F^FOL*R1$MI93", size: 10991944, sizeMissing: false, type: audio) added to list
+01:38:58.698 -> [ 19412][I][SoapESP32.cpp:896] soapScanItem(): "Passenger - Hell Or High Water.mp3" (id: "A_F^FOL*R1$MI94", size: 8833381, sizeMissing: false, type: audio) added to list
+01:38:58.745 -> [ 19430][I][SoapESP32.cpp:896] soapScanItem(): "Patrick Hernandez - Born To Be Alive.mp3" (id: "A_F^FOL*R1$MI95", size: 6203103, sizeMissing: false, type: audio) added to list
+01:38:58.745 -> [ 19449][I][SoapESP32.cpp:896] soapScanItem(): "Ralph Mctell - Streets Of London.mp3" (id: "A_F^FOL*R1$MI96", size: 9938320, sizeMissing: false, type: audio) added to list
+01:38:58.790 -> [ 19466][I][SoapESP32.cpp:896] soapScanItem(): "Roxy Music - Jealous Guy.mp3" (id: "A_F^FOL*R1$MI97", size: 7192636, sizeMissing: false, type: audio) added to list
+01:38:58.790 -> [ 19483][I][SoapESP32.cpp:896] soapScanItem(): "Status Quo - You are in the Army now.mp3" (id: "A_F^FOL*R1$MI98", size: 11258315, sizeMissing: false, type: audio) added to list
+01:38:58.790 -> [ 19502][I][SoapESP32.cpp:896] soapScanItem(): "The Hooters - All You Zombies.mp3" (id: "A_F^FOL*R1$MI99", size: 8620094, sizeMissing: false, type: audio) added to list
+01:38:58.837 -> [ 19520][I][SoapESP32.cpp:896] soapScanItem(): "The Parakit - Save Me.mp3" (id: "A_F^FOL*R1$MI100", size: 7161591, sizeMissing: false, type: audio) added to list
+01:38:58.837 -> [ 19538][I][SoapESP32.cpp:896] soapScanItem(): "Tom Odell - Another Love.mp3" (id: "A_F^FOL*R1$MI101", size: 9929167, sizeMissing: false, type: audio) added to list
+01:38:58.837 -> [ 19554][I][SoapESP32.cpp:896] soapScanItem(): "Tony Carey - Room With a View.mp3" (id: "A_F^FOL*R1$MI102", size: 8140545, sizeMissing: false, type: audio) added to list
+01:38:58.882 -> [ 19560][I][SoapESP32.cpp:1016] browseServer(): found 1 folders and 99 files
+01:38:58.882 -> 0: Car-CD1/
+01:38:58.882 -> 1: 01 Alphaville - Forever Young.mp3   item size: 4556304, audio
+01:38:58.882 -> 2: 01 Amy McDonald - This Is The Life.mp3   item size: 4688488, audio
+01:38:58.882 -> 3: 01 Ben Harper- Excuse me Mr.mp3   item size: 11870222, audio
+01:38:58.882 -> 4: 02 Anastacia - Sick And Tired.mp3   item size: 8348435, audio
+01:38:58.882 -> 5: 02 Celine Dion - A new day has come.mp3   item size: 6251473, audio
+01:38:58.930 -> 6: 02 Nelly Furtado - All good things.mp3   item size: 12455337, audio
+01:38:58.930 -> 7: 03 Chris Isaac - Wicked Games.mp3   item size: 4644994, audio
+01:38:58.930 -> 8: 03 David Bowie - China Girl.mp3   item size: 6706178, audio
+01:38:58.930 -> 9: 03 Peter Schilling - Major Tom (German version).mp3   item size: 3855747, audio
+01:38:58.930 -> 10: 04 Falco - Der Kommissar.mp3   item size: 7459426, audio
+01:38:58.930 -> 11: 04 Maria Mena - Just hold me.mp3   item size: 6199684, audio
+01:38:58.930 -> 12: 05 Gabriella Cilmi - Sweet About Me.mp3   item size: 5006892, audio
+01:38:58.930 -> 13: 05 Lovin' Spoonful - Summer In The City.mp3   item size: 3888715, audio
+01:38:58.977 -> 14: 05 Rory Gallagher - A million miles away.mp3   item size: 22771074, audio
+01:38:58.977 -> 15: 06 Alphaville - Sounds like a melody.mp3   item size: 9210144, audio
+01:38:58.977 -> 16: 06 Nits - Dutch Mountains.mp3   item size: 8555384, audio
+01:38:58.977 -> 17: 06 Phil Carmen - On my way to LA (long).mp3   item size: 6695426, audio
+01:38:58.977 -> 18: 07 Hooters - 500 Miles.mp3   item size: 6359038, audio
+01:38:58.977 -> 19: 07 Stranglers - Always The Sun .mp3   item size: 9829742, audio
+01:38:58.977 -> 20: 08 Men at Work - Land down under.mp3   item size: 3542515, audio
+01:38:59.024 -> 21: 08 Murray Head - One Night In Bangkok.mp3   item size: 5003572, audio
+01:38:59.024 -> 22: 08 Travis - Sing.mp3   item size: 5434021, audio
+01:38:59.024 -> 23: 09 Police - Material World.mp3   item size: 7104618, audio
+01:38:59.024 -> 24: 09 Roxette - Stars.mp3   item size: 4746949, audio
+01:38:59.024 -> 25: 09 Shakira - Whenever, Wherever.mp3   item size: 4789962, audio
+01:38:59.024 -> 26: 10 James Brown - I feel good.mp3   item size: 2701318, audio
+01:38:59.024 -> 27: 10 Lana Del Rey - Ride.mp3   item size: 11630482, audio
+01:38:59.024 -> 28: 10 Rainbirds - Blueprint.mp3   item size: 7962597, audio
+01:38:59.024 -> 29: 11 Connells - 74-75.mp3   item size: 6753175, audio
+01:38:59.071 -> 30: 11 Escobar & Heather Nova - Someone new.mp3   item size: 5096159, audio
+01:38:59.071 -> 31: 11 Pet Shop Boys - Go West.mp3   item size: 4833196, audio
+01:38:59.071 -> 32: 12 Sinéad O'Connor - Nothing Compares 2 U.mp3   item size: 7516934, audio
+01:38:59.071 -> 33: 12 Suzanne Vega - My Name Is Luka.mp3   item size: 7354786, audio
+01:38:59.071 -> 34: 12 Ten thousand maniacs - because the night.mp3   item size: 8944456, audio
+01:38:59.071 -> 35: 13 Adele - Set Fire to the Rain.mp3   item size: 9696150, audio
+01:38:59.071 -> 36: 13 Madness - Our house.mp3   item size: 5756679, audio
+01:38:59.071 -> 37: 13 Reamonn - Super Girl.mp3   item size: 5577366, audio
+01:38:59.118 -> 38: 14 Alanis Morissette - Hands Clean.mp3   item size: 6528589, audio
+01:38:59.118 -> 39: 14 Eagles - Hotel California (Acoustic Live With Eric Clapton).mp3   item size: 17327932, audio
+01:38:59.118 -> 40: 14 Steve Miller Band - Abracadabra.mp3   item size: 12353263, audio
+01:38:59.118 -> 41: 15 Hermans Hermits - No Milk Today.mp3   item size: 5489679, audio
+01:38:59.118 -> 42: 15 Rihanna - Stay.mp3   item size: 9647394, audio
+01:38:59.118 -> 43: 15 Roy Orbison - You Got It.mp3   item size: 5152689, audio
+01:38:59.118 -> 44: 16 Genesis - Carpet Crawl.mp3   item size: 12556493, audio
+01:38:59.165 -> 45: 16 Heather Nova - Talk To Me.mp3   item size: 7881646, audio
+01:38:59.165 -> 46: 16 Uriah Heep - Lady In Black.mp3   item size: 6774204, audio
+01:38:59.165 -> 47: 17 Bruce Springsteen - Down To The River.mp3   item size: 14473215, audio
+01:38:59.165 -> 48: 17 Scott Mc Kenzie - San Francisco.mp3   item size: 4341799, audio
+01:38:59.165 -> 49: 18 Nazareth - Love Hurts.mp3   item size: 9284867, audio
+01:38:59.165 -> 50: 18 Passenger - Let Her Go.mp3   item size: 10143623, audio
+01:38:59.165 -> 51: 18 U2 - One Love.mp3   item size: 7689152, audio
+01:38:59.165 -> 52: 19 Feargal Sharkey - A Good Heart.mp3   item size: 9195418, audio
+01:38:59.211 -> 53: Agnes Obel - Broken Sleep.mp3   item size: 7115834, audio
+01:38:59.211 -> 54: Agnes Obel - Riverside.mp3   item size: 5557406, audio
+01:38:59.211 -> 55: Alice Boman - Don't forget about me.mp3   item size: 5705448, audio
+01:38:59.211 -> 56: Alle Farben - Bad Ideas.mp3   item size: 6688084, audio
+01:38:59.211 -> 57: Alle Farben - She Moves (Far Away).mp3   item size: 7784102, audio
+01:38:59.211 -> 58: Alphaville - Big In Japan.mp3   item size: 6892958, audio
+01:38:59.211 -> 59: Antony And The Johnsons - Cripple And The Starfish.mp3   item size: 6172531, audio
+01:38:59.211 -> 60: Austra - Home.mp3   item size: 6157651, audio
+01:38:59.258 -> 61: Austra - Its Amazing.mp3   item size: 6273323, audio
+01:38:59.258 -> 62: Austra - Lose It.mp3   item size: 10791332, audio
+01:38:59.258 -> 63: Bing Austria & The Flippin' Soul Stompers - Ruined Heart.mp3   item size: 10102568, audio
+01:38:59.258 -> 64: Bobo in White Wooden Houses - Keep Moving On - Live.mp3   item size: 12127204, audio
+01:38:59.258 -> 65: Bruce Hornsby - The Way It Is.mp3   item size: 11945276, audio
+01:38:59.258 -> 66: Carla Bruni - Enjoy The Silence.mp3   item size: 4628781, audio
+01:38:59.258 -> 67: Coldplay - Clocks.mp3   item size: 12374596, audio
+01:38:59.258 -> 68: Culture Club - Do You Really Want To Hurt Me.mp3   item size: 10425164, audio
+01:38:59.305 -> 69: Disturbed - The Sound Of Silence.mp3   item size: 8332259, audio
+01:38:59.305 -> 70: Eilen Jewell - Working Hard For Your Love.mp3   item size: 7438165, audio
+01:38:59.305 -> 71: Ellie Goulding - Vincent.mp3   item size: 8967826, audio
+01:38:59.305 -> 72: Father John Misty - One of us cannot be wrong (cover).mp3   item size: 14082497, audio
+01:38:59.305 -> 73: Frazey Ford - Done.mp3   item size: 6905292, audio
+01:38:59.305 -> 74: Grace Carter - Why Her Not Me.mp3   item size: 9367318, audio
+01:38:59.305 -> 75: Harry Styles - Sign of the Times.mp3   item size: 13667400, audio
+01:38:59.351 -> 76: Harry Styles - Watermelon Sugar.mp3   item size: 4405070, audio
+01:38:59.351 -> 77: Jake Bugg - Broken.mp3   item size: 6073871, audio
+01:38:59.351 -> 78: John Legend - All Of Me.mp3   item size: 8668133, audio
+01:38:59.351 -> 79: Lana Del Rey - Summertime Sadness.mp3   item size: 9115457, audio
+01:38:59.351 -> 80: Laurie Anderson - Slip Away.mp3   item size: 8462013, audio
+01:38:59.351 -> 81: Luke Winslow-King - Blue Mesa.mp3   item size: 9666929, audio
+01:38:59.351 -> 82: Lynyrd Skynyrd - Simple Man.mp3   item size: 14386127, audio
+01:38:59.351 -> 83: Madrugada - Electric.mp3   item size: 10179145, audio
+01:38:59.351 -> 84: Madrugada - Majesty live.mp3   item size: 14136935, audio
+01:38:59.396 -> 85: Madrugada - Vocal (Live in Norway).mp3   item size: 10303735, audio
+01:38:59.396 -> 86: Madrugada - Vocal.mp3   item size: 11521263, audio
+01:38:59.396 -> 87: Madrugada - Whats On Your Mind.mp3   item size: 5861481, audio
+01:38:59.396 -> 88: Maria Mena - All This Time.mp3   item size: 4177264, audio
+01:38:59.396 -> 89: Marillion - Incubus Live.mp3   item size: 9670576, audio
+01:38:59.396 -> 90: Omega - Gyöngyhajú lány.mp3   item size: 10991944, audio
+01:38:59.396 -> 91: Passenger - Hell Or High Water.mp3   item size: 8833381, audio
+01:38:59.396 -> 92: Patrick Hernandez - Born To Be Alive.mp3   item size: 6203103, audio
+01:38:59.443 -> 93: Ralph Mctell - Streets Of London.mp3   item size: 9938320, audio
+01:38:59.443 -> 94: Roxy Music - Jealous Guy.mp3   item size: 7192636, audio
+01:38:59.443 -> 95: Status Quo - You are in the Army now.mp3   item size: 11258315, audio
+01:38:59.443 -> 96: The Hooters - All You Zombies.mp3   item size: 8620094, audio
+01:38:59.443 -> 97: The Parakit - Save Me.mp3   item size: 7161591, audio
+01:38:59.443 -> 98: Tom Odell - Another Love.mp3   item size: 9929167, audio
+01:38:59.443 -> 99: Tony Carey - Room With a View.mp3   item size: 8140545, audio
+01:38:59.443 -> ------> Browse directory with starting index: 100
+01:38:59.489 -> [ 20164][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "A_F^FOL*R1"
+01:38:59.489 -> [ 20183][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+01:38:59.489 -> [ 20187][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+01:38:59.489 -> [ 20208][I][SoapESP32.cpp:896] soapScanItem(): "Tracy Chapman - Subcity.mp3" (id: "A_F^FOL*R1$MI103", size: 9584311, sizeMissing: false, type: audio) added to list
+01:38:59.537 -> [ 20226][I][SoapESP32.cpp:896] soapScanItem(): "Triggerfinger - I Follow Rivers.mp3" (id: "A_F^FOL*R1$MI104", size: 8581856, sizeMissing: false, type: audio) added to list
+01:38:59.537 -> [ 20243][I][SoapESP32.cpp:896] soapScanItem(): "Zucchero & Dolores O'Riordan - Pure Love.mp3" (id: "A_F^FOL*R1$MI105", size: 8441184, sizeMissing: false, type: audio) added to list
+01:38:59.583 -> [ 20250][I][SoapESP32.cpp:1016] browseServer(): found 0 folders and 3 files
+01:38:59.583 -> 100: Tracy Chapman - Subcity.mp3   item size: 9584311, audio
+01:38:59.583 -> 101: Triggerfinger - I Follow Rivers.mp3   item size: 8581856, audio
+01:38:59.583 -> 102: Zucchero & Dolores O'Riordan - Pure Love.mp3   item size: 8441184, audio
+01:38:59.583 -> 
+01:38:59.583 -> Sketch finished.

@@ -1,45 +1,39 @@
 /*
   BrowseRecursively_Ethernet
 
-  The sketch browses a DLNA media server from root down to a defined 
-  sub-directory level. We use a Wiznet W5x00 Ethernet module/shield 
-  attached to ESP32 instead of WiFi.
+  The sketch browses a DLNA media server from root down to a defined sub-directory level. 
+  We use a Wiznet W5x00 Ethernet module/shield attached to ESP32 instead of WiFi.
   It's connected to ESP32 GPIO 18, 19, 23 and GPIO 25 (Chip Select).
 
-  Instead of searching via SSDP we set the DLNA media server parameters
-  by hand. VLC for example can help to find those parameters. The doc 
-  directory holds more infos.
+  Instead of searching via SSDP we set the DLNA media server parameters by hand. VLC for 
+  example can help to find those parameters. Directory doc holds more infos.
   
-  Since memory is limited, by default only a maximum of 100 entries 
-  per directory will be returned by browseServer(). This limit is 
-  defined in "SoapESP32.h" with parameter SOAP_DEFAULT_BROWSE_MAX_COUNT.
-  Increasing this parameter means using more memory.
+  Since memory is limited, by default only a maximum of 100 entries per directory will be 
+  returned by browseServer(). This limit is defined in "SoapESP32.h" with parameter 
+  SOAP_DEFAULT_BROWSE_MAX_COUNT. Increasing this parameter means using more memory.
 	
-  If a directory contains more than that number, you will have to browse
-  that directory multiple times, each time with a higher starting index
-  (0, 100, 200,...). 
-  Have a look at example "BrowseBigDirectories_WiFi.ino" where this is
-  demonstrated.
+  If a directory contains more than that number, you will have to browse that directory 
+  multiple times, each time with a higher starting index (0, 100, 200,...). 
+  Have a look at example "BrowseBigDirectories_WiFi.ino" where this is demonstrated.
     
-  Last updated 2023-10-19, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
 #include <Ethernet.h>
 #include "SoapESP32.h"
 
-// == IMPORTANT ==
-// We use Ethernet module/shield instead of WiFi, so you must do one of the following:
-// 1) add -DUSE_ETHERNET to file build_opt.h in your sketch directory (ArduinoIDE) OR
+// === IMPORTANT ===
+// We use Ethernet module/shield instead of WiFi, hence build option USE_ETHERNET is required:
+// 1) add -DUSE_ETHERNET to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
 // 2) add -DUSE_ETHERNET to your build_flags in platformio.ini (VSCode/PlatformIO)
-
-// uncomment in case you want to know
-// #define SHOW_ESP32_MEMORY_STATISTICS
+// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS.
 
 // Please set definitions that apply to your actual media server/NAS !
 // Following some examples for encountered media server settings:
 // 1) Twonky on Linux
-//    Port: 9050,  Control Url: "TMSContentDirectory/Control"
+//    Port: 9050,  Control Url: "TMSContentDirectory/Control"  --OR--
+//    Port: 9000,  Control Url: "dev0/srv1/control"
 // 2) DiXim on Linux
 //    Port: 55247, Control Url: "dms/control/ContentDirectory"
 // 3) UMS on Windows

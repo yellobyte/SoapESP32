@@ -4,15 +4,16 @@
   This sketch scans the local network for DLNA media servers via builtin WiFi
   and browses root of each server found.
 
-  Last updated 2022-01-14, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
 #include <WiFi.h>
 #include "SoapESP32.h"
 
-// uncomment in case you want to know
-//#define SHOW_ESP32_MEMORY_STATISTICS
+// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS:
+// 1) add -DSHOW_ESP32_MEMORY_STATISTICS to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
+// 2) add -DSHOW_ESP32_MEMORY_STATISTICS to your build_flags in platformio.ini (VSCode/PlatformIO)
 
 const char ssid[] = "MySSID";
 const char pass[] = "MyPassword"; 
@@ -40,7 +41,7 @@ void setup() {
   // scan local network for DLNA media servers
   Serial.println();
   Serial.println("Scanning local network for DLNA media servers...");
-  soap.seekServer();
+  soap.seekServer(70);                // scan duration set to 70 sec
   Serial.print("Number of discovered servers that deliver content: ");
   Serial.println(soap.getServerCount());
   Serial.println();

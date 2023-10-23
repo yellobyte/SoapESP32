@@ -1,38 +1,35 @@
 /*
   BrowseRecursively_WiFi
 
-  The sketch browses a DLNA media server from root down to a defined
-  sub-directory level. 
+  The sketch browses a DLNA media server from root down to a defined sub-directory level. 
 
-  Instead of searching via SSDP we set the DLNA media server parameters
-  by hand. VLC for example can help to find those parameters. 
-  The doc directory holds more infos.
+  Instead of searching via SSDP we set the DLNA media server parameters by hand. 
+  VLC for example can help to find those parameters. The doc directory holds more infos.
   
-  Since memory is limited, by default only a maximum of 100 entries per
-  directory will be returned by browseServer(). This limit is defined
-  in "SoapESP32.h" with parameter SOAP_DEFAULT_BROWSE_MAX_COUNT. 
-  Increasing this parameter means using more memory.
+  Since memory is limited, by default only a maximum of 100 entries per directory will 
+  be returned by browseServer(). This limit is defined in "SoapESP32.h" with parameter 
+  SOAP_DEFAULT_BROWSE_MAX_COUNT. Increasing this parameter means using more memory.
   
-  If a directory contains more than that number, you will have to browse
-  that directory multiple times, each time with a higher starting index
-  (0, 100, 200,...). 
-  Have a look at example "BrowseBigDirectories_WiFi.ino" where this
-  is demonstrated.
+  If a directory contains more than that number, you will have to browse that directory 
+  multiple times, each time with a higher starting index (0, 100, 200,...). 
+  Have a look at example "BrowseBigDirectories_WiFi.ino" where this is demonstrated.
     
-  Last updated 2022-06-18, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
 #include <WiFi.h>
 #include "SoapESP32.h"
 
-// uncomment in case you want to know
-//#define SHOW_ESP32_MEMORY_STATISTICS
+// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS:
+// 1) add -DSHOW_ESP32_MEMORY_STATISTICS to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
+// 2) add -DSHOW_ESP32_MEMORY_STATISTICS to your build_flags in platformio.ini (VSCode/PlatformIO)
 
 // Please set definitions that apply to your actual media server/NAS !
 // Following some examples for encountered media server settings:
 // 1) Twonky on Linux
-//    Port: 9050,  Control Url: "TMSContentDirectory/Control"
+//    Port: 9050,  Control Url: "TMSContentDirectory/Control"   --OR--
+//    Port: 9000,  Control Url: "dev0/srv1/control"
 // 2) DiXim on Linux
 //    Port: 55247, Control Url: "dms/control/ContentDirectory"
 // 3) UMS on Windows

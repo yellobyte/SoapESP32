@@ -5,18 +5,19 @@
   a WOL (Wake On LAN) message in the local network. Necessary when you 
   have to wake up the NAS that is hosting your DLNA media server.
 
-  Last updated 2021-02-02, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
 #include <WiFi.h>
 #include "SoapESP32.h"
 
-// uncomment in case you want to know
-//#define SHOW_ESP32_MEMORY_STATISTICS
+// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS:
+// 1) add -DSHOW_ESP32_MEMORY_STATISTICS to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
+// 2) add -DSHOW_ESP32_MEMORY_STATISTICS to your build_flags in platformio.ini (VSCode/PlatformIO)
 
 // example settings only, please change:
-#define WAKE_UP_MAC  "10:6F:3F:21:EE:23"   // MAC of device you want to wake up
+#define WAKE_UP_MAC  "24:5E:BE:5D:EE:23"   // MAC of device you want to wake up
 #define WAKE_UP_TIME 120                   // time in seconds the device needs to wake up fully
 
 const char ssid[] = "MySSID";
@@ -37,7 +38,7 @@ void showServer(SoapESP32 *soap)
   // your server (if sleeping) shouldn't be detected at this stage !
   Serial.println();
   Serial.println("Scanning local network for DLNA media servers...");
-  soap->seekServer();
+  soap->seekServer(45);      // without parameter the scan duration will default to 60 sec
   Serial.print("Number of discovered servers that deliver content: ");
   Serial.println(soap->getServerCount());
   Serial.println();

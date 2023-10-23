@@ -103,7 +103,7 @@ SoapESP32::SoapESP32(WiFiClient *client, WiFiUDP *udp)
 
 //
 // broadcast 3 WOL packets carrying a specified MAC address
-// parameter is a pointer to a C string in the format "00:1:23:Aa:bC:D4" as an unusual example
+// - parameter is a pointer to a C string in the format "00:1:23:Aa:bC:D4" as an unusual example
 //
 #define WOL_PACKET_SIZE 102
 bool SoapESP32::wakeUpServer(const char *macAddress)
@@ -178,8 +178,9 @@ int SoapESP32::soapClientTimedRead()
 }
 
 //
-// send SSDP/UDP multicast packets
+// send SSDP/UDP multicast M-SEARCH packets
 // WiFi/Ethernet libraries handle port parameter differently !
+// - parameter is how often a M-SEARCH packet is to be repeated
 //
 bool SoapESP32::soapUDPmulticast(uint8_t repeats)
 {
@@ -190,27 +191,45 @@ bool SoapESP32::soapUDPmulticast(uint8_t repeats)
   uint8_t ret = m_udp->beginMulticast(IPAddress(SSDP_MULTICAST_IP), 1900);      // 1900: multicast dest port 
   releaseSPI();
 #else
-  uint8_t ret = m_udp->beginMulticast(IPAddress(SSDP_MULTICAST_IP), 8888);      // 8888: local port
+  uint8_t ret = m_udp->beginMulticast(IPAddress(SSDP_MULTICAST_IP), 1900);      // 1900: local port
 #endif  
   if (ret) {
-    // creating socket ok
+    // creating UDP socket ok
     uint8_t i = 0;
+    String strMS(SSDP_M_SEARCH), strCD(SSDP_M_SEARCH);
+
+    strMS += SSDP_DEVICE_TYPE_MS; strMS += "\r\n\r\n";
+    strCD += SSDP_SERVICE_TYPE_CD; strCD += "\r\n\r\n";
+
+    // send M-SEARCH packets with device type MediaServer & service type ContentDirectory
     while (true) {
       claimSPI();
       if (!m_udp->beginPacket(IPAddress(SSDP_MULTICAST_IP), SSDP_MULTICAST_PORT) ||
-          !m_udp->write((const uint8_t*)SSDP_M_SEARCH_TX, sizeof(SSDP_M_SEARCH_TX) - 1) ||
+          !m_udp->write((const uint8_t*)strMS.c_str(), (size_t)strMS.length()) ||
           !m_udp->endPacket()) {
         releaseSPI();
         break;
       }
       releaseSPI();
-      if (++i > repeats) return true;
+      log_v("SSDP M-SEARCH packet sent:\n%s", strMS.c_str());
+      claimSPI();
+      if (!m_udp->beginPacket(IPAddress(SSDP_MULTICAST_IP), SSDP_MULTICAST_PORT) ||
+          !m_udp->write((const uint8_t*)strCD.c_str(), (size_t)strCD.length()) ||
+          !m_udp->endPacket()) {
+        releaseSPI();
+        break;
+      }
+      releaseSPI();      
+      log_v("SSDP M-SEARCH packet sent:\n%s", strCD.c_str());
+      if (++i > repeats) {
+        return true;
+      }      
     }
   }
   claimSPI();  
   m_udp->stop();
   releaseSPI();
-  log_e("error sending SSDP multicast packets");
+  log_e("error sending SSDP M-SEARCH multicast packets");
 
   return false; 
 }
@@ -223,65 +242,74 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
   int i, port;
   size_t len;
   IPAddress ip;
-  char tmpBuffer[SSDP_TMP_BUFFER_SIZE],
-       location[SSDP_LOCATION_BUF_SIZE] = "",
+  char location[SSDP_LOCATION_BUF_SIZE] = "",
        address[20];
 
   // send SSDP multicast packets (parameter: nr of repeats)
-  if (!soapUDPmulticast(1)) return false;
+  if (!soapUDPmulticast(SSDP_M_SEARCH_REPEATS)) return false;
 
   // evaluate incoming SSDP packets (M-SEARCH replies) & NOTIFY packets if we catch them by chance
   uint32_t start = millis();
   do
   {
-    delay(25);
+    delay(1);
     claimSPI();
     len = m_udp->parsePacket();
     releaseSPI();
     if (len) {
-      char *p;
+      char *p, *buffer;
       
-      // we received SSDP packet of size len
-      log_d("received SSDP packet within %d ms: packet size: %d", millis() - start, len);
-      memset(tmpBuffer, 0, SSDP_TMP_BUFFER_SIZE);      // clear buffer
-      if ( len >= SSDP_TMP_BUFFER_SIZE) len = SSDP_TMP_BUFFER_SIZE -1;
+      // SSDP packet of size len received
+      buffer = (char *)calloc(len + 1, sizeof(byte)); // allocate and set memory to 0
+      if (!buffer) {
+        claimSPI();  
+        m_udp->stop();
+        releaseSPI();
+        log_e("calloc() couldn't allocate memory");    
+        return false;
+      }      
       claimSPI();
-      m_udp->read(tmpBuffer, len);                     // read packet into the buffer
+      m_udp->read(buffer, len);                       // read packet into the buffer
       releaseSPI();
-      log_v("SSDP packet content:\n%s", tmpBuffer);
+      log_d("SSDP (%s) within %d ms, size %d", strstr(buffer, HTTP_HEADER_200_OK) ? "REPLY" : "NOTIFY", millis() - start, len);
+      log_v("SSDP packet content:\n%s", buffer);
 
       // scan SSDP packet
-      if (  // M-SEARCH reply packets
-          (strstr(tmpBuffer,HTTP_HEADER_200_OK) &&
-           ((p = strcasestr(tmpBuffer,SSDP_LOCATION)) != NULL) && strcasestr(tmpBuffer,SSDP_SERVICE_TYPE)
-          ) ||
-            // NOTIFY packets sent out regularly by media servers (we ignore ssdp:byebye's)
-          (strstr(tmpBuffer,SSDP_NOTIFICATION) &&
-           ((p = strcasestr(tmpBuffer,SSDP_LOCATION)) != NULL) &&
-            strcasestr(tmpBuffer,SSDP_NOTIFICATION_TYPE) && strcasestr(tmpBuffer,SSDP_NOTIFICATION_SUB_TYPE)
-          )
+      if ( // M-SEARCH reply packets
+           (strstr(buffer, HTTP_HEADER_200_OK) &&
+            ((p = strcasestr(buffer, SSDP_LOCATION)) != NULL) && 
+             (strcasestr(buffer, SSDP_DEVICE_TYPE_MS) || strcasestr(buffer, SSDP_SERVICE_TYPE_CD))
+           ) ||
+           // NOTIFY packets sent out regularly by media servers (we ignore ssdp:byebye's)
+           (strstr(buffer, SSDP_NOTIFICATION) && strcasestr(buffer, SSDP_NOTIFICATION_SUB_TYPE) &&
+            ((p = strcasestr(buffer, SSDP_LOCATION)) != NULL) && 
+            (strcasestr(buffer, SSDP_DEVICE_TYPE_MS) || strcasestr(buffer, SSDP_SERVICE_TYPE_CD))
+           )
          ) {  
         char format[30];
 
         strtok(p, "\r\n");
         snprintf(format, sizeof(format), "http://%%[0-9.]:%%d/%%%ds", SSDP_LOCATION_BUF_SIZE - 1);
-        if (sscanf(p + 10, format, address, &port, location) < 2) continue;
-        if (!ip.fromString(address)) continue;
+        if (sscanf(p + 10, format, address, &port, location) < 2) goto CONT;
+        if (!ip.fromString(address)) goto CONT;
 
         // scanning of ip address & port successful, location string can be missing (e.g. D-Link NAS DNS-320L)
-        log_d("scanned ip=%s, port=%d, location=\"%s\"", ip.toString().c_str(), port, location);
+        log_i("scanned (%c) ip=%s, port=%d, loc=\"%s\"", 
+               strstr(buffer, HTTP_HEADER_200_OK) ? 'R' : 'N', ip.toString().c_str(), port, location);
         if (!strlen(location)) log_d("empty location string!");
 
-        // avoid multiple entries of same server (identical ip & port)
+        // avoid multiple entries of same server (ip & port identic)
         for (i = 0; i < result->size(); i++) {
           if (result->operator[](i).ip == ip && result->operator[](i).port == port) break;               
         }
-        if (i < result->size()) continue;
+        if (i < result->size()) goto CONT;
 
         // new server found: add it to list
         soapServer_t srv = {.ip = ip, .port = (uint16_t)port, .location = location};
         result->push_back(srv);
       }
+CONT:
+      free(buffer);
     }
   }
   while ((millis() - start) < msWait);
@@ -308,7 +336,7 @@ bool SoapESP32::soapReadHttpHeader(uint64_t *contentLength, bool *chunked)
   releaseSPI();
   tmpBuffer[len] = 0;
   if (!strstr(tmpBuffer, HTTP_HEADER_200_OK)) {
-    log_e("header line: %s", tmpBuffer);
+    log_i("header line: %s", tmpBuffer);
     return false;
   }
   else {
@@ -468,18 +496,22 @@ GET_MORE:
 }
 
 //
-// searching local network for media servers that offer media content
-// returns number of servers found
+// scanning local network for media servers that offer media content
+//  - parameter is scan duration, range 5...120s (without parameter the function defaults to 60s) 
+//  - returns number of media servers found
 //
-uint8_t SoapESP32::seekServer()
+uint8_t SoapESP32::seekServer(int scanDuration)
 {
   soapServerVect_t rcvd;
 
   // delete old server list
   m_server.clear();
 
-  log_i("SSDP search for media servers started");
-  soapSSDPquery(&rcvd);
+  if (scanDuration > 120) scanDuration = 120;
+  else if (scanDuration < 5) scanDuration = 5;
+
+  log_i("SSDP search for media servers started, scan duration: %d sec", scanDuration);
+  soapSSDPquery(&rcvd, scanDuration * 1000);
 
   log_i("SSDP query discovered %d media servers", rcvd.size());
   if (rcvd.size() == 0) return 0;   // return if none detected

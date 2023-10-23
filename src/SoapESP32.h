@@ -29,9 +29,6 @@
 #include <Arduino.h>
 #include <vector>
 
-// Please uncomment if you use an Ethernet board/shield instead of builtin WiFi 
-//#define USE_ETHERNET
-
 #if defined(ethernet_h_) && !defined(USE_ETHERNET)
 #warning "== ATTENTION == Did you forget to define USE_ETHERNET ?????  Please read Readme.md !!!!!" 
 #endif
@@ -53,18 +50,16 @@
 // SSDP UDP - seeking media servers
 #define SSDP_MULTICAST_IP          239,255,255,250
 #define SSDP_MULTICAST_PORT        1900
-#define SSDP_MAX_REPLY_TIMEOUT     4000   // ms
+#define SSDP_SCAN_DURATION           60   // seconds, default network scan duration
 #define SSDP_LOCATION_BUF_SIZE      150
-#define SSDP_CONTROL_URL_BUF_SIZE   200
-#define SSDP_TMP_BUFFER_SIZE        500
-#define SSDP_M_SEARCH_TX           "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: 3\r\n" \
-                                   "ST: urn:schemas-upnp-org:device:MediaServer:1\r\n\r\n"
-
-#define SSDP_LOCATION              "Location: http://"
-#define SSDP_SERVICE_TYPE          "ST: urn:schemas-upnp-org:device:MediaServer:1"
-#define SSDP_NOTIFICATION          "NOTIFY * HTTP/1.1"
-#define SSDP_NOTIFICATION_TYPE     "NT: urn:schemas-upnp-org:device:MediaServer:1"
-#define SSDP_NOTIFICATION_SUB_TYPE "NTS: ssdp:alive"
+#define SSDP_M_SEARCH_REPEATS         3
+#define SSDP_M_SEARCH                "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: 5\r\nST: "
+#define SSDP_DEVICE_TYPE_MS          "urn:schemas-upnp-org:device:MediaServer:1"
+#define SSDP_DEVICE_TYPE_RD          "upnp:rootdevice"
+#define SSDP_SERVICE_TYPE_CD         "urn:schemas-upnp-org:service:ContentDirectory:1"                                   
+#define SSDP_LOCATION                "Location: http://"
+#define SSDP_NOTIFICATION            "NOTIFY * HTTP/1.1"
+#define SSDP_NOTIFICATION_SUB_TYPE   "ssdp:alive"
 
 // HTTP header lines
 #define HTTP_VERSION                 "HTTP/1.1"
@@ -102,8 +97,7 @@
 #define SOAP_SORTCRITERIA_END     "</SortCriteria>\r\n"
 
 // UPnP service data
-#define UPNP_URN_SCHEMA                   "schemas-upnp-org:service:"
-#define UPNP_URN_SCHEMA_CONTENT_DIRECTORY "urn:schemas-upnp-org:service:ContentDirectory:1"
+#define UPNP_URN_SCHEMA_CONTENT_DIRECTORY SSDP_SERVICE_TYPE_CD
 
 // SOAP default browse parameters
 #define SOAP_DEFAULT_BROWSE_FLAG           "BrowseDirectChildren"
@@ -176,7 +170,7 @@ class SoapESP32
     bool        wakeUpServer(const char *macWOL);
     void        clearServerList(void);
     bool        addServer(IPAddress ip, uint16_t port, const char *controlURL, const char *name = "My Media Server");
-    uint8_t     seekServer(void);
+    uint8_t     seekServer(int scanDuration = SSDP_SCAN_DURATION);
     uint8_t     getServerCount(void);
     bool        getServerInfo(uint8_t srv, soapServer_t *serverInfo);
     bool        browseServer(const uint8_t srv, const char *objectId, soapObjectVect_t *browseResult, 
@@ -208,7 +202,7 @@ class SoapESP32
 
     int  soapClientTimedRead(void);
     bool soapUDPmulticast(uint8_t repeats = 0);
-    bool soapSSDPquery(std::vector<soapServer_t> *rcvd, int msWait = SSDP_MAX_REPLY_TIMEOUT);
+    bool soapSSDPquery(std::vector<soapServer_t> *rcvd, int msWait);
     bool soapGet(const IPAddress ip, const uint16_t port, const char *uri);
     bool soapPost(const IPAddress ip, const uint16_t port, const char *uri, const char *objectId, 
                   const uint32_t startingIndex, const uint16_t maxCount);

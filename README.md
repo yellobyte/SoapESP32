@@ -19,7 +19,10 @@ uint8_t      srvNum = 0;
 setup() {
   // setting up Wifi, serial output, etc.
   ...
-  // searching local network for media servers
+  // scan the local network for media servers, scan duration by default is 60 sec !
+  // - calling the function with parameter 5...120 changes the scan duration, 
+  //   e.g. soap.seekServer(10) would scan the network for only 10 secs
+  // - please note: longer scan times increase the chance for detecting media servers
   soap.seekServer();
   // printing details of all discovered servers
   while (soap.getServerInfo(srvNum++, &srv)) {
@@ -38,6 +41,8 @@ To install the library into your **IDE** open the **Library Manager**, search fo
 Always make sure you have one of the latest versions of **Arduino core for ESP32** installed. Older versions might produce build errors with some examples.
 
 Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
+
+- Some media servers do not answer SSDP M-SEARCH requests immediately but instead send NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function seekServer() has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer parameter (5...120) for setting the scan duration (in sec) if needed.
 
 - Streams/podcasts: Some media servers (e.g. Fritzbox, Serviio) do **not** provide a size for items (media content) located in their Web/Online/InternetRadio folders. Thanks to Github user KiloOscarRomeo for drawing my attention to this fact. In contrast, UMS (Universal Media Server) always provides a fixed size of 9223372034707292159 (0x7FFFFFFF7FFFFFFF) for items in directory Web (incl. subdirectories Radio, Podcasts, etc.). 
 
@@ -68,11 +73,11 @@ Of course, the ESP32 Arduino SPI library already uses locks (SPI_MUTEX_LOCK/SPI_
 
 ####  Ethernet SSDP multicast issue:
 
-SSDP M-SEARCH multicast packets carry the destination ip 239.255.255.250 and port 1900. However, some NAS devices do **not** reply to such packets when the **source** port is 1900 as well. Unfortunately when using the standard Arduino Ethernet library, all SSDP multicast packets carry identical destination & source ports, in our case 1900. There are two solutions to this problem:
-
-a) use *addServer()* to manually add a server to the server list, which I recommend **or**
-
-b) modify file *socket.cpp* in Arduino Ethernet library to use a source port between 49152 & 65535. Which is not only a dirty solution, it puts you under risk to forget about it and then lose those changes with a later Ethernet lib update.  
+SSDP M-SEARCH multicast packets carry the destination ip 239.255.255.250 and port 1900. However, some NAS devices (e.g. my old Buffalo Linkstation) do **not** reply to such packets when the **source** port is 1900 as well. When using the standard Arduino Ethernet library, all SSDP multicast packets carry identical destination & source ports, in our case 1900. There are three solutions to this problem:
+  
+a) increase the scan time to e.g. 90s and very likely you will catch a SSDP NOTIFY packet **or**  
+b) use *addServer()* to manually add a server to the server list **or**  
+c) modify file *socket.cpp* in Arduino Ethernet library to use a source port between 49152 & 65535. Which is not only a dirty solution, it puts you under risk to forget about it and then lose those changes with a later Ethernet lib update.  
 
 ```c
 uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint16_t port)
@@ -82,9 +87,7 @@ uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint
     W5100.writeSnPORT(s, port);
   } else {
     // if don't set the source port, set local_port number.
-    if (++local_port < 49152) local_port = 49152;
-    W5100.writeSnPORT(s, local_port);
-  }
+
   ...
 ```
 
@@ -92,7 +95,7 @@ uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint
 
 All examples were build & tested with various versions of ArduinoIDE and VSCode/PlatformIO.
 
-If preprocessor option `__GNU_VISIBLE` is defined then strcasestr() provided by toolchain is used, if not then its equivalent from _SoapESP32.cpp_ will be used.
+If preprocessor option `__GNU_VISIBLE` is already defined then strcasestr() provided by toolchain is used, if not then its equivalent from _SoapESP32.cpp_ will be used.
 
 If you use an Ethernet module/shield instead of builtin WiFi you must set the preprocessor option `USE_ETHERNET`. Otherwise the build will fail.
 
@@ -101,6 +104,7 @@ If you use an Ethernet module/shield instead of builtin WiFi you must set the pr
 Add a file named "build_opt.h" containing your wanted build options to your sketch directory, e.g.:  
 ```c
 -DUSE_ETHERNET
+-DSHOW_ESP32_MEMORY_STATISTICS
 ```
 Please note: Changes made to "build_opt.h" after a first build will not be detected by the Arduino IDE. Rebuilding the whole project or restarting the IDE will fix that.  
 
@@ -108,7 +112,7 @@ Please note: Changes made to "build_opt.h" after a first build will not be detec
 
 Add wanted build options to your _platformio.ini_ project file, e.g.:  
 ```c
-build_flags = -DUSE_ETHERNET`
+build_flags = -DUSE_ETHERNET
 ```
 
 ## :mag: How to find correct server parameters needed in some examples

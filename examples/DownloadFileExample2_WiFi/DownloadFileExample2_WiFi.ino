@@ -7,7 +7,7 @@
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2022-01-20, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -15,8 +15,9 @@
 #include <SD.h>
 #include "SoapESP32.h"
 
-// uncomment in case you want to know
-//#define SHOW_ESP32_MEMORY_STATISTICS
+// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS:
+// 1) add -DSHOW_ESP32_MEMORY_STATISTICS to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
+// 2) add -DSHOW_ESP32_MEMORY_STATISTICS to your build_flags in platformio.ini (VSCode/PlatformIO)
 
 // set IP and uncomment if you want to browse only a single system
 //#define THIS_IP_ONLY 192,168,1,42
@@ -134,7 +135,7 @@ void setup() {
 
   // scan local network for DLNA media servers
   Serial.println("Scanning local network for DLNA media servers...");
-  soap.seekServer();
+  soap.seekServer();          // without parameter the scan duration is 60 sec (default)
   Serial.print("Number of discovered servers that deliver content: ");
   Serial.println(soap.getServerCount());
   Serial.println();

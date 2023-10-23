@@ -1,0 +1,111 @@
+Executing task: C:\Users\tj\.platformio\penv\Scripts\platformio.exe run 
+
+Processing release (board: esp32dev; platform: espressif32; framework: arduino)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
+PLATFORM: Espressif 32 (6.1.0) > Espressif ESP32 Dev Module
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES:
+ - framework-arduinoespressif32 @ 3.20007.0 (2.0.7)
+ - tool-esptoolpy @ 1.40500.0 (4.5.0)
+ - toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 63 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- SoapESP32 @ 1.2.0
+|-- WiFi @ 2.0.0
+Building in release mode
+Compiling .pio\build\release\src\main.cpp.o
+Building .pio\build\release\bootloader.bin
+Generating partitions .pio\build\release\partitions.bin
+esptool.py v4.5
+Creating esp32 image...
+Merged 1 ELF section
+Successfully created esp32 image.
+Compiling .pio\build\release\libc43\SPI\SPI.cpp.o
+Compiling .pio\build\release\lib207\Ethernet\Dhcp.cpp.o
+Compiling .pio\build\release\lib207\Ethernet\Dns.cpp.o
+Compiling .pio\build\release\lib207\Ethernet\Ethernet.cpp.o
+Compiling .pio\build\release\lib207\Ethernet\EthernetClient.cpp.o
+Compiling .pio\build\release\lib207\Ethernet\EthernetServer.cpp.o
+Compiling .pio\build\release\lib207\Ethernet\EthernetUdp.cpp.o
+Compiling .pio\build\release\lib207\Ethernet\socket.cpp.o
+Compiling .pio\build\release\lib207\Ethernet\utility\w5100.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFi.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFiAP.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFiClient.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFiGeneric.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFiMulti.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFiSTA.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFiScan.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFiServer.cpp.o
+Compiling .pio\build\release\lib520\WiFi\WiFiUdp.cpp.o
+Compiling .pio\build\release\lib08b\SoapESP32\MiniXPath.cpp.o
+Compiling .pio\build\release\lib08b\SoapESP32\SoapESP32.cpp.o
+Compiling .pio\build\release\FrameworkArduino\Esp.cpp.o
+Archiving .pio\build\release\libc43\libSPI.a
+Compiling .pio\build\release\FrameworkArduino\FirmwareMSC.cpp.o
+Compiling .pio\build\release\FrameworkArduino\FunctionalInterrupt.cpp.o
+Compiling .pio\build\release\FrameworkArduino\HWCDC.cpp.o
+Compiling .pio\build\release\FrameworkArduino\HardwareSerial.cpp.o
+Compiling .pio\build\release\FrameworkArduino\IPAddress.cpp.o
+Compiling .pio\build\release\FrameworkArduino\IPv6Address.cpp.o
+Compiling .pio\build\release\FrameworkArduino\MD5Builder.cpp.o
+Compiling .pio\build\release\FrameworkArduino\Print.cpp.o
+Compiling .pio\build\release\FrameworkArduino\Stream.cpp.o
+Compiling .pio\build\release\FrameworkArduino\StreamString.cpp.o
+Compiling .pio\build\release\FrameworkArduino\Tone.cpp.o
+Compiling .pio\build\release\FrameworkArduino\USB.cpp.o
+Compiling .pio\build\release\FrameworkArduino\USBCDC.cpp.o
+Archiving .pio\build\release\lib207\libEthernet.a
+Compiling .pio\build\release\FrameworkArduino\USBMSC.cpp.o
+Compiling .pio\build\release\FrameworkArduino\WMath.cpp.o
+Compiling .pio\build\release\FrameworkArduino\WString.cpp.o
+Compiling .pio\build\release\FrameworkArduino\base64.cpp.o
+Compiling .pio\build\release\FrameworkArduino\cbuf.cpp.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-adc.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-bt.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-cpu.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-dac.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-gpio.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-i2c-slave.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-i2c.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-ledc.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-matrix.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-misc.c.o
+Archiving .pio\build\release\lib520\libWiFi.a
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-psram.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-rgb-led.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-rmt.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-sigmadelta.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-spi.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-time.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-timer.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-tinyusb.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-touch.c.o
+Compiling .pio\build\release\FrameworkArduino\esp32-hal-uart.c.o
+Compiling .pio\build\release\FrameworkArduino\firmware_msc_fat.c.o
+Compiling .pio\build\release\FrameworkArduino\libb64\cdecode.c.o
+Compiling .pio\build\release\FrameworkArduino\libb64\cencode.c.o
+Compiling .pio\build\release\FrameworkArduino\main.cpp.o
+Compiling .pio\build\release\FrameworkArduino\stdlib_noniso.c.o
+Compiling .pio\build\release\FrameworkArduino\wiring_pulse.c.o
+Compiling .pio\build\release\FrameworkArduino\wiring_shift.c.o
+Archiving .pio\build\release\lib08b\libSoapESP32.a
+Archiving .pio\build\release\libFrameworkArduino.a
+Linking .pio\build\release\firmware.elf
+Retrieving maximum program size .pio\build\release\firmware.elf
+Checking size .pio\build\release\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [=         ]  13.8% (used 45308 bytes from 327680 bytes)
+Flash: [======    ]  59.7% (used 782505 bytes from 1310720 bytes)
+Building .pio\build\release\firmware.bin
+esptool.py v4.5
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+=============================================================== [SUCCESS] Took 8.21 seconds ===============================================================

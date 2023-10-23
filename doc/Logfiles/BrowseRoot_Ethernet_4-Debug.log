@@ -1,226 +1,369 @@
-14:50:56.649 > ets Jun  8 2016 00:22:57
-14:50:56.652 >
-14:50:56.652 > rst:0x1 (POWERON_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
-14:50:56.656 > configsip: 0, SPIWP:0xee
-14:50:56.659 > clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-14:50:56.665 > mode:DIO, clock div:2
-14:50:56.667 > load:0x3fff0018,len:4
-14:50:56.669 > load:0x3fff001c,len:1044
-14:50:56.670 > load:0x40078000,len:10124
-14:50:56.673 > load:0x40080400,len:5828
-14:50:56.676 > entry 0x400806a8
-14:50:56.832 > 
-14:50:56.832 > Initializing Ethernet...DHCP ok.
-14:50:57.519 > Local IP: 192.168.1.45
-14:50:57.522 >
-14:50:57.522 > Scanning local network for DLNA media servers...
-14:50:57.526 > [I][SoapESP32.cpp:472] seekServer(): SSDP search for media servers started
-14:50:57.547 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 25 ms: packet size: 370
-14:50:57.557 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.42, port=5001, location=description/fetch
-14:50:57.579 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 57 ms: packet size: 332
-14:50:57.589 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.11, port=55247, location=dms/
-14:50:57.910 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 387 ms: packet size: 489
-14:50:57.918 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.42, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
-14:50:58.171 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 648 ms: packet size: 489
-14:50:58.179 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.42, port=2869, location=upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3
-14:50:58.532 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 1009 ms: packet size: 369
-14:50:58.541 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.42, port=1557, location=DeviceDescription.xml
-14:50:58.564 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 1041 ms: packet size: 332
-14:50:58.572 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.11, port=55247, location=dms/
-14:50:58.593 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 1071 ms: packet size: 379
-14:50:58.603 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.42, port=8895, location=deviceDescription/f7e83734-b58d-342d-ab20-3dd0802b9dc3
-14:50:59.428 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 1906 ms: packet size: 379
-14:50:59.438 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.42, port=8895, location=deviceDescription/f7e83734-b58d-342d-ab20-3dd0802b9dc3
-14:50:59.538 > [D][SoapESP32.cpp:241] soapSSDPquery(): received SSDP packet within 2016 ms: packet size: 369
-14:50:59.547 > [D][SoapESP32.cpp:267] soapSSDPquery(): scanned ip=192.168.1.42, port=1557, location=DeviceDescription.xml
-14:51:01.545 > [I][SoapESP32.cpp:475] seekServer(): SSDP query discovered 5 media servers
-14:51:01.552 > [I][SoapESP32.cpp:478] seekServer(): checking all discovered media servers for service ContentDirectory
-14:51:01.560 > [I][SoapESP32.cpp:492] seekServer(): connected successfully to server 192.168.1.42:5001
-14:51:01.569 > [D][SoapESP32.cpp:345] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 3510
-14:51:01.579 > [D][SoapESP32.cpp:521] seekServer(): scanned friendly name: Universal Media Server
-14:51:01.605 > [D][SoapESP32.cpp:531] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
-14:51:01.615 > [D][SoapESP32.cpp:543] seekServer(): assigned controlURL: upnp/control/content_directory
-14:51:01.623 > [I][SoapESP32.cpp:544] seekServer(): ok, this server delivers media content
-14:51:01.628 > [I][SoapESP32.cpp:492] seekServer(): connected successfully to server 192.168.1.11:55247
-14:51:01.637 > [D][SoapESP32.cpp:342] soapReadHttpHeader(): HTTP-Header ok, trailing content is chunked, no size announced
-14:51:01.647 > [D][SoapESP32.cpp:392] soapReadXML(): announced chunk size: 0x4b0, 1200
-14:51:01.653 > [D][SoapESP32.cpp:521] seekServer(): scanned friendly name: LINKSTATION2 [LinkStation Media Server]
-14:51:01.662 > [D][SoapESP32.cpp:392] soapReadXML(): announced chunk size: 0x4b0, 1200
-14:51:01.678 > [D][SoapESP32.cpp:531] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
-14:51:01.688 > [D][SoapESP32.cpp:392] soapReadXML(): announced chunk size: 0x4b0, 1200
-14:51:01.695 > [D][SoapESP32.cpp:543] seekServer(): assigned controlURL: dms/control/ContentDirectory
-14:51:01.702 > [I][SoapESP32.cpp:544] seekServer(): ok, this server delivers media content
-14:51:01.709 > [I][SoapESP32.cpp:492] seekServer(): connected successfully to server 192.168.1.42:2869
-14:51:01.716 > [D][SoapESP32.cpp:345] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 4153
-14:51:01.727 > [D][SoapESP32.cpp:521] seekServer(): scanned friendly name: VIRTUAL-WIN10: MediaPlayerVM:
-14:51:01.766 > [D][SoapESP32.cpp:531] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
-14:51:01.775 > [D][SoapESP32.cpp:543] seekServer(): assigned controlURL: upnphost/udhisapi.dll?control=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3+urn:upnp-org:serviceId:ContentDirectory
-14:51:01.790 > [I][SoapESP32.cpp:544] seekServer(): ok, this server delivers media content
-14:51:01.797 > [I][SoapESP32.cpp:492] seekServer(): connected successfully to server 192.168.1.42:1557
-14:51:01.804 > [D][SoapESP32.cpp:345] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 3443
-14:51:01.814 > [D][SoapESP32.cpp:521] seekServer(): scanned friendly name: Kodi (Virtual-Win10)
-14:51:01.843 > [D][SoapESP32.cpp:531] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
-14:51:01.853 > [D][SoapESP32.cpp:543] seekServer(): assigned controlURL: ContentDirectory/1960b02b-2618-c8eb-e6aa-2367704dac98/control.xml
-14:51:01.863 > [I][SoapESP32.cpp:544] seekServer(): ok, this server delivers media content
-14:51:01.870 > [I][SoapESP32.cpp:492] seekServer(): connected successfully to server 192.168.1.42:8895
-14:51:01.878 > [D][SoapESP32.cpp:345] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 2485
-14:51:01.887 > [D][SoapESP32.cpp:521] seekServer(): scanned friendly name: Serviio (Virtual-Win10)
-14:51:01.906 > [D][SoapESP32.cpp:531] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
-14:51:01.916 > [D][SoapESP32.cpp:543] seekServer(): assigned controlURL: serviceControl
-14:51:01.922 > [I][SoapESP32.cpp:544] seekServer(): ok, this server delivers media content
-14:51:01.929 > Number of discovered servers that deliver content: 5
-14:51:01.933 >
-14:51:01.933 > Server[0]: IP address: 192.168.1.42, port: 5001, name: Universal Media Server
-14:51:01.940 > [I][SoapESP32.cpp:861] browseServer(): new search on server: "Universal Media Server", objectId: "0"
-14:51:02.000 > [I][SoapESP32.cpp:873] browseServer(): connected successfully to server 192.168.1.42:5001
-14:51:02.008 > [D][SoapESP32.cpp:345] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 6431
-14:51:02.018 > [I][SoapESP32.cpp:896] browseServer(): scan answer from media server:
-14:51:02.124 > [D][SoapESP32.cpp:636] soapScanContainer(): id="1315"
-14:51:02.129 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="1"
-14:51:02.134 > [W][SoapESP32.cpp:617] soapScanAttribute(): attribute: "searchable=" missing.
-14:51:02.141 > [W][SoapESP32.cpp:663] soapScanContainer(): attribute "searchable=" is missing, we set it true
-14:51:02.149 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Music"
-14:51:02.154 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Music" (id: "1315", childCount: 1) added to list
-14:51:02.238 > [D][SoapESP32.cpp:636] soapScanContainer(): id="1316"
-14:51:02.243 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="1"
-14:51:02.248 > [W][SoapESP32.cpp:617] soapScanAttribute(): attribute: "searchable=" missing.
-14:51:02.255 > [W][SoapESP32.cpp:663] soapScanContainer(): attribute "searchable=" is missing, we set it true
-14:51:02.263 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Videos"
-14:51:02.269 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Videos" (id: "1316", childCount: 1) added to list
-14:51:02.349 > [D][SoapESP32.cpp:636] soapScanContainer(): id="1317"
-14:51:02.354 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="2"
-14:51:02.359 > [W][SoapESP32.cpp:617] soapScanAttribute(): attribute: "searchable=" missing.
-14:51:02.366 > [W][SoapESP32.cpp:663] soapScanContainer(): attribute "searchable=" is missing, we set it true
-14:51:02.374 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Web"
-14:51:02.379 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Web" (id: "1317", childCount: 2) added to list
-14:51:02.388 > [D][SoapESP32.cpp:946] browseServer(): announced number of folders and/or files: 3
-14:51:02.395 > [I][SoapESP32.cpp:962] browseServer(): found 3 folders and 0 files
-14:51:02.401 > Browsing root directory. Number of sub-directories: 3
-14:51:02.405 >  Music (child count: 1)
-14:51:02.407 >  Videos (child count: 1)
-14:51:02.409 >  Web (child count: 2)
-14:51:02.412 >
-14:51:02.412 > Server[1]: IP address: 192.168.1.11, port: 55247, name: LINKSTATION2 [LinkStation Media Server]
-14:51:02.421 > [I][SoapESP32.cpp:861] browseServer(): new search on server: "LINKSTATION2 [LinkStation Media Server]", objectId: "0"
-14:51:02.454 > [I][SoapESP32.cpp:873] browseServer(): connected successfully to server 192.168.1.11:55247
-14:51:02.463 > [D][SoapESP32.cpp:342] soapReadHttpHeader(): HTTP-Header ok, trailing content is chunked, no size announced
-14:51:02.473 > [I][SoapESP32.cpp:896] browseServer(): scan answer from media server:
-14:51:02.479 > [D][SoapESP32.cpp:392] soapReadXML(): announced chunk size: 0xdf, 223
-14:51:02.485 > [D][SoapESP32.cpp:392] soapReadXML(): announced chunk size: 0x6a0, 1696
-14:51:02.519 > [D][SoapESP32.cpp:636] soapScanContainer(): id="CAT-VIDEO"
-14:51:02.524 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="8"
-14:51:02.529 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="1"
-14:51:02.534 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Video"
-14:51:02.539 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Video" (id: "CAT-VIDEO", childCount: 8) added to list
-14:51:02.549 > [D][SoapESP32.cpp:636] soapScanContainer(): id="CAT-AUDIO"
-14:51:02.553 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="9"
-14:51:02.559 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="1"
-14:51:02.564 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Music"
-14:51:02.570 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Music" (id: "CAT-AUDIO", childCount: 9) added to list
-14:51:02.579 > [D][SoapESP32.cpp:636] soapScanContainer(): id="CAT-IMAGE"
-14:51:02.584 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="7"
-14:51:02.588 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="1"
-14:51:02.595 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Photos"
-14:51:02.600 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Photos" (id: "CAT-IMAGE", childCount: 7) added to list
-14:51:02.609 > [D][SoapESP32.cpp:636] soapScanContainer(): id="FS-Folder"
-14:51:02.614 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="2"
-14:51:02.619 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="1"
-14:51:02.624 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Folders"
-14:51:02.629 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Folders" (id: "FS-Folder", childCount: 2) added to list
-14:51:02.638 > [D][SoapESP32.cpp:392] soapReadXML(): announced chunk size: 0x9b, 155
-14:51:02.646 > [D][SoapESP32.cpp:946] browseServer(): announced number of folders and/or files: 4
-14:51:03.641 > [I][SoapESP32.cpp:962] browseServer(): found 4 folders and 0 files
-14:51:03.652 > Browsing root directory. Number of sub-directories: 4
-14:51:03.656 >  Video (child count: 8)
-14:51:03.659 >  Music (child count: 9)
-14:51:03.660 >  Photos (child count: 7)
-14:51:03.664 >  Folders (child count: 2)
-14:51:03.666 >
-14:51:03.666 > Server[2]: IP address: 192.168.1.42, port: 2869, name: VIRTUAL-WIN10: MediaPlayerVM:
-14:51:03.673 > [I][SoapESP32.cpp:861] browseServer(): new search on server: "VIRTUAL-WIN10: MediaPlayerVM:", objectId: "0"
-14:51:03.682 > [I][SoapESP32.cpp:873] browseServer(): connected successfully to server 192.168.1.42:2869
-14:51:03.690 > [D][SoapESP32.cpp:345] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 6215
-14:51:03.701 > [I][SoapESP32.cpp:896] browseServer(): scan answer from media server:
-14:51:03.767 > [D][SoapESP32.cpp:636] soapScanContainer(): id="3"
-14:51:03.772 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="7"
-14:51:03.777 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="1"
-14:51:03.783 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Bilder"
-14:51:03.788 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Bilder" (id: "3", childCount: 7) added to list
-14:51:03.843 > [D][SoapESP32.cpp:636] soapScanContainer(): id="1"
-14:51:03.846 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="10"
-14:51:03.853 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="1"
-14:51:03.858 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Musik"
-14:51:03.862 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Musik" (id: "1", childCount: 10) added to list
-14:51:03.921 > [D][SoapESP32.cpp:636] soapScanContainer(): id="2"
-14:51:03.926 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="8"
-14:51:03.931 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="1"
-14:51:03.937 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Videos"
-14:51:03.942 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Videos" (id: "2", childCount: 8) added to list
-14:51:04.000 > [D][SoapESP32.cpp:636] soapScanContainer(): id="12"
-14:51:04.005 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="2"
-14:51:04.010 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="1"
-14:51:04.015 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Wiedergabelisten"
-14:51:04.021 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Wiedergabelisten" (id: "12", childCount: 2) added to list
-14:51:04.031 > [D][SoapESP32.cpp:946] browseServer(): announced number of folders and/or files: 4
-14:51:04.038 > [I][SoapESP32.cpp:962] browseServer(): found 4 folders and 0 files
-14:51:04.044 > Browsing root directory. Number of sub-directories: 4
-14:51:04.049 >  Bilder (child count: 7)
-14:51:04.051 >  Musik (child count: 10)
-14:51:04.054 >  Videos (child count: 8)
-14:51:04.056 >  Wiedergabelisten (child count: 2)
-14:51:04.059 >
-14:51:04.059 > Server[3]: IP address: 192.168.1.42, port: 1557, name: Kodi (Virtual-Win10)
-14:51:04.066 > [I][SoapESP32.cpp:861] browseServer(): new search on server: "Kodi (Virtual-Win10)", objectId: "0"
-14:51:04.074 > [I][SoapESP32.cpp:873] browseServer(): connected successfully to server 192.168.1.42:1557
-14:51:04.082 > [D][SoapESP32.cpp:345] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 1659
-14:51:04.092 > [I][SoapESP32.cpp:896] browseServer(): scan answer from media server:
-14:51:04.130 > [D][SoapESP32.cpp:636] soapScanContainer(): id="musicdb://"
-14:51:04.136 > [W][SoapESP32.cpp:617] soapScanAttribute(): attribute: "childCount=" missing.
-14:51:04.143 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="0"
-14:51:04.148 > [I][SoapESP32.cpp:670] soapScanContainer(): "musicdb://" attribute searchable=0
-14:51:04.155 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Music Library"
-14:51:04.161 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Music Library" (id: "musicdb://", childCount: 0) added to list
-14:51:04.179 > [D][SoapESP32.cpp:636] soapScanContainer(): id="library://video/"
-14:51:04.185 > [W][SoapESP32.cpp:617] soapScanAttribute(): attribute: "childCount=" missing.
-14:51:04.192 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="0"
-14:51:04.197 > [I][SoapESP32.cpp:670] soapScanContainer(): "library://video/" attribute searchable=0
-14:51:04.204 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Video Library"
-14:51:04.211 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Video Library" (id: "library://video/", childCount: 0) added to list
-14:51:04.222 > [D][SoapESP32.cpp:946] browseServer(): announced number of folders and/or files: 2
-14:51:04.228 > [I][SoapESP32.cpp:962] browseServer(): found 2 folders and 0 files
-14:51:04.235 > Browsing root directory. Number of sub-directories: 2
-14:51:04.240 >  Music Library (child count: missing)
-14:51:04.243 >  Video Library (child count: missing)
-14:51:04.247 >
-14:51:04.247 > Server[4]: IP address: 192.168.1.42, port: 8895, name: Serviio (Virtual-Win10)
-14:51:04.254 > [I][SoapESP32.cpp:861] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "0"
-14:51:04.264 > [I][SoapESP32.cpp:873] browseServer(): connected successfully to server 192.168.1.42:8895
-14:51:04.271 > [D][SoapESP32.cpp:345] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 1240
-14:51:04.282 > [I][SoapESP32.cpp:896] browseServer(): scan answer from media server:
-14:51:04.307 > [D][SoapESP32.cpp:636] soapScanContainer(): id="A"
-14:51:04.312 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="10"
-14:51:04.317 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="0"
-14:51:04.322 > [I][SoapESP32.cpp:670] soapScanContainer(): "A" attribute searchable=0
-14:51:04.328 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Audio"
-14:51:04.333 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Audio" (id: "A", childCount: 10) added to list
-14:51:04.342 > [D][SoapESP32.cpp:636] soapScanContainer(): id="I"
-14:51:04.346 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="5"
-14:51:04.352 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="0"
-14:51:04.357 > [I][SoapESP32.cpp:670] soapScanContainer(): "I" attribute searchable=0
-14:51:04.363 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Image"
-14:51:04.368 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Image" (id: "I", childCount: 5) added to list
-14:51:04.377 > [D][SoapESP32.cpp:636] soapScanContainer(): id="V"
-14:51:04.382 > [D][SoapESP32.cpp:655] soapScanContainer(): childCount="7"
-14:51:04.386 > [D][SoapESP32.cpp:667] soapScanContainer(): searchable="0"
-14:51:04.391 > [I][SoapESP32.cpp:670] soapScanContainer(): "V" attribute searchable=0
-14:51:04.397 > [D][SoapESP32.cpp:681] soapScanContainer(): title="Video"
-14:51:04.402 > [I][SoapESP32.cpp:690] soapScanContainer(): folder "Video" (id: "V", childCount: 7) added to list
-14:51:04.411 > [D][SoapESP32.cpp:946] browseServer(): announced number of folders and/or files: 3
-14:51:04.418 > [I][SoapESP32.cpp:962] browseServer(): found 3 folders and 0 files
-14:51:04.424 > Browsing root directory. Number of sub-directories: 3
-14:51:04.429 >  Audio (child count: 10)
-14:51:04.432 >  Image (child count: 5)
-14:51:04.434 >  Video (child count: 7)
-14:51:04.436 >
-14:51:04.437 >
-14:51:04.437 > Sketch finished.
+--- Terminal on COM7 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+23:44:57.220 > [     6][D][esp32-hal-cpu.c:244] setCpuFrequencyMhz(): PLL: 480 / 2 = 240 Mhz, APB: 80000000 Hz
+23:44:57.220 >
+23:44:57.220 > Initializing Ethernet...DHCP ok.
+23:45:01.252 > Local IP: 192.168.1.43
+23:45:01.253 >
+23:45:01.254 > Scanning local network for DLNA media servers...
+23:45:01.258 > [  4756][I][SoapESP32.cpp:513] seekServer(): SSDP search for media servers started, scan duration: 50 sec
+23:45:01.454 > [  4959][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (REPLY) within 194 ms, size 389
+23:45:01.462 > [  4960][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+23:45:01.559 > [  5064][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (REPLY) within 299 ms, size 377
+23:45:01.566 > [  5064][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+23:45:02.309 > [  5814][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (REPLY) within 1049 ms, size 389
+23:45:02.317 > [  5814][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+23:45:03.276 > [  6781][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 2016 ms, size 294
+23:45:03.284 > [  6782][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 2017 ms, size 348
+23:45:03.292 > [  6787][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 2022 ms, size 360
+23:45:03.300 > [  6794][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 2029 ms, size 358
+23:45:03.307 > [  6802][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 2037 ms, size 350
+23:45:03.315 > [  6809][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 2044 ms, size 303
+23:45:04.304 > [  7809][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (REPLY) within 3044 ms, size 377
+23:45:04.312 > [  7809][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+23:45:04.424 > [  7929][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (REPLY) within 3164 ms, size 377
+23:45:04.432 > [  7929][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+23:45:04.448 > [  7953][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (REPLY) within 3188 ms, size 389
+23:45:04.456 > [  7953][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+23:45:04.469 > [  7965][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (REPLY) within 3200 ms, size 377
+23:45:04.477 > [  7970][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+23:45:05.277 > [  8782][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 4017 ms, size 294
+23:45:05.285 > [  8784][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 4019 ms, size 348
+23:45:05.293 > [  8788][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 4023 ms, size 360
+23:45:05.300 > [  8795][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 4030 ms, size 358
+23:45:05.308 > [  8803][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 4038 ms, size 350
+23:45:05.315 > [  8810][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 4045 ms, size 303
+23:45:05.510 > [  9015][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (REPLY) within 4250 ms, size 389
+23:45:05.518 > [  9015][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+23:45:07.277 > [ 10782][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 6017 ms, size 294
+23:45:07.284 > [ 10783][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 6018 ms, size 348
+23:45:07.292 > [ 10788][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 6023 ms, size 360
+23:45:07.300 > [ 10795][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 6030 ms, size 358
+23:45:07.307 > [ 10803][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 6038 ms, size 350
+23:45:07.315 > [ 10810][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 6045 ms, size 303
+23:45:09.279 > [ 12785][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 8020 ms, size 294
+23:45:09.288 > [ 12786][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 8021 ms, size 348
+23:45:09.295 > [ 12790][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 8025 ms, size 360
+23:45:09.302 > [ 12798][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 8033 ms, size 358
+23:45:09.310 > [ 12806][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 8041 ms, size 350
+23:45:09.319 > [ 12813][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 8048 ms, size 303
+23:45:10.870 > [ 14376][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 9611 ms, size 302
+23:45:10.975 > [ 14481][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 9716 ms, size 302
+23:45:11.070 > [ 14575][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 9810 ms, size 354
+23:45:11.078 > [ 14575][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+23:45:11.181 > [ 14686][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 9921 ms, size 354
+23:45:11.189 > [ 14686][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+23:45:11.248 > [ 14754][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 9989 ms, size 366
+23:45:11.257 > [ 14754][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+23:45:11.280 > [ 14786][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10021 ms, size 294
+23:45:11.288 > [ 14787][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10022 ms, size 348
+23:45:11.296 > [ 14792][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10027 ms, size 360
+23:45:11.304 > [ 14799][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10034 ms, size 358
+23:45:11.311 > [ 14807][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10042 ms, size 350
+23:45:11.320 > [ 14815][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10050 ms, size 303
+23:45:11.353 > [ 14859][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10094 ms, size 366
+23:45:11.362 > [ 14859][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+23:45:11.409 > [ 14915][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10150 ms, size 368
+23:45:11.510 > [ 15016][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10251 ms, size 368
+23:45:11.541 > [ 15047][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10282 ms, size 311
+23:45:11.651 > [ 15157][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10392 ms, size 311
+23:45:11.707 > [ 15213][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10448 ms, size 382
+23:45:11.808 > [ 15314][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 10549 ms, size 382
+23:45:13.280 > [ 16786][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 12021 ms, size 294
+23:45:13.288 > [ 16787][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 12022 ms, size 348
+23:45:13.296 > [ 16792][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 12027 ms, size 360
+23:45:13.304 > [ 16799][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 12034 ms, size 358
+23:45:13.312 > [ 16807][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 12042 ms, size 350
+23:45:13.319 > [ 16815][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 12050 ms, size 303
+23:45:15.283 > [ 18789][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 14024 ms, size 294
+23:45:15.291 > [ 18790][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 14025 ms, size 348
+23:45:15.299 > [ 18795][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 14030 ms, size 360
+23:45:15.307 > [ 18802][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 14037 ms, size 358
+23:45:15.314 > [ 18810][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 14045 ms, size 350
+23:45:15.322 > [ 18818][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 14053 ms, size 303
+23:45:17.283 > [ 20790][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 16025 ms, size 294
+23:45:17.292 > [ 20792][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 16027 ms, size 348
+23:45:17.299 > [ 20796][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 16031 ms, size 360
+23:45:17.307 > [ 20803][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 16038 ms, size 358
+23:45:17.315 > [ 20811][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 16046 ms, size 350
+23:45:17.323 > [ 20819][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 16054 ms, size 303
+23:45:19.286 > [ 22793][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18028 ms, size 294
+23:45:19.294 > [ 22794][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18029 ms, size 348
+23:45:19.302 > [ 22799][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18034 ms, size 360
+23:45:19.311 > [ 22806][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18041 ms, size 358
+23:45:19.318 > [ 22814][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18049 ms, size 350
+23:45:19.325 > [ 22822][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18057 ms, size 303
+23:45:20.224 > [ 23731][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18966 ms, size 129
+23:45:20.233 > [ 23732][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18967 ms, size 129
+23:45:20.241 > [ 23736][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 18971 ms, size 129
+23:45:21.289 > [ 24795][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 20030 ms, size 294
+23:45:21.297 > [ 24797][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 20032 ms, size 348
+23:45:21.304 > [ 24801][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 20036 ms, size 360
+23:45:21.312 > [ 24808][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 20043 ms, size 358
+23:45:21.319 > [ 24816][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 20051 ms, size 350
+23:45:21.327 > [ 24824][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 20059 ms, size 303
+23:45:23.288 > [ 26795][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 22030 ms, size 294
+23:45:23.297 > [ 26797][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 22032 ms, size 348
+23:45:23.304 > [ 26801][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 22036 ms, size 360
+23:45:23.311 > [ 26808][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 22043 ms, size 358
+23:45:23.319 > [ 26816][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 22051 ms, size 350
+23:45:23.327 > [ 26824][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 22059 ms, size 303
+23:45:24.230 > [ 27737][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 22972 ms, size 316
+23:45:24.280 > [ 27787][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23022 ms, size 354
+23:45:24.288 > [ 27788][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23023 ms, size 345
+23:45:24.296 > [ 27793][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23028 ms, size 397
+23:45:24.304 > [ 27800][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23035 ms, size 409
+23:45:24.312 > [ 27808][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23043 ms, size 411
+23:45:24.319 > [ 27816][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23051 ms, size 425
+23:45:24.327 > [ 27824][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23059 ms, size 307
+23:45:24.335 > [ 27837][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23072 ms, size 359
+23:45:24.343 > [ 27838][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+23:45:24.380 > [ 27887][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23122 ms, size 373
+23:45:24.430 > [ 27937][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23172 ms, size 371
+23:45:24.438 > [ 27937][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+23:45:24.480 > [ 27987][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23222 ms, size 387
+23:45:24.529 > [ 28036][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23271 ms, size 316
+23:45:24.579 > [ 28086][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23321 ms, size 307
+23:45:24.629 > [ 28136][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23371 ms, size 359
+23:45:24.637 > [ 28136][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+23:45:24.679 > [ 28186][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23421 ms, size 373
+23:45:24.729 > [ 28236][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23471 ms, size 371
+23:45:24.737 > [ 28236][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+23:45:24.779 > [ 28286][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23521 ms, size 387
+23:45:24.879 > [ 28386][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23621 ms, size 316
+23:45:24.929 > [ 28436][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23671 ms, size 307
+23:45:24.978 > [ 28485][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23720 ms, size 359
+23:45:25.027 > [ 28534][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23769 ms, size 316
+23:45:25.077 > [ 28584][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23819 ms, size 307
+23:45:25.127 > [ 28634][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 23869 ms, size 359
+23:45:25.290 > [ 28798][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 24033 ms, size 294
+23:45:25.299 > [ 28799][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 24034 ms, size 348
+23:45:25.307 > [ 28804][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 24039 ms, size 360
+23:45:25.315 > [ 28811][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 24046 ms, size 358
+23:45:25.322 > [ 28819][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 24054 ms, size 350
+23:45:25.330 > [ 28827][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 24062 ms, size 303
+23:45:27.292 > [ 30799][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26034 ms, size 294
+23:45:27.300 > [ 30800][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26035 ms, size 348
+23:45:27.308 > [ 30805][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26040 ms, size 360
+23:45:27.315 > [ 30812][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26047 ms, size 358
+23:45:27.323 > [ 30820][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26055 ms, size 350
+23:45:27.331 > [ 30828][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26063 ms, size 303
+23:45:28.028 > [ 31535][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26770 ms, size 408
+23:45:28.036 > [ 31537][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26772 ms, size 480
+23:45:28.044 > [ 31541][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26776 ms, size 417
+23:45:28.051 > [ 31548][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26783 ms, size 476
+23:45:28.059 > [ 31556][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26791 ms, size 417
+23:45:28.067 > [ 31564][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26799 ms, size 456
+23:45:28.074 > [ 31572][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26807 ms, size 417
+23:45:28.082 > [ 31579][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 26814 ms, size 488
+23:45:28.278 > [ 31785][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 27020 ms, size 476
+23:45:28.286 > [ 31787][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 27022 ms, size 417
+23:45:28.294 > [ 31791][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 27026 ms, size 480
+23:45:28.301 > [ 31799][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 27034 ms, size 408
+23:45:28.309 > [ 31806][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 27041 ms, size 488
+23:45:28.317 > [ 31814][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 27049 ms, size 417
+23:45:28.324 > [ 31822][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 27057 ms, size 456
+23:45:28.332 > [ 31829][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 27064 ms, size 417
+23:45:29.294 > [ 32802][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 28037 ms, size 294
+23:45:29.303 > [ 32803][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 28038 ms, size 348
+23:45:29.310 > [ 32808][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 28043 ms, size 360
+23:45:29.319 > [ 32815][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 28050 ms, size 358
+23:45:29.326 > [ 32823][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 28058 ms, size 350
+23:45:29.334 > [ 32831][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 28066 ms, size 303
+23:45:31.294 > [ 34802][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 30037 ms, size 294
+23:45:31.302 > [ 34803][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 30038 ms, size 348
+23:45:31.311 > [ 34808][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 30043 ms, size 360
+23:45:31.319 > [ 34815][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 30050 ms, size 358
+23:45:31.325 > [ 34823][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 30058 ms, size 350
+23:45:31.333 > [ 34831][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 30066 ms, size 303
+23:45:33.297 > [ 36805][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 32040 ms, size 294
+23:45:33.306 > [ 36806][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 32041 ms, size 348
+23:45:33.313 > [ 36811][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 32046 ms, size 360
+23:45:33.321 > [ 36818][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 32053 ms, size 358
+23:45:33.329 > [ 36826][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 32061 ms, size 350
+23:45:33.337 > [ 36834][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 32069 ms, size 303
+23:45:35.296 > [ 38804][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 34039 ms, size 294
+23:45:35.304 > [ 38805][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 34040 ms, size 348
+23:45:35.312 > [ 38810][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 34045 ms, size 360
+23:45:35.320 > [ 38817][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 34052 ms, size 358
+23:45:35.328 > [ 38825][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 34060 ms, size 350
+23:45:35.335 > [ 38833][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 34068 ms, size 303
+23:45:37.298 > [ 40806][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 36041 ms, size 294
+23:45:37.306 > [ 40807][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 36042 ms, size 348
+23:45:37.314 > [ 40812][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 36047 ms, size 360
+23:45:37.322 > [ 40819][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 36054 ms, size 358
+23:45:37.329 > [ 40827][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 36062 ms, size 350
+23:45:37.337 > [ 40835][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 36070 ms, size 303
+23:45:39.300 > [ 42808][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 38043 ms, size 294
+23:45:39.308 > [ 42809][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 38044 ms, size 348
+23:45:39.315 > [ 42814][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 38049 ms, size 360
+23:45:39.323 > [ 42821][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 38056 ms, size 358
+23:45:39.331 > [ 42829][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 38064 ms, size 350
+23:45:39.338 > [ 42837][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 38072 ms, size 303
+23:45:41.303 > [ 44811][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40046 ms, size 294
+23:45:41.310 > [ 44812][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40047 ms, size 348
+23:45:41.318 > [ 44817][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40052 ms, size 360
+23:45:41.327 > [ 44824][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40059 ms, size 358
+23:45:41.333 > [ 44832][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40067 ms, size 350
+23:45:41.342 > [ 44840][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40075 ms, size 303
+23:45:41.901 > [ 45410][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40645 ms, size 302
+23:45:42.004 > [ 45513][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40748 ms, size 302
+23:45:42.031 > [ 45540][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40775 ms, size 354
+23:45:42.040 > [ 45540][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+23:45:42.132 > [ 45641][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40876 ms, size 354
+23:45:42.141 > [ 45641][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+23:45:42.220 > [ 45729][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 40964 ms, size 366
+23:45:42.228 > [ 45729][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+23:45:42.321 > [ 45829][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 41064 ms, size 366
+23:45:42.329 > [ 45829][I][SoapESP32.cpp:298] soapSSDPquery(): scanned (N) ip=192.168.1.40, port=5001, loc="description/fetch"
+23:45:42.352 > [ 45860][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 41095 ms, size 368
+23:45:42.462 > [ 45970][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 41205 ms, size 368
+23:45:42.503 > [ 46012][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 41247 ms, size 311
+23:45:42.604 > [ 46112][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 41347 ms, size 311
+23:45:42.643 > [ 46151][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 41386 ms, size 382
+23:45:42.745 > [ 46254][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 41489 ms, size 382
+23:45:43.303 > [ 46812][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 42047 ms, size 294
+23:45:43.312 > [ 46813][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 42048 ms, size 348
+23:45:43.320 > [ 46818][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 42053 ms, size 360
+23:45:43.327 > [ 46825][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 42060 ms, size 358
+23:45:43.334 > [ 46833][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 42068 ms, size 350
+23:45:43.342 > [ 46841][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 42076 ms, size 303
+23:45:45.305 > [ 48814][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 44049 ms, size 294
+23:45:45.314 > [ 48815][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 44050 ms, size 348
+23:45:45.321 > [ 48820][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 44055 ms, size 360
+23:45:45.329 > [ 48827][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 44062 ms, size 358
+23:45:45.337 > [ 48835][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 44070 ms, size 350
+23:45:45.344 > [ 48843][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 44078 ms, size 303
+23:45:47.305 > [ 50814][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 46049 ms, size 294
+23:45:47.313 > [ 50815][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 46050 ms, size 348
+23:45:47.321 > [ 50820][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 46055 ms, size 360
+23:45:47.329 > [ 50827][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 46062 ms, size 358
+23:45:47.336 > [ 50835][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 46070 ms, size 350
+23:45:47.344 > [ 50843][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 46078 ms, size 303
+23:45:49.308 > [ 52817][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 48052 ms, size 294
+23:45:49.316 > [ 52823][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 48058 ms, size 348
+23:45:49.324 > [ 52825][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 48060 ms, size 360
+23:45:49.331 > [ 52830][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 48065 ms, size 358
+23:45:49.339 > [ 52838][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 48073 ms, size 350
+23:45:49.347 > [ 52846][D][SoapESP32.cpp:274] soapSSDPquery(): SSDP (NOTIFY) within 48081 ms, size 303
+23:45:51.255 > [ 54765][I][SoapESP32.cpp:516] seekServer(): SSDP query discovered 3 media servers
+23:45:51.263 > [ 54765][I][SoapESP32.cpp:519] seekServer(): checking all discovered media servers for service ContentDirectory
+23:45:51.273 > [ 54772][D][SoapESP32.cpp:1193] soapGet(): 192.168.1.40:8895 GET /deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec HTTP/1.1
+23:45:51.284 > [ 54787][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.40:8895
+23:45:51.292 > [ 54794][D][SoapESP32.cpp:382] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 2483
+23:45:51.303 > [ 54811][D][SoapESP32.cpp:562] seekServer(): scanned friendly name: Serviio (Virtual-Win10)
+23:45:51.331 > [ 54840][D][SoapESP32.cpp:572] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+23:45:51.341 > [ 54844][D][SoapESP32.cpp:589] seekServer(): assigned controlURL: serviceControl
+23:45:51.348 > [ 54846][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+23:45:51.356 > [ 54856][D][SoapESP32.cpp:1193] soapGet(): 192.168.1.40:5001 GET /description/fetch HTTP/1.1
+23:45:51.365 > [ 54873][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.40:5001
+23:45:51.372 > [ 54878][D][SoapESP32.cpp:382] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 3510
+23:45:51.385 > [ 54894][D][SoapESP32.cpp:562] seekServer(): scanned friendly name: Universal Media Server
+23:45:51.422 > [ 54932][D][SoapESP32.cpp:572] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+23:45:51.433 > [ 54936][D][SoapESP32.cpp:589] seekServer(): assigned controlURL: upnp/control/content_directory
+23:45:51.441 > [ 54940][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+23:45:51.449 > [ 54949][D][SoapESP32.cpp:1193] soapGet(): 192.168.1.11:9000 GET /dev0/desc.xml HTTP/1.1
+23:45:51.457 > [ 54956][I][SoapESP32.cpp:533] seekServer(): connected successfully to server 192.168.1.11:9000
+23:45:51.465 > [ 54969][D][SoapESP32.cpp:382] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 2924
+23:45:51.482 > [ 54992][D][SoapESP32.cpp:562] seekServer(): scanned friendly name: Twonky [QNAP-TS253D]
+23:45:51.514 > [ 55024][D][SoapESP32.cpp:572] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+23:45:51.524 > [ 55028][D][SoapESP32.cpp:589] seekServer(): assigned controlURL: dev0/srv1/control
+23:45:51.533 > [ 55030][I][SoapESP32.cpp:590] seekServer(): ok, this server delivers media content
+23:45:51.539 > Number of discovered servers that deliver content: 3
+23:45:51.544 >
+23:45:51.544 > Server[0]: IP address: 192.168.1.40, port: 8895, name: Serviio (Virtual-Win10)
+23:45:51.552 > [ 55050][I][SoapESP32.cpp:915] browseServer(): new search on server: "Serviio (Virtual-Win10)", objectId: "0"
+23:45:51.562 > [ 55060][D][SoapESP32.cpp:1289] soapPost(): 192.168.1.40:8895 POST /serviceControl HTTP/1.1
+23:45:51.569 > [ 55076][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:8895
+23:45:51.577 > [ 55080][D][SoapESP32.cpp:382] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 1241
+23:45:51.589 > [ 55086][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+23:45:51.602 > [ 55111][D][SoapESP32.cpp:680] soapScanContainer(): function entered, parent id: 0
+23:45:51.610 > [ 55112][D][SoapESP32.cpp:684] soapScanContainer(): id="A"
+23:45:51.615 > [ 55113][D][SoapESP32.cpp:706] soapScanContainer(): childCount="14"
+23:45:51.621 > [ 55119][D][SoapESP32.cpp:718] soapScanContainer(): searchable="0"
+23:45:51.627 > [ 55125][I][SoapESP32.cpp:721] soapScanContainer(): "A" attribute searchable=0
+23:45:51.634 > [ 55132][D][SoapESP32.cpp:732] soapScanContainer(): title="Audio"
+23:45:51.640 > [ 55138][I][SoapESP32.cpp:741] soapScanContainer(): folder "Audio" (id: "A", childCount: 14) added to list
+23:45:51.650 > [ 55153][D][SoapESP32.cpp:680] soapScanContainer(): function entered, parent id: 0
+23:45:51.656 > [ 55154][D][SoapESP32.cpp:684] soapScanContainer(): id="I"
+23:45:51.661 > [ 55159][D][SoapESP32.cpp:706] soapScanContainer(): childCount="7"
+23:45:51.667 > [ 55165][D][SoapESP32.cpp:718] soapScanContainer(): searchable="0"
+23:45:51.673 > [ 55171][I][SoapESP32.cpp:721] soapScanContainer(): "I" attribute searchable=0
+23:45:51.680 > [ 55178][D][SoapESP32.cpp:732] soapScanContainer(): title="Image"
+23:45:51.686 > [ 55184][I][SoapESP32.cpp:741] soapScanContainer(): folder "Image" (id: "I", childCount: 7) added to list
+23:45:51.695 > [ 55200][D][SoapESP32.cpp:680] soapScanContainer(): function entered, parent id: 0
+23:45:51.702 > [ 55201][D][SoapESP32.cpp:684] soapScanContainer(): id="V"
+23:45:51.708 > [ 55206][D][SoapESP32.cpp:706] soapScanContainer(): childCount="12"
+23:45:51.715 > [ 55212][D][SoapESP32.cpp:718] soapScanContainer(): searchable="0"
+23:45:51.720 > [ 55218][I][SoapESP32.cpp:721] soapScanContainer(): "V" attribute searchable=0
+23:45:51.727 > [ 55225][D][SoapESP32.cpp:732] soapScanContainer(): title="Video"
+23:45:51.732 > [ 55230][I][SoapESP32.cpp:741] soapScanContainer(): folder "Video" (id: "V", childCount: 12) added to list
+23:45:51.742 > [ 55242][D][SoapESP32.cpp:1000] browseServer(): announced number of folders and/or files: 3
+23:45:51.750 > [ 55249][I][SoapESP32.cpp:1016] browseServer(): found 3 folders and 0 files
+23:45:51.756 > Browsing root directory. Number of sub-directories: 3
+23:45:51.762 >  Audio (child count: 14)
+23:45:51.764 >  Image (child count: 7)
+23:45:51.766 >  Video (child count: 12)
+23:45:51.768 >
+23:45:51.768 > Server[1]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
+23:45:51.775 > [ 55276][I][SoapESP32.cpp:915] browseServer(): new search on server: "Universal Media Server", objectId: "0"
+23:45:51.785 > [ 55284][D][SoapESP32.cpp:1289] soapPost(): 192.168.1.40:5001 POST /upnp/control/content_directory HTTP/1.1
+23:45:51.795 > [ 55304][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.40:5001
+23:45:51.803 > [ 55307][D][SoapESP32.cpp:382] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 6376
+23:45:51.814 > [ 55312][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+23:45:51.876 > [ 55385][D][SoapESP32.cpp:680] soapScanContainer(): function entered, parent id: 0
+23:45:51.884 > [ 55385][D][SoapESP32.cpp:684] soapScanContainer(): id="73"
+23:45:51.888 > [ 55386][D][SoapESP32.cpp:706] soapScanContainer(): childCount="1"
+23:45:51.894 > [ 55392][I][SoapESP32.cpp:663] soapScanAttribute(): attribute: "searchable=" missing.
+23:45:51.903 > [ 55400][W][SoapESP32.cpp:714] soapScanContainer(): attribute "searchable=" is missing, we set it true
+23:45:51.912 > [ 55409][D][SoapESP32.cpp:732] soapScanContainer(): title="Music"
+23:45:51.916 > [ 55415][I][SoapESP32.cpp:741] soapScanContainer(): folder "Music" (id: "73", childCount: 1) added to list
+23:45:51.967 > [ 55477][D][SoapESP32.cpp:680] soapScanContainer(): function entered, parent id: 0
+23:45:51.976 > [ 55477][D][SoapESP32.cpp:684] soapScanContainer(): id="74"
+23:45:51.980 > [ 55478][D][SoapESP32.cpp:706] soapScanContainer(): childCount="1"
+23:45:51.986 > [ 55484][I][SoapESP32.cpp:663] soapScanAttribute(): attribute: "searchable=" missing.
+23:45:51.994 > [ 55492][W][SoapESP32.cpp:714] soapScanContainer(): attribute "searchable=" is missing, we set it true
+23:45:52.003 > [ 55501][D][SoapESP32.cpp:732] soapScanContainer(): title="Videos"
+23:45:52.008 > [ 55507][I][SoapESP32.cpp:741] soapScanContainer(): folder "Videos" (id: "74", childCount: 1) added to list
+23:45:52.057 > [ 55567][D][SoapESP32.cpp:680] soapScanContainer(): function entered, parent id: 0
+23:45:52.066 > [ 55567][D][SoapESP32.cpp:684] soapScanContainer(): id="75"
+23:45:52.070 > [ 55568][D][SoapESP32.cpp:706] soapScanContainer(): childCount="2"
+23:45:52.077 > [ 55574][I][SoapESP32.cpp:663] soapScanAttribute(): attribute: "searchable=" missing.
+23:45:52.084 > [ 55582][W][SoapESP32.cpp:714] soapScanContainer(): attribute "searchable=" is missing, we set it true
+23:45:52.092 > [ 55591][D][SoapESP32.cpp:732] soapScanContainer(): title="Web"
+23:45:52.099 > [ 55596][I][SoapESP32.cpp:741] soapScanContainer(): folder "Web" (id: "75", childCount: 2) added to list
+23:45:52.107 > [ 55608][D][SoapESP32.cpp:1000] browseServer(): announced number of folders and/or files: 3
+23:45:52.115 > [ 55615][I][SoapESP32.cpp:1016] browseServer(): found 3 folders and 0 files
+23:45:52.122 > Browsing root directory. Number of sub-directories: 3
+23:45:52.128 >  Music (child count: 1)
+23:45:52.130 >  Videos (child count: 1)
+23:45:52.132 >  Web (child count: 2)
+23:45:52.134 >
+23:45:52.134 > Server[2]: IP address: 192.168.1.11, port: 9000, name: Twonky [QNAP-TS253D]
+23:45:52.141 > [ 55641][I][SoapESP32.cpp:915] browseServer(): new search on server: "Twonky [QNAP-TS253D]", objectId: "0"
+23:45:52.150 > [ 55649][D][SoapESP32.cpp:1289] soapPost(): 192.168.1.11:9000 POST /dev0/srv1/control HTTP/1.1
+23:45:52.159 > [ 55659][I][SoapESP32.cpp:927] browseServer(): connected successfully to server 192.168.1.11:9000
+23:45:52.167 > [ 55670][D][SoapESP32.cpp:382] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 1612
+23:45:52.177 > [ 55675][I][SoapESP32.cpp:950] browseServer(): scan answer from media server:
+23:45:52.200 > [ 55710][D][SoapESP32.cpp:680] soapScanContainer(): function entered, parent id: 0
+23:45:52.209 > [ 55710][D][SoapESP32.cpp:684] soapScanContainer(): id="0$1"
+23:45:52.213 > [ 55711][D][SoapESP32.cpp:706] soapScanContainer(): childCount="5"
+23:45:52.220 > [ 55717][D][SoapESP32.cpp:718] soapScanContainer(): searchable="1"
+23:45:52.225 > [ 55723][D][SoapESP32.cpp:732] soapScanContainer(): title="Music"
+23:45:52.232 > [ 55729][I][SoapESP32.cpp:741] soapScanContainer(): folder "Music" (id: "0$1", childCount: 5) added to list
+23:45:52.241 > [ 55750][D][SoapESP32.cpp:680] soapScanContainer(): function entered, parent id: 0
+23:45:52.248 > [ 55750][D][SoapESP32.cpp:684] soapScanContainer(): id="0$3"
+23:45:52.253 > [ 55751][D][SoapESP32.cpp:706] soapScanContainer(): childCount="3"
+23:45:52.259 > [ 55757][D][SoapESP32.cpp:718] soapScanContainer(): searchable="1"
+23:45:52.266 > [ 55763][D][SoapESP32.cpp:732] soapScanContainer(): title="Videos"
+23:45:52.271 > [ 55769][I][SoapESP32.cpp:741] soapScanContainer(): folder "Videos" (id: "0$3", childCount: 3) added to list
+23:45:52.280 > [ 55781][D][SoapESP32.cpp:1000] browseServer(): announced number of folders and/or files: 2
+23:45:52.289 > [ 55788][I][SoapESP32.cpp:1016] browseServer(): found 2 folders and 0 files
+23:45:52.296 > Browsing root directory. Number of sub-directories: 2
+23:45:52.300 >  Music (child count: 5)
+23:45:52.302 >  Videos (child count: 3)
+23:45:52.304 >
+23:45:52.305 >
+23:45:52.305 > Sketch finished.

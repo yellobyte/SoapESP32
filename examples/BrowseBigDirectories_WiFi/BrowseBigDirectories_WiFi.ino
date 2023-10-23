@@ -1,30 +1,29 @@
 /*
   BrowseBigDirectories_WiFi
 
-  This sketch demonstrates how to browse directories with a large number of
-  subdirectories/files by changing the starting index. We use builtin WiFi. 
+  This sketch demonstrates how to browse directories with a large number of subdirectories/files 
+  by changing the starting index. We use builtin WiFi. 
 
-  Since memory is limited, by default a maximum of only 100 entries per
-  directory will be returned by browseServer(). This limit is defined in 
-  "SoapESP32.h" with parameter SOAP_DEFAULT_BROWSE_MAX_COUNT. Increasing
-  this parameter means using more memory.	
+  Since memory is limited, by default a maximum of only 100 entries per directory will be returned 
+  by browseServer(). This limit is defined in "SoapESP32.h" with parameter SOAP_DEFAULT_BROWSE_MAX_COUNT. 
+  Increasing this parameter means using more memory.	
 
-  If a directory contains more entries than that number, you have to browse
-  that directory multiple times, each time with a higher starting index
-  (0, 100, 200,...). This sketch demonstrates how to do it.
+  If a directory contains more entries than that number, you have to browse that directory multiple 
+  times, each time with a higher starting index (0, 100, 200,...). This sketch demonstrates how to do it.
     
-  Last updated 2022-01-15, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
 #include <WiFi.h>
 #include "SoapESP32.h"
 
-// uncomment in case you want to know
-//#define SHOW_ESP32_MEMORY_STATISTICS
+// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS:
+// 1) add -DSHOW_ESP32_MEMORY_STATISTICS to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
+// 2) add -DSHOW_ESP32_MEMORY_STATISTICS to your build_flags in platformio.ini (VSCode/PlatformIO)
 
-// How many directory levels to browse (incl. root) at maximum. The higher this
-// value and the bigger your server content the higher the memory usage!
+// How many directory levels to browse (incl. root) at maximum. The higher this value and 
+// the bigger your server content the higher the memory usage!
 #define BROWSE_LEVELS 3
 
 const char ssid[] = "MySSID";
@@ -99,7 +98,7 @@ void setup() {
 
   // scan local network for DLNA media servers
   Serial.println("Scanning local network for DLNA media servers...");
-  soap.seekServer();
+  soap.seekServer();          // without parameter the scan duration defaults to 60 sec
   Serial.print("Number of discovered servers that deliver content: ");
   Serial.println(soap.getServerCount());
   Serial.println();

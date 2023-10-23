@@ -1,18 +1,16 @@
 /*
   DownloadFileExample1_Ethernet
 
-  This sketch downloads one file from a DLNA media server and writes it to
-  SD card. 
+  This sketch downloads one file from a DLNA media server and writes it to SD card. 
 	
   The parameters needed for download must be set manually further down. 
-  You find a snapshot in the doc directory, showing you how to use VLC to 
-  find proper values. We use a Wiznet W5x00 Ethernet module/shield
-  attached to ESP32 instead of builtin WiFi.
+  You find a snapshot in the doc directory, showing you how to use VLC to find proper values.
+  We use a Wiznet W5x00 Ethernet module/shield attached to ESP32 instead of builtin WiFi.
 
   Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-10-19, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -20,13 +18,11 @@
 #include <SD.h>
 #include "SoapESP32.h"
 
-// == IMPORTANT ==
-// We use Ethernet module/shield instead of WiFi, so you must do one of the following:
-// 1) add -DUSE_ETHERNET to file build_opt.h in your sketch directory (ArduinoIDE) OR
+// === IMPORTANT ===
+// We use Ethernet module/shield instead of WiFi, hence build option USE_ETHERNET is required:
+// 1) add -DUSE_ETHERNET to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
 // 2) add -DUSE_ETHERNET to your build_flags in platformio.ini (VSCode/PlatformIO)
-
-// uncomment in case you want to know
-//#define SHOW_ESP32_MEMORY_STATISTICS
+// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS.
 
 // Example settings only, please change:
 #define FILE_DOWNLOAD_IP   192,168,1,42
