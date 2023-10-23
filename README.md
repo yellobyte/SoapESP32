@@ -73,7 +73,7 @@ Of course, the ESP32 Arduino SPI library already uses locks (SPI_MUTEX_LOCK/SPI_
 
 ####  Ethernet SSDP multicast issue:
 
-SSDP M-SEARCH multicast packets carry the destination ip 239.255.255.250 and port 1900. However, some NAS devices (e.g. my old Buffalo Linkstation) do **not** reply to such packets when the **source** port is 1900 as well. When using the standard Arduino Ethernet library, all SSDP multicast packets carry identical destination & source ports, in our case 1900. There are three solutions to this peculiar problem:
+SSDP M-SEARCH multicast packets carry the destination ip 239.255.255.250 and port 1900. Some NAS devices (e.g. my old Buffalo Linkstation) do **not** reply to such packets when the **source** port is 1900 as well. When using the standard Arduino Ethernet library, all SSDP multicast packets carry identical destination & source ports, in our case 1900. There are three solutions to this peculiar problem:
   
 a) increase the scan time to e.g. 90s and very likely you will catch a SSDP NOTIFY packet **or**  
 b) use *addServer()* to manually add a server to the server list **or**  
