@@ -101,16 +101,16 @@ If you use an Ethernet module/shield instead of builtin WiFi you must set the pr
 
 #### Building with Arduino IDE:
 
-Add a file named "build_opt.h" containing your wanted build options to your sketch directory, e.g.:  
+Add a file named _build_opt.h_ containing your wanted build options to your sketch directory, e.g.:  
 ```c
 -DUSE_ETHERNET
 -DSHOW_ESP32_MEMORY_STATISTICS
 ```
-Please note: Changes made to "build_opt.h" after a first build will not be detected by the Arduino IDE. Rebuilding the whole project or restarting the IDE will fix that.  
+Please note: Changes made to _build_opt.h_ after a first build will not be detected by the Arduino IDE. Rebuilding the whole project or restarting the IDE will fix that.  
 
 #### Building with VSCode/PlatformIO:
 
-Add wanted build options to your _platformio.ini_ project file, e.g.:  
+Add wanted build options to your project file _platformio.ini_ , e.g.:  
 ```c
 build_flags = -DUSE_ETHERNET
 ```
