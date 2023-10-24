@@ -8,7 +8,7 @@
   Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-24, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -137,7 +137,7 @@ void setup() {
 
   // scan local network for DLNA media servers
   Serial.println("Scanning local network for DLNA media servers...");
-  soap.seekServer(30);          // network scan duration is set to 30 secs
+  soap.seekServer(50);          // network scan duration is set to 50 secs
   Serial.print("Number of discovered servers that deliver content: ");
   Serial.println(soap.getServerCount());
   Serial.println();
