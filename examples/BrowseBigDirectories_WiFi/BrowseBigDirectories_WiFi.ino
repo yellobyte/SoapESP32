@@ -8,8 +8,9 @@
   by browseServer(). This limit is defined in "SoapESP32.h" with parameter SOAP_DEFAULT_BROWSE_MAX_COUNT. 
   Increasing this parameter means using more memory.	
 
-  If a directory contains more entries than that number, you have to browse that directory multiple 
-  times, each time with a higher starting index (0, 100, 200,...). This sketch demonstrates how to do it.
+  The sketch scans the network for media servers and if found, browses each server for a big directory.
+  If found the sketch browses that directory multiple times, each time with a higher starting 
+  index: 0, 100, 200, etc. until all items in that directory have been printed.
     
   Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
 */
@@ -18,12 +19,12 @@
 #include <WiFi.h>
 #include "SoapESP32.h"
 
-// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS:
-// 1) add -DSHOW_ESP32_MEMORY_STATISTICS to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
-// 2) add -DSHOW_ESP32_MEMORY_STATISTICS to your build_flags in platformio.ini (VSCode/PlatformIO)
+// With build option 'SHOW_ESP32_MEMORY_STATISTICS' the sketch prints ESP32 memory stats when finished.
+// The option has already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
+// Have a look at Readme.md for more detailed info about setting build options.
 
 // How many directory levels to browse (incl. root) at maximum. The higher this value and 
-// the bigger your server content the higher the memory usage!
+// the bigger your server content the higher the memory usage.
 #define BROWSE_LEVELS 3
 
 const char ssid[] = "MySSID";

@@ -1,21 +1,25 @@
 /*
-  DownloadFileExample2_WiFi
+  DownloadFileExample2_Ethernet
 
   This sketch scans the local network for media servers and if found, browses them 
-  for a small audio file. If found, the file is then copied to SD card. 
+  for a small audio file. If found, the file is copied to SD card. 
+  We use a Wiznet W5x00 Ethernet module/shield attached to ESP32 instead of WiFi.
 
+  Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
   Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
-#include <WiFi.h>
+#include <Ethernet.h>
 #include <SD.h>
 #include "SoapESP32.h"
 
+// === IMPORTANT ===
+// Build option 'USE_ETHERNET' is required for this sketch as we use an Ethernet module/shield. 
 // With build option 'SHOW_ESP32_MEMORY_STATISTICS' the sketch prints ESP32 memory stats when finished.
-// The option has already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
+// Both options have already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
 // Have a look at Readme.md for more detailed info about setting build options.
 
 // How many sub-directory levels to browse (incl. root) at maximum in search for a file. 
@@ -27,13 +31,14 @@
 #define FILE_NAME_ON_SD  "/myFile.mp3"
 #define READ_BUFFER_SIZE 5000
 
+// MAC address for your Ethernet module/shield
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+
+#define GPIO_ETHCS 25
 #define GPIO_SDCS   5
 
-const char ssid[] = "MySSID";
-const char pass[] = "MyPassword"; 
-
-WiFiClient client;
-WiFiUDP    udp;
+EthernetClient client;
+EthernetUDP    udp;
 
 SoapESP32 soap(&client, &udp);
 File myFile;
@@ -95,17 +100,24 @@ bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
 void setup() {
   Serial.begin(115200);
 
-  // connect to local network via WiFi
-  Serial.println();
-  Serial.print("Connecting to WiFi network ");
-  WiFi.begin(ssid, pass);
-  while ( WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    delay(500);
+  // connect to local network via Ethernet
+  Ethernet.init(GPIO_ETHCS);
+  Serial.print("\nInitializing Ethernet...");
+
+  if (Ethernet.begin(mac))
+  {
+    Serial.println("DHCP ok.");
   }
-  Serial.println();
-  Serial.print("Connected successfully. IP address: ");
-  Serial.println(WiFi.localIP());
+  else
+  {
+    Serial.println("DHCP error !");
+    while (true) {
+      // no point to continue
+    }
+  }
+
+  Serial.print("Local IP: ");
+  Serial.println(Ethernet.localIP());
   Serial.println();
 
   // preparing SD card 
@@ -125,7 +137,7 @@ void setup() {
 
   // scan local network for DLNA media servers
   Serial.println("Scanning local network for DLNA media servers...");
-  soap.seekServer();          // without parameter the scan duration defaults to 60 sec
+  soap.seekServer(30);          // network scan duration is set to 30 secs
   Serial.print("Number of discovered servers that deliver content: ");
   Serial.println(soap.getServerCount());
   Serial.println();

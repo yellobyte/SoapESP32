@@ -8,7 +8,7 @@
   We use a Wiznet W5x00 Ethernet module/shield instead of builtin WiFi.
   It's connected to ESP32 GPIO 18, 19, 23 and GPIO 25 (Chip Select).
 
-  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -16,10 +16,10 @@
 #include "SoapESP32.h"
 
 // === IMPORTANT ===
-// We use Ethernet module/shield instead of WiFi, hence build option USE_ETHERNET is required:
-// 1) add -DUSE_ETHERNET to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
-// 2) add -DUSE_ETHERNET to your build_flags in platformio.ini (VSCode/PlatformIO)
-// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS.
+// Build option 'USE_ETHERNET' is required for this sketch as we use an Ethernet module/shield. 
+// With build option 'SHOW_ESP32_MEMORY_STATISTICS' the sketch prints ESP32 memory stats when finished.
+// Both options have already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
+// Have a look at Readme.md for more detailed info about setting build options.
 
 // example WOL settings only, please change:
 #define WAKE_UP_MAC  "10:6F:3F:21:EE:23"   // MAC of device you want to wake up

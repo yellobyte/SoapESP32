@@ -10,7 +10,7 @@
   Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -19,10 +19,10 @@
 #include "SoapESP32.h"
 
 // === IMPORTANT ===
-// We use Ethernet module/shield instead of WiFi, hence build option USE_ETHERNET is required:
-// 1) add -DUSE_ETHERNET to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
-// 2) add -DUSE_ETHERNET to your build_flags in platformio.ini (VSCode/PlatformIO)
-// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS.
+// Build option 'USE_ETHERNET' is required for this sketch as we use an Ethernet module/shield. 
+// With build option 'SHOW_ESP32_MEMORY_STATISTICS' the sketch prints ESP32 memory stats when finished.
+// Both options have already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
+// Have a look at Readme.md for more detailed info about setting build options.
 
 // Example settings only, please change:
 #define FILE_DOWNLOAD_IP   192,168,1,42
@@ -32,8 +32,6 @@
 // File download settings
 #define FILE_NAME_ON_SD    "/myFile.mp3"
 #define READ_BUFFER_SIZE   5000
-// set a lower speed and uncomment in case you experience SD card write errors
-//#define SPI_SPEED_SDCARD 2000000U     // SD library default is 4MHz
 
 // MAC address for your Ethernet module/shield
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
@@ -70,11 +68,7 @@ void setup() {
 
   // preparing SD card 
   Serial.print("Initializing SD card...");
-#ifdef SPI_SPEED_SDCARD  
-  if (!SD.begin(GPIO_SDCS, SPI, SPI_SPEED_SDCARD)) {
-#else
   if (!SD.begin(GPIO_SDCS)) {
-#endif
     Serial.println("failed!");
     Serial.println("Sketch finished.");
     return;
@@ -103,7 +97,7 @@ void setup() {
   object.downloadPort = FILE_DOWNLOAD_PORT;
   object.uri          = FILE_DOWNLOAD_URI;
 
-  // attempting to download a file bigger than 4GB-1 will fail !
+  // attempting to download a file bigger than 4GB will fail !
   if (!soap.readStart(&object, &fileSize)) {
     // Error
     Serial.println("Error requesting file from media server.");
@@ -124,9 +118,8 @@ void setup() {
         break;
       }         
       else if (res > 0) {
-        // Remark: At this point instead of writing to SD card you 
-        // could write the data into a buffer/queue which feeds an 
-        // audio codec (e.g. VS1053) for example
+        // Remark: At this point instead of writing to SD card you could write the data 
+        // into a buffer/queue which feeds an audio codec (e.g. VS1053) for example
         if (!myFile.write(buffer, res)) {
           Serial.println("Error writing to SD card."); 
           break;

@@ -21,9 +21,9 @@
 #include <WiFi.h>
 #include "SoapESP32.h"
 
-// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS:
-// 1) add -DSHOW_ESP32_MEMORY_STATISTICS to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
-// 2) add -DSHOW_ESP32_MEMORY_STATISTICS to your build_flags in platformio.ini (VSCode/PlatformIO)
+// With build option 'SHOW_ESP32_MEMORY_STATISTICS' the sketch prints ESP32 memory stats when finished.
+// The option has already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
+// Have a look at Readme.md for more detailed info about setting build options.
 
 // Please set definitions that apply to your actual media server/NAS !
 // Following some examples for encountered media server settings:

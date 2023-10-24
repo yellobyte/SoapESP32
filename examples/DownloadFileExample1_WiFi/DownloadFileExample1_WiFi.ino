@@ -3,13 +3,12 @@
 
   This sketch downloads one file from a media server and writes it to SD card. 
 	
-  The parameters needed for download must be set manually further down.
-  You find a snapshot in directory doc, showing you how to use VLC to find 
-  proper values.
+  The parameters needed for download must be set manually further down. You find 
+  a snapshot in directory doc, showing you how to use VLC to find proper values.
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -17,11 +16,11 @@
 #include <SD.h>
 #include "SoapESP32.h"
 
-// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS:
-// 1) add -DSHOW_ESP32_MEMORY_STATISTICS to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
-// 2) add -DSHOW_ESP32_MEMORY_STATISTICS to your build_flags in platformio.ini (VSCode/PlatformIO)
+// With build option 'SHOW_ESP32_MEMORY_STATISTICS' the sketch prints ESP32 memory stats when finished.
+// The option has already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
+// Have a look at Readme.md for more detailed info about setting build options.
 
-// example settings only, please change:
+// Example settings only, please change:
 #define FILE_DOWNLOAD_IP   192,168,1,42
 #define FILE_DOWNLOAD_PORT 8895 
 #define FILE_DOWNLOAD_URI  "resource/227/MEDIA_ITEM/MP3-0/ORIGINAL"
@@ -32,8 +31,7 @@ const char pass[] = "MyPassword";
 // File download settings
 #define FILE_NAME_ON_SD    "/myFile.mp3"
 #define READ_BUFFER_SIZE   5000
-// set a lower speed and uncomment in case you experience SD card write errors
-//#define SPI_SPEED_SDCARD 2000000U     // SD library default is 4MHz
+
 #define GPIO_SDCS   5
 
 WiFiClient client;
@@ -57,11 +55,7 @@ void setup() {
 
   // preparing SD card 
   Serial.print("Initializing SD card...");
-#ifdef SPI_SPEED_SDCARD  
-  if (!SD.begin(GPIO_SDCS, SPI, SPI_SPEED_SDCARD)) {
-#else
   if (!SD.begin(GPIO_SDCS)) {
-#endif
     Serial.println("failed!");
     Serial.println("Sketch finished.");
     return;
@@ -109,9 +103,8 @@ void setup() {
         break;
       }         
       else if (res > 0) {
-        // Remark: At this point instead of writing to SD card you 
-        // could write the data into a buffer/queue which feeds an 
-        // audio codec (e.g. VS1053) for example
+        // Remark: At this point instead of writing to SD card you could write the data 
+        // into a buffer/queue which feeds an audio codec (e.g. VS1053) for example
         if (!myFile.write(buffer, res)) {
           Serial.println("Error writing to SD card."); 
           break;

@@ -19,9 +19,9 @@ uint8_t      srvNum = 0;
 setup() {
   // setting up Wifi, serial output, etc.
   ...
-  // scan the local network for media servers, scan duration by default is 60 sec !
-  // - calling the function with parameter 5...120 changes the scan duration, 
-  //   e.g. soap.seekServer(10) would scan the network for only 10 secs
+  // scan the local network for media servers (default scan duration is 60 sec)
+  // - passing an integer value 5...120 to seekServer() changes the scan duration, 
+  //   e.g. soap.seekServer(10) would scan the network for only 10 sec
   // - please note: longer scan times increase the chance for detecting media servers
   soap.seekServer();
   // printing details of all discovered servers
@@ -42,7 +42,7 @@ Always make sure you have one of the latest versions of **Arduino core for ESP32
 
 Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
 
-- Some media servers do not answer SSDP M-SEARCH requests immediately but instead send NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function seekServer() has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer parameter (5...120) for setting the scan duration (in sec) if needed.
+- Some media servers do not answer SSDP M-SEARCH requests but instead broadcast NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function seekServer() has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer value (5...120) for setting a specific scan duration (in sec) if needed.
 
 - Streams/podcasts: Some media servers (e.g. Fritzbox, Serviio) do **not** provide a size for items (media content) located in their Web/Online/InternetRadio folders. Thanks to Github user KiloOscarRomeo for drawing my attention to this fact. In contrast, UMS (Universal Media Server) always provides a fixed size of 9223372034707292159 (0x7FFFFFFF7FFFFFFF) for items in directory Web (incl. subdirectories Radio, Podcasts, etc.). 
 
@@ -71,26 +71,6 @@ The only remedy I found was to wrap all function calls that use SPI with a globa
 
 Of course, the ESP32 Arduino SPI library already uses locks (SPI_MUTEX_LOCK/SPI_MUTEX_UNLOCK) but doesn't seem to be 100% thread proof though. Please correct me if I'm wrong or you do find a better solution.
 
-####  Ethernet SSDP multicast issue:
-
-SSDP M-SEARCH multicast packets carry the destination ip 239.255.255.250 and port 1900. Some NAS devices (e.g. my old Buffalo Linkstation) do **not** reply to such packets when the **source** port is 1900 as well. When using the standard Arduino Ethernet library, all SSDP multicast packets carry identical destination & source ports, in our case 1900. There are three solutions to this peculiar problem:
-  
-a) increase the scan time to e.g. 90s and very likely you will catch a SSDP NOTIFY packet **or**  
-b) use *addServer()* to manually add a server to the server list **or**  
-c) modify file *socket.cpp* in Arduino Ethernet library to use a source port between 49152 & 65535. However, I don't recommend this.  
-
-```c
-uint8_t EthernetClass::socketBeginMulticast(uint8_t protocol, IPAddress ip, uint16_t port)
-{
-  ...
-  if (port > 0 && (protocol != (SnMR::UDP | SnMR::MULTI))) {	 // <------ modification 
-    W5100.writeSnPORT(s, port);
-  } else {
-    // if don't set the source port, set local_port number.
-
-  ...
-```
-
 ### :hammer_and_wrench: Setting compiler/build options:
 
 All examples were build & tested with various versions of ArduinoIDE and VSCode/PlatformIO.
@@ -101,34 +81,38 @@ If you use an Ethernet module/shield instead of builtin WiFi you must set the pr
 
 #### Building with Arduino IDE:
 
-Add a file named _build_opt.h_ containing your wanted build options to your sketch directory, e.g.:  
+Add a file named **_build_opt.h_** containing your wanted build options to your sketch directory, e.g.:  
 ```c
 -DUSE_ETHERNET
 -DSHOW_ESP32_MEMORY_STATISTICS
 ```
-Please note: Changes made to _build_opt.h_ after a first build will not be detected by the Arduino IDE. Rebuilding the whole project or restarting the IDE will fix that.  
+**Please note:** Changes made to _build_opt.h_ after a first build will not be detected by the Arduino IDE. Rebuilding the whole project or restarting the IDE will fix that.  
 
 #### Building with VSCode/PlatformIO:
 
-Add wanted build options to your project file _platformio.ini_ , e.g.:  
+Add wanted build options to your project file **_platformio.ini_** , e.g.:  
 ```c
 build_flags = -DUSE_ETHERNET
 ```
 
 ## :mag: How to find correct server parameters needed in some examples
 
-Four examples (_BrowseRecursively_Ethernet.ino_, _BrowseRecursively_WiFi.ino_, _DownloadFileExample1_Ethernet.ino_ and _DownloadFileExample1_WiFi.ino_) require some parameters (that apply to your specific DLNA media server) be defined manually.  
+Four examples require parameters being set that apply to your specific DLNA media server:
+- _BrowseRecursively_Ethernet.ino_
+- _BrowseRecursively_WiFi.ino_
+- _DownloadFileExample1_Ethernet.ino_
+- _DownloadFileExample1_WiFi.ino_
 
-The three provided snapshots (_Using_VLC_to_find_....._parameter.JPG_) in folder [**Doc**](https://github.com/yellobyte/soapESP32/blob/main/doc) show you how to use the open source **VLC** media player to find the right values.
+The open source media player **VLC** makes it easy to find the right values. Three snapshots in folder [**Doc**](https://github.com/yellobyte/soapESP32/blob/main/doc) show you how to find them.
 
 ## :file_folder: Documentation
 
-Folder [**Doc**](https://github.com/yellobyte/soapESP32/blob/main/doc) contains a big collection of files to help you implement this library into your projects:
+Folder [**Doc**](https://github.com/yellobyte/soapESP32/blob/main/doc) contains a big collection of files to help you implement the library into your projects:
 * The platformio.ini file I used when testing examples with VSCode/PlatformIO
-* Build log
+* A build log
 * Plenty of log files (serial monitor output) of all examples, mostly with different core debug levels
 * Schematic diagram (wiring) plus picture of the test set used
-* VLC snapshots to help you find the right server parameters needed for file download examples
+* VLC snapshots to help you find the right server parameters needed for certain examples
 
 ## :tada: Example of an implementation: ESP32-Radio utilizing SoapESP32
 

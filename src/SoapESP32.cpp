@@ -711,7 +711,7 @@ bool SoapESP32::soapScanContainer(const String *parentId,
 
   // scan searchable flag...not always provided (e.g. UMS)
   if (!soapScanAttribute(attributes, &str, DIDL_ATTR_SEARCHABLE)) {
-    log_w("attribute \"%s\" is missing, we set it true", DIDL_ATTR_SEARCHABLE);
+    log_i("attribute \"%s\" is missing, we set it true", DIDL_ATTR_SEARCHABLE);
     info.searchable = true;
   }  
   else {

@@ -3,15 +3,15 @@
 
   The sketch is almost identical to BrowseRoot_WiFi/_Ethernet. It prints 
   the root content of a media server.
-	
+  
   The difference is that we create more than one thread and use a project
   wide mutex lock to avoid problems as explained in Readme.md. 
   This example gives you an idea how to do it.
-	
+  
   We use a Wiznet W5x00 Ethernet module/shield instead of builtin WiFi.
   It's connected to ESP32 GPIO 18, 19, 23 and GPIO 25 (Chip Select).
 
-  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -19,10 +19,10 @@
 #include "SoapESP32.h"
 
 // === IMPORTANT ===
-// We use Ethernet module/shield instead of WiFi, hence build option USE_ETHERNET is required:
-// 1) add -DUSE_ETHERNET to file build_opt.h in your sketch directory (ArduinoIDE) --OR--
-// 2) add -DUSE_ETHERNET to your build_flags in platformio.ini (VSCode/PlatformIO)
-// Some ESP32 memory statistics are shown with build option SHOW_ESP32_MEMORY_STATISTICS.
+// Build option 'USE_ETHERNET' is required for this sketch as we use an Ethernet module/shield. 
+// With build option 'SHOW_ESP32_MEMORY_STATISTICS' the sketch prints ESP32 memory stats when finished.
+// Both options have already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
+// Have a look at Readme.md for more detailed info about setting build options.
 
 // Ethernet module/shield settings
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
@@ -31,10 +31,10 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 EthernetClient client;
 EthernetUDP    udp;
 
-const int led = 2;                                		// LED pin on ESP32 board
-int8_t ledStat = 0;                                 	// counter needed to let LED blink
-TaskHandle_t      xAnotherTask;                     	// task handle for an additional task
-SemaphoreHandle_t SPIsem = NULL;                   	// smeaphore used as global mutex
+const int led = 2;                                      // LED pin on ESP32 board
+int8_t ledStat = 0;                                     // counter needed to let LED blink
+TaskHandle_t      xAnotherTask;                         // task handle for an additional task
+SemaphoreHandle_t SPIsem = NULL;                        // smeaphore used as global mutex
 SoapESP32         soap(&client, &udp, &SPIsem);
 
 // example for another task using the SPI bus
@@ -82,37 +82,37 @@ void setup() {
 
   Serial.print("Local IP: ");
   Serial.println(Ethernet.localIP());
-	
+  
   // initial stuff
   SPIsem = xSemaphoreCreateMutex();
   pinMode(led, OUTPUT);
 
   // start another task that will use SPI as well
   xTaskCreate(
-    anotherTask,                       // pointer to task defined above
-    "anotherTask",                     // name of task.
-    1024,                              // Stack size of task
-    NULL,                              // parameter for the task
-    1,                                 // priority of the task
-    &xAnotherTask);                    // task handle to keep track of it
-		
+    anotherTask,                         // pointer to task defined above
+    "anotherTask",                       // name of task.
+    1024,                                // Stack size of task
+    NULL,                                // parameter for the task
+    1,                                   // priority of the task
+    &xAnotherTask);                      // task handle to keep track of it
+    
   Serial.println("Additional task started. LED should blink.");
 
   // scan local network for DLNA media servers
   Serial.println();
   Serial.println("Scanning local network for DLNA media servers...");
-  soap.seekServer(40);                 // scan duration set to 40 sec
+  soap.seekServer(40);                   // scan duration set to 40 sec
   Serial.print("Number of discovered servers that deliver content: ");
   Serial.println(soap.getServerCount());
   Serial.println();
 
   // Show root content of all discovered, usable media servers
-  soapObjectVect_t browseResult;       // browse results get stored here
-  soapServer_t serv;                   // single server info gets stored here
-  int i = 0;                           // start with first entry in server list
+  soapObjectVect_t browseResult;         // browse results get stored here
+  soapServer_t serv;                     // single server info gets stored here
+  int i = 0;                             // start with first entry in server list
 
   while (soap.getServerInfo(i, &serv)) {
-    // Print some server details
+    // print some server details
     Serial.print("Server[");
     Serial.print(i);
     Serial.print("]: IP address: ");
