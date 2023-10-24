@@ -148,7 +148,7 @@ void setup() {
 
   for (srvNum = 0; soap.getServerInfo(srvNum, &srvInfo); srvNum++) {
     // If defined in build options then only this server will get scanned.
-    // Example: #define THIS_IP_ONLY 192,168,1,42
+    // Add e.g. '-DTHIS_IP_ONLY=192,168,1,42' to build_opt.h or platformio.ini
 #ifdef THIS_IP_ONLY
     if (srvInfo.ip != IPAddress(THIS_IP_ONLY)) continue;
 #endif    
