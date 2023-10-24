@@ -147,6 +147,11 @@ void setup() {
   uint8_t srvNum;             // server number in list
 
   for (srvNum = 0; soap.getServerInfo(srvNum, &srvInfo); srvNum++) {
+    // If defined in build options then only this server will get scanned.
+    // Example: #define THIS_IP_ONLY 192,168,1,42
+#ifdef THIS_IP_ONLY
+    if (srvInfo.ip != IPAddress(THIS_IP_ONLY)) continue;
+#endif    
     Serial.print("Please be patient, searching audio file on server: ");
     Serial.println(srvInfo.friendlyName);
 

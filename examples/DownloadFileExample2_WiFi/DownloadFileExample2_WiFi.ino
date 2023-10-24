@@ -6,7 +6,7 @@
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-10-24, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -135,6 +135,11 @@ void setup() {
   uint8_t srvNum;             // server number in list
 
   for (srvNum = 0; soap.getServerInfo(srvNum, &srvInfo); srvNum++) {
+    // If defined in build options then only this server will get scanned.
+    // Example: #define THIS_IP_ONLY 192,168,1,42
+#ifdef THIS_IP_ONLY
+    if (srvInfo.ip != IPAddress(THIS_IP_ONLY)) continue;
+#endif    
     Serial.print("Please be patient, searching audio file on server: ");
     Serial.println(srvInfo.friendlyName);
 
