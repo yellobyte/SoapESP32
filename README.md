@@ -14,7 +14,7 @@ WiFiUDP    udp;
 
 SoapESP32    soap(&client, &udp);
 soapServer_t srv;
-uint8_t      srvNum = 0;
+unsigned int srvNum = 0;
 
 setup() {
   // setting up Wifi, serial output, etc.
@@ -91,7 +91,7 @@ All the following titles would match above criteria: "Wind", "Winds of change", 
 9) Or **album folder** and **title**:  
    **upnp:class derivedfrom "object.container.album" and dc:title contains "Songs"**
 
-Twonky accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
+Only Twonky accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
 1) Name of title, ascending (default) --> sort criteria: **"+dc:title"**
 2) Name of title, descending --> sort criteria: **"-dc:title"**
 
@@ -121,7 +121,7 @@ Just to give you a better idea, running example _SearchServerExample1_WiFi.ino_ 
 ...
 ...
 ```
-Hint: Similar to function browseServer(), if the returned list contains 100 (SOAP_DEFAULT_MAX_COUNT) items you might try again with increasing starting index 100, 200, 300 and so on to get all items matching the criteria(s).
+Hint: Similar to function browseServer(), if the returned list contains 100 (SOAP_DEFAULT_SEARCH_MAX_COUNT) items you might try again with increasing starting index 100, 200, 300 and so on to get all items matching the criteria(s).
 
 ### :heavy_exclamation_mark: Using W5x00 Ethernet shield/boards instead of builtin WiFi (optional)
 
