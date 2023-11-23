@@ -78,11 +78,11 @@ All the following file titles would match above criteria: "Wind", "Winds of chan
    **upnp:album contains "Best Of"**.
 3) Searching for files whose property **artist** contains the string "John":  
    **upnp:artist contains "John"**.
-4) Searching for files whose property **genre** contains the string "New Age" (worked not with Mezzmo):  
+4) Searching for files whose property **genre** contains the string "New Age" (did not work with Mezzmo):  
    **"upnp:genre contains "New Age"**.
 5) With Twonky, Emby & MinimServer even combined search criterias were accepted, e.g.:  
    **upnp:genre contains "New Age" and dc:title contains "March"**.
-6) With Twonky searching for a class of files was possibly, e.g. for **video** files:  
+6) Only with Twonky searching for a class of files was possibly, e.g. for **video** files:  
    **upnp:class derivedfrom "object.item.videoItem"**.
 7) And combinations like **video file** and **title**:  
    **upnp:class derivedfrom "object.item.videoItem" and dc:title contains "street"**.
