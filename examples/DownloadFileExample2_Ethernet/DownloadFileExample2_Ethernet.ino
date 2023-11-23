@@ -8,7 +8,7 @@
   Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-10-24, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -17,18 +17,18 @@
 #include "SoapESP32.h"
 
 // === IMPORTANT ===
-// Build option 'USE_ETHERNET' is required for this sketch as we use an Ethernet module/shield. 
+// Build option 'USE_ETHERNET' is required for this sketch as we use an Ethernet module/shield.
 // With build option 'SHOW_ESP32_MEMORY_STATISTICS' the sketch prints ESP32 memory stats when finished.
 // Both options have already been added to the provided file 'build_opt.h'. Please use it with ArduinoIDE.
 // Have a look at Readme.md for more detailed info about setting build options.
 
-// How many sub-directory levels to browse (incl. root) at maximum in search for a file. 
+// How many sub-directory levels to browse (incl. root) at maximum in search for a file.
 #define BROWSE_LEVELS 3
 
 // File download settings
-#define FILE_MAX_SIZE    8000000
-#define FILE_MIN_SIZE    500000         // set to 0 in case your server doesn't provide a size
-#define FILE_NAME_ON_SD  "/myFile.mp3"
+#define FILE_MAX_SIZE 8000000
+#define FILE_MIN_SIZE 500000  // set to 0 in case your server doesn't provide a size
+#define FILE_NAME_ON_SD "/myFile.mp3"
 #define READ_BUFFER_SIZE 5000
 
 // MAC address for your Ethernet module/shield
@@ -38,17 +38,17 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 #define GPIO_SDCS   5
 
 EthernetClient client;
-EthernetUDP    udp;
+EthernetUDP udp;
 
 SoapESP32 soap(&client, &udp);
 File myFile;
 
 // browse a server recursively until an audio file is found.
-// parameter "object": 
+// parameter "object":
 //  - when entering the function it contains the directory to browse
 //  - when function returns true it contains the file info
 bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
-  static int level;  
+  static int level;
   soapObjectVect_t browseResult;
 
   if (object->id == "0") level = 0;            // root resets level marker
@@ -58,13 +58,13 @@ bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
     Serial.print("Error browsing server, object id: ");
     Serial.println(object->id);
     return false;
-  }
+  } 
   else {
-    for (int i = 0; i < browseResult.size(); i++) {
+    for (unsigned int i = 0; i < browseResult.size(); i++) {
       // go through each object in list and recurse for directories or
       // break if we find an audio file
-      if (browseResult[i].isDirectory ) {
-        if ((level + 1) < BROWSE_LEVELS) { 
+      if (browseResult[i].isDirectory) {
+        if ((level + 1) < BROWSE_LEVELS) {
           // recurse
           *object = browseResult[i];
           level++;
@@ -72,11 +72,11 @@ bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
             return true;
           }
           level--;
-        }  
+        }
       } 
       else {
-        if (browseResult[i].fileType == fileTypeAudio &&
-            browseResult[i].size <= FILE_MAX_SIZE &&
+        if (browseResult[i].fileType == fileTypeAudio && 
+            browseResult[i].size <= FILE_MAX_SIZE && 
             browseResult[i].size >= FILE_MIN_SIZE) {
           // object is an audio file with a size between 0.5-8MB
           *object = browseResult[i];
@@ -104,12 +104,10 @@ void setup() {
   Ethernet.init(GPIO_ETHCS);
   Serial.print("\nInitializing Ethernet...");
 
-  if (Ethernet.begin(mac))
-  {
+  if (Ethernet.begin(mac)) {
     Serial.println("DHCP ok.");
-  }
-  else
-  {
+  } 
+  else {
     Serial.println("DHCP error !");
     while (true) {
       // no point to continue
@@ -120,56 +118,56 @@ void setup() {
   Serial.println(Ethernet.localIP());
   Serial.println();
 
-  // preparing SD card 
+  // preparing SD card
   Serial.print("Initializing SD card...");
   if (!SD.begin(GPIO_SDCS)) {
     Serial.println("failed!");
     Serial.println("Sketch finished.");
     return;
   }
-  Serial.print("done. Opening file on SD ");  
+  Serial.print("done. Opening file on SD ");
   myFile = SD.open(FILE_NAME_ON_SD, FILE_WRITE);
   if (!myFile) {
     Serial.println("failed!");
     return;
   }
-  Serial.println("was successful."); 
+  Serial.println("was successful.");
 
   // scan local network for DLNA media servers
   Serial.println("Scanning local network for DLNA media servers...");
-  soap.seekServer(50);          // network scan duration is set to 50 secs
+  soap.seekServer(50);   // network scan duration is set to 50 secs
   Serial.print("Number of discovered servers that deliver content: ");
   Serial.println(soap.getServerCount());
   Serial.println();
 
   // now browse all servers for an audio file & if we find one, copy it to SD
-  soapServer_t srvInfo;       // single server info
-  uint8_t srvNum;             // server number in list
+  soapServer_t srvInfo;  // single server info
+  unsigned int srvNum;   // server number in list
 
   for (srvNum = 0; soap.getServerInfo(srvNum, &srvInfo); srvNum++) {
     // If defined in build options then only this server will get scanned.
     // Add e.g. '-DTHIS_IP_ONLY=192,168,1,42' to build_opt.h or platformio.ini
 #ifdef THIS_IP_ONLY
     if (srvInfo.ip != IPAddress(THIS_IP_ONLY)) continue;
-#endif    
+#endif
     Serial.print("Please be patient, searching audio file on server: ");
     Serial.println(srvInfo.friendlyName);
 
     // browse server beginning with root ("0")
-    size_t fileSize;          // will store size of file
+    size_t fileSize;  // will store size of file
     soapObject_t object;
 
-    object.id = "0";          // we start with root
-    object.name = "root";     // only needed for printing in case of error
-    
+    object.id = "0";       // we start with root
+    object.name = "root";  // only needed for printing in case of error
+
     if (findAudioFile(&soap, srvNum, &object)) {
 
       // file has been found
-      uint32_t bytesRead = 0;     // read count
+      uint32_t bytesRead = 0;  // read count
       uint8_t *buffer = (uint8_t *)malloc(READ_BUFFER_SIZE);
 
       if (!buffer) {
-        Serial.println("malloc() error!");    
+        Serial.println("malloc() error!");
         break;
       }
 
@@ -177,36 +175,35 @@ void setup() {
       if (!soap.readStart(&object, &fileSize)) {
         // request rejected or communication error
         Serial.println("Error requesting file from media server.");
-      }
+      } 
       else {
         // request was granted
         Serial.print("Download request granted from server, announced file size: ");
         Serial.println(fileSize);
-        Serial.println("Start copying file from server to SD, please wait."); 
+        Serial.println("Start copying file from server to SD, please wait.");
 
         do {
           int res = soap.read(buffer, READ_BUFFER_SIZE);
           if (res < 0) {
-            // read error or timeout 
-            Serial.println("Error reading from media server."); 
+            // read error or timeout
+            Serial.println("Error reading from media server.");
             break;
-          }         
+          } 
           else if (res > 0) {
-            // Remark: At this point instead of writing to SD card you could write the data 
+            // Remark: At this point instead of writing to SD card you could write the data
             // into a buffer/queue which feeds an audio codec (e.g. VS1053) for example
             if (!myFile.write(buffer, res)) {
-              Serial.println("Error writing to SD card."); 
+              Serial.println("Error writing to SD card.");
               break;
             }
             //
             bytesRead += res;
             Serial.print(".");
-          }  
-          else { 
+          } 
+          else {
             // res == 0, momentarily no data available
           }
-        } 
-        while (soap.available());
+        } while (soap.available());
         Serial.println();
 
         // close connection to server
@@ -214,8 +211,8 @@ void setup() {
 
         Serial.println();
         if (bytesRead == fileSize) {
-          Serial.println("File download was successful.");     
-        }
+          Serial.println("File download was successful.");
+        } 
         else {
           Serial.println("Error downloading file.");
         }
@@ -236,7 +233,7 @@ void setup() {
   Serial.print(" 2) minimum ever free heap size [in bytes]:             ");
   Serial.println(xPortGetMinimumEverFreeHeapSize());
   Serial.print(" 3) minimum ever stack size of this task [in bytes]:    ");
-  Serial.println(uxTaskGetStackHighWaterMark(NULL)); 
+  Serial.println(uxTaskGetStackHighWaterMark(NULL));
 #endif
 
   Serial.println();
@@ -244,6 +241,5 @@ void setup() {
 }
 
 void loop() {
-  // 
+  //
 }
-

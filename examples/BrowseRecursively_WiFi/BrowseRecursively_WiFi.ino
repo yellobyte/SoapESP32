@@ -14,7 +14,7 @@
   multiple times, each time with a higher starting index (0, 100, 200,...). 
   Have a look at example "BrowseBigDirectories_WiFi.ino" where this is demonstrated.
     
-  Last updated 2023-10-22, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -75,7 +75,7 @@ void printServerContent(SoapESP32 *soap, int servNum, String objectId, int numTa
     return;
   }
   else {
-    for (int i = 0; i < browseResult.size(); i++) {
+    for (unsigned int i = 0; i < browseResult.size(); i++) {
     // go through each item in list
       for (uint8_t j=0; j<numTabs; j++) {
         Serial.print("  ");                 // indentation

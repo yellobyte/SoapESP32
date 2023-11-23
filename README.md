@@ -42,7 +42,9 @@ Always make sure you have one of the latest versions of **Arduino core for ESP32
 
 Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
 
-- Some media servers do not answer SSDP M-SEARCH requests but instead broadcast NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function seekServer() has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer value (5...120) for setting a specific scan duration (in sec) if needed.
+- As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP search requests to media servers asking for a list of files that match certain criterias, e.g. the files _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP search requests though. More info below.
+
+- Some media servers do not answer SSDP M-SEARCH requests but instead broadcast NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function _seekServer()_ has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer value (5...120) for setting a specific scan duration (in sec) if needed.
 
 - Streams/podcasts: Some media servers (e.g. Fritzbox, Serviio) do **not** provide a size for items (media content) located in their Web/Online/InternetRadio folders. Thanks to Github user KiloOscarRomeo for drawing my attention to this fact. In contrast, UMS (Universal Media Server) always provides a fixed size of 9223372034707292159 (0x7FFFFFFF7FFFFFFF) for items in directory Web (incl. subdirectories Radio, Podcasts, etc.). 
 
@@ -61,6 +63,63 @@ Most DLNA media servers I tested the library with showed some oddities. All comp
 - IP & port for file download can be different from the media server's IP & port! So always evaluate *downloadIp* & *downloadPort* in media server objects returned by *browseServer()* when a download is intended.
 	
 If you run into trouble with your particular DLNA media server or NAS, increase `CORE_DEBUG_LEVEL` and it gives you an indication where the problem is. Tracing the communication with Wireshark can help as well.
+
+### :mag: Searching for files using UPnP search requests
+
+The doc files and/or manuals of almost all media servers give no info as to a servers UPnP search capabilities. Hence it was a typical trial-and-error approach.
+
+Of all the media servers I tested only **Twonky**, **Emby**, **Mezzmo** and **MinimServer** accepted search requests to a various extent. This of course might depend on the version used (free version or fully licensed) as well as the server's software release, etc.  
+
+Below follow some examples for successfully tested **search criterias**:
+1) Searching for files whose property **title** contains the string "wind":  
+   **dc:title contains "wind"**.  
+All the following file titles would match above criteria: "Wind", "Winds of change", "slow winds", "rewind", etc.
+2) Searching for files whose property **album** contains the string "Best Of":  
+   **upnp:album contains "Best Of"**.
+3) Searching for files whose property **artist** contains the string "John":  
+   **upnp:artist contains "John"**.
+4) Searching for files whose property **genre** contains the string "New Age" (worked not with Mezzmo):  
+   **"upnp:genre contains "New Age"**.
+5) With Twonky, Emby & MinimServer even combined search criterias were accepted, e.g.:  
+   **upnp:genre contains "New Age" and dc:title contains "March"**.
+6) With Twonky searching for a class of files was possibly, e.g. for **video** files:  
+   **upnp:class derivedfrom "object.item.videoItem"**.
+7) And combinations like **video file** and **title**:  
+   **upnp:class derivedfrom "object.item.videoItem" and dc:title contains "street"**.
+8) Or **audio file** and **album**:  
+   **upnp:class derivedfrom "object.item.audioItem" and dc:album contains "One"**.   
+
+Twonky accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
+1) Name of title, ascending (default) --> sort criteria: **"+dc:title"**
+2) Name of title, descending --> sort criteria: **"-dc:title"**
+
+I don't claim above list of search/sort criterias to be complete. However, those were the ones I needed and I haven't bothered to look for more.
+
+The provided example sketches _SearchServerExample.....ino_ and the accompanying log files _SearchServerExample...log_ demonstrate the usage of the search function **_searchServer()_**. The function simply sends a search request (containing up to two search criterias) to the media server and waits for the server to reply with a list of matching items. 
+
+Just to give you a better idea, running example _SearchServerExample1_WiFi.ino_ in my home network and searching for all files/folders whose title contains the string "words" (search criteria: **dc:title contains "words"**) produced the following slightly stripped-down result:
+```c
+21:48:49.384 > Connecting to WiFi network ..
+21:48:54.201 > Connected successfully. IP address: 192.168.1.46
+21:48:54.201 >
+21:48:54.201 > Scanning local network for DLNA media servers...
+21:49:49.370 > Number of discovered servers that deliver content: 2
+21:49:49.370 >
+21:49:49.370 > Server: Twonky [QNAP-TS253D]
+21:49:50.721 > Search results: 10
+21:49:50.721 >  Words (Between the Lines of Age) (6:40) (Item, size: 12819052, artist: Neil Young)
+21:49:50.721 >  Do I Have to Say the Words? (Item, size: 14939806, artist: Bryan Adams)
+...
+...
+21:49:50.789 >
+21:49:50.789 > Server: MinimServer[QNAP-TS253D]
+21:49:51.253 > Search results: 7
+21:49:51.269 >  A blank silence greeted Hermione's words. (Item, size: 1079928, artist: J. K. Rowling)
+21:49:51.269 >  A gale of laughter from the middle of the table drowned the rest of Bill's words. (Item, size: 1165231, artist: J. K. Rowling)
+...
+...
+```
+Hint: Similar to function browseServer(), if the returned list contains 100 (SOAP_DEFAULT_MAX_COUNT) items you might try again with increasing starting index 100, 200, 300 and so on to get all items matching the criteria(s).
 
 ### :heavy_exclamation_mark: Using W5x00 Ethernet shield/boards instead of builtin WiFi (optional)
 

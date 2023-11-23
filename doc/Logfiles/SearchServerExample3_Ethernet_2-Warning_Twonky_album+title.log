@@ -1,0 +1,45 @@
+============= searchCriteria: dc:title contains "best" and upnp:class derivedfrom "object.container.album" ============>>>
+============= sortCriteria: -dc:title ==== DESCENDING ! ===============================================================>>>
+
+02:17:34.554 >
+02:17:34.554 > Initializing Ethernet...DHCP ok.
+02:17:38.600 > Local IP: 192.168.1.43
+02:17:38.602 > Scanning local network for DLNA media servers...
+02:18:38.661 > Number of discovered servers that deliver content: 1
+02:18:38.666 > Server: Twonky [QNAP-TS253D]
+02:18:40.261 > Search results: 32
+02:18:40.263 >  T. Rex - Best Of         (Container, id=0$1$17$3044$8679, child count: 3)
+02:18:40.269 >  Best Of  (Container, id=0$1$17$3044$7504, child count: 10)
+02:18:40.273 >  The Very Best Of Manfred Mann    (Container, id=0$1$17$4724$15537, child count: 20)
+02:18:40.281 >  The Very Best Of         (Container, id=0$1$17$4724$6087, child count: 50)
+02:18:40.287 >  The Eagles Best Of       (Container, id=0$1$17$4724$5181, child count: 9)
+02:18:40.293 >  The Best Of      (Container, id=0$1$17$4724$8599, child count: 1)
+02:18:40.299 >  Stars - The Best Of 1992-2002    (Container, id=0$1$17$4724$7952, child count: 20)
+02:18:40.306 >  Best Of  (Container, id=0$1$17$4724$7495, child count: 6)
+02:18:40.311 >  Elements - Best Of       (Container, id=0$1$17$6407$7081, child count: 16)
+02:18:40.317 >  Sultans of Swing: The Very Best of Dire Straits  (Container, id=0$1$17$5156$6433, child count: 16)
+02:18:40.326 >  Recurring Dream: The Very Best of Crowded House (Special Edition)        (Container, id=0$1$17$5156$6334, child count: 19)
+02:18:40.336 >  The Best of Van Morrison         (Container, id=0$1$17$4631$8045, child count: 20)
+02:18:40.343 >  The Best Of Blondie      (Container, id=0$1$17$4631$5956, child count: 15)
+02:18:40.349 >  The Best Of      (Container, id=0$1$17$4631$8073, child count: 16)
+02:18:40.355 >  Aha - Best Of    (Container, id=0$1$17$4631$5867, child count: 16)
+02:18:40.360 >  All The Best     (Container, id=0$1$17$5431$8103, child count: 18)
+02:18:40.372 >  Katie Melua - Best Of    (Container, id=0$1$17$806$8445, child count: 17)
+02:18:40.378 >  The Very Best Of Manfred Mann    (Container, id=0$1$12$15541, child count: 20)
+02:18:40.385 >  The Very Best Of         (Container, id=0$1$12$6091, child count: 50)
+02:18:40.391 >  The Eagles Best Of       (Container, id=0$1$12$5185, child count: 9)
+02:18:40.396 >  The Best of Van Morrison         (Container, id=0$1$12$8049, child count: 20)
+02:18:40.403 >  The Best Of Blondie      (Container, id=0$1$12$5960, child count: 15)
+02:18:40.409 >  The Best Of      (Container, id=0$1$12$8077, child count: 17)
+02:18:40.414 >  T. Rex - Best Of         (Container, id=0$1$12$8683, child count: 3)
+02:18:40.419 >  Sultans of Swing: The Very Best of Dire Straits  (Container, id=0$1$12$6437, child count: 16)
+02:18:40.427 >  Stars - The Best Of 1992-2002    (Container, id=0$1$12$7954, child count: 20)
+02:18:40.434 >  Recurring Dream: The Very Best of Crowded House (Special Edition)        (Container, id=0$1$12$6338, child count: 19)
+02:18:40.449 >  Katie Melua - Best Of    (Container, id=0$1$12$8449, child count: 17)
+02:18:40.455 >  Elements - Best Of       (Container, id=0$1$12$7085, child count: 16)
+02:18:40.461 >  Best Of  (Container, id=0$1$12$7499, child count: 16)
+02:18:40.466 >  All The Best     (Container, id=0$1$12$8105, child count: 18)
+02:18:40.471 >  Aha - Best Of    (Container, id=0$1$12$5871, child count: 16)
+02:18:40.476 >
+02:18:40.477 >
+02:18:40.477 > Sketch finished.

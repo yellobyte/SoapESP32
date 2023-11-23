@@ -6,7 +6,7 @@
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-10-24, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -55,7 +55,7 @@ bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
     return false;
   }
   else {
-    for (int i = 0; i < browseResult.size(); i++) {
+    for (unsigned int i = 0; i < browseResult.size(); i++) {
       // go through each object in list and recurse for directories or
       // break if we find an audio file
       if (browseResult[i].isDirectory ) {
@@ -132,7 +132,7 @@ void setup() {
 
   // now browse all servers for an audio file & if we find one, copy it to SD
   soapServer_t srvInfo;       // single server info
-  uint8_t srvNum;             // server number in list
+  unsigned int srvNum;        // server number in list
 
   for (srvNum = 0; soap.getServerInfo(srvNum, &srvInfo); srvNum++) {
     // If defined in build options then only this server will get scanned.

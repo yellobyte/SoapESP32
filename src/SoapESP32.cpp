@@ -36,9 +36,14 @@
 #define releaseSPI() 
 #endif
 
-enum eXpath { xpFriendlyName = 0, xpServiceType, xpControlUrl, xpBrowseContainer, xpBrowseContainerAlt1, xpBrowseContainerAlt2,
-             xpBrowseItem, xpBrowseItemAlt1, xpBrowseItemAlt2, xpBrowseNumberReturned, xpBrowseNumberReturnedAlt1, xpBrowseNumberReturnedAlt2,
-             xpTitle, xpAlbum, xpArtist, xpClass, xpResource };
+enum eXpath { xpFriendlyName = 0, xpServiceType, xpControlUrl, 
+              xpBrowseContainer, xpBrowseContainerAlt1, xpBrowseContainerAlt2,
+              xpBrowseItem, xpBrowseItemAlt1, xpBrowseItemAlt2, 
+              xpBrowseNumberReturned, xpBrowseNumberReturnedAlt1, xpBrowseNumberReturnedAlt2,
+              xpSearchContainer, xpSearchContainerAlt1, xpSearchContainerAlt2,
+              xpSearchItem, xpSearchItemAlt1, xpSearchItemAlt2, 
+              xpSearchNumberReturned, xpSearchNumberReturnedAlt1, xpSearchNumberReturnedAlt2,
+              xpTitle, xpAlbum, xpArtist, xpGenre, xpClass, xpResource };
 
 xPathParser_t xmlParserPaths[] = { 
   { .num = 3, .tagNames = { "root", "device", "friendlyName" } },
@@ -53,9 +58,19 @@ xPathParser_t xmlParserPaths[] = {
   { .num = 4, .tagNames = { "s:Envelope", "s:Body", "u:BrowseResponse", "NumberReturned" } },
   { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:BrowseResponse", "NumberReturned" } },
   { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:BrowseResponse", "NumberReturned" } },
+  { .num = 6, .tagNames = { "s:Envelope", "s:Body", "u:SearchResponse", "Result", "DIDL-Lite", "container" } },
+  { .num = 6, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:SearchResponse", "Result", "DIDL-Lite", "container" } },
+  { .num = 6, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:SearchResponse", "Result", "DIDL-Lite", "container" } },  
+  { .num = 6, .tagNames = { "s:Envelope", "s:Body", "u:SearchResponse", "Result", "DIDL-Lite", "item" } },
+  { .num = 6, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:SearchResponse", "Result", "DIDL-Lite", "item" } },
+  { .num = 6, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:SearchResponse", "Result", "DIDL-Lite", "item" } },  
+  { .num = 4, .tagNames = { "s:Envelope", "s:Body", "u:SearchResponse", "NumberReturned" } },
+  { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:SearchResponse", "NumberReturned" } },
+  { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:SearchResponse", "NumberReturned" } },  
   { .num = 1, .tagNames = { "dc:title" } },
   { .num = 1, .tagNames = { "upnp:album" } },
   { .num = 1, .tagNames = { "upnp:artist" } },
+  { .num = 1, .tagNames = { "upnp:genre" } },
   { .num = 1, .tagNames = { "upnp:class" } },
   { .num = 1, .tagNames = { "res" } }
 };
@@ -179,23 +194,22 @@ int SoapESP32::soapClientTimedRead()
 
 //
 // send SSDP/UDP multicast M-SEARCH packets
-// WiFi/Ethernet libraries handle port parameter differently !
 // - parameter is how often a M-SEARCH packet is to be repeated
 //
-bool SoapESP32::soapUDPmulticast(uint8_t repeats)
+bool SoapESP32::soapUDPmulticast(unsigned int repeats)
 {
   if (!m_udp) return false;
 
 #ifdef USE_ETHERNET
   claimSPI();
-  uint8_t ret = m_udp->beginMulticast(IPAddress(SSDP_MULTICAST_IP), 1900);      // 1900: multicast dest port 
+  uint8_t ret = m_udp->beginMulticast(IPAddress(SSDP_MULTICAST_IP), SSDP_MULTICAST_PORT);      // sets multicast dest port 
   releaseSPI();
 #else
-  uint8_t ret = m_udp->beginMulticast(IPAddress(SSDP_MULTICAST_IP), 1900);      // 1900: local port
+  uint8_t ret = m_udp->beginMulticast(IPAddress(SSDP_MULTICAST_IP), SSDP_MULTICAST_PORT);      // sets local port
 #endif  
   if (ret) {
     // creating UDP socket ok
-    uint8_t i = 0;
+    unsigned int i = 0;
     String strMS(SSDP_M_SEARCH), strCD(SSDP_M_SEARCH);
 
     strMS += SSDP_DEVICE_TYPE_MS; strMS += "\r\n\r\n";
@@ -239,7 +253,8 @@ bool SoapESP32::soapUDPmulticast(uint8_t repeats)
 //
 bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
 {
-  int i, port;
+  int port;
+  unsigned int i;
   size_t len;
   IPAddress ip;
   char location[SSDP_LOCATION_BUF_SIZE] = "",
@@ -272,7 +287,7 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
       m_udp->read(buffer, len);                       // read packet into the buffer
       releaseSPI();
       log_d("SSDP (%s) within %d ms, size %d", strstr(buffer, HTTP_HEADER_200_OK) ? "REPLY" : "NOTIFY", millis() - start, len);
-      log_v("SSDP packet content:\n%s", buffer);
+      log_v("packet content:\n%s", buffer);
 
       // scan SSDP packet
       if ( // M-SEARCH reply packets
@@ -294,8 +309,7 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
         if (!ip.fromString(address)) goto CONT;
 
         // scanning of ip address & port successful, location string can be missing (e.g. D-Link NAS DNS-320L)
-        log_i("scanned (%c) ip=%s, port=%d, loc=\"%s\"", 
-               strstr(buffer, HTTP_HEADER_200_OK) ? 'R' : 'N', ip.toString().c_str(), port, location);
+        log_d("scanned ip=%s, port=%d, loc=\"%s\"",  ip.toString().c_str(), port, location);
         if (!strlen(location)) log_d("empty location string!");
 
         // avoid multiple entries of same server (ip & port identic)
@@ -307,6 +321,7 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
         // new server found: add it to list
         soapServer_t srv = {.ip = ip, .port = (uint16_t)port, .location = location};
         result->push_back(srv);
+        log_i("server added to list ip=%s, port=%d, loc=\"%s\"", ip.toString().c_str(), port, location);
       }
 CONT:
       free(buffer);
@@ -406,7 +421,7 @@ GET_MORE:
     if (!chunked) {
       // data is not chunked
       if ((c = soapClientTimedRead()) < 0) {
-        // timeout or connection closed
+        // EOF, timeout or connection closed
         return -1;
       }
     }
@@ -426,7 +441,7 @@ GET_MORE:
         if (sscanf(tmpBuffer, "%x", &m_xmlChunkCount) != 1) {
           return -3;
         }
-        log_d("announced chunk size: 0x%x, %d", m_xmlChunkCount, m_xmlChunkCount);
+        log_d("announced chunk size: 0x%x(%d)", m_xmlChunkCount, m_xmlChunkCount);
         if (m_xmlChunkCount <= 0) {
           return -4;  // not necessarily an error...final chunk size can be 0
         }
@@ -500,7 +515,7 @@ GET_MORE:
 //  - parameter is scan duration, range 5...120s (without parameter the function defaults to 60s) 
 //  - returns number of media servers found
 //
-uint8_t SoapESP32::seekServer(int scanDuration)
+unsigned int SoapESP32::seekServer(unsigned int scanDuration)
 {
   soapServerVect_t rcvd;
 
@@ -611,7 +626,7 @@ end:
 bool SoapESP32::addServer(IPAddress ip, uint16_t port, const char *controlURL, const char *name)
 {
   soapServer_t srv;
-  int i;
+  unsigned int i;
   
   // just some basic checks
   if (!ip || !port || 
@@ -673,7 +688,7 @@ bool SoapESP32::soapScanContainer(const String *parentId,
                                   const String *container, 
                                   soapObjectVect_t *browseResult)
 {
-  int i = 0;
+  unsigned int i = 0;
   soapObject_t info;
   String str((char *)0);
 
@@ -738,7 +753,7 @@ bool SoapESP32::soapScanContainer(const String *parentId,
   // add valid container to result list
   info.isDirectory = true;
   browseResult->push_back(info);
-  log_i("folder \"%s\" (id: \"%s\", childCount: %llu) added to list", info.name.c_str(), info.id.c_str(), info.size);
+  log_i("\"%s\" (id: \"%s\", childCount: %llu) added to list", info.name.c_str(), info.id.c_str(), info.size);
 
   return true; 
 }
@@ -752,7 +767,8 @@ bool SoapESP32::soapScanItem(const String *parentId,
                              soapObjectVect_t *browseResult)
 {
   soapObject_t info;
-  int i = 0, port;
+  unsigned int i = 0;
+  int port;
   char address[20];
   IPAddress ip;
   String str((char *)0);
@@ -779,40 +795,47 @@ bool SoapESP32::soapScanItem(const String *parentId,
   info.fileType = fileTypeOther;
   info.album = "";
   info.artist = "";
+  info.genre = "";
   info.bitrate = 0;
   info.sampleFrequency = 0;
   info.size = 0;
   info.sizeMissing = false;
 
   // scan for uri, size, album (sometimes dir name when picture file) and title, artist (when audio file)
-  MiniXPath xPathTitle, xPathAlbum, xPathArtist, xPathClass, xPathRes;
+  MiniXPath xPathTitle, xPathAlbum, xPathArtist, xPathGenre, xPathClass, xPathRes;
   String strAttr((char *)0);
-  bool gotTitle = false, gotAlbum = false, gotArtist = false, gotClass = false, gotRes = false;
+  bool gotTitle = false, gotAlbum = false, gotArtist = false, gotGenre = false, gotClass = false, gotRes = false;
 
   xPathTitle.setPath(xmlParserPaths[xpTitle].tagNames, xmlParserPaths[xpTitle].num);
   xPathAlbum.setPath(xmlParserPaths[xpAlbum].tagNames, xmlParserPaths[xpAlbum].num);
   xPathArtist.setPath(xmlParserPaths[xpArtist].tagNames, xmlParserPaths[xpArtist].num);
+  xPathGenre.setPath(xmlParserPaths[xpGenre].tagNames, xmlParserPaths[xpGenre].num);
   xPathClass.setPath(xmlParserPaths[xpClass].tagNames, xmlParserPaths[xpClass].num);
   xPathRes.setPath(xmlParserPaths[xpResource].tagNames, xmlParserPaths[xpResource].num);
   while (i < item->length()) {
     if (!gotTitle && xPathTitle.getValue((char)item->operator[](i), &str)) {
-      if (str.length() == 0) return false;    // title is a must 
+      if (str.length() == 0) return false;    // valid title is a must 
       info.name = str;
-      log_d("title=\"%s\"", str.c_str());
+      log_d("%s=\"%s\"", xmlParserPaths[xpTitle].tagNames[0], str.c_str());
       gotTitle = true;
     }
     if (!gotAlbum && xPathAlbum.getValue((char)item->operator[](i), &str)) {
       info.album = str;                       // missing album not a showstopper
-      log_d("album=\"%s\"", str.c_str());;
+      log_d("%s=\"%s\"", xmlParserPaths[xpAlbum].tagNames[0], str.c_str());;
       gotAlbum = true;
     }
     if (!gotArtist && xPathArtist.getValue((char)item->operator[](i), &str)) {
       info.artist = str;                      // missing artist not a showstopper
-      log_d("artist=\"%s\"", str.c_str());
+      log_d("%s=\"%s\"", xmlParserPaths[xpArtist].tagNames[0], str.c_str());
       gotArtist = true;
     }
+    if (!gotGenre && xPathGenre.getValue((char)item->operator[](i), &str)) {
+      info.genre = str;                       // missing genre not a showstopper
+      log_d("%s=\"%s\"", xmlParserPaths[xpGenre].tagNames[0], str.c_str());
+      gotGenre = true;
+    }
     if (!gotClass && xPathClass.getValue((char)item->operator[](i), &str)) {
-      log_d("class=\"%s\"", str.c_str());
+      log_d("%s=\"%s\"", xmlParserPaths[xpClass].tagNames[0], str.c_str());
       if (str.indexOf("audioItem") >= 0) 
         info.fileType = fileTypeAudio;
       else if (str.indexOf("imageItem") >= 0) 
@@ -830,7 +853,7 @@ bool SoapESP32::soapScanItem(const String *parentId,
         info.downloadPort = (uint16_t)port;
         if (!ip.fromString(address)) return false;
         info.downloadIp = ip;
-        // now remove "http://ip:port/" from begin of string
+        // remove "http://ip:port/" from begin of string
         str.replace("http://", "");        
         info.uri = str.substring(str.indexOf("/") + 1); 
       }
@@ -899,29 +922,36 @@ bool SoapESP32::soapScanItem(const String *parentId,
 }
 
 //
-// browse a SOAP container object (directory) on a media server for content 
+// Process browse and search requests
 //
-bool SoapESP32::browseServer(const uint8_t srv,              // server number in list
-                             const char *objectId,           // directory to browse, "0" represents root according to spec
-                             soapObjectVect_t *browseResult, // where to store browse results (directory content)
-                             // optional parameter
-                             const uint32_t startingIndex,   // offset into directory content list
-                             const uint16_t maxCount)        // limits number of objects in result list
+bool SoapESP32::soapProcessRequest(const unsigned int srv,         // server number in list
+                                   const char *objectId,           // directory to search, "0" represents root according to spec
+                                   soapObjectVect_t *result,       // where to store browse/search results
+                                   const char *searchCriteria,     // what to search for, e.g. "upnp:artist contains \"Name\""
+                                   const char *sortCriteria,       // sort criteria for results returned
+                                   const uint32_t startingIndex,   // offset into content list
+                                   const uint16_t maxCount)        // limits number of objects in result list
 {
   if (srv >= m_server.size()) {
     log_e("invalid server number: %d", srv);
     return false;
   }
-  log_i("new search on server: \"%s\", objectId: \"%s\"", m_server[srv].friendlyName.c_str(), objectId);
 
-  if (startingIndex != SOAP_DEFAULT_BROWSE_STARTING_INDEX) 
-    log_d("special browse parameter \"startingIndex\": %d", startingIndex);
-  if (maxCount != SOAP_DEFAULT_BROWSE_MAX_COUNT) 
-    log_d("special browse parameter \"maxCount\": %d", maxCount);
+  bool search = (searchCriteria != NULL);
+  if (search)
+    log_i("search server: \"%s\", objectId: \"%s\", searchCriteria: %s, sortCriteria: %s", 
+           m_server[srv].friendlyName.c_str(), objectId, searchCriteria, sortCriteria);
+  else 
+    log_i("browse server: \"%s\", objectId: \"%s\"", m_server[srv].friendlyName.c_str(), objectId);
 
-  // send SOAP browse request
+  if (startingIndex != (search ? SOAP_DEFAULT_SEARCH_STARTING_INDEX : SOAP_DEFAULT_BROWSE_STARTING_INDEX)) 
+    log_d("special parameter for \"startingIndex\": %d", startingIndex);
+  if (maxCount != (search ? SOAP_DEFAULT_SEARCH_MAX_COUNT : SOAP_DEFAULT_BROWSE_MAX_COUNT)) 
+    log_d("special parameter for \"maxCount\": %d", maxCount);
+
+  // send SOAP browse/search request to server
   if (!soapPost(m_server[srv].ip, m_server[srv].port, m_server[srv].controlURL.c_str(), objectId,
-                startingIndex, maxCount)) {
+                searchCriteria, sortCriteria, startingIndex, maxCount)) {
     return false;
   }  
   log_i("connected successfully to server %s:%d", m_server[srv].ip.toString().c_str(), m_server[srv].port);
@@ -950,23 +980,24 @@ bool SoapESP32::browseServer(const uint8_t srv,              // server number in
   log_i("scan answer from media server:"); 
 
   // time to clean result list
-  browseResult->clear();
+  result->clear();
 
   // HTTP header ok, now scan XML/SOAP reply
   String objId = objectId;  
-  xPathContainer.setPath(xmlParserPaths[xpBrowseContainer].tagNames, xmlParserPaths[xpBrowseContainer].num);
-  xPathContainerAlt1.setPath(xmlParserPaths[xpBrowseContainerAlt1].tagNames, xmlParserPaths[xpBrowseContainerAlt1].num);
-  xPathContainerAlt2.setPath(xmlParserPaths[xpBrowseContainerAlt2].tagNames, xmlParserPaths[xpBrowseContainerAlt2].num);
-  xPathItem.setPath(xmlParserPaths[xpBrowseItem].tagNames, xmlParserPaths[xpBrowseItem].num);
-  xPathItemAlt1.setPath(xmlParserPaths[xpBrowseItemAlt1].tagNames, xmlParserPaths[xpBrowseItemAlt1].num);
-  xPathItemAlt2.setPath(xmlParserPaths[xpBrowseItemAlt2].tagNames, xmlParserPaths[xpBrowseItemAlt2].num);
-  xPathNumberReturned.setPath(xmlParserPaths[xpBrowseNumberReturned].tagNames, xmlParserPaths[xpBrowseNumberReturned].num);
-  xPathNumberReturnedAlt1.setPath(xmlParserPaths[xpBrowseNumberReturnedAlt1].tagNames, xmlParserPaths[xpBrowseNumberReturnedAlt1].num);
-  xPathNumberReturnedAlt2.setPath(xmlParserPaths[xpBrowseNumberReturnedAlt2].tagNames, xmlParserPaths[xpBrowseNumberReturnedAlt2].num);
+  int eNum = search ? xpSearchContainer : xpBrowseContainer;
+  xPathContainer.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathContainerAlt1.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathContainerAlt2.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathItem.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathItemAlt1.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathItemAlt2.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathNumberReturned.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathNumberReturnedAlt1.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathNumberReturnedAlt2.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum].num);
   while (true) {
     int ret = soapReadXML(chunked, true);  // de-chunk data stream and replace XML-entities (if found)
     if (ret < 0) {
-      log_e("soapReadXML() returned: %d", ret); 
+      log_e("soapReadXML() returned: %d%s", ret, ret == -1 ? " (likely EOF)" : ""); 
       goto end_stop;
     }  
     // TEST
@@ -978,20 +1009,20 @@ bool SoapESP32::browseServer(const uint8_t srv,              // server number in
         xPathContainerAlt2.getValue((char)ret, &str, &strAttribute, true)) {
       log_v("container attribute (length=%d): %s", strAttribute.length(), strAttribute.c_str());
       log_v("container (length=%d): %s", str.length(), str.c_str());
-      if (soapScanContainer(&objId, &strAttribute, &str, browseResult))
+      if (soapScanContainer(&objId, &strAttribute, &str, result))
         countContainer++;
       // TEST
-      delay(1); // resets task switcher watchdog, just in case it's needed
+      delay(1); // resets task switcher watchdog
     }
     if (xPathItem.getValue((char)ret, &str, &strAttribute, true) ||
         xPathItemAlt1.getValue((char)ret, &str, &strAttribute, true) ||
         xPathItemAlt2.getValue((char)ret, &str, &strAttribute, true)) {
       log_v("item attribute (length=%d): %s", strAttribute.length(), strAttribute.c_str());
       log_v("item (length=%d): %s", str.length(), str.c_str());
-      if (soapScanItem(&objId, &strAttribute, &str, browseResult))
+      if (soapScanItem(&objId, &strAttribute, &str, result))
         countItem++;
       // TEST
-      delay(1); // resets task switcher watchdog, just in case it's needed
+      delay(1); // resets task switcher watchdog
     }
     if (xPathNumberReturned.getValue((char)ret, &str) ||
         xPathNumberReturnedAlt1.getValue((char)ret, &str) ||
@@ -1023,6 +1054,52 @@ end_stop:
 #endif  
 
   return true;
+}
+
+//
+// browse a SOAP container object (directory) on a media server for content 
+//
+bool SoapESP32::browseServer(const unsigned int srv,         // server number in list
+                             const char *objectId,           // directory to browse, "0" represents root according to spec
+                             soapObjectVect_t *browseResult, // where to store browse results (directory content)
+                             // optional parameter
+                             const uint32_t startingIndex,   // offset into directory content list
+                             const uint16_t maxCount)        // limits number of objects in result list
+{
+  return soapProcessRequest(srv, objectId, browseResult, NULL, NULL, startingIndex, maxCount);
+}
+
+//
+// send a search request for files matching a special criteria to media server
+//
+bool SoapESP32::searchServer(const unsigned int srv,         // server number in list
+                             const char *objectId,           // start directory to search from, "0" for root
+                             soapObjectVect_t *searchResult, // where to store search results (file list)
+                             const char *searchCriteria1,    // search criteria, e.g. "dc:title contains"
+                             const char *param1,             // first criteria's parameter, e.g. "word"
+                             // optional parameter
+                             const char *searchCriteria2,    // optional search criteria, e.g. "upnp:class derivedfrom"
+                             const char *param2,             // 2nd criteria's parameter, e.g. "object.item.videoItem"
+                             const char *sortCriteria,       // optional sort criteria for results returned
+                             const uint32_t startingIndex,   // offset into content list
+                             const uint16_t maxCount)        // limits number of objects in result list
+{
+  String search((char *)0), sort((char *)0);
+
+  if (searchCriteria1 == NULL) return false;
+
+  // assemble final search criteria string
+  if (param1 != NULL) 
+    search = String(searchCriteria1) + " \"" + param1 + "\"";
+  if (searchCriteria2 != NULL) 
+    search += String(" and ") + searchCriteria2;
+  if (param2 != NULL) 
+    search += String(" \"") + param2 + "\"";
+
+  // define sort criteria string  
+  sort = (sortCriteria == NULL) ? SOAP_DEFAULT_SEARCH_SORT_CRITERIA : sortCriteria;
+
+  return soapProcessRequest(srv, objectId, searchResult, search.c_str(), sort.c_str(), startingIndex, maxCount);
 }
 
 //
@@ -1225,12 +1302,14 @@ bool SoapESP32::soapGet(const IPAddress ip, const uint16_t port, const char *uri
 }
 
 //
-// HTTP POST request    
+// HTTP POST request (browse/search)
 //
 bool SoapESP32::soapPost(const IPAddress ip, 
                          const uint16_t port, 
                          const char *uri, 
                          const char *objectId, 
+                         const char *searchCriteria,                               
+                         const char *sortCriteria,                               
                          const uint32_t startingIndex, 
                          const uint16_t maxCount)
 {
@@ -1263,23 +1342,29 @@ bool SoapESP32::soapPost(const IPAddress ip,
     return false;
   }
 
+  bool search = (searchCriteria != NULL);
   uint16_t messageLength;
   char index[12], count[6];
-  String str((char *)0);
+  String str((char *)0), 
+         searchSortCriteria = (sortCriteria != NULL) ? sortCriteria : SOAP_DEFAULT_SEARCH_SORT_CRITERIA; 
 
   itoa(startingIndex, index, 10);
   itoa(maxCount, count, 10);
   // calculate XML message length
   messageLength = sizeof(SOAP_ENVELOPE_START) - 1;
   messageLength += sizeof(SOAP_BODY_START) - 1;
-  messageLength += sizeof(SOAP_BROWSE_START) - 1;
-  messageLength += sizeof(SOAP_OBJECTID_START) - 1 + strlen(objectId) + sizeof(SOAP_OBJECTID_END) - 1;
-  messageLength += sizeof(SOAP_BROWSEFLAG_START) - 1 + sizeof(SOAP_DEFAULT_BROWSE_FLAG) - 1 + sizeof(SOAP_BROWSEFLAG_END) - 1;
-  messageLength += sizeof(SOAP_FILTER_START) - 1 + sizeof(SOAP_DEFAULT_BROWSE_FILTER) - 1 + sizeof(SOAP_FILTER_END) - 1;
+  messageLength += search ? (sizeof(SOAP_SEARCH_START) - 1) : (sizeof(SOAP_BROWSE_START) - 1);
+  messageLength += search ? (sizeof(SOAP_CONTAINERID_START) - 1 + strlen(objectId) + sizeof(SOAP_CONTAINERID_END) - 1) :
+                            (sizeof(SOAP_OBJECTID_START) - 1 + strlen(objectId) + sizeof(SOAP_OBJECTID_END) - 1);
+  messageLength += search ? (sizeof(SOAP_SEARCHCRITERIA_START) - 1 + strlen(searchCriteria) + sizeof(SOAP_SEARCHCRITERIA_END) - 1) :
+                            (sizeof(SOAP_BROWSEFLAG_START) - 1 + sizeof(SOAP_DEFAULT_BROWSE_FLAG) - 1 + sizeof(SOAP_BROWSEFLAG_END) - 1);
+  messageLength += search ? (sizeof(SOAP_FILTER_START) - 1 + sizeof(SOAP_DEFAULT_SEARCH_FILTER) - 1 + sizeof(SOAP_FILTER_END) - 1) :
+                            (sizeof(SOAP_FILTER_START) - 1 + sizeof(SOAP_DEFAULT_BROWSE_FILTER) - 1 + sizeof(SOAP_FILTER_END) - 1);
   messageLength += sizeof(SOAP_STARTINGINDEX_START) - 1 + strlen(index) + sizeof(SOAP_STARTINGINDEX_END) - 1;
   messageLength += sizeof(SOAP_REQUESTEDCOUNT_START) - 1 + strlen(count) + sizeof(SOAP_REQUESTEDCOUNT_END) - 1;
-  messageLength += sizeof(SOAP_SORTCRITERIA_START) - 1 + sizeof(SOAP_DEFAULT_BROWSE_SORT_CRITERIA) - 1 + sizeof(SOAP_SORTCRITERIA_END) - 1;
-  messageLength += sizeof(SOAP_BROWSE_END) - 1;
+  messageLength += search ? (sizeof(SOAP_SORTCRITERIA_START) - 1 + strlen(searchSortCriteria.c_str()) + sizeof(SOAP_SORTCRITERIA_END) - 1) :
+                            (sizeof(SOAP_SORTCRITERIA_START) - 1 + sizeof(SOAP_DEFAULT_BROWSE_SORT_CRITERIA) - 1 + sizeof(SOAP_SORTCRITERIA_END) - 1);
+  messageLength += search ? (sizeof(SOAP_SEARCH_END) - 1) : (sizeof(SOAP_BROWSE_END) - 1);
   messageLength += sizeof(SOAP_BODY_END) - 1;
   messageLength += sizeof(SOAP_ENVELOPE_END) - 1;
 
@@ -1298,22 +1383,22 @@ bool SoapESP32::soapPost(const IPAddress ip,
   snprintf(buffer, length, HEADER_CONTENT_LENGTH_D, messageLength);
   str += buffer;
   str += HEADER_CONTENT_TYPE;
-  str += HEADER_SOAP_ACTION;
+  str += search ? HEADER_SOAP_ACTION_SEARCH : HEADER_SOAP_ACTION_BROWSE;
   str += HEADER_USER_AGENT;
   str += HEADER_EMPTY_LINE;                    // empty line marks end of HTTP header
 
   // assemble SOAP message (multiple str+= instead of a single str+=..+..+.. reduces allocation depth)
   str += SOAP_ENVELOPE_START;
   str += SOAP_BODY_START;
-  str += SOAP_BROWSE_START;
-  str += SOAP_OBJECTID_START;
+  str += search ? SOAP_SEARCH_START : SOAP_BROWSE_START;
+  str += search ? SOAP_CONTAINERID_START : SOAP_OBJECTID_START;
   str += objectId;
-  str += SOAP_OBJECTID_END;
-  str += SOAP_BROWSEFLAG_START;
-  str += SOAP_DEFAULT_BROWSE_FLAG;
-  str += SOAP_BROWSEFLAG_END;
+  str += search ? SOAP_CONTAINERID_END : SOAP_OBJECTID_END;
+  str += search ? SOAP_SEARCHCRITERIA_START : SOAP_BROWSEFLAG_START;
+  str += search ? searchCriteria : SOAP_DEFAULT_BROWSE_FLAG;
+  str += search ? SOAP_SEARCHCRITERIA_END : SOAP_BROWSEFLAG_END;
   str += SOAP_FILTER_START;
-  str += SOAP_DEFAULT_BROWSE_FILTER;
+  str += search ? SOAP_DEFAULT_SEARCH_FILTER : SOAP_DEFAULT_BROWSE_FILTER;
   str += SOAP_FILTER_END;
   str += SOAP_STARTINGINDEX_START;
   str += index;
@@ -1322,14 +1407,14 @@ bool SoapESP32::soapPost(const IPAddress ip,
   str += count;
   str += SOAP_REQUESTEDCOUNT_END;
   str += SOAP_SORTCRITERIA_START;
-  str += SOAP_DEFAULT_BROWSE_SORT_CRITERIA;
+  str += search ? searchSortCriteria.c_str() : SOAP_DEFAULT_BROWSE_SORT_CRITERIA;
   str += SOAP_SORTCRITERIA_END;
-  str += SOAP_BROWSE_END;
+  str += search ? SOAP_SEARCH_END : SOAP_BROWSE_END;
   str += SOAP_BODY_END;
   str += SOAP_ENVELOPE_END;
 
   // send request to server
-  log_v("send request to server:\n%s", str.c_str());
+  log_v("send %s request to server:\n%s", search ? "search" : "browse", str.c_str());
   claimSPI();
   m_client->print(str);
   releaseSPI();
@@ -1358,7 +1443,7 @@ bool SoapESP32::soapPost(const IPAddress ip,
 //
 // returns number of usable media servers in our list
 //
-uint8_t SoapESP32::getServerCount(void)
+unsigned int SoapESP32::getServerCount(void)
 {
   return m_server.size();
 }
@@ -1366,7 +1451,7 @@ uint8_t SoapESP32::getServerCount(void)
 //
 // returns infos about a media servers from our internal list
 //
-bool SoapESP32::getServerInfo(uint8_t srv, soapServer_t *serverInfo)
+bool SoapESP32::getServerInfo(unsigned int srv, soapServer_t *serverInfo)
 {
   if (srv >= m_server.size()) return false;
   *serverInfo = m_server[srv];

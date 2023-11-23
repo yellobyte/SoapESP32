@@ -30,7 +30,7 @@
 #include <vector>
 
 #if defined(ethernet_h_) && !defined(USE_ETHERNET)
-#warning "== ATTENTION == Did you forget to define USE_ETHERNET ?????  Please read Readme.md !!!!!" 
+#warning "== ATTENTION == Did you forget to define USE_ETHERNET ????  Please read Readme.md !!!!" 
 #endif
 
 #ifdef USE_ETHERNET
@@ -50,9 +50,9 @@
 // SSDP UDP - seeking media servers
 #define SSDP_MULTICAST_IP          239,255,255,250
 #define SSDP_MULTICAST_PORT        1900
-#define SSDP_SCAN_DURATION           60   // seconds, default network scan duration
+#define SSDP_SCAN_DURATION           60   // seconds, default network scan duration for seekServer()
 #define SSDP_LOCATION_BUF_SIZE      150
-#define SSDP_M_SEARCH_REPEATS         3
+#define SSDP_M_SEARCH_REPEATS         2
 #define SSDP_M_SEARCH                "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: 5\r\nST: "
 #define SSDP_DEVICE_TYPE_MS          "urn:schemas-upnp-org:device:MediaServer:1"
 #define SSDP_DEVICE_TYPE_RD          "upnp:rootdevice"
@@ -69,43 +69,68 @@
 #define HEADER_CONTENT_TYPE          "Content-Type: text/xml; charset=\"utf-8\"\r\n"
 #define HEADER_TRANS_ENC_CHUNKED     "Transfer-Encoding: chunked"
 #define HEADER_CONTENT_LENGTH_D      "Content-Length: %d\r\n"
-#define HEADER_SOAP_ACTION           "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#Browse\"\r\n"
+#define HEADER_SOAP_ACTION_BROWSE    "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#Browse\"\r\n"
+#define HEADER_SOAP_ACTION_SEARCH    "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#Search\"\r\n"
 #define HEADER_USER_AGENT            "User-Agent: ESP32/Player/UPNP1.0\r\n"
 #define HEADER_CONNECTION_CLOSE      "Connection: close\r\n"
 #define HEADER_CONNECTION_KEEP_ALIVE "Connection: keep-alive\r\n"
 #define HEADER_EMPTY_LINE            "\r\n"
 
 // SOAP tag data
-#define SOAP_ENVELOPE_START       "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" " \
-                                  "s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\r\n"
-#define SOAP_ENVELOPE_END         "</s:Envelope>\r\n\r\n"
-#define SOAP_BODY_START           "<s:Body>"
-#define SOAP_BODY_END             "</s:Body>\r\n"
-#define SOAP_BROWSE_START         "<u:Browse xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
-#define SOAP_BROWSE_END           "</u:Browse>\r\n"
-#define SOAP_OBJECTID_START       "<ObjectID>"
-#define SOAP_OBJECTID_END         "</ObjectID>\r\n"
-#define SOAP_BROWSEFLAG_START     "<BrowseFlag>"
-#define SOAP_BROWSEFLAG_END       "</BrowseFlag>\r\n"
-#define SOAP_FILTER_START         "<Filter>"
-#define SOAP_FILTER_END           "</Filter>\r\n"
-#define SOAP_STARTINGINDEX_START  "<StartingIndex>"
-#define SOAP_STARTINGINDEX_END    "</StartingIndex>\r\n"
-#define SOAP_REQUESTEDCOUNT_START "<RequestedCount>"
-#define SOAP_REQUESTEDCOUNT_END   "</RequestedCount>\r\n"
-#define SOAP_SORTCRITERIA_START   "<SortCriteria>"
-#define SOAP_SORTCRITERIA_END     "</SortCriteria>\r\n"
+// TEST
+//#define SOAP_ENVELOPE_START       "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" " \
+//                                  "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n"
+//
+#define SOAP_ENVELOPE_START        "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" " \
+                                   "s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\r\n"
+#define SOAP_ENVELOPE_END          "</s:Envelope>\r\n\r\n"
+#define SOAP_BODY_START            "<s:Body>\r\n"
+#define SOAP_BODY_END              "</s:Body>\r\n"
+#define SOAP_BROWSE_START          "<u:Browse xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
+#define SOAP_BROWSE_END            "</u:Browse>\r\n"
+#define SOAP_SEARCH_START          "<u:Search xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
+#define SOAP_SEARCH_END            "</u:Search>\r\n"
+#define SOAP_OBJECTID_START        "<ObjectID>"
+#define SOAP_OBJECTID_END          "</ObjectID>\r\n"
+#define SOAP_CONTAINERID_START     "<ContainerID>"
+#define SOAP_CONTAINERID_END       "</ContainerID>\r\n"
+#define SOAP_BROWSEFLAG_START      "<BrowseFlag>"
+#define SOAP_BROWSEFLAG_END        "</BrowseFlag>\r\n"
+#define SOAP_FILTER_START          "<Filter>"
+#define SOAP_FILTER_END            "</Filter>\r\n"
+#define SOAP_STARTINGINDEX_START   "<StartingIndex>"
+#define SOAP_STARTINGINDEX_END     "</StartingIndex>\r\n"
+#define SOAP_REQUESTEDCOUNT_START  "<RequestedCount>"
+#define SOAP_REQUESTEDCOUNT_END    "</RequestedCount>\r\n"
+#define SOAP_SEARCHCRITERIA_START  "<SearchCriteria>"
+#define SOAP_SEARCHCRITERIA_END    "</SearchCriteria>\r\n"
+#define SOAP_SORTCRITERIA_START    "<SortCriteria>"
+#define SOAP_SORTCRITERIA_END      "</SortCriteria>\r\n"
 
-// UPnP service data
+// UPnP/SOAP browse/search default parameters
 #define UPNP_URN_SCHEMA_CONTENT_DIRECTORY SSDP_SERVICE_TYPE_CD
+#define SOAP_DEFAULT_BROWSE_FLAG             "BrowseDirectChildren"
+#define SOAP_DEFAULT_BROWSE_FILTER           "*"
+#define SOAP_DEFAULT_BROWSE_SORT_CRITERIA    ""
+#define SOAP_DEFAULT_BROWSE_STARTING_INDEX   0
+#define SOAP_DEFAULT_BROWSE_MAX_COUNT        100     // arbitrary value to limit memory usage
+#define SOAP_DEFAULT_SEARCH_FILTER           "*"
+#define SOAP_DEFAULT_SEARCH_SORT_CRITERIA    ""
+#define SOAP_DEFAULT_SEARCH_STARTING_INDEX   0
+#define SOAP_DEFAULT_SEARCH_MAX_COUNT        100     // arbitrary value to limit memory usage
 
-// SOAP default browse parameters
-#define SOAP_DEFAULT_BROWSE_FLAG           "BrowseDirectChildren"
-#define SOAP_DEFAULT_BROWSE_FILTER         "*"
-#define SOAP_DEFAULT_BROWSE_STARTING_INDEX 0
-#define SOAP_DEFAULT_BROWSE_MAX_COUNT      100     // arbitrary value to limit memory usage
-#define SOAP_DEFAULT_BROWSE_SORT_CRITERIA  ""
- 
+#define SOAP_SEARCH_CRITERIA_TITLE   "dc:title contains"
+#define SOAP_SEARCH_CRITERIA_ARTIST  "upnp:artist contains"
+#define SOAP_SEARCH_CRITERIA_ALBUM   "upnp:album contains" 
+#define SOAP_SEARCH_CRITERIA_GENRE   "upnp:genre contains"  
+#define SOAP_SEARCH_CRITERIA_CLASS   "upnp:class derivedfrom"
+#define SOAP_SEARCH_CLASS_ALBUM      "object.container.album"
+#define SOAP_SEARCH_CLASS_VIDEO      "object.item.videoItem" 
+#define SOAP_SEARCH_CLASS_AUDIO      "object.item.audioItem" 
+#define SOAP_SEARCH_CLASS_IMAGE      "object.item.imageItem" 
+#define SOAP_SORT_TITLE_ASCENDING    "+dc:title"
+#define SOAP_SORT_TITLE_DESCENDING   "-dc:title"
+
 // selected DIDL attributes for scanning
 #define DIDL_ATTR_ID           "id="
 #define DIDL_ATTR_PARENT_ID    "parentID="
@@ -141,7 +166,8 @@ struct soapObject_t
   String name;              // directory name or file name
   String artist;            // for music files
   String album;             // for music files (sometimes folder name when picture file)
-  String uri;               // item URI on server, needed for download with GET
+  String genre;             // for audio/video files
+  String uri;               // item URI on server, needed for download with readStart()
   IPAddress downloadIp;     // download IP can differ from server IP
   uint16_t downloadPort;    // download port can differ from server control port
 };
@@ -167,21 +193,28 @@ class SoapESP32
 #else
     SoapESP32(WiFiClient *client, WiFiUDP *udp = NULL);
 #endif
-    bool        wakeUpServer(const char *macWOL);
-    void        clearServerList(void);
-    bool        addServer(IPAddress ip, uint16_t port, const char *controlURL, const char *name = "My Media Server");
-    uint8_t     seekServer(int scanDuration = SSDP_SCAN_DURATION);
-    uint8_t     getServerCount(void);
-    bool        getServerInfo(uint8_t srv, soapServer_t *serverInfo);
-    bool        browseServer(const uint8_t srv, const char *objectId, soapObjectVect_t *browseResult, 
-                             const uint32_t startingIndex = SOAP_DEFAULT_BROWSE_STARTING_INDEX, 
-                             const uint16_t maxCount      = SOAP_DEFAULT_BROWSE_MAX_COUNT);
-    bool        readStart(soapObject_t *object, size_t *size);
-    int         read(uint8_t *buf, size_t size, uint32_t timeout = SERVER_READ_TIMEOUT);
-    int         read(void);
-    void        readStop(void);
-    size_t      available(void);
-    const char *getFileTypeName(eFileType fileType);
+    bool          wakeUpServer(const char *macWOL);
+    void          clearServerList(void);
+    bool          addServer(IPAddress ip, uint16_t port, const char *controlURL, const char *name = "My Media Server");
+    unsigned int  seekServer(unsigned int scanDuration = SSDP_SCAN_DURATION);
+    unsigned int  getServerCount(void);
+    bool          getServerInfo(unsigned int srv, soapServer_t *serverInfo);
+    bool          browseServer(const unsigned int srv, const char *objectId, soapObjectVect_t *browseResult, 
+                               const uint32_t startingIndex = SOAP_DEFAULT_BROWSE_STARTING_INDEX, 
+                               const uint16_t maxCount      = SOAP_DEFAULT_BROWSE_MAX_COUNT);
+    bool          searchServer(const unsigned int srv, const char *containerId, soapObjectVect_t *searchResult,
+                               const char *searchCriteria1, const char *param1,
+                               const char *searchCriteria2  = NULL,
+                               const char *param2           = NULL,
+                               const char *sortCriteria     = NULL,
+                               const uint32_t startingIndex = SOAP_DEFAULT_SEARCH_STARTING_INDEX, 
+                               const uint16_t maxCount      = SOAP_DEFAULT_SEARCH_MAX_COUNT);                             
+    bool          readStart(soapObject_t *object, size_t *size);
+    int           read(uint8_t *buf, size_t size, uint32_t timeout = SERVER_READ_TIMEOUT);
+    int           read(void);
+    void          readStop(void);
+    size_t        available(void);
+    const char*   getFileTypeName(eFileType fileType);
 
   private:
 #ifdef USE_ETHERNET
@@ -201,16 +234,18 @@ class SoapESP32
     char               m_xmlReplaceBuffer[15];  // Fits longest string in replaceWith[] array
 
     int  soapClientTimedRead(void);
-    bool soapUDPmulticast(uint8_t repeats = 0);
+    bool soapUDPmulticast(unsigned int repeats = 0);
     bool soapSSDPquery(std::vector<soapServer_t> *rcvd, int msWait);
     bool soapGet(const IPAddress ip, const uint16_t port, const char *uri);
     bool soapPost(const IPAddress ip, const uint16_t port, const char *uri, const char *objectId, 
-                  const uint32_t startingIndex, const uint16_t maxCount);
+                  const char *searchCriteria, const char *sortCriteria, const uint32_t startingIndex, const uint16_t maxCount);                        
     bool soapReadHttpHeader(uint64_t *contentLength, bool *chunked = NULL);
     int  soapReadXML(bool chunked = false, bool replace = false);
     bool soapScanAttribute(const String *attributes, String *result, const char *searchFor);
     bool soapScanContainer(const String *parentId, const String *attributes, const String *container, soapObjectVect_t *browseResult);
     bool soapScanItem(const String *parentId, const String *attributes, const String *item, soapObjectVect_t *browseResult);
+    bool soapProcessRequest(const unsigned int srv, const char *objectId, soapObjectVect_t *result, const char *searchCriteria, 
+                            const char *sortCriteria, const uint32_t startingIndex, const uint16_t maxCount); 
 };
 
 #endif

@@ -1,0 +1,68 @@
+--- Terminal on COM7 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+20:05:04.745 >
+20:05:04.745 > Connecting to WiFi network .E (677) wifi:Association refused temporarily, comeback time 1024 mSec
+20:05:04.873 > ....[  2261][W][WiFiGeneric.cpp:955] _eventCallback(): Reason: 203 - ASSOC_FAIL
+20:05:06.873 > 
+20:05:06.876 > Connected successfully. IP address: 192.168.1.46
+20:05:06.878 >
+20:05:06.878 > Scanning local network for DLNA media servers...
+20:05:06.882 > [  2688][I][SoapESP32.cpp:527] seekServer(): SSDP search for media servers started, scan duration: 60 sec
+20:05:08.743 > [  4557][I][SoapESP32.cpp:323] soapSSDPquery(): server added to list ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+20:06:06.901 > [ 62710][I][SoapESP32.cpp:530] seekServer(): SSDP query discovered 1 media servers
+20:06:06.910 > [ 62711][I][SoapESP32.cpp:533] seekServer(): checking all discovered media servers for service ContentDirectory
+20:06:06.942 > [ 62751][I][SoapESP32.cpp:547] seekServer(): connected successfully to server 192.168.1.11:9000
+20:06:06.957 > [ 62765][I][SoapESP32.cpp:604] seekServer(): ok, this server delivers media content
+20:06:06.964 > Number of discovered servers that deliver content: 1
+20:06:06.970 >
+20:06:06.970 > Server: Twonky [QNAP-TS253D]
+20:06:06.972 > [ 62778][I][SoapESP32.cpp:941] soapProcessRequest(): search server: "Twonky [QNAP-TS253D]", objectId: "0", searchCriteria: upnp:genre contains "rock" and dc:title contains "hell", sortCriteria:
+20:06:07.707 > [ 63515][I][SoapESP32.cpp:955] soapProcessRequest(): connected successfully to server 192.168.1.11:9000
+20:06:07.717 > [ 63522][I][SoapESP32.cpp:978] soapProcessRequest(): scan answer from media server:
+20:06:07.739 > [ 63549][I][SoapESP32.cpp:917] soapScanItem(): "Run Like Hell" (id: "0$1$12$7620R775691", size: 16647783, sizeMissing: false, type: audio) added to list
+20:06:07.765 > [ 63573][I][SoapESP32.cpp:917] soapScanItem(): "Hello, I Love You" (id: "0$1$12$7970R865035", size: 4348430, sizeMissing: false, type: audio) added to list
+20:06:07.792 > [ 63600][I][SoapESP32.cpp:917] soapScanItem(): "The Road to Hell (Part 2)" (id: "0$1$12$6091R1522187", size: 10895786, sizeMissing: false, type: audio) added to list
+20:06:07.819 > [ 63627][I][SoapESP32.cpp:917] soapScanItem(): "Hide In Your Shell" (id: "0$1$12$6091R1515275", size: 16495239, sizeMissing: false, type: audio) added to list
+20:06:07.843 > [ 63652][I][SoapESP32.cpp:917] soapScanItem(): "Hello, I Love You" (id: "0$1$8I865035", size: 4348430, sizeMissing: false, type: audio) added to list
+20:06:07.868 > [ 63677][I][SoapESP32.cpp:917] soapScanItem(): "Hide In Your Shell" (id: "0$1$8I1515275", size: 16495239, sizeMissing: false, type: audio) added to list
+20:06:07.892 > [ 63700][I][SoapESP32.cpp:917] soapScanItem(): "Run Like Hell" (id: "0$1$8I775691", size: 16647783, sizeMissing: false, type: audio) added to list
+20:06:07.916 > [ 63725][I][SoapESP32.cpp:917] soapScanItem(): "The Road to Hell (Part 2)" (id: "0$1$8I1522187", size: 10895786, sizeMissing: false, type: audio) added to list
+20:06:07.944 > [ 63754][I][SoapESP32.cpp:917] soapScanItem(): "The Road to Hell (Part 2)" (id: "0$1$11$16543R1522187", size: 10895786, sizeMissing: false, type: audio) added to list
+20:06:07.970 > [ 63779][I][SoapESP32.cpp:917] soapScanItem(): "Run Like Hell" (id: "0$1$11$7599R775691", size: 16647783, sizeMissing: false, type: audio) added to list
+20:06:07.996 > [ 63804][I][SoapESP32.cpp:917] soapScanItem(): "Hide In Your Shell" (id: "0$1$11$16558R1515275", size: 16495239, sizeMissing: false, type: audio) added to list
+20:06:08.020 > [ 63828][I][SoapESP32.cpp:917] soapScanItem(): "Hello, I Love You" (id: "0$1$11$7960R865035", size: 4348430, sizeMissing: false, type: audio) added to list
+20:06:08.046 > [ 63855][I][SoapESP32.cpp:917] soapScanItem(): "The Road to Hell (Part 2)" (id: "0$1$13$5872$16552$16553R1522187", size: 10895786, sizeMissing: false, type: audio) added to list
+20:06:08.075 > [ 63883][I][SoapESP32.cpp:917] soapScanItem(): "Run Like Hell" (id: "0$1$13$5872$7610$7611$7621R775691", size: 16647783, sizeMissing: false, type: audio) added to list
+20:06:08.101 > [ 63910][I][SoapESP32.cpp:917] soapScanItem(): "Hide In Your Shell" (id: "0$1$13$5872$16567$16568R1515275", size: 16495239, sizeMissing: false, type: audio) added to list
+20:06:08.127 > [ 63936][I][SoapESP32.cpp:917] soapScanItem(): "Hello, I Love You" (id: "0$1$13$5872$7971$7972R865035", size: 4348430, sizeMissing: false, type: audio) added to list
+20:06:08.155 > [ 63963][I][SoapESP32.cpp:917] soapScanItem(): "Run Like Hell" (id: "0$1$17$6407$7618R775691", size: 16647783, sizeMissing: false, type: audio) added to list
+20:06:08.178 > [ 63987][I][SoapESP32.cpp:917] soapScanItem(): "Hello, I Love You" (id: "0$1$17$4724$7966R865035", size: 4348430, sizeMissing: false, type: audio) added to list
+20:06:08.204 > [ 64013][I][SoapESP32.cpp:917] soapScanItem(): "The Road to Hell (Part 2)" (id: "0$1$17$4724$6087R1522187", size: 10895786, sizeMissing: false, type: audio) added to list
+20:06:08.232 > [ 64041][I][SoapESP32.cpp:917] soapScanItem(): "Hide In Your Shell" (id: "0$1$17$4724$6087R1515275", size: 16495239, sizeMissing: false, type: audio) added to list
+20:06:08.247 > [ 64049][I][SoapESP32.cpp:1045] soapProcessRequest(): found 0 folders and 20 files
+20:06:08.254 > Search results: 20
+20:06:08.256 >  Run Like Hell (Item, size: 16647783, artist: Pink Floyd)
+20:06:08.261 >  Hello, I Love You (Item, size: 4348430, artist: The Doors)
+20:06:08.267 >  The Road to Hell (Part 2) (Item, size: 10895786, artist: Chris Rea)
+20:06:08.273 >  Hide In Your Shell (Item, size: 16495239, artist: Supertramp)
+20:06:08.278 >  Hello, I Love You (Item, size: 4348430, artist: The Doors)
+20:06:08.284 >  Hide In Your Shell (Item, size: 16495239, artist: Supertramp)
+20:06:08.289 >  Run Like Hell (Item, size: 16647783, artist: Pink Floyd)
+20:06:08.294 >  The Road to Hell (Part 2) (Item, size: 10895786, artist: Chris Rea)
+20:06:08.299 >  The Road to Hell (Part 2) (Item, size: 10895786, artist: Chris Rea)
+20:06:08.306 >  Run Like Hell (Item, size: 16647783, artist: Pink Floyd)
+20:06:08.312 >  Hide In Your Shell (Item, size: 16495239, artist: Supertramp)
+20:06:08.317 >  Hello, I Love You (Item, size: 4348430, artist: The Doors)
+20:06:08.322 >  The Road to Hell (Part 2) (Item, size: 10895786, artist: Chris Rea)
+20:06:08.327 >  Run Like Hell (Item, size: 16647783, artist: Pink Floyd)
+20:06:08.334 >  Hide In Your Shell (Item, size: 16495239, artist: Supertramp)
+20:06:08.339 >  Hello, I Love You (Item, size: 4348430, artist: The Doors)
+20:06:08.343 >  Run Like Hell (Item, size: 16647783, artist: Pink Floyd)
+20:06:08.350 >  Hello, I Love You (Item, size: 4348430, artist: The Doors)
+20:06:08.355 >  The Road to Hell (Part 2) (Item, size: 10895786, artist: Chris Rea)
+20:06:08.361 >  Hide In Your Shell (Item, size: 16495239, artist: Supertramp)
+20:06:08.366 >
+20:06:08.367 >
+20:06:08.367 > Sketch finished.

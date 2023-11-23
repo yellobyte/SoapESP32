@@ -1,0 +1,298 @@
+============= searchCriteria: dc:title contains "great" and upnp:class derivedfrom "object.container.album" ============>>>
+============= sortCriteria: -dc:title ==== DESCENDING ! ================================================================>>>
+
+...
+01:36:00.972 > [ 23915][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 21209 ms, size 371
+01:36:00.980 > [ 23915][D][SoapESP32.cpp:311] soapSSDPquery(): scanned ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+01:36:00.990 > [ 23922][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 21216 ms, size 387
+...
+01:36:39.765 > [ 62701][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 59995 ms, size 360
+01:36:39.773 > [ 62710][I][SoapESP32.cpp:530] seekServer(): SSDP query discovered 1 media servers
+01:36:39.779 > [ 62714][I][SoapESP32.cpp:533] seekServer(): checking all discovered media servers for service ContentDirectory
+01:36:39.840 > [ 62786][D][SoapESP32.cpp:1268] soapGet(): 192.168.1.11:9000 GET /dev0/desc.xml HTTP/1.1
+01:36:39.857 > [ 62803][I][SoapESP32.cpp:547] seekServer(): connected successfully to server 192.168.1.11:9000
+01:36:39.867 > [ 62809][D][SoapESP32.cpp:396] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 2924
+01:36:39.877 > [ 62814][D][SoapESP32.cpp:576] seekServer(): scanned friendly name: Twonky [QNAP-TS253D]
+01:36:39.884 > [ 62825][D][SoapESP32.cpp:586] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+01:36:39.895 > [ 62830][D][SoapESP32.cpp:603] seekServer(): assigned controlURL: dev0/srv1/control
+01:36:39.903 > [ 62837][I][SoapESP32.cpp:604] seekServer(): ok, this server delivers media content
+01:36:39.910 > Number of discovered servers that deliver content: 1
+01:36:39.915 > Server: Twonky [QNAP-TS253D]
+01:36:39.917 > [ 62858][I][SoapESP32.cpp:941] soapProcessRequest(): search server: "Twonky [QNAP-TS253D]", objectId: "0", searchCriteria: dc:title contains "great" and upnp:class derivedfrom "object.container.album", sortCriteria: -dc:title
+01:36:39.941 > [ 62886][D][SoapESP32.cpp:1372] soapPost(): 192.168.1.11:9000 POST /dev0/srv1/control HTTP/1.1
+01:36:40.807 > [ 63752][I][SoapESP32.cpp:955] soapProcessRequest(): connected successfully to server 192.168.1.11:9000
+01:36:40.816 > [ 63759][D][SoapESP32.cpp:396] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 14646
+01:36:40.827 > [ 63761][I][SoapESP32.cpp:978] soapProcessRequest(): scan answer from media server:
+01:36:40.836 > [ 63783][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:40.845 > [ 63783][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4724$7966"
+01:36:40.851 > [ 63786][D][SoapESP32.cpp:720] soapScanContainer(): childCount="12"
+01:36:40.857 > [ 63792][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:40.863 > [ 63798][D][SoapESP32.cpp:746] soapScanContainer(): title="The Doors Greatest Hits"
+01:36:40.871 > [ 63805][I][SoapESP32.cpp:755] soapScanContainer(): "The Doors Greatest Hits" (id: "0$1$17$4724$7966", childCount: 12) added to list
+01:36:40.882 > [ 63824][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:40.890 > [ 63825][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4724$7669"
+01:36:40.896 > [ 63830][D][SoapESP32.cpp:720] soapScanContainer(): childCount="14"
+01:36:40.902 > [ 63836][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:40.908 > [ 63842][D][SoapESP32.cpp:746] soapScanContainer(): title="Queen Greatest Hits II"
+01:36:40.915 > [ 63850][I][SoapESP32.cpp:755] soapScanContainer(): "Queen Greatest Hits II" (id: "0$1$17$4724$7669", childCount: 14) added to list
+01:36:40.928 > [ 63873][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:40.935 > [ 63873][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4724$7660"
+01:36:40.942 > [ 63876][D][SoapESP32.cpp:720] soapScanContainer(): childCount="17"
+01:36:40.947 > [ 63882][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:40.953 > [ 63888][D][SoapESP32.cpp:746] soapScanContainer(): title="Queen Greatest Hits"
+01:36:40.960 > [ 63895][I][SoapESP32.cpp:755] soapScanContainer(): "Queen Greatest Hits" (id: "0$1$17$4724$7660", childCount: 17) added to list
+01:36:40.972 > [ 63913][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:40.979 > [ 63913][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$5156$5885"
+01:36:40.985 > [ 63920][D][SoapESP32.cpp:720] soapScanContainer(): childCount="19"
+01:36:40.991 > [ 63926][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:40.997 > [ 63932][D][SoapESP32.cpp:746] soapScanContainer(): title="ABBA Greatest Hits"
+01:36:41.004 > [ 63938][I][SoapESP32.cpp:755] soapScanContainer(): "ABBA Greatest Hits" (id: "0$1$17$5156$5885", childCount: 19) added to list
+01:36:41.016 > [ 63961][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.023 > [ 63961][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4631$6536"
+01:36:41.029 > [ 63964][D][SoapESP32.cpp:720] soapScanContainer(): childCount="18"
+01:36:41.035 > [ 63969][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.041 > [ 63975][D][SoapESP32.cpp:746] soapScanContainer(): title="Eurythmics Greatest Hits"
+01:36:41.049 > [ 63983][I][SoapESP32.cpp:755] soapScanContainer(): "Eurythmics Greatest Hits" (id: "0$1$17$4631$6536", childCount: 18) added to list
+01:36:41.060 > [ 64005][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.068 > [ 64005][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4765$6964"
+01:36:41.074 > [ 64008][D][SoapESP32.cpp:720] soapScanContainer(): childCount="12"
+01:36:41.080 > [ 64014][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.086 > [ 64020][D][SoapESP32.cpp:746] soapScanContainer(): title="Leonhard Cohen Greatest Hits"
+01:36:41.093 > [ 64028][I][SoapESP32.cpp:755] soapScanContainer(): "Leonhard Cohen Greatest Hits" (id: "0$1$17$4765$6964", childCount: 12) added to list
+01:36:41.106 > [ 64049][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.113 > [ 64049][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$806$8460"
+01:36:41.120 > [ 64054][D][SoapESP32.cpp:720] soapScanContainer(): childCount="11"
+01:36:41.126 > [ 64060][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.131 > [ 64066][D][SoapESP32.cpp:746] soapScanContainer(): title="Leonhard Cohen Greatest Hits II"
+01:36:41.140 > [ 64074][I][SoapESP32.cpp:755] soapScanContainer(): "Leonhard Cohen Greatest Hits II" (id: "0$1$17$806$8460", childCount: 11) added to list
+01:36:41.153 > [ 64098][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.160 > [ 64098][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$806$5975"
+01:36:41.166 > [ 64101][D][SoapESP32.cpp:720] soapScanContainer(): childCount="10"
+01:36:41.172 > [ 64107][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.178 > [ 64113][D][SoapESP32.cpp:746] soapScanContainer(): title="Bob Dylan Greatest Hits"
+01:36:41.186 > [ 64120][I][SoapESP32.cpp:755] soapScanContainer(): "Bob Dylan Greatest Hits" (id: "0$1$17$806$5975", childCount: 10) added to list
+01:36:41.196 > [ 64140][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.205 > [ 64140][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$7970"
+01:36:41.211 > [ 64145][D][SoapESP32.cpp:720] soapScanContainer(): childCount="12"
+01:36:41.217 > [ 64151][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.221 > [ 64157][D][SoapESP32.cpp:746] soapScanContainer(): title="The Doors Greatest Hits"
+01:36:41.230 > [ 64165][I][SoapESP32.cpp:755] soapScanContainer(): "The Doors Greatest Hits" (id: "0$1$12$7970", childCount: 12) added to list
+01:36:41.241 > [ 64187][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.250 > [ 64188][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$7671"
+01:36:41.256 > [ 64190][D][SoapESP32.cpp:720] soapScanContainer(): childCount="14"
+01:36:41.262 > [ 64196][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.268 > [ 64202][D][SoapESP32.cpp:746] soapScanContainer(): title="Queen Greatest Hits II"
+01:36:41.275 > [ 64209][I][SoapESP32.cpp:755] soapScanContainer(): "Queen Greatest Hits II" (id: "0$1$12$7671", childCount: 14) added to list
+01:36:41.286 > [ 64231][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.293 > [ 64231][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$7662"
+01:36:41.299 > [ 64233][D][SoapESP32.cpp:720] soapScanContainer(): childCount="17"
+01:36:41.305 > [ 64239][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.311 > [ 64245][D][SoapESP32.cpp:746] soapScanContainer(): title="Queen Greatest Hits"
+01:36:41.318 > [ 64252][I][SoapESP32.cpp:755] soapScanContainer(): "Queen Greatest Hits" (id: "0$1$12$7662", childCount: 17) added to list
+01:36:41.329 > [ 64272][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.336 > [ 64272][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$8464"
+01:36:41.342 > [ 64277][D][SoapESP32.cpp:720] soapScanContainer(): childCount="11"
+01:36:41.348 > [ 64283][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.354 > [ 64289][D][SoapESP32.cpp:746] soapScanContainer(): title="Leonhard Cohen Greatest Hits II"
+01:36:41.361 > [ 64297][I][SoapESP32.cpp:755] soapScanContainer(): "Leonhard Cohen Greatest Hits II" (id: "0$1$12$8464", childCount: 11) added to list
+01:36:41.375 > [ 64320][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.383 > [ 64321][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$6968"
+01:36:41.389 > [ 64323][D][SoapESP32.cpp:720] soapScanContainer(): childCount="12"
+01:36:41.395 > [ 64329][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.401 > [ 64335][D][SoapESP32.cpp:746] soapScanContainer(): title="Leonhard Cohen Greatest Hits"
+01:36:41.408 > [ 64343][I][SoapESP32.cpp:755] soapScanContainer(): "Leonhard Cohen Greatest Hits" (id: "0$1$12$6968", childCount: 12) added to list
+01:36:41.420 > [ 64365][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.428 > [ 64366][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$6540"
+01:36:41.434 > [ 64368][D][SoapESP32.cpp:720] soapScanContainer(): childCount="18"
+01:36:41.440 > [ 64374][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.446 > [ 64380][D][SoapESP32.cpp:746] soapScanContainer(): title="Eurythmics Greatest Hits"
+01:36:41.453 > [ 64387][I][SoapESP32.cpp:755] soapScanContainer(): "Eurythmics Greatest Hits" (id: "0$1$12$6540", childCount: 18) added to list
+01:36:41.464 > [ 64407][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.472 > [ 64407][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$5979"
+01:36:41.478 > [ 64412][D][SoapESP32.cpp:720] soapScanContainer(): childCount="10"
+01:36:41.484 > [ 64418][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.490 > [ 64424][D][SoapESP32.cpp:746] soapScanContainer(): title="Bob Dylan Greatest Hits"
+01:36:41.497 > [ 64431][I][SoapESP32.cpp:755] soapScanContainer(): "Bob Dylan Greatest Hits" (id: "0$1$12$5979", childCount: 10) added to list
+01:36:41.508 > [ 64451][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:36:41.515 > [ 64451][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$5889"
+01:36:41.521 > [ 64456][D][SoapESP32.cpp:720] soapScanContainer(): childCount="19"
+01:36:41.527 > [ 64462][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:36:41.533 > [ 64468][D][SoapESP32.cpp:746] soapScanContainer(): title="ABBA Greatest Hits"
+01:36:41.539 > [ 64474][I][SoapESP32.cpp:755] soapScanContainer(): "ABBA Greatest Hits" (id: "0$1$12$5889", childCount: 19) added to list
+01:36:41.551 > [ 64487][D][SoapESP32.cpp:1029] soapProcessRequest(): announced number of folders and/or files: 16
+01:36:41.560 > [ 64497][I][SoapESP32.cpp:1045] soapProcessRequest(): found 16 folders and 0 files
+01:36:41.567 > Search results: 16
+01:36:41.569 >  The Doors Greatest Hits  (Container, id=0$1$17$4724$7966, child count: 12)
+01:36:41.575 >  Queen Greatest Hits II   (Container, id=0$1$17$4724$7669, child count: 14)
+01:36:41.582 >  Queen Greatest Hits      (Container, id=0$1$17$4724$7660, child count: 17)
+01:36:41.588 >  ABBA Greatest Hits       (Container, id=0$1$17$5156$5885, child count: 19)
+01:36:41.593 >  Eurythmics Greatest Hits         (Container, id=0$1$17$4631$6536, child count: 18)
+01:36:41.601 >  Leonhard Cohen Greatest Hits     (Container, id=0$1$17$4765$6964, child count: 12)
+01:36:41.608 >  Leonhard Cohen Greatest Hits II  (Container, id=0$1$17$806$8460, child count: 11)
+01:36:41.615 >  Bob Dylan Greatest Hits  (Container, id=0$1$17$806$5975, child count: 10)
+01:36:41.622 >  The Doors Greatest Hits  (Container, id=0$1$12$7970, child count: 12)
+01:36:41.628 >  Queen Greatest Hits II   (Container, id=0$1$12$7671, child count: 14)
+01:36:41.634 >  Queen Greatest Hits      (Container, id=0$1$12$7662, child count: 17)
+01:36:41.640 >  Leonhard Cohen Greatest Hits II  (Container, id=0$1$12$8464, child count: 11)
+01:36:41.646 >  Leonhard Cohen Greatest Hits     (Container, id=0$1$12$6968, child count: 12)
+01:36:41.653 >  Eurythmics Greatest Hits         (Container, id=0$1$12$6540, child count: 18)
+01:36:41.658 >  Bob Dylan Greatest Hits  (Container, id=0$1$12$5979, child count: 10)
+01:36:41.666 >  ABBA Greatest Hits       (Container, id=0$1$12$5889, child count: 19)
+01:36:41.671 >
+01:36:41.671 >
+01:36:41.671 > Sketch finished.
+
+============= searchCriteria: dc:title contains "great" and upnp:class derivedfrom "object.container.album" ============>>>
+============= sortCriteria: +dc:title ==== ASCENDING ! =================================================================>>>
+
+...
+01:30:02.108 > [ 59914][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 57206 ms, size 371
+01:30:02.116 > [ 59920][D][SoapESP32.cpp:311] soapSSDPquery(): scanned ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+01:30:02.125 > [ 59931][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 57223 ms, size 387
+01:30:02.252 > [ 60068][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 57360 ms, size 316
+01:30:02.261 > [ 60073][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 57365 ms, size 307
+01:30:02.289 > [ 60105][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 57397 ms, size 359
+01:30:02.338 > [ 60154][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 57446 ms, size 316
+01:30:02.386 > [ 60203][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 57495 ms, size 307
+01:30:02.439 > [ 60255][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 57547 ms, size 359
+01:30:03.302 > [ 61118][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 58410 ms, size 294
+01:30:03.310 > [ 61121][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 58413 ms, size 348
+01:30:03.318 > [ 61125][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 58417 ms, size 360
+01:30:03.326 > [ 61132][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 58424 ms, size 358
+01:30:03.334 > [ 61139][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 58431 ms, size 350
+01:30:03.341 > [ 61147][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 58439 ms, size 303
+01:30:03.915 > [ 61731][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 59023 ms, size 101
+01:30:03.923 > [ 61734][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 59026 ms, size 133
+01:30:04.895 > [ 62711][I][SoapESP32.cpp:530] seekServer(): SSDP query discovered 2 media servers
+01:30:04.903 > [ 62712][I][SoapESP32.cpp:533] seekServer(): checking all discovered media servers for service ContentDirectory
+01:30:04.913 > [ 62728][D][SoapESP32.cpp:1268] soapGet(): 192.168.1.11:9000 GET /dev0/desc.xml HTTP/1.1
+01:30:04.924 > [ 62739][I][SoapESP32.cpp:547] seekServer(): connected successfully to server 192.168.1.11:9000
+01:30:04.932 > [ 62745][D][SoapESP32.cpp:396] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 2924
+01:30:04.943 > [ 62750][D][SoapESP32.cpp:576] seekServer(): scanned friendly name: Twonky [QNAP-TS253D]
+01:30:04.951 > [ 62762][D][SoapESP32.cpp:586] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+01:30:04.961 > [ 62766][D][SoapESP32.cpp:603] seekServer(): assigned controlURL: dev0/srv1/control
+01:30:04.968 > [ 62773][I][SoapESP32.cpp:604] seekServer(): ok, this server delivers media content
+01:30:05.226 > Number of discovered servers that deliver content: 1
+01:30:05.231 > [ 63042][I][SoapESP32.cpp:941] soapProcessRequest(): search server: "Twonky [QNAP-TS253D]", objectId: "0", searchCriteria: dc:title contains "great" and upnp:class derivedfrom "object.container.album", sortCriteria: +dc:title
+01:30:05.271 > [ 63088][D][SoapESP32.cpp:1372] soapPost(): 192.168.1.11:9000 POST /dev0/srv1/control HTTP/1.1
+01:30:05.967 > [ 63783][I][SoapESP32.cpp:955] soapProcessRequest(): connected successfully to server 192.168.1.11:9000
+01:30:05.976 > [ 63790][D][SoapESP32.cpp:396] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 14646
+01:30:05.987 > [ 63792][I][SoapESP32.cpp:978] soapProcessRequest(): scan answer from media server:
+01:30:05.998 > [ 63814][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.005 > [ 63814][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$5889"
+01:30:06.012 > [ 63816][D][SoapESP32.cpp:720] soapScanContainer(): childCount="19"
+01:30:06.018 > [ 63822][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.024 > [ 63828][D][SoapESP32.cpp:746] soapScanContainer(): title="ABBA Greatest Hits"
+01:30:06.030 > [ 63835][I][SoapESP32.cpp:755] soapScanContainer(): "ABBA Greatest Hits" (id: "0$1$12$5889", childCount: 19) added to list
+01:30:06.041 > [ 63854][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.048 > [ 63854][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$5979"
+01:30:06.055 > [ 63859][D][SoapESP32.cpp:720] soapScanContainer(): childCount="10"
+01:30:06.061 > [ 63865][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.066 > [ 63871][D][SoapESP32.cpp:746] soapScanContainer(): title="Bob Dylan Greatest Hits"
+01:30:06.074 > [ 63879][I][SoapESP32.cpp:755] soapScanContainer(): "Bob Dylan Greatest Hits" (id: "0$1$12$5979", childCount: 10) added to list
+01:30:06.085 > [ 63901][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.093 > [ 63901][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$6540"
+01:30:06.099 > [ 63904][D][SoapESP32.cpp:720] soapScanContainer(): childCount="18"
+01:30:06.105 > [ 63910][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.111 > [ 63916][D][SoapESP32.cpp:746] soapScanContainer(): title="Eurythmics Greatest Hits"
+01:30:06.118 > [ 63923][I][SoapESP32.cpp:755] soapScanContainer(): "Eurythmics Greatest Hits" (id: "0$1$12$6540", childCount: 18) added to list
+01:30:06.130 > [ 63945][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.137 > [ 63946][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$6968"
+01:30:06.143 > [ 63948][D][SoapESP32.cpp:720] soapScanContainer(): childCount="12"
+01:30:06.149 > [ 63954][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.155 > [ 63960][D][SoapESP32.cpp:746] soapScanContainer(): title="Leonhard Cohen Greatest Hits"
+01:30:06.163 > [ 63968][I][SoapESP32.cpp:755] soapScanContainer(): "Leonhard Cohen Greatest Hits" (id: "0$1$12$6968", childCount: 12) added to list
+01:30:06.174 > [ 63988][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.182 > [ 63988][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$8464"
+01:30:06.188 > [ 63993][D][SoapESP32.cpp:720] soapScanContainer(): childCount="11"
+01:30:06.194 > [ 63998][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.200 > [ 64005][D][SoapESP32.cpp:746] soapScanContainer(): title="Leonhard Cohen Greatest Hits II"
+01:30:06.208 > [ 64013][I][SoapESP32.cpp:755] soapScanContainer(): "Leonhard Cohen Greatest Hits II" (id: "0$1$12$8464", childCount: 11) added to list
+01:30:06.221 > [ 64035][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.227 > [ 64035][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$7662"
+01:30:06.233 > [ 64038][D][SoapESP32.cpp:720] soapScanContainer(): childCount="17"
+01:30:06.239 > [ 64044][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.245 > [ 64050][D][SoapESP32.cpp:746] soapScanContainer(): title="Queen Greatest Hits"
+01:30:06.252 > [ 64057][I][SoapESP32.cpp:755] soapScanContainer(): "Queen Greatest Hits" (id: "0$1$12$7662", childCount: 17) added to list
+01:30:06.263 > [ 64076][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.270 > [ 64076][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$7671"
+01:30:06.276 > [ 64081][D][SoapESP32.cpp:720] soapScanContainer(): childCount="14"
+01:30:06.283 > [ 64087][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.288 > [ 64093][D][SoapESP32.cpp:746] soapScanContainer(): title="Queen Greatest Hits II"
+01:30:06.295 > [ 64100][I][SoapESP32.cpp:755] soapScanContainer(): "Queen Greatest Hits II" (id: "0$1$12$7671", childCount: 14) added to list
+01:30:06.308 > [ 64123][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.315 > [ 64124][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$12$7970"
+01:30:06.321 > [ 64126][D][SoapESP32.cpp:720] soapScanContainer(): childCount="12"
+01:30:06.326 > [ 64132][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.333 > [ 64138][D][SoapESP32.cpp:746] soapScanContainer(): title="The Doors Greatest Hits"
+01:30:06.340 > [ 64145][I][SoapESP32.cpp:755] soapScanContainer(): "The Doors Greatest Hits" (id: "0$1$12$7970", childCount: 12) added to list
+01:30:06.352 > [ 64167][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.359 > [ 64168][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$806$5975"
+01:30:06.365 > [ 64170][D][SoapESP32.cpp:720] soapScanContainer(): childCount="10"
+01:30:06.371 > [ 64176][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.377 > [ 64182][D][SoapESP32.cpp:746] soapScanContainer(): title="Bob Dylan Greatest Hits"
+01:30:06.385 > [ 64190][I][SoapESP32.cpp:755] soapScanContainer(): "Bob Dylan Greatest Hits" (id: "0$1$17$806$5975", childCount: 10) added to list
+01:30:06.396 > [ 64209][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.403 > [ 64209][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$806$8460"
+01:30:06.411 > [ 64215][D][SoapESP32.cpp:720] soapScanContainer(): childCount="11"
+01:30:06.416 > [ 64221][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.422 > [ 64227][D][SoapESP32.cpp:746] soapScanContainer(): title="Leonhard Cohen Greatest Hits II"
+01:30:06.431 > [ 64235][I][SoapESP32.cpp:755] soapScanContainer(): "Leonhard Cohen Greatest Hits II" (id: "0$1$17$806$8460", childCount: 11) added to list
+01:30:06.443 > [ 64257][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.449 > [ 64257][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4765$6964"
+01:30:06.456 > [ 64261][D][SoapESP32.cpp:720] soapScanContainer(): childCount="12"
+01:30:06.462 > [ 64267][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.468 > [ 64273][D][SoapESP32.cpp:746] soapScanContainer(): title="Leonhard Cohen Greatest Hits"
+01:30:06.476 > [ 64280][I][SoapESP32.cpp:755] soapScanContainer(): "Leonhard Cohen Greatest Hits" (id: "0$1$17$4765$6964", childCount: 12) added to list
+01:30:06.489 > [ 64300][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.496 > [ 64301][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4631$6536"
+01:30:06.501 > [ 64306][D][SoapESP32.cpp:720] soapScanContainer(): childCount="18"
+01:30:06.506 > [ 64312][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.513 > [ 64318][D][SoapESP32.cpp:746] soapScanContainer(): title="Eurythmics Greatest Hits"
+01:30:06.521 > [ 64326][I][SoapESP32.cpp:755] soapScanContainer(): "Eurythmics Greatest Hits" (id: "0$1$17$4631$6536", childCount: 18) added to list
+01:30:06.533 > [ 64348][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.540 > [ 64348][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$5156$5885"
+01:30:06.546 > [ 64351][D][SoapESP32.cpp:720] soapScanContainer(): childCount="19"
+01:30:06.551 > [ 64357][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.558 > [ 64363][D][SoapESP32.cpp:746] soapScanContainer(): title="ABBA Greatest Hits"
+01:30:06.565 > [ 64370][I][SoapESP32.cpp:755] soapScanContainer(): "ABBA Greatest Hits" (id: "0$1$17$5156$5885", childCount: 19) added to list
+01:30:06.576 > [ 64392][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.585 > [ 64392][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4724$7660"
+01:30:06.590 > [ 64395][D][SoapESP32.cpp:720] soapScanContainer(): childCount="17"
+01:30:06.596 > [ 64401][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.601 > [ 64407][D][SoapESP32.cpp:746] soapScanContainer(): title="Queen Greatest Hits"
+01:30:06.609 > [ 64414][I][SoapESP32.cpp:755] soapScanContainer(): "Queen Greatest Hits" (id: "0$1$17$4724$7660", childCount: 17) added to list
+01:30:06.620 > [ 64433][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.628 > [ 64434][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4724$7669"
+01:30:06.635 > [ 64439][D][SoapESP32.cpp:720] soapScanContainer(): childCount="14"
+01:30:06.640 > [ 64445][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.646 > [ 64451][D][SoapESP32.cpp:746] soapScanContainer(): title="Queen Greatest Hits II"
+01:30:06.653 > [ 64458][I][SoapESP32.cpp:755] soapScanContainer(): "Queen Greatest Hits II" (id: "0$1$17$4724$7669", childCount: 14) added to list
+01:30:06.665 > [ 64478][D][SoapESP32.cpp:694] soapScanContainer(): function entered, parent id: 0
+01:30:06.672 > [ 64478][D][SoapESP32.cpp:698] soapScanContainer(): id="0$1$17$4724$7966"
+01:30:06.680 > [ 64483][D][SoapESP32.cpp:720] soapScanContainer(): childCount="12"
+01:30:06.685 > [ 64489][D][SoapESP32.cpp:732] soapScanContainer(): searchable="1"
+01:30:06.690 > [ 64495][D][SoapESP32.cpp:746] soapScanContainer(): title="The Doors Greatest Hits"
+01:30:06.698 > [ 64503][I][SoapESP32.cpp:755] soapScanContainer(): "The Doors Greatest Hits" (id: "0$1$17$4724$7966", childCount: 12) added to list
+01:30:06.710 > [ 64516][D][SoapESP32.cpp:1029] soapProcessRequest(): announced number of folders and/or files: 16
+01:30:06.718 > [ 64527][I][SoapESP32.cpp:1045] soapProcessRequest(): found 16 folders and 0 files
+01:30:06.726 > Search results: 16
+01:30:06.727 >  ABBA Greatest Hits       (Container, id=0$1$12$5889, child count: 19)
+01:30:06.733 >  Bob Dylan Greatest Hits  (Container, id=0$1$12$5979, child count: 10)
+01:30:06.739 >  Eurythmics Greatest Hits         (Container, id=0$1$12$6540, child count: 18)
+01:30:06.745 >  Leonhard Cohen Greatest Hits     (Container, id=0$1$12$6968, child count: 12)
+01:30:06.752 >  Leonhard Cohen Greatest Hits II  (Container, id=0$1$12$8464, child count: 11)
+01:30:06.759 >  Queen Greatest Hits      (Container, id=0$1$12$7662, child count: 17)
+01:30:06.765 >  Queen Greatest Hits II   (Container, id=0$1$12$7671, child count: 14)
+01:30:06.771 >  The Doors Greatest Hits  (Container, id=0$1$12$7970, child count: 12)
+01:30:06.777 >  Bob Dylan Greatest Hits  (Container, id=0$1$17$806$5975, child count: 10)
+01:30:06.783 >  Leonhard Cohen Greatest Hits II  (Container, id=0$1$17$806$8460, child count: 11)
+01:30:06.792 >  Leonhard Cohen Greatest Hits     (Container, id=0$1$17$4765$6964, child count: 12)
+01:30:06.798 >  Eurythmics Greatest Hits         (Container, id=0$1$17$4631$6536, child count: 18)
+01:30:06.804 >  ABBA Greatest Hits       (Container, id=0$1$17$5156$5885, child count: 19)
+01:30:06.810 >  Queen Greatest Hits      (Container, id=0$1$17$4724$7660, child count: 17)
+01:30:06.817 >  Queen Greatest Hits II   (Container, id=0$1$17$4724$7669, child count: 14)
+01:30:06.823 >  The Doors Greatest Hits  (Container, id=0$1$17$4724$7966, child count: 12)
+01:30:06.830 >
+01:30:06.830 >
+01:30:06.830 > Sketch finished.

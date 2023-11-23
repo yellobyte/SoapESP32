@@ -1,0 +1,118 @@
+--- Terminal on COM7 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+21:46:58.590 > ts Jun  8 20[    18][D][esp32-hal-cpu.c:244] setCpuFrequencyMhz(): PLL: 480 / 2 = 240 Mhz, APB: 80000000 Hz
+21:46:58.590 >
+21:46:58.590 > Initializing Ethernet...DHCP ok.
+21:47:02.592 > Local IP: 192.168.1.43
+21:47:02.594 >
+21:47:02.594 > Scanning local network for DLNA media servers...
+21:47:02.599 > [  4725][I][SoapESP32.cpp:528] seekServer(): SSDP search for media servers started, scan duration: 5 sec
+21:47:02.607 > [  4736][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 1 ms, size 365
+21:47:02.614 > [  4738][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.622 > [  4747][I][SoapESP32.cpp:324] soapSSDPquery(): server added to list ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.632 > [  4758][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 23 ms, size 365
+21:47:02.640 > [  4763][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.650 > [  4774][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 39 ms, size 377
+21:47:02.656 > [  4780][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.665 > [  4790][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 55 ms, size 377
+21:47:02.672 > [  4796][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.681 > [  4806][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 71 ms, size 365
+21:47:02.687 > [  4812][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.697 > [  4822][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 87 ms, size 365
+21:47:02.704 > [  4828][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.713 > [  4838][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 103 ms, size 377
+21:47:02.721 > [  4844][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.730 > [  4854][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 119 ms, size 377
+21:47:02.737 > [  4861][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.746 > [  4871][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 136 ms, size 365
+21:47:02.753 > [  4877][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.762 > [  4887][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 152 ms, size 365
+21:47:02.770 > [  4893][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.779 > [  4903][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 168 ms, size 377
+21:47:02.786 > [  4909][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:02.794 > [  4919][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (REPLY) within 184 ms, size 377
+21:47:02.802 > [  4926][D][SoapESP32.cpp:312] soapSSDPquery(): scanned (R) ip=192.168.1.40, port=53168, loc="desc"
+21:47:04.312 > [  6447][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 1712 ms, size 294
+21:47:04.321 > [  6449][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 1714 ms, size 348
+21:47:04.329 > [  6453][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 1718 ms, size 360
+21:47:04.335 > [  6461][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 1726 ms, size 358
+21:47:04.344 > [  6468][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 1733 ms, size 350
+21:47:04.351 > [  6476][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 1741 ms, size 303
+21:47:06.313 > [  8448][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 3713 ms, size 294
+21:47:06.321 > [  8450][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 3715 ms, size 348
+21:47:06.329 > [  8454][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 3719 ms, size 360
+21:47:06.337 > [  8462][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 3727 ms, size 358
+21:47:06.344 > [  8469][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 3734 ms, size 350
+21:47:06.351 > [  8477][D][SoapESP32.cpp:288] soapSSDPquery(): SSDP (NOTIFY) within 3742 ms, size 303
+21:47:07.599 > [  9735][I][SoapESP32.cpp:531] seekServer(): SSDP query discovered 1 media servers
+21:47:07.608 > [  9735][I][SoapESP32.cpp:534] seekServer(): checking all discovered media servers for service ContentDirectory
+21:47:07.617 > [  9743][D][SoapESP32.cpp:1245] soapGet(): 192.168.1.40:53168 GET /desc HTTP/1.1
+21:47:07.625 > [  9756][I][SoapESP32.cpp:548] seekServer(): connected successfully to server 192.168.1.40:53168
+21:47:07.634 > [  9769][D][SoapESP32.cpp:397] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 2749
+21:47:07.663 > [  9798][D][SoapESP32.cpp:577] seekServer(): scanned friendly name: Mezzmo
+21:47:07.752 > [  9887][D][SoapESP32.cpp:587] seekServer(): server offers service: urn:schemas-upnp-org:service:ContentDirectory:1
+21:47:07.763 > [  9897][D][SoapESP32.cpp:604] seekServer(): assigned controlURL: ContentDirectory/control
+21:47:07.771 > [  9898][I][SoapESP32.cpp:605] seekServer(): ok, this server delivers media content
+21:47:07.778 > Number of discovered servers that deliver content: 1
+21:47:07.783 >
+21:47:07.791 > [  9924][I][SoapESP32.cpp:934] soapProcessRequest(): search server: "Mezzmo", objectId: "0", searchCriteria: dc:title contains "you" 
+21:47:07.804 > [  9929][D][SoapESP32.cpp:1349] soapPost(): 192.168.1.40:53168 POST /ContentDirectory/control HTTP/1.1
+21:47:07.813 > [  9945][I][SoapESP32.cpp:948] soapProcessRequest(): connected successfully to server 192.168.1.40:53168
+21:47:07.822 > [  9957][D][SoapESP32.cpp:397] soapReadHttpHeader(): HTTP-Header ok, trailing content is not chunked, announced size: 8171
+21:47:07.833 > [  9957][I][SoapESP32.cpp:971] soapProcessRequest(): scan answer from media server:
+21:47:07.979 > [ 10114][D][SoapESP32.cpp:775] soapScanItem(): function entered, parent id: 0
+21:47:07.986 > [ 10114][D][SoapESP32.cpp:779] soapScanItem(): id="taz1l0zal37"
+21:47:07.992 > [ 10116][D][SoapESP32.cpp:830] soapScanItem(): upnp:class="object.item.audioItem.musicTrack"
+21:47:08.000 > [ 10124][D][SoapESP32.cpp:826] soapScanItem(): upnp:artist="Alphaville"
+21:47:08.007 > [ 10130][D][SoapESP32.cpp:821] soapScanItem(): upnp:album="Car-CD 3"
+21:47:08.013 > [ 10138][D][SoapESP32.cpp:856] soapScanItem(): uri="content/MP3/taz1l0zal37x745f"
+21:47:08.020 > [ 10143][D][SoapESP32.cpp:865] soapScanItem(): size=4556304
+21:47:08.025 > [ 10149][D][SoapESP32.cpp:881] soapScanItem(): bitrate=20000
+21:47:08.030 > [ 10154][D][SoapESP32.cpp:892] soapScanItem(): sampleFrequency=44100
+21:47:08.037 > [ 10161][D][SoapESP32.cpp:816] soapScanItem(): dc:title="Forever Young"
+21:47:08.043 > [ 10166][I][SoapESP32.cpp:911] soapScanItem(): "Forever Young" (id: "taz1l0zal37", size: 4556304, sizeMissing: false, type: audio) added to list
+21:47:08.163 > [ 10298][D][SoapESP32.cpp:775] soapScanItem(): function entered, parent id: 0
+21:47:08.170 > [ 10298][D][SoapESP32.cpp:779] soapScanItem(): id="taz1l0zal51"
+21:47:08.176 > [ 10300][D][SoapESP32.cpp:830] soapScanItem(): upnp:class="object.item.audioItem.musicTrack"
+21:47:08.184 > [ 10308][D][SoapESP32.cpp:826] soapScanItem(): upnp:artist="Scott Mc Kenzie"
+21:47:08.191 > [ 10315][D][SoapESP32.cpp:821] soapScanItem(): upnp:album="Car-CD 3"
+21:47:08.197 > [ 10323][D][SoapESP32.cpp:856] soapScanItem(): uri="content/MP3/taz1l0zal51x60f3"
+21:47:08.204 > [ 10328][D][SoapESP32.cpp:865] soapScanItem(): size=4341799
+21:47:08.209 > [ 10333][D][SoapESP32.cpp:881] soapScanItem(): bitrate=24000
+21:47:08.215 > [ 10339][D][SoapESP32.cpp:892] soapScanItem(): sampleFrequency=44100
+21:47:08.221 > [ 10346][D][SoapESP32.cpp:816] soapScanItem(): dc:title="San Francisco (Be Sure To Wear Flowers In You Hair)"
+21:47:08.231 > [ 10354][I][SoapESP32.cpp:911] soapScanItem(): "San Francisco (Be Sure To Wear Flowers In You Hair)" (id: "taz1l0zal51", size: 4341799, sizeMissing: false, type: audio) added to list
+21:47:08.352 > [ 10487][D][SoapESP32.cpp:775] soapScanItem(): function entered, parent id: 0
+21:47:08.360 > [ 10488][D][SoapESP32.cpp:779] soapScanItem(): id="taz1l0zal58"
+21:47:08.365 > [ 10489][D][SoapESP32.cpp:830] soapScanItem(): upnp:class="object.item.audioItem.musicTrack"
+21:47:08.372 > [ 10497][D][SoapESP32.cpp:826] soapScanItem(): upnp:artist="Eilen Jewell"
+21:47:08.380 > [ 10504][D][SoapESP32.cpp:821] soapScanItem(): upnp:album="NoAlbum"
+21:47:08.386 > [ 10511][D][SoapESP32.cpp:856] soapScanItem(): uri="content/MP3/taz1l0zal58x82f0"
+21:47:08.393 > [ 10517][D][SoapESP32.cpp:865] soapScanItem(): size=7438165
+21:47:08.398 > [ 10522][D][SoapESP32.cpp:881] soapScanItem(): bitrate=40000
+21:47:08.404 > [ 10527][D][SoapESP32.cpp:892] soapScanItem(): sampleFrequency=44100
+21:47:08.409 > [ 10534][D][SoapESP32.cpp:816] soapScanItem(): dc:title="Working Hard For Your Love"
+21:47:08.417 > [ 10541][I][SoapESP32.cpp:911] soapScanItem(): "Working Hard For Your Love" (id: "taz1l0zal58", size: 7438165, sizeMissing: false, type: audio) added to list
+21:47:08.535 > [ 10670][D][SoapESP32.cpp:775] soapScanItem(): function entered, parent id: 0
+21:47:08.542 > [ 10670][D][SoapESP32.cpp:779] soapScanItem(): id="taz1l0zal33"
+21:47:08.548 > [ 10672][D][SoapESP32.cpp:830] soapScanItem(): upnp:class="object.item.audioItem.musicTrack"
+21:47:08.556 > [ 10680][D][SoapESP32.cpp:826] soapScanItem(): upnp:artist="Roy Orbison"
+21:47:08.562 > [ 10686][D][SoapESP32.cpp:821] soapScanItem(): upnp:album="Car-CD 2"
+21:47:08.569 > [ 10694][D][SoapESP32.cpp:856] soapScanItem(): uri="content/MP3/taz1l0zal33x60f3"
+21:47:08.576 > [ 10700][D][SoapESP32.cpp:865] soapScanItem(): size=5152689
+21:47:08.581 > [ 10705][D][SoapESP32.cpp:881] soapScanItem(): bitrate=24000
+21:47:08.587 > [ 10710][D][SoapESP32.cpp:892] soapScanItem(): sampleFrequency=44100
+21:47:08.593 > [ 10717][D][SoapESP32.cpp:816] soapScanItem(): dc:title="You Got it"
+21:47:08.599 > [ 10722][I][SoapESP32.cpp:911] soapScanItem(): "You Got it" (id: "taz1l0zal33", size: 5152689, sizeMissing: false, type: audio) added to list
+21:47:08.611 > [ 10739][D][SoapESP32.cpp:1024] soapProcessRequest(): announced number of folders and/or files: 4
+21:47:08.620 > [ 10745][I][SoapESP32.cpp:1040] soapProcessRequest(): found 0 folders and 4 files
+21:47:08.627 > Search results: 4
+21:47:08.629 >  Forever Young (Item, size: 4556304, artist: Alphaville)
+21:47:08.634 >  San Francisco (Be Sure To Wear Flowers In You Hair) (Item, size: 4341799, artist: Scott Mc Kenzie)
+21:47:08.642 >  Working Hard For Your Love (Item, size: 7438165, artist: Eilen Jewell)
+21:47:08.649 >  You Got it (Item, size: 5152689, artist: Roy Orbison)
+21:47:08.654 >
+21:47:08.654 >
+21:47:08.654 > Sketch finished.

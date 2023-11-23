@@ -12,7 +12,7 @@
   If found the sketch browses that directory multiple times, each time with a higher starting 
   index: 0, 100, 200, etc. until all items in that directory have been printed.
     
-  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-23, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -49,9 +49,9 @@ bool findBigDirectory(SoapESP32 *soap, int servNum, soapObject_t *object) {
   }
   else {
     // check this level first
-    for (int i = 0; i < browseResult.size(); i++) {
-      // go through each item in list, break if directory with more 
-      // than SOAP_DEFAULT_BROWSE_MAX_COUNT items (subdirs and/or files) is found
+    for (unsigned int i = 0; i < browseResult.size(); i++) {
+      // go through each item in list, break if directory with more than
+      // SOAP_DEFAULT_BROWSE_MAX_COUNT items (subdirs and/or files) is found
       if (browseResult[i].isDirectory &&
           browseResult[i].size > SOAP_DEFAULT_BROWSE_MAX_COUNT) {
         // found a big directory
@@ -66,7 +66,7 @@ bool findBigDirectory(SoapESP32 *soap, int servNum, soapObject_t *object) {
       }
     }
     // we need to dig deeper
-    for (int i = 0; i < browseResult.size(); i++) {
+    for (unsigned int i = 0; i < browseResult.size(); i++) {
       if (browseResult[i].isDirectory && (level + 1) < BROWSE_LEVELS) { 
         // recurse
         *object = browseResult[i];
@@ -108,17 +108,17 @@ void setup() {
   soapObject_t     directory;
   soapObjectVect_t directoryContent;
   soapServer_t     srvInfo;
-  int srvNum = 0,             // start with first server in list
-      startingIndex;
+  unsigned int srvNum = 0,         // start with first server in list
+               startingIndex;
 
   while (soap.getServerInfo(srvNum, &srvInfo)) {
     // Scan each server
     Serial.print("Please be patient, searching big directory on server: ");
     Serial.println(srvInfo.friendlyName);
     
-    startingIndex = 0;        // start browsing a directory with offset 0
-    directory.id = "0";       // start with root ("0")
-    directory.name = "root";  // only needed for printing in case of error
+    startingIndex = 0;             // start browsing a directory with offset 0
+    directory.id = "0";            // start with root ("0")
+    directory.name = "root";       // only needed for printing in case of error
     
     if (findBigDirectory(&soap, srvNum, &directory)) {
       // found big directory, now print entire content 
@@ -136,7 +136,7 @@ void setup() {
         }
         else {
           // show all entries in list
-          for (int i = 0; i < directoryContent.size(); i++) {
+          for (unsigned int i = 0; i < directoryContent.size(); i++) {
             // print object count
             Serial.print(startingIndex + i);
             Serial.print(": ");

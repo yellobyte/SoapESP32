@@ -6,7 +6,7 @@
   We use a Wiznet W5x00 Ethernet module/shield instead of builtin WiFi.
   It's connected to ESP32 GPIO 18, 19, 23 and GPIO 25 (Chip Select).
 
-  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-22, ThJ <yellobyte@bluewin.ch>
  */
 
 #include <Arduino.h>
@@ -57,7 +57,7 @@ void setup() {
 
   // Show connection details of all discovered, usable media servers
   soapServer_t srv;
-  uint8_t srvNum = 0;
+  unsigned int srvNum = 0;
 
   while (soap.getServerInfo(srvNum++, &srv)) {
     // print server details

@@ -1,0 +1,57 @@
+--- Terminal on COM7 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+02:24:50.587 >
+02:24:50.587 > Initializing Ethernet...DHCP ok.
+02:24:54.587 > Local IP: 192.168.1.43
+02:24:54.589 >
+02:24:54.589 > Scanning local network for DLNA media servers...
+02:24:54.594 > [  4719][I][SoapESP32.cpp:527] seekServer(): SSDP search for media servers started, scan duration: 50 sec
+02:24:56.493 > [  6625][I][SoapESP32.cpp:323] soapSSDPquery(): server added to list ip=192.168.1.11, port=9791, loc="dd45fb96-3cd4-4e11-8ebe-9f9dbd56d4ed/Upnp/device.xml"
+02:25:44.589 > [ 54727][I][SoapESP32.cpp:530] seekServer(): SSDP query discovered 1 media servers
+02:25:44.597 > [ 54727][I][SoapESP32.cpp:533] seekServer(): checking all discovered media servers for service ContentDirectory
+02:25:44.765 > [ 54897][I][SoapESP32.cpp:547] seekServer(): connected successfully to server 192.168.1.11:9791
+02:25:44.805 > [ 54942][I][SoapESP32.cpp:604] seekServer(): ok, this server delivers media content
+02:25:44.812 > Number of discovered servers that deliver content: 1
+02:25:44.818 >
+02:25:44.818 > [ 54944][I][SoapESP32.cpp:934] soapProcessRequest(): search server: "MinimServer[QNAP-TS253D]", objectId: "0", searchCriteria: upnp:genre contains "Audiobook" and dc:title contains "Tree", sortCriteria:
+02:25:44.928 > [ 55065][I][SoapESP32.cpp:948] soapProcessRequest(): connected successfully to server 192.168.1.11:9791
+02:25:44.937 > [ 55068][I][SoapESP32.cpp:971] soapProcessRequest(): scan answer from media server:
+02:25:44.969 > [ 55106][I][SoapESP32.cpp:755] soapScanContainer(): "Wisper in Baker Street" (id: "0$:albums$*a88", childCount: 58) added to list
+02:25:45.015 > [ 55152][I][SoapESP32.cpp:910] soapScanItem(): "'So, whatever you need leaves and wood from a tree in which a Bowtruckle lodges, ...'" (id: "0$:items$*i465", size: 929087, sizeMissing: false, type: audio) added to list
+02:25:45.060 > [ 55197][I][SoapESP32.cpp:910] soapScanItem(): "15 Street Art" (id: "0$:items$*i3824", size: 7439317, sizeMissing: false, type: audio) added to list
+02:25:45.106 > [ 55244][I][SoapESP32.cpp:910] soapScanItem(): "Albus Dumbledore didn't seem to realise that he had just arrived in a street ..." (id: "0$:items$*i8029", size: 1448093, sizeMissing: false, type: audio) added to list
+02:25:45.159 > [ 55297][I][SoapESP32.cpp:910] soapScanItem(): "At last they rejoined the path and, after another ten minutes, the trees began to thin; ..." (id: "0$:items$*i8270", size: 947485, sizeMissing: false, type: audio) added to list
+02:25:45.212 > [ 55349][I][SoapESP32.cpp:910] soapScanItem(): "Despite the cloudless sky, the old trees ahead cast deep, dark, cool shadows ..." (id: "0$:items$*i9406", size: 965860, sizeMissing: false, type: audio) added to list
+02:25:45.261 > [ 55399][I][SoapESP32.cpp:910] soapScanItem(): "Draco Malfoy Was Hurrying Up The Street" (id: "0$:items$*i9605", size: 1017646, sizeMissing: false, type: audio) added to list
+02:25:45.312 > [ 55449][I][SoapESP32.cpp:910] soapScanItem(): "Dumbledore slipped the Put-Outer back inside his cloak and set off down the street towards number four, ..." (id: "0$:items$*i9684", size: 1272577, sizeMissing: false, type: audio) added to list
+02:25:45.366 > [ 55503][I][SoapESP32.cpp:910] soapScanItem(): "Dumbledore turned and walked back down the street." (id: "0$:items$*i9686", size: 968978, sizeMissing: false, type: audio) added to list
+02:25:45.415 > [ 55553][I][SoapESP32.cpp:910] soapScanItem(): "It was on the corner of the street that he noticed the first sign of something peculiar - ..." (id: "0$:items$*i10883", size: 1584464, sizeMissing: false, type: audio) added to list
+02:25:45.469 > [ 55606][I][SoapESP32.cpp:910] soapScanItem(): "The classroom floor had become springily mossy and trees were growing out of it; ..." (id: "0$:items$*i12355", size: 1282264, sizeMissing: false, type: audio) added to list
+02:25:45.521 > [ 55659][I][SoapESP32.cpp:910] soapScanItem(): "The giant let go of the top of the tree, which swayed alarmingly ..." (id: "0$:items$*i12386", size: 1387990, sizeMissing: false, type: audio) added to list
+02:25:45.573 > [ 55710][I][SoapESP32.cpp:910] soapScanItem(): "The sun was falling towards the tops of the trees in the Forbidden Forest now, ..." (id: "0$:items$*i12432", size: 842150, sizeMissing: false, type: audio) added to list
+02:25:45.625 > [ 55762][I][SoapESP32.cpp:910] soapScanItem(): "The treetops of the Forbidden Forest swayed in a light breeze." (id: "0$:items$*i12440", size: 834188, sizeMissing: false, type: audio) added to list
+02:25:45.675 > [ 55812][I][SoapESP32.cpp:910] soapScanItem(): "They Made Their Way Through The Trees" (id: "0$:items$*i12514", size: 1229654, sizeMissing: false, type: audio) added to list
+02:25:45.724 > [ 55860][I][SoapESP32.cpp:910] soapScanItem(): "They spread their books out in the shade of the beech tree ..." (id: "0$:items$*i12524", size: 1079949, sizeMissing: false, type: audio) added to list
+02:25:45.741 > [ 55871][I][SoapESP32.cpp:1038] soapProcessRequest(): found 1 folders and 15 files
+02:25:45.748 > Search results: 16
+02:25:45.750 >  Wisper in Baker Street (Container, child count: 58)
+02:25:45.755 >  'So, whatever you need leaves and wood from a tree in which a Bowtruckle lodges, ...' (Item, size: 929087, artist: J. K. Rowling)
+02:25:45.767 >  15 Street Art (Item, size: 7439317, artist: Marc-Uwe Kling)
+02:25:45.772 >  Albus Dumbledore didn't seem to realise that he had just arrived in a street ... (Item, size: 1448093, artist: J. K. Rowling)
+02:25:45.783 >  At last they rejoined the path and, after another ten minutes, the trees began to thin; ... (Item, size: 947485, artist: J. K. Rowling)    
+02:25:45.796 >  Despite the cloudless sky, the old trees ahead cast deep, dark, cool shadows ... (Item, size: 965860, artist: J. K. Rowling)
+02:25:45.807 >  Draco Malfoy Was Hurrying Up The Street (Item, size: 1017646, artist: J. K. Rowling)
+02:25:45.814 >  Dumbledore slipped the Put-Outer back inside his cloak and set off down the street towards number four, ... (Item, size: 1272577, artist: J. K. Rowling)
+02:25:45.828 >  Dumbledore turned and walked back down the street. (Item, size: 968978, artist: J. K. Rowling)
+02:25:45.836 >  It was on the corner of the street that he noticed the first sign of something peculiar - ... (Item, size: 1584464, artist: J. K. Rowling)
+02:25:45.848 >  The classroom floor had become springily mossy and trees were growing out of it; ... (Item, size: 1282264, artist: J. K. Rowling)
+02:25:45.860 >  The giant let go of the top of the tree, which swayed alarmingly ... (Item, size: 1387990, artist: J. K. Rowling)
+02:25:45.870 >  The sun was falling towards the tops of the trees in the Forbidden Forest now, ... (Item, size: 842150, artist: J. K. Rowling)
+02:25:45.881 >  The treetops of the Forbidden Forest swayed in a light breeze. (Item, size: 834188, artist: J. K. Rowling)
+02:25:45.890 >  They Made Their Way Through The Trees (Item, size: 1229654, artist: J. K. Rowling)
+02:25:45.898 >  They spread their books out in the shade of the beech tree ... (Item, size: 1079949, artist: J. K. Rowling)
+02:25:45.907 >
+02:25:45.908 >
+02:25:45.908 > Sketch finished.

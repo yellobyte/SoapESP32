@@ -4,7 +4,7 @@
   This sketch scans the local network for DLNA media servers
   using ESP32 builtin WiFi and prints them.
 
-  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-22, ThJ <yellobyte@bluewin.ch>
  */
 
 #include <Arduino.h>
@@ -50,7 +50,7 @@ void setup() {
 
   // Show connection details of all discovered, usable media servers
   soapServer_t srv;
-  uint8_t srvNum = 0;
+  unsigned int srvNum = 0;
 
   while (soap.getServerInfo(srvNum++, &srv)) {
     // Print server details

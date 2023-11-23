@@ -5,7 +5,7 @@
   a WOL (Wake On LAN) message in the local network. Necessary when you 
   have to wake up the NAS that is hosting your DLNA media server.
 
-  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -32,7 +32,7 @@ SoapESP32 soap(&client, &udp);
 void showServer(SoapESP32 *soap)
 {
   soapServer_t srv;
-  uint8_t srvNum = 0;
+  unsigned int srvNum = 0;
 
   // scan local network for DLNA media servers,
   // your server (if sleeping) shouldn't be detected at this stage !
