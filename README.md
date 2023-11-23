@@ -71,23 +71,25 @@ The doc files and/or manuals of almost all media servers give no info as to a se
 Of all the media servers I tested only **Twonky**, **Emby**, **Mezzmo** and **MinimServer** accepted search requests to a various extent. This of course might depend on the version used (free version or fully licensed) as well as the server's software release, etc.  
 
 Below follow some examples for successfully tested **search criterias**:
-1) Searching for files whose property **title** contains the string "wind":  
-   **dc:title contains "wind"**.  
-All the following file titles would match above criteria: "Wind", "Winds of change", "slow winds", "rewind", etc.
+1) Searching for items whose property **title** contains the string "wind":  
+   **dc:title contains "wind"**  
+All the following titles would match above criteria: "Wind", "Winds of change", "slow winds", "rewind", etc.
 2) Searching for files whose property **album** contains the string "Best Of":  
-   **upnp:album contains "Best Of"**.
+   **upnp:album contains "Best Of"**
 3) Searching for files whose property **artist** contains the string "John":  
-   **upnp:artist contains "John"**.
+   **upnp:artist contains "John"**
 4) Searching for files whose property **genre** contains the string "New Age" (did not work with Mezzmo):  
-   **"upnp:genre contains "New Age"**.
+   **"upnp:genre contains "New Age"**
 5) Even combined search criterias were accepted (did not work with Mezzmo), e.g.:  
-   **upnp:genre contains "New Age" and dc:title contains "March"**.
+   **upnp:genre contains "New Age" and dc:title contains "March"**
 6) Only with Twonky searching for a class of files was possibly, e.g. for **video** files:  
-   **upnp:class derivedfrom "object.item.videoItem"**.
+   **upnp:class derivedfrom "object.item.videoItem"**
 7) And combinations like **video file** and **title**:  
-   **upnp:class derivedfrom "object.item.videoItem" and dc:title contains "street"**.
+   **upnp:class derivedfrom "object.item.videoItem" and dc:title contains "street"**
 8) Or **audio file** and **album**:  
-   **upnp:class derivedfrom "object.item.audioItem" and dc:album contains "One"**.   
+   **upnp:class derivedfrom "object.item.audioItem" and dc:album contains "One"**
+9) Or **album folder** and **title**:  
+   **upnp:class derivedfrom "object.container.album" and dc:title contains "Songs"**
 
 Twonky accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
 1) Name of title, ascending (default) --> sort criteria: **"+dc:title"**
