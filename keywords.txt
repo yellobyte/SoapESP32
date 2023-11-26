@@ -19,6 +19,7 @@ wakeUpServer	KEYWORD2
 addServer	KEYWORD2
 seekServer	KEYWORD2
 browseServer	KEYWORD2
+searchServer	KEYWORD2
 getServerCount	KEYWORD2
 getServerInfo	KEYWORD2
 clearServerList	KEYWORD2
