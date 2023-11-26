@@ -42,7 +42,7 @@ Always make sure you have one of the latest versions of **Arduino core for ESP32
 
 Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
 
-- As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP content search requests to media servers asking for a list of items that match certain criterias, e.g. the items _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP search requests though. More info below.
+- As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP content search requests to media servers asking for a list of items that match certain criterias, e.g. the items property _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP content search requests though. More info below.
 
 - Some media servers do not answer SSDP M-SEARCH requests but instead broadcast NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function _seekServer()_ has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer value (5...120) for setting a specific scan duration (in sec) if needed.
 
@@ -66,7 +66,7 @@ If you run into trouble with your particular DLNA media server or NAS, increase 
 
 ### :mag: Searching for items using UPnP content search requests
 
-The doc files and/or manuals of almost all media servers give no info as to a servers UPnP content search capabilities resp. what search criterias their ContentDirectory service accepts. Hence it was a typical trial-and-error approach.
+The doc files and/or manuals of most media servers only give sparse info as to their UPnP content search capabilities resp. what search/sort criterias their ContentDirectory service accepts. Hence it was a typical trial-and-error approach.
 
 Of all the media servers I tested only **Twonky**, **Emby**, **Mezzmo** and **MinimServer** accepted content search requests to a various extent. This of course might depend on the version used (freeware, fully licensed, etc.) as well as the server's software release.  
 
@@ -95,9 +95,9 @@ Only Twonky accepted optional **sort criterias**. They define the sort order of 
 1) Name of title, ascending (default) --> sort criteria: **"+dc:title"**
 2) Name of title, descending --> sort criteria: **"-dc:title"**
 
-Above list of standardized search/sort criterias is far from being complete. However, those were the ones I needed/tested and I haven't bothered to try any other.  
+Above list of standardized search/sort criterias is far from being complete. If you are interested in this topic, have a look [here](http://upnp.org/specs/av/UPnP-av-ContentDirectory-v4-Service.pdf). However, above criterias were the ones I needed/tested and I haven't bothered to try any other.  
 
-File _SoapESP32.h_ provides a few predefined search/sort criterias as used in the software examples. You can of course pass any other criteria(s) to function **_searchServer()_** you want to give a try. Some servers I tested have answered with _500 Internal Server Error_ and others with a simple browse reply to unknown/unaccepted search requests or search criterias.
+File _SoapESP32.h_ provides a few predefined search/sort criterias as used in the software examples. You can of course pass any other criteria(s) to function **_searchServer()_** you want to give a try. Some servers I tested have answered with _500 Internal Server Error_ and others with a simple browse reply (with or without results) to unknown/unaccepted search requests or search criterias.
 
 The provided example sketches _SearchServerExample.....ino_ and the accompanying log files _SearchServerExample...log_ demonstrate the usage of function _searchServer()_. The function simply sends a search request (containing up to two search criterias and an optional sort criteria) to the targeted media server and waits for the server to reply with a list of matching items. 
 
