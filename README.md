@@ -42,7 +42,7 @@ Always make sure you have one of the latest versions of **Arduino core for ESP32
 
 Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
 
-- As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP search requests to media servers asking for a list of items that match certain criterias, e.g. the items _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP search requests though. More info below.
+- As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP content search requests to media servers asking for a list of items that match certain criterias, e.g. the items _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP search requests though. More info below.
 
 - Some media servers do not answer SSDP M-SEARCH requests but instead broadcast NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function _seekServer()_ has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer value (5...120) for setting a specific scan duration (in sec) if needed.
 
@@ -64,11 +64,11 @@ Most DLNA media servers I tested the library with showed some oddities. All comp
 	
 If you run into trouble with your particular DLNA media server or NAS, increase `CORE_DEBUG_LEVEL` and it gives you an indication where the problem is. Tracing the communication with Wireshark can help as well.
 
-### :mag: Searching for files using UPnP search requests
+### :mag: Searching for items using UPnP content search requests
 
-The doc files and/or manuals of almost all media servers give no info as to a servers UPnP search capabilities. Hence it was a typical trial-and-error approach.
+The doc files and/or manuals of almost all media servers give no info as to a servers UPnP content search capabilities resp. what search criterias their ContentDirectory service accepts. Hence it was a typical trial-and-error approach.
 
-Of all the media servers I tested only **Twonky**, **Emby**, **Mezzmo** and **MinimServer** accepted search requests to a various extent. This of course might depend on the version used (free version or fully licensed) as well as the server's software release, etc.  
+Of all the media servers I tested only **Twonky**, **Emby**, **Mezzmo** and **MinimServer** accepted content search requests to a various extent. This of course might depend on the version used (freeware, fully licensed, etc.) as well as the server's software release.  
 
 Below follow some examples for successfully tested **search criterias**:
 1) Searching for items whose property **title** contains the string "wind":  
@@ -95,9 +95,11 @@ Only Twonky accepted optional **sort criterias**. They define the sort order of 
 1) Name of title, ascending (default) --> sort criteria: **"+dc:title"**
 2) Name of title, descending --> sort criteria: **"-dc:title"**
 
-I don't claim above list of search/sort criterias to be complete. However, those were the ones I needed and I haven't bothered to look for more.
+Above list of standardized search/sort criterias is far from being complete. However, those were the ones I needed/tested and I haven't bothered to try any other.  
 
-The provided example sketches _SearchServerExample.....ino_ and the accompanying log files _SearchServerExample...log_ demonstrate the usage of the search function **_searchServer()_**. The function simply sends a search request (containing up to two search criterias) to the media server and waits for the server to reply with a list of matching items. 
+File _SoapESP32.h_ provides a few predefined search/sort criterias as used in the software examples. You can of course pass any other criteria(s) to function **_searchServer()_** you want to give a try. Some servers I tested have answered with _500 Internal Server Error_ and others with a simple browse reply to unknown/unaccepted search requests or search criterias.
+
+The provided example sketches _SearchServerExample.....ino_ and the accompanying log files _SearchServerExample...log_ demonstrate the usage of function _searchServer()_. The function simply sends a search request (containing up to two search criterias and an optional sort criteria) to the targeted media server and waits for the server to reply with a list of matching items. 
 
 Just to give you a better idea, running example _SearchServerExample1_WiFi.ino_ in my home network and searching for all files/folders whose title contains the string "words" (search criteria: **dc:title contains "words"**) produced the following slightly stripped-down result:
 ```c
@@ -126,11 +128,9 @@ Hint: Similar to function browseServer(), if the returned list contains 100 (SOA
 ### :heavy_exclamation_mark: Using W5x00 Ethernet shield/boards instead of builtin WiFi (optional)
 
 Using a Wiznet W5x00 board and the standard Arduino Ethernet lib for communication produced some sporadic issues. Especially client.read() calls returned corrupted data every now and then, esp. with other threads using the SPI bus simultaneously.
-This problem is mentioned a few times in forums on the internet, so it seems to be a known ESP32 Arduino SPI library issue.
+This is because the SPI Master Driver is not thread safe as documented in section "Driver Features" [here](https://docs.espressif.com/projects/esp-idf/en/v4.3.3/esp32/api-reference/peripherals/spi_master.html).
 
-The only remedy I found was to wrap all function calls that use SPI with a global/project wide mutex lock (realized within this library with the aid of *claimSPI()/releaseSPI()*). This completely wiped all those problems. See example [*UsingMutexLocks_Ethernet.ino*](https://github.com/yellobyte/SoapESP32/tree/main/examples/UsingMutexLocks_Ethernet/UsingMutexLocks_Ethernet.ino) for more details.
-
-Of course, the ESP32 Arduino SPI library already uses locks (SPI_MUTEX_LOCK/SPI_MUTEX_UNLOCK) but doesn't seem to be 100% thread proof though. Please correct me if I'm wrong or you do find a better solution.
+Therefore wrapping all function calls that use SPI with a global/project wide mutex lock (realized within this library with the aid of *claimSPI()/releaseSPI()*) completely wiped out all those problems. See example [*UsingMutexLocks_Ethernet.ino*](https://github.com/yellobyte/SoapESP32/tree/main/examples/UsingMutexLocks_Ethernet/UsingMutexLocks_Ethernet.ino) for more details.
 
 ### :hammer_and_wrench: Setting compiler/build options:
 
