@@ -66,9 +66,9 @@ If you run into trouble with your particular DLNA media server or NAS, increase 
 
 ### :mag: Searching for items using UPnP content search requests
 
-The doc files and/or manuals of most media servers only give sparse info as to their UPnP content search capabilities resp. what search/sort criterias their ContentDirectory service accepts. Hence it was a typical trial-and-error approach.
+The doc files and/or manuals of almost all media servers give no info as to a servers UPnP search capabilities. Easiest way to find out is to run the provided example _GetServerCapabilities_WiFi.ino_. It simply uses function _getServerCapabilities()_ to query each detected server in the local network.
 
-Of all the media servers I tested only **Twonky**, **Emby**, **Mezzmo** and **MinimServer** accepted content search requests to a various extent. This of course might depend on the version used (freeware, fully licensed, etc.) as well as the server's software release.  
+Not all media servers support UPnP content search requests. Of the ones I tested **Plex** and **Serviio** did not. In contrast **Twonky**, **Emby**, **Mezzmo**, **UMS**, **Jellyfin** and **MinimServer** accepted search requests albeit to a various extent. This of course might depend on the version used (free version or fully licensed) as well as the server's software release, etc. Have a look at [*GetServerCapabilities_WiFi_2-Warning.log*](https://github.com/yellobyte/SoapESP32/tree/main/doc/Logfiles/GetServerCapabilities_WiFi_2-Warning.log) for an example of reported capabilities.
 
 Below follow some examples for successfully tested **search criterias**:
 1) Searching for items whose property **title** contains the string "wind":  
@@ -82,7 +82,7 @@ All the following titles would match above criteria: "Wind", "Winds of change", 
    **"upnp:genre contains "New Age"**
 5) Even combined search criterias were accepted (did not work with Mezzmo):  
    **upnp:genre contains "New Age" and dc:title contains "March"**
-6) Only with Twonky searching for a class of files was possible, e.g. for **video** files:  
+6) Some server supported searching for a certain class of files, e.g. for **video** files:  
    **upnp:class derivedfrom "object.item.videoItem"**
 7) And combinations like **video file** and **title**:  
    **upnp:class derivedfrom "object.item.videoItem" and dc:title contains "street"**
@@ -91,17 +91,17 @@ All the following titles would match above criteria: "Wind", "Winds of change", 
 9) Or **album folder** and **title**:  
    **upnp:class derivedfrom "object.container.album" and dc:title contains "Songs"**
 
-Only Twonky accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
+Some server even accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
 1) Name of title, ascending (default) --> sort criteria: **"+dc:title"**
 2) Name of title, descending --> sort criteria: **"-dc:title"**
 
-Above list of standardized search/sort criterias is far from being complete. If you are interested in this topic, have a look [here](http://upnp.org/specs/av/UPnP-av-ContentDirectory-v4-Service.pdf). However, above criterias were the ones I needed/tested and I haven't bothered to try any other.  
+Above list of possible search/sort criterias is far from being complete. However, those were the ones I needed in a project and therefore only tested.
 
-File _SoapESP32.h_ provides a few predefined search/sort criterias as used in the software examples. You can of course pass any other criteria(s) to function **_searchServer()_** you want to give a try. Some servers I tested have answered with _500 Internal Server Error_ and others with a simple browse reply (with or without results) to unknown/unaccepted search requests or search criterias.
+The provided example sketches _SearchServerExample.....ino_ and the accompanying log files _SearchServerExample...log_ demonstrate the usage of the search function **_searchServer()_**. The function simply sends a UPnP search request (containing up to two search criterias and an optional sort criteria) to a media server and waits for the server to reply with a list of matching items.  
 
-The provided example sketches _SearchServerExample.....ino_ and the accompanying log files _SearchServerExample...log_ demonstrate the usage of function _searchServer()_. The function simply sends a search request (containing up to two search criterias and an optional sort criteria) to the targeted media server and waits for the server to reply with a list of matching items. 
+File _SoapESP32.h_ provides a limited number of predefined search/sort criterias. Some of them get used in the software examples. You can of course pass any other criteria(s) you want to give a try to function _searchServer()_. Some servers I tested have answered with _500 Internal Server Error_ and others with a simple browse response (with or without results) to unknown/unaccepted search requests or search criterias.
 
-Just to give you a better idea, running example _SearchServerExample1_WiFi.ino_ in my home network and searching for all files/folders whose title contains the string "words" (search criteria: **dc:title contains "words"**) produced the following slightly stripped-down result:
+Just to give you a better idea, running example _SearchServerExample1_WiFi.ino_ in my home network and searching for all files/folders whose title contains the string "words" (search criteria: **dc:title contains "words"**) produced the following stripped-down result:
 ```c
 21:48:49.384 > Connecting to WiFi network ..
 21:48:54.201 > Connected successfully. IP address: 192.168.1.46
@@ -124,6 +124,56 @@ Just to give you a better idea, running example _SearchServerExample1_WiFi.ino_ 
 ...
 ```
 Hint: Similar to function browseServer(), if the returned list contains 100 (SOAP_DEFAULT_SEARCH_MAX_COUNT) items you might try again with increasing starting index 100, 200, 300 and so on to get all items matching the criteria(s).
+
+Running example _GetServerCapabilities_WiFi.ino_ in my home network and querying all detected media servers (2 running on a real QNAP device and 6 in a VM just for testing purposes) for their search/sort capabilities produced the following stripped-down result:
+
+```c
+20:00:33.528 > Connecting to WiFi network ..
+20:00:36.161 > Connected successfully. IP address: 192.168.1.46
+20:00:36.166 > 
+20:00:36.167 > Scanning local network for DLNA media servers...
+20:01:46.570 > Number of discovered servers that deliver content: 8
+20:01:46.575 > 
+20:01:46.575 > Server[0]: IP address: 192.168.1.40, port: 53168, name: Mezzmo
+20:01:46.613 > server has reported search capabilities: 4
+20:01:46.616 >  id
+20:01:46.616 >  dc:title
+20:01:46.618 >  upnp:artist
+20:01:46.619 >  upnp:album
+20:01:46.621 > 
+20:01:46.648 > server has reported sort capabilities: 2
+20:01:46.653 >  dc:title
+20:01:46.653 >  upnp:originalTrackNumber
+20:01:46.655 >
+20:01:46.655 > Server[1]: IP address: 192.168.1.40, port: 1557, name: Kodi (Virtual-Win10)
+20:01:46.711 > server has reported search capabilities: 1
+20:01:46.715 >  upnp:class
+20:01:46.717 >
+20:01:46.759 > server has reported sort capabilities: 18
+20:01:46.763 >  res@duration
+20:01:46.763 >  res@size
+20:01:46.764 >  res@bitrate
+20:01:46.766 >  dc:date
+20:01:46.767 >  dc:title
+20:01:46.768 >  dc:size
+20:01:46.769 >  upnp:album
+20:01:46.770 >  upnp:artist
+20:01:46.771 >  upnp:albumArtist
+20:01:46.773 >  upnp:episodeNumber
+20:01:46.775 >  upnp:genre
+20:01:46.776 >  upnp:originalTrackNumber
+20:01:46.778 >  upnp:rating
+20:01:46.779 >  upnp:episodeCount
+20:01:46.781 >  upnp:episodeSeason
+20:01:46.783 >  xbmc:rating
+20:01:46.784 >  xbmc:dateadded
+20:01:46.786 >  xbmc:votes
+20:01:46.787 >
+20:01:46.787 > Server[2]: IP address: 192.168.1.40, port: 32469, name: Plex Media Server: Plex (Virtual-Win10)
+20:01:46.824 > server has reported search capabilities: 0
+...
+...
+```
 
 ### :heavy_exclamation_mark: Using W5x00 Ethernet shield/boards instead of builtin WiFi (optional)
 

@@ -22,6 +22,7 @@ browseServer	KEYWORD2
 searchServer	KEYWORD2
 getServerCount	KEYWORD2
 getServerInfo	KEYWORD2
+getServerCapabilities	KEYWORD2
 clearServerList	KEYWORD2
 readStart	KEYWORD2
 read		KEYWORD2

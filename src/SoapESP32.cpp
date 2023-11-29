@@ -43,6 +43,8 @@ enum eXpath { xpFriendlyName = 0, xpServiceType, xpControlUrl,
               xpSearchContainer, xpSearchContainerAlt1, xpSearchContainerAlt2,
               xpSearchItem, xpSearchItemAlt1, xpSearchItemAlt2, 
               xpSearchNumberReturned, xpSearchNumberReturnedAlt1, xpSearchNumberReturnedAlt2,
+              xpGetSearchCapabilities, xpGetSearchCapabilitiesAlt1, xpGetSearchCapabilitiesAlt2,
+              xpGetSortCapabilities, xpGetSortCapabilitiesAlt1, xpGetSortCapabilitiesAlt2,
               xpTitle, xpAlbum, xpArtist, xpGenre, xpClass, xpResource };
 
 xPathParser_t xmlParserPaths[] = { 
@@ -67,6 +69,12 @@ xPathParser_t xmlParserPaths[] = {
   { .num = 4, .tagNames = { "s:Envelope", "s:Body", "u:SearchResponse", "NumberReturned" } },
   { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:SearchResponse", "NumberReturned" } },
   { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:SearchResponse", "NumberReturned" } },  
+  { .num = 4, .tagNames = { "s:Envelope", "s:Body", "u:GetSearchCapabilitiesResponse", "SearchCaps" } },
+  { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:GetSearchCapabilitiesResponse", "SearchCaps" } },
+  { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:GetSearchCapabilitiesResponse", "SearchCaps" } },  
+  { .num = 4, .tagNames = { "s:Envelope", "s:Body", "u:GetSortCapabilitiesResponse", "SortCaps" } },
+  { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "m:GetSortCapabilitiesResponse", "SortCaps" } },
+  { .num = 4, .tagNames = { "SOAP-ENV:Envelope", "SOAP-ENV:Body", "u:GetSortCapabilitiesResponse", "SortCaps" } },  
   { .num = 1, .tagNames = { "dc:title" } },
   { .num = 1, .tagNames = { "upnp:album" } },
   { .num = 1, .tagNames = { "upnp:artist" } },
@@ -975,6 +983,9 @@ bool SoapESP32::soapProcessRequest(const unsigned int srv,         // server num
   }
   if (!chunked && contentSize == 0) {  
     log_e("announced XML size: 0 !"); 
+    claimSPI();
+    m_client->stop();
+    releaseSPI();    
     return false;
   } 
   log_i("scan answer from media server:"); 
@@ -1100,6 +1111,105 @@ bool SoapESP32::searchServer(const unsigned int srv,         // server number in
   sort = (sortCriteria == NULL) ? SOAP_DEFAULT_SEARCH_SORT_CRITERIA : sortCriteria;
 
   return soapProcessRequest(srv, objectId, searchResult, search.c_str(), sort.c_str(), startingIndex, maxCount);
+}
+
+//
+// Querying a media server's search/sort capabilities
+//
+bool SoapESP32::getServerCapabilities(const unsigned int srv, eCapabilityType capability, soapServerCapVect_t *result)
+{
+  if (srv >= m_server.size()) {
+    log_e("invalid server number: %d", srv);
+    return false;
+  }
+
+  log_i("querying %s capabilities from server: \"%s\"", capability == capSearch ? "search" : "sort", m_server[srv].friendlyName.c_str());
+
+  // send SOAP browse/search request to server
+  if (!soapPostCapabilities(m_server[srv].ip, m_server[srv].port, m_server[srv].controlURL.c_str(), capability)) {
+    return false;
+  }  
+  log_i("connected successfully to server %s:%d", m_server[srv].ip.toString().c_str(), m_server[srv].port);
+
+  // evaluate SOAP answer
+  uint64_t contentSize;
+  bool chunked = false;
+  MiniXPath xPathCaps, xPathCapsAlt1, xPathCapsAlt2;
+  String strCaps((char *)0);
+
+  // reading HTTP header
+  if (!soapReadHttpHeader(&contentSize, &chunked)) {
+    log_e("HTTP Header not ok or reply status not 200");
+    claimSPI();
+    m_client->stop();
+    releaseSPI();
+    return false;
+  }
+  if (!chunked && contentSize == 0) {  
+    log_e("announced XML size: 0 !"); 
+    claimSPI();
+    m_client->stop();
+    releaseSPI();    
+    return false;
+  } 
+  log_i("scan answer from media server:"); 
+
+  result->clear();
+
+  // HTTP header ok, now scan XML/SOAP reply
+  int eNum = (capability == capSearch) ? xpGetSearchCapabilities : xpGetSortCapabilities;
+  xPathCaps.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathCapsAlt1.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum++].num);
+  xPathCapsAlt2.setPath(xmlParserPaths[eNum].tagNames, xmlParserPaths[eNum].num);
+
+  while (true) {
+    int ret = soapReadXML(chunked, true);  // de-chunk data stream and replace XML-entities (if found)
+    if (ret < 0) {
+      log_e("soapReadXML() returned: %d%s", ret, ret == -1 ? " (likely EOF)" : ""); 
+      goto end_stop;
+    }  
+    // TEST
+    //Serial.print((char)ret);
+    //
+    if (xPathCaps.getValue((char)ret, &strCaps) ||
+        xPathCapsAlt1.getValue((char)ret, &strCaps) ||
+        xPathCapsAlt2.getValue((char)ret, &strCaps)) {
+      log_v("\n%sCaps (length=%d): \"%s\"", capability == capSearch ? "Search" : "Sort", strCaps.length(), strCaps.c_str());
+      break;
+    }
+  }
+
+if (strCaps.length()) {
+  unsigned int start = 0, index;
+  String strItem((char *)0);
+
+  // itemize the comma separated list of capabilities
+  do {
+    if ((index = strCaps.indexOf(',', start)) >= 0) {
+      strItem = strCaps.substring(start, index);
+    }
+    else {
+      strItem = strCaps.substring(start);
+    }
+    start += strItem.length() + 1;
+    if (strItem.length()) result->push_back(strItem);
+  }
+  while (start < strCaps.length());
+}
+
+end_stop:
+  claimSPI();
+  m_client->stop();
+  releaseSPI();
+
+  // TEST
+#if CORE_DEBUG_LEVEL > 3
+  delay(5);	// allow pending serial monitor output to be sent
+#elif CORE_DEBUG_LEVEL > 0  
+  delay(2);
+#endif  
+
+  return true;
 }
 
 //
@@ -1415,6 +1525,108 @@ bool SoapESP32::soapPost(const IPAddress ip,
 
   // send request to server
   log_v("send %s request to server:\n%s", search ? "search" : "browse", str.c_str());
+  claimSPI();
+  m_client->print(str);
+  releaseSPI();
+
+  // wait for a reply until timeout
+  uint32_t start = millis();
+  while (true) {
+    claimSPI();
+    int av = m_client->available();
+    releaseSPI();
+    if (av) break;
+    if (millis() > (start + SERVER_RESPONSE_TIMEOUT)) {
+      claimSPI();
+      m_client->stop();
+      releaseSPI();
+      log_e("POST: no reply from server within %d ms", SERVER_RESPONSE_TIMEOUT);
+      free(buffer);
+      return false;
+    }
+  }
+  free(buffer);
+
+  return true;
+}
+
+//
+// HTTP POST request (search/sort capabilities)
+//
+bool SoapESP32::soapPostCapabilities(const IPAddress ip, 
+                                     const uint16_t port, 
+                                     const char *uri, 
+                                     eCapabilityType capability)
+{
+  if (m_clientDataConOpen) {  
+    // should not get here...probably buggy main
+    claimSPI();
+    m_client->stop();
+    releaseSPI();
+    m_clientDataConOpen = false;
+    log_w("client data connection to media server was still open. Closed now.");
+  }
+
+  for (int i = 0;;) {
+    claimSPI();
+    int ret = m_client->connect(ip, (uint16_t)port);
+    releaseSPI();
+    if (ret) break;
+    if (++i >= 2) {
+      log_e("error connecting to server ip=%s, port=%d", ip.toString().c_str(), port);
+      return false;
+    }  
+    delay(100);  
+  }
+
+  // memory allocation for assembling HTTP header
+  size_t length = strlen(uri) + 30;
+  char *buffer = (char *)malloc(length);
+  if (!buffer) {
+    log_e("malloc() couldn't allocate memory");    
+    return false;
+  }
+
+  uint16_t messageLength;
+  String str((char *)0);
+
+  // calculate XML message length
+  messageLength = sizeof(SOAP_ENVELOPE_START) - 1;
+  messageLength += sizeof(SOAP_BODY_START) - 1;
+  messageLength += capability == capSort ? (sizeof(SOAP_GETSORTCAP_START) - 1) : (sizeof(SOAP_GETSEARCHCAP_START) - 1);
+  messageLength += capability == capSort ? (sizeof(SOAP_GETSORTCAP_END) - 1) : (sizeof(SOAP_GETSEARCHCAP_END) - 1);
+  messageLength += sizeof(SOAP_BODY_END) - 1;
+  messageLength += sizeof(SOAP_ENVELOPE_END) - 1;
+
+  // assemble HTTP header
+  snprintf(buffer, length, "POST /%s %s", uri, HTTP_VERSION);
+  str += buffer;
+  log_d("%s:%d %s", ip.toString().c_str(), port, buffer);
+  str += "\r\n";
+  snprintf(buffer, length, HEADER_HOST, ip.toString().c_str(), port); // 29 bytes max
+  str += buffer;
+  // TEST
+  str += "CACHE-CONTROL: no-cache\r\nPRAGMA: no-cache\r\n";
+  //str += "FRIENDLYNAME.DLNA.ORG: ESP32-Radio\r\n";
+  //
+  str += HEADER_CONNECTION_CLOSE;
+  snprintf(buffer, length, HEADER_CONTENT_LENGTH_D, messageLength);
+  str += buffer;
+  str += HEADER_CONTENT_TYPE;
+  str += capability == capSort ? HEADER_SOAP_ACTION_GETSORTCAP : HEADER_SOAP_ACTION_GETSEARCHCAP;
+  str += HEADER_USER_AGENT;
+  str += HEADER_EMPTY_LINE;                    // empty line marks end of HTTP header
+
+  // assemble SOAP message (multiple str+= instead of a single str+=..+..+.. reduces allocation depth)
+  str += SOAP_ENVELOPE_START;
+  str += SOAP_BODY_START;
+  str += capability == capSort ? SOAP_GETSORTCAP_START : SOAP_GETSEARCHCAP_START;
+  str += capability == capSort ? SOAP_GETSORTCAP_END : SOAP_GETSEARCHCAP_END;
+  str += SOAP_BODY_END;
+  str += SOAP_ENVELOPE_END;
+
+  // send request to server
+  log_v("send %s request to server:\n%s", capability == capSort ? "GetSortCapabilities" : "GetSearchCapabilities", str.c_str());
   claimSPI();
   m_client->print(str);
   releaseSPI();

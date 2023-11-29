@@ -12,7 +12,7 @@
   If found the sketch browses that directory multiple times, each time with a higher starting 
   index: 0, 100, 200, etc. until all items in that directory have been printed.
     
-  Last updated 2023-11-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-29, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -35,7 +35,7 @@ WiFiUDP    udp;
 
 SoapESP32 soap(&client, &udp);
 
-bool findBigDirectory(SoapESP32 *soap, int servNum, soapObject_t *object) {
+bool findBigDirectory(SoapESP32 *soap, unsigned int servNum, soapObject_t *object) {
   static int level;  
   soapObjectVect_t browseResult;
 

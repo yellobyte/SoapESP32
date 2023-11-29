@@ -8,7 +8,7 @@
   Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-11-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-29, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -35,7 +35,7 @@
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
 #define GPIO_ETHCS 25
-#define GPIO_SDCS   5
+#define GPIO_SDCS  5
 
 EthernetClient client;
 EthernetUDP udp;
@@ -47,7 +47,7 @@ File myFile;
 // parameter "object":
 //  - when entering the function it contains the directory to browse
 //  - when function returns true it contains the file info
-bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
+bool findAudioFile(SoapESP32 *soap, unsigned int servNum, soapObject_t *object) {
   static int level;
   soapObjectVect_t browseResult;
 

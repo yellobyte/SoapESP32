@@ -6,7 +6,7 @@
 
   SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
     
-  Last updated 2023-11-22, ThJ <yellobyte@bluewin.ch>
+  Last updated 2023-11-29, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -42,7 +42,7 @@ File myFile;
 // parameter "object": 
 //  - when entering the function it contains the directory to browse
 //  - when function returns true it contains the file info
-bool findAudioFile(SoapESP32 *soap, int servNum, soapObject_t *object) {
+bool findAudioFile(SoapESP32 *soap, unsigned int servNum, soapObject_t *object) {
   static int level;  
   soapObjectVect_t browseResult;
 

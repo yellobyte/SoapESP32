@@ -62,19 +62,21 @@
 #define SSDP_NOTIFICATION_SUB_TYPE   "ssdp:alive"
 
 // HTTP header lines
-#define HTTP_VERSION                 "HTTP/1.1"
-#define HTTP_HEADER_200_OK           "HTTP/1.1 200 OK"
-#define HEADER_CONTENT_LENGTH        "Content-Length: "
-#define HEADER_HOST                  "Host: %s:%d\r\n"
-#define HEADER_CONTENT_TYPE          "Content-Type: text/xml; charset=\"utf-8\"\r\n"
-#define HEADER_TRANS_ENC_CHUNKED     "Transfer-Encoding: chunked"
-#define HEADER_CONTENT_LENGTH_D      "Content-Length: %d\r\n"
-#define HEADER_SOAP_ACTION_BROWSE    "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#Browse\"\r\n"
-#define HEADER_SOAP_ACTION_SEARCH    "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#Search\"\r\n"
-#define HEADER_USER_AGENT            "User-Agent: ESP32/Player/UPNP1.0\r\n"
-#define HEADER_CONNECTION_CLOSE      "Connection: close\r\n"
-#define HEADER_CONNECTION_KEEP_ALIVE "Connection: keep-alive\r\n"
-#define HEADER_EMPTY_LINE            "\r\n"
+#define HTTP_VERSION                    "HTTP/1.1"
+#define HTTP_HEADER_200_OK              "HTTP/1.1 200 OK"
+#define HEADER_CONTENT_LENGTH           "Content-Length: "
+#define HEADER_HOST                     "Host: %s:%d\r\n"
+#define HEADER_CONTENT_TYPE             "Content-Type: text/xml; charset=\"utf-8\"\r\n"
+#define HEADER_TRANS_ENC_CHUNKED        "Transfer-Encoding: chunked"
+#define HEADER_CONTENT_LENGTH_D         "Content-Length: %d\r\n"
+#define HEADER_SOAP_ACTION_BROWSE       "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#Browse\"\r\n"
+#define HEADER_SOAP_ACTION_SEARCH       "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#Search\"\r\n"
+#define HEADER_SOAP_ACTION_GETSEARCHCAP "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#GetSearchCapabilities\"\r\n"
+#define HEADER_SOAP_ACTION_GETSORTCAP   "SOAPAction: \"urn:schemas-upnp-org:service:ContentDirectory:1#GetSortCapabilities\"\r\n"
+#define HEADER_USER_AGENT               "User-Agent: ESP32/Player/UPNP1.0\r\n"
+#define HEADER_CONNECTION_CLOSE         "Connection: close\r\n"
+#define HEADER_CONNECTION_KEEP_ALIVE    "Connection: keep-alive\r\n"
+#define HEADER_EMPTY_LINE               "\r\n"
 
 // SOAP tag data
 // TEST
@@ -90,6 +92,10 @@
 #define SOAP_BROWSE_END            "</u:Browse>\r\n"
 #define SOAP_SEARCH_START          "<u:Search xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
 #define SOAP_SEARCH_END            "</u:Search>\r\n"
+#define SOAP_GETSEARCHCAP_START    "<u:GetSearchCapabilities xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
+#define SOAP_GETSEARCHCAP_END      "</u:GetSearchCapabilities>\r\n"
+#define SOAP_GETSORTCAP_START      "<u:GetSortCapabilities xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
+#define SOAP_GETSORTCAP_END        "</u:GetSortCapabilities>\r\n"
 #define SOAP_OBJECTID_START        "<ObjectID>"
 #define SOAP_OBJECTID_END          "</ObjectID>\r\n"
 #define SOAP_CONTAINERID_START     "<ContainerID>"
@@ -130,6 +136,10 @@
 #define SOAP_SEARCH_CLASS_IMAGE      "object.item.imageItem" 
 #define SOAP_SORT_TITLE_ASCENDING    "+dc:title"
 #define SOAP_SORT_TITLE_DESCENDING   "-dc:title"
+#define SOAP_SORT_ARTIST_ASCENDING   "+upnp:artist"
+#define SOAP_SORT_ARTIST_DESCENDING  "-upnp:artist"
+#define SOAP_SORT_ALBUM_ASCENDING    "+upnp:album"
+#define SOAP_SORT_ALBUM_DESCENDING   "-upnp:album"
 
 // selected DIDL attributes for scanning
 #define DIDL_ATTR_ID           "id="
@@ -150,6 +160,11 @@ struct replaceWith_t
 
 // defines the data content of a reported item (file/stream)
 enum eFileType { fileTypeOther = 0, fileTypeAudio, fileTypeImage, fileTypeVideo };
+
+// defines what capabilities to query from server
+enum eCapabilityType { capSearch = 0, capSort };
+
+typedef std::vector<String> soapServerCapVect_t;
 
 // info collection of a single SOAP object (<container> or <item>) 
 struct soapObject_t
@@ -199,6 +214,7 @@ class SoapESP32
     unsigned int  seekServer(unsigned int scanDuration = SSDP_SCAN_DURATION);
     unsigned int  getServerCount(void);
     bool          getServerInfo(unsigned int srv, soapServer_t *serverInfo);
+    bool          getServerCapabilities(unsigned int srv, eCapabilityType capability, soapServerCapVect_t *result);
     bool          browseServer(const unsigned int srv, const char *objectId, soapObjectVect_t *browseResult, 
                                const uint32_t startingIndex = SOAP_DEFAULT_BROWSE_STARTING_INDEX, 
                                const uint16_t maxCount      = SOAP_DEFAULT_BROWSE_MAX_COUNT);
@@ -239,6 +255,7 @@ class SoapESP32
     bool soapGet(const IPAddress ip, const uint16_t port, const char *uri);
     bool soapPost(const IPAddress ip, const uint16_t port, const char *uri, const char *objectId, 
                   const char *searchCriteria, const char *sortCriteria, const uint32_t startingIndex, const uint16_t maxCount);                        
+    bool soapPostCapabilities(const IPAddress ip, const uint16_t port, const char *uri, eCapabilityType capability);
     bool soapReadHttpHeader(uint64_t *contentLength, bool *chunked = NULL);
     int  soapReadXML(bool chunked = false, bool replace = false);
     bool soapScanAttribute(const String *attributes, String *result, const char *searchFor);
