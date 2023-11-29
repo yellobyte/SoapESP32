@@ -91,7 +91,7 @@ All the following titles would match above criteria: "Wind", "Winds of change", 
 9) Or **album folder** and **title**:  
    **upnp:class derivedfrom "object.container.album" and dc:title contains "Songs"**
 
-Some server even accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
+Some servers even accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
 1) Name of title, ascending (default) --> sort criteria: **"+dc:title"**
 2) Name of title, descending --> sort criteria: **"-dc:title"**
 
