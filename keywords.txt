@@ -10,6 +10,7 @@ SoapESP32	KEYWORD1
 soapObject_t  KEYWORD1
 soapObjectVect_t	KEYWORD1
 soapServer_t	KEYWORD1
+soapServerCapVect_t	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -38,6 +39,8 @@ fileTypeOther	LITERAL1
 fileTypeAudio	LITERAL1
 fileTypeImage	LITERAL1
 fileTypeVideo	LITERAL1
+capSearch	LITERAL1
+capSort	LITERAL1
 
 
 
