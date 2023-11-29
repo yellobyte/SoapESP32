@@ -214,7 +214,7 @@ class SoapESP32
     unsigned int  seekServer(unsigned int scanDuration = SSDP_SCAN_DURATION);
     unsigned int  getServerCount(void);
     bool          getServerInfo(unsigned int srv, soapServer_t *serverInfo);
-    bool          getServerCapabilities(unsigned int srv, eCapabilityType capability, soapServerCapVect_t *result);
+    bool          getServerCapabilities(const unsigned int srv, eCapabilityType capability, soapServerCapVect_t *result);
     bool          browseServer(const unsigned int srv, const char *objectId, soapObjectVect_t *browseResult, 
                                const uint32_t startingIndex = SOAP_DEFAULT_BROWSE_STARTING_INDEX, 
                                const uint16_t maxCount      = SOAP_DEFAULT_BROWSE_MAX_COUNT);
