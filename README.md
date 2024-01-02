@@ -76,7 +76,7 @@ Let's assume *seekServer()* has found only one media server in the local network
 23:32:22.746 >  Image (child count: 7, id: "65")
 23:32:22.748 >  Video (child count: 4, id: "66")
 ```
-The root directory usually only contains other subdirectories. Digging further e.g. into subdirectory *Audio* with a subsequent call *browseServer(0, "64", result_list)* might reveal the following:
+The root directory mostly only contains other subdirectories. Digging further e.g. into subdirectory *Audio* with a subsequent call *browseServer(0, "64", result_list)* might reveal the following:
 ```c
 23:32:35.941 > Audio/
 23:32:35.962 >   Albums/  (child count: 28, id: "71")
@@ -86,16 +86,16 @@ The root directory usually only contains other subdirectories. Digging further e
 23:32:36.375 >   Folders/  (child count: 21, id: "75")
 23:32:36.375 >   Genres/  (child count: 5, id: "76")
 23:32:36.375 >   Random Music/  (child count: 49, id: "77")
-23:32:36.375 >   Titles/  (child count: 78, id: "78")
+23:32:36.375 >   Titles/  (child count: 68, id: "78")
 ```
-Browsing directory *Random Music* by calling *browseServer(0, "77", result_list)* would probably return a lot of audio items, e.g.:  
+Browsing subdirectory *Random Music* by calling *browseServer(0, "77", result_list)* would probably return a lot of audio items, e.g.:  
 ```c
 23:32:38.449 >  This Is The Life   (item size: 4688488, audio, id: "950")  
 23:32:38.453 >  Excuse me Mr.   (item size: 11870222, audio, id: "951")    
 23:32:38.457 >  Sick And Tired   (item size: 8348435, audio, id: "952")
 ...    
 ```
-Now any of the above listed audio objects (items) can be downloaded by calling function *readStart()* with the desired object as parameter. See the provided examples for detailed info.  
+Now any of the above listed audio items can be downloaded by calling function *readStart()* with the desired item as parameter. See the provided examples for detailed info.  
 
 ### :mag: Searching for items using UPnP content search requests
 
@@ -104,9 +104,9 @@ The doc files and/or manuals of almost all media servers give no info as to a se
 Not all media servers support UPnP content search requests. Of the ones I tested **Plex** and **Serviio** did not. In contrast **Twonky**, **Emby**, **Mezzmo**, **UMS**, **Jellyfin** and **MinimServer** accepted search requests albeit to a various extent. This of course might depend on the version used (free version or fully licensed) as well as the server's software release, etc. Have a look at [*GetServerCapabilities_WiFi_2-Warning.log*](https://github.com/yellobyte/SoapESP32/tree/main/doc/Logfiles/GetServerCapabilities_WiFi_2-Warning.log) for an example of reported capabilities.
 
 Below follow some examples for successfully tested **search criterias**:
-1) Searching for items whose property **title** contains the string "wind":  
+1) Searching for objects whose property **title** contains the string "wind":  
    **dc:title contains "wind"**  
-All the following titles would match above criteria: "Wind", "Winds of change", "slow winds", "rewind", etc.
+All the following titles would match above criteria: "Wind", "Winds of change", "slow winds", "rewind", etc. The returned objects can be directories, audio tracks, image files, etc.
 2) Searching for files whose property **album** contains the string "Best Of":  
    **upnp:album contains "Best Of"**
 3) Searching for files whose property **artist** contains the string "John":  
