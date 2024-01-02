@@ -42,7 +42,7 @@ Always make sure you have one of the latest versions of **Arduino core for ESP32
 
 Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
 
-- As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP content search requests to media servers asking for a list of items that match certain criterias, e.g. the items property _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP content search requests though. More info below.
+- As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP content search requests to media servers asking for a list of objects that match certain criterias, e.g. the objects property _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP content search requests though. More info below.
 
 - Some media servers do not answer SSDP M-SEARCH requests but instead broadcast NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function _seekServer()_ has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer value (5...120) for setting a specific scan duration (in sec) if needed.
 
@@ -60,12 +60,12 @@ Most DLNA media servers I tested the library with showed some oddities. All comp
 
 - Downloading big files/reading streams: Files with reported size bigger than 4.2GB (SIZE_MAX) will be shown in browse results but an attempt to download them with *readStart()/read()/readEnd()* will fail. If you want to download them or read endless streams you will have to do it outside this library in your own code.
 
-- IP & port for file download can be different from the media server's IP & port! So always evaluate *downloadIp* & *downloadPort* in media server objects returned by *browseServer()* when a download is intended.
+- IP & port for file download can be different from the media server's IP & port! So always evaluate *downloadIp* & *downloadPort* in media server items returned by *browseServer()* when a download is intended.
 	
 If you run into trouble with your particular DLNA media server or NAS, increase `CORE_DEBUG_LEVEL` and it gives you an indication where the problem is. Tracing the communication with Wireshark can help as well.
 
 ### :mag_right: Browsing directories
-Starting point for a browse request is usually the servers root directory. This is easily accomplished by calling **browseServer(srv, "0", result_list)** with unsigned integer value *srv* representing the server number in the server list required with seekServer() as already shown above, the C string *"0"* representing the servers root directory and *result_list* representing the pointer to the list which will keep any browse results. This list can be empty, contain only directories, only media items or a mix of both.     
+Starting point for a browse request is usually the servers root directory. This is easily accomplished by calling **browseServer(srv, "0", result_list)** with unsigned integer value *srv* representing the server number in the server list required with seekServer() as already shown above, the C string *"0"* representing the servers root directory and *result_list* representing the pointer to the list which will keep any browse results. This list can be empty, contain objects like directories, media items or even a mix of both.     
 Have a look at the provided examples [BrowseRoot.ino](https://github.com/yellobyte/SoapESP32/blob/main/examples/BrowseRoot_WiFi/BrowseRoot_WiFi.ino) or [BrowseRecursively.ino](https://github.com/yellobyte/SoapESP32/blob/main/examples/BrowseRecursively_WiFi/BrowseRecursively_WiFi.ino) and their respective [log](https://github.com/yellobyte/SoapESP32/tree/main/doc/Logfiles) files.   
 
 Let's assume *seekServer()* has found only one media server in the local network then *browseServer(0, "0", result_list)* will return its root content. It might look like this:
