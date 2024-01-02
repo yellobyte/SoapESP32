@@ -65,10 +65,10 @@ Most DLNA media servers I tested the library with showed some oddities. All comp
 If you run into trouble with your particular DLNA media server or NAS, increase `CORE_DEBUG_LEVEL` and it gives you an indication where the problem is. Tracing the communication with Wireshark can help as well.
 
 ### :mag_right: Browsing directories
-Starting point for a browse request is usually the servers root directory. This is easily accomplished by calling **browseServer(srv, "0", result_list)** with unsigned integer value *srv* representing the server number in the server list required with seekServer() as already shown above, the C string *"0"* representing the servers root directory and *result_list* representing the pointer to the list which will keep any browse results. This list can be empty, contain objects like directories, media items or even a mix of both.     
+Starting point for a browse request is usually the servers root directory. This is easily accomplished by calling **browseServer(srv, "0", result_list)** with unsigned integer value *srv* representing the server number in the server list required with seekServer() as already shown above, the C string *"0"* representing the servers root directory and *result_list* representing the pointer to the list which will keep any browse results. When *browseServer()* has finished the list can be empty, contain objects like directories, media items or even a mix of both.     
 Have a look at the provided examples [BrowseRoot.ino](https://github.com/yellobyte/SoapESP32/blob/main/examples/BrowseRoot_WiFi/BrowseRoot_WiFi.ino) or [BrowseRecursively.ino](https://github.com/yellobyte/SoapESP32/blob/main/examples/BrowseRecursively_WiFi/BrowseRecursively_WiFi.ino) and their respective [log](https://github.com/yellobyte/SoapESP32/tree/main/doc/Logfiles) files.   
 
-Let's assume *seekServer()* has found only one media server in the local network then *browseServer(0, "0", result_list)* will return its root content. It might look like this:
+Let's assume *seekServer()* has found only one media server in the local network then *browseServer(0, "0", result_list)* will reveal root's content. It might look like this:
 ```c
 23:32:22.522 > Server[0]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
 23:32:22.739 > Browsing root directory. Number of sub-directories: 3
@@ -88,7 +88,7 @@ The root directory mostly only contains other subdirectories. Digging further e.
 23:32:36.375 >   Random Music/  (child count: 49, id: "77")
 23:32:36.375 >   Titles/  (child count: 68, id: "78")
 ```
-Browsing subdirectory *Random Music* by calling *browseServer(0, "77", result_list)* would probably return a lot of audio items, e.g.:  
+Browsing subdirectory *Random Music* by calling *browseServer(0, "77", result_list)* would probably show a lot of audio items, e.g.:  
 ```c
 23:32:38.449 >  This Is The Life   (item size: 4688488, audio, id: "950")  
 23:32:38.453 >  Excuse me Mr.   (item size: 11870222, audio, id: "951")    
