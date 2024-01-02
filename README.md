@@ -64,6 +64,39 @@ Most DLNA media servers I tested the library with showed some oddities. All comp
 	
 If you run into trouble with your particular DLNA media server or NAS, increase `CORE_DEBUG_LEVEL` and it gives you an indication where the problem is. Tracing the communication with Wireshark can help as well.
 
+### :mag_right: Browsing directories
+Starting point for a browse request is usually the servers root directory. This is easily accomplished by calling **browseServer(srv, "0", result_list)** with unsigned integer value *srv* representing the server number in the server list required with seekServer() as already shown above, the C string *"0"* representing the servers root directory and *result_list* representing the pointer to the list which will keep any browse results. This list can be empty, contain only directories, only media items or a mix of both.     
+Have a look at the provided examples [BrowseRoot.ino](https://github.com/yellobyte/SoapESP32/blob/main/examples/BrowseRoot_WiFi/BrowseRoot_WiFi.ino) or [BrowseRecursively.ino](https://github.com/yellobyte/SoapESP32/blob/main/examples/BrowseRecursively_WiFi/BrowseRecursively_WiFi.ino) and their respective [log](https://github.com/yellobyte/SoapESP32/tree/main/doc/Logfiles) files.   
+
+Let's assume *seekServer()* has found only one media server in the local network then *browseServer(0, "0", result_list)* will return its root content. It might look like this:
+```c
+23:32:22.522 > Server[0]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
+23:32:22.739 > Browsing root directory. Number of sub-directories: 3
+23:32:22.744 >  Audio (child count: 8, id: "64")
+23:32:22.746 >  Image (child count: 7, id: "65")
+23:32:22.748 >  Video (child count: 4, id: "66")
+```
+The root directory usually only contains other subdirectories. Digging further e.g. into subdirectory *Audio* with a subsequent call *browseServer(0, "64", result_list)* might reveal the following:
+```c
+23:32:35.941 > Audio/
+23:32:35.962 >   Albums/  (child count: 28, id: "71")
+23:32:35.962 >   Artists/  (child count: 26, id: "72")
+23:32:36.262 >   Album Artists/  (child count: 26, id: "73")
+23:32:36.375 >   Composers/  (child count: 19, id: "74")
+23:32:36.375 >   Folders/  (child count: 21, id: "75")
+23:32:36.375 >   Genres/  (child count: 5, id: "76")
+23:32:36.375 >   Random Music/  (child count: 49, id: "77")
+23:32:36.375 >   Titles/  (child count: 78, id: "78")
+```
+Browsing directory *Random Music* by calling *browseServer(0, "77", result_list)* would probably return a lot of audio items, e.g.:  
+```c
+23:32:38.449 >  This Is The Life   (item size: 4688488, audio, id: "950")  
+23:32:38.453 >  Excuse me Mr.   (item size: 11870222, audio, id: "951")    
+23:32:38.457 >  Sick And Tired   (item size: 8348435, audio, id: "952")
+...    
+```
+Now any of the above listed audio objects (items) can be downloaded by calling function *readStart()* with the desired object as parameter. See the provided examples for detailed info.  
+
 ### :mag: Searching for items using UPnP content search requests
 
 The doc files and/or manuals of almost all media servers give no info as to a servers UPnP search capabilities. Easiest way to find out is to run the provided example _GetServerCapabilities_WiFi.ino_. It simply uses function _getServerCapabilities()_ to query each detected server in the local network.
