@@ -243,13 +243,14 @@ class SoapESP32
 #endif    
     bool               m_clientDataConOpen;     // marker: socket open for reading file
     size_t             m_clientDataAvailable;   // file read count
+    bool               m_clientDataChunked;     // some servers deliver chunked data when reading files
     soapServerVect_t   m_server ;               // list of usable media servers in local network
-    int                m_xmlChunkCount;         // nr of bytes left of chunk (0 = end of chunk, next line delivers chunk size)
+    int                m_ChunkCount;            // nr of bytes left of chunk (0 = end of chunk, next line delivers chunk size)
     eXmlReplaceState   m_xmlReplaceState;       // state machine for replacing XML entities
     uint8_t            m_xmlReplaceOffset;
     char               m_xmlReplaceBuffer[15];  // Fits longest string in replaceWith[] array
 
-    int  soapClientTimedRead(void);
+    int  soapClientTimedRead(unsigned long ms = 0);
     bool soapUDPmulticast(unsigned int repeats = 0);
     bool soapSSDPquery(std::vector<soapServer_t> *rcvd, int msWait);
     bool soapGet(const IPAddress ip, const uint16_t port, const char *uri);

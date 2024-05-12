@@ -182,20 +182,21 @@ bool SoapESP32::wakeUpServer(const char *macAddress)
 //
 // helper function, client timed read
 //
-int SoapESP32::soapClientTimedRead()
+int SoapESP32::soapClientTimedRead(unsigned long ms)
 {
   int c;
-  unsigned long startMillis = millis();
+  unsigned long timeout = ms ? ms : SERVER_READ_TIMEOUT,
+                startMillis = millis();
 
   do {
     claimSPI();
     c = m_client->read();
     releaseSPI();
-    if(c >= 0) {
+    if (c >= 0) {
       return c;
     }
   } 
-  while (millis() - startMillis < SERVER_READ_TIMEOUT);
+  while (millis() - startMillis < timeout);
 
   return -1;     // read timeout
 }
@@ -383,15 +384,15 @@ bool SoapESP32::soapReadHttpHeader(uint64_t *contentLength, bool *chunked)
     log_v("header line: %s", tmpBuffer);
     if (len == 1) break;      // End of header: finishing line contains only "\r\n"
     if (!ok) {
-      if ((p = strcasestr(tmpBuffer,HEADER_CONTENT_LENGTH)) != NULL) {
-        if (sscanf(p+strlen(HEADER_CONTENT_LENGTH),"%llu", contentLength) == 1) {
+      if ((p = strcasestr(tmpBuffer, HEADER_CONTENT_LENGTH)) != NULL) {
+        if (sscanf(p+strlen(HEADER_CONTENT_LENGTH), "%llu", contentLength) == 1) {
           ok = true;
           continue;           // continue to read rest of header
         }  
       }
-      else if (chunked && strcasestr(tmpBuffer,HEADER_TRANS_ENC_CHUNKED)) {
+      else if (chunked && strcasestr(tmpBuffer, HEADER_TRANS_ENC_CHUNKED)) {
         ok = *chunked = true;
-        m_xmlChunkCount = 0;  // telling chunk size comes next
+        m_ChunkCount = 0;  // telling chunk size comes next
         continue;             // continue to read rest of header      
       }
     }  
@@ -435,7 +436,7 @@ GET_MORE:
     }
     else {
       // de-chunk XML data   
-      if (m_xmlChunkCount <= 0) {
+      if (m_ChunkCount <= 0) {
         char tmpBuffer[10];
       
         // next line contains chunk size
@@ -446,11 +447,11 @@ GET_MORE:
           return -2;   // we expect at least 1 digit chunk size + '\r'
         }
         tmpBuffer[len-1] = 0;     // replace '\r' with '\0'
-        if (sscanf(tmpBuffer, "%x", &m_xmlChunkCount) != 1) {
+        if (sscanf(tmpBuffer, "%x", &m_ChunkCount) != 1) {
           return -3;
         }
-        log_d("announced chunk size: 0x%x(%d)", m_xmlChunkCount, m_xmlChunkCount);
-        if (m_xmlChunkCount <= 0) {
+        log_d("announced chunk size: 0x%x(%d)", m_ChunkCount, m_ChunkCount);
+        if (m_ChunkCount <= 0) {
           return -4;  // not necessarily an error...final chunk size can be 0
         }
       }
@@ -459,7 +460,7 @@ GET_MORE:
       }
 
       // check for end of chunk
-      if (--m_xmlChunkCount == 0) {
+      if (--m_ChunkCount == 0) {
         // skip "\r\n" trailing each chunk
         if (soapClientTimedRead() < 0 || soapClientTimedRead() < 0) {
           return -6;   
@@ -1218,9 +1219,9 @@ end_stop:
 bool SoapESP32::readStart(soapObject_t *object, size_t *size)
 {
   uint64_t contentSize;
+  bool chunked;
 
   if (object->isDirectory) return false;
-  m_clientDataAvailable = 0;
 
   log_i("server ip: %s, port: %d, uri: \"%s\"", 
         object->downloadIp.toString().c_str(), object->downloadPort, object->uri.c_str());
@@ -1240,7 +1241,7 @@ bool SoapESP32::readStart(soapObject_t *object, size_t *size)
   }
 
   // connection established, read HTTP header
-  if (!soapReadHttpHeader(&contentSize)) {
+  if (!soapReadHttpHeader(&contentSize, &chunked)) {
     // error returned
     log_e("soapReadHttpHeader() was unsuccessful.");
     claimSPI();
@@ -1257,11 +1258,25 @@ bool SoapESP32::readStart(soapObject_t *object, size_t *size)
     releaseSPI();
     return false;
   }
+  
+  m_clientDataAvailable = 0;
+  m_clientDataChunked = chunked;
+  m_ChunkCount = 0;
 
-  m_clientDataAvailable = (size_t)contentSize;
+  if (contentSize > 0) {
+    // file size announced in HTTP header
+    log_d("media file size taken from http header: %llu", contentSize);
+    m_clientDataAvailable = (size_t)contentSize;
+  }
+  else if (object->size > 0) {
+    // as an alternative we use file size given in function argument
+    log_d("media file size taken from argument (media object): %llu", object->size);
+    m_clientDataAvailable = (size_t)object->size;
+  }
+
   if (m_clientDataAvailable == 0) {  
-    // no data available
-    log_e("announced file size: 0 !"); 
+    // no file size given or no data available to read
+    log_e("unknown file size !"); 
     claimSPI();
     m_client->stop();
     releaseSPI();
@@ -1278,7 +1293,7 @@ bool SoapESP32::readStart(soapObject_t *object, size_t *size)
 
 //
 // read up to size bytes from server and place them into buf
-// returnes number of bytes read or -1 in case nothing was read (default read timeout is 3s)
+// returnes number of bytes read, -1 in case of read timeout or -2...-5 in case of other errors
 // Remarks: 
 // - older WiFi library versions & the Ethernet library return -1 if connection is still up but 
 //   momentarily no data available and return 0 in case of EOF. Newer WiFi versions return 0 in 
@@ -1289,16 +1304,58 @@ int SoapESP32::read(uint8_t *buf, size_t size, uint32_t timeout) {
 
   // first some basic checks
   if (!buf || !size || !m_clientDataConOpen) return -1;  // clearly an error
-  if (!m_clientDataAvailable) return 0;   // most probably EOF
+  if (!m_clientDataAvailable) return 0;                  // most probably EOF
 
   int res = -1;  
   uint32_t start = millis();
   
   while (1) {
     //if (m_clientDataAvailable < size) size = m_clientDataAvailable;
-    claimSPI();
-    res = m_client->read(buf, size);
-    releaseSPI();
+    if (!m_clientDataChunked) {
+      claimSPI();
+      res = m_client->read(buf, size);
+      releaseSPI();
+    }
+    else {
+      // de-chunking of data required   
+      if (m_ChunkCount <= 0) {
+        char tmpBuffer[10];
+      
+        // next line contains chunk size
+        claimSPI();
+        int len = m_client->readBytesUntil('\n', tmpBuffer, sizeof(tmpBuffer) - 1);
+        releaseSPI();
+        if (len < 2) {
+          log_e("error reading chunk size");     
+          return -2;   // we expect at least 1 digit chunk size + '\r'
+        }
+        tmpBuffer[len-1] = 0;           // clear '\r'
+        if (sscanf(tmpBuffer, "%x", &m_ChunkCount) != 1) {
+          log_e("error scanning chunk size");  
+          return -3;
+        }
+        log_d("announced chunk size: 0x%x(%d)", m_ChunkCount, m_ChunkCount);
+        if (m_ChunkCount <= 0) {
+          return -4;                    // not necessarily an error...final chunk size can be 0
+        }
+      }
+      // read maximal till end of chunk
+      if (m_ChunkCount < size) size = m_ChunkCount;
+      claimSPI();
+      res = m_client->read(buf, size);
+      releaseSPI();
+      if (res > 0) {
+        m_ChunkCount -= res;
+        // check for end of chunk
+        if (m_ChunkCount == 0) {
+          // skip "\r\n" trailing each chunk
+          if (soapClientTimedRead(10) < 0 || soapClientTimedRead(10) < 0) {
+            log_e("error reading chunk trailing CR+LF");  
+            return -5;   
+          }
+        }
+      }
+    }
     if (res > 0) {
       // got at least 1 byte from server
       m_clientDataAvailable -= res;
@@ -1337,6 +1394,8 @@ void SoapESP32::readStop()
     log_d("client data connection to media server closed");
   }
   m_clientDataAvailable = 0;
+  m_clientDataChunked = false;
+  m_ChunkCount = 0;
 }
 
 //
