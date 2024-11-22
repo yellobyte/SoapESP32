@@ -5,51 +5,57 @@
   - extracting attributes
   - extracting whole sub trees if requested
   - using C++ strings
+  - path not required to start at root element
 */
 
 #include "MiniXPath.h"
 
 MiniXPath::MiniXPath()
 {
-  this->pathSize = 0;
+  pathSize = 0;
   reset();
 }
 
 void MiniXPath::reset()
 {
   state = XML_PARSER_UNINITIATED;
-  level = 0;
+  sub = 0;
   position = 0;
   treeFlag = false;
   matchCount = 0;       
-  matchLevel = 0;       // Current level we have reached after scanning path tags
+  tagLevel = 0;
+  subLevel = 0;
+  matchLevel = 0;
 #ifdef MINIXPATH_DEBUG	
-  Serial.printf("reset: pathsiz=%d stat=%02d lev=%d matchcnt=%d matchlev=%d path=%s\n", 
-                  pathSize, state, level, matchCount, matchLevel, pathSize == 0 ? "" : path[pathSize-1]);
+  Serial.printf("reset: tagLev=%d sub=%d subLev=%d paSize=%d paMatched=%d stat=%02d matchCnt=%d path=%s\n", 
+                  tagLevel, sub, subLevel, pathSize, matchLevel, state, matchCount, pathSize == 0 ? "" : path[pathSize-1]);
   Serial.flush();
+  delay(2);
 #endif									
 }
 
-void MiniXPath::setPath(const char *path[], size_t pathSize)
+void MiniXPath::setPath(const xPathParser_t *p)
 {
   uint8_t newMatchLevel = 0;
-  for (uint8_t i = 0; i < pathSize && i < this->pathSize && i < matchLevel && i == newMatchLevel; i++) {
-    if (strcmp(path[i], this->path[i]) == 0) newMatchLevel++;
+  for (uint8_t i = 0; i < p->num && i < pathSize && i < matchLevel && i == newMatchLevel; i++) {
+    if (strcmp(p->tagNames[i], this->path[i]) == 0) newMatchLevel++;
   }
-  this->matchCount = 0;
-  this->matchLevel = newMatchLevel;
-  this->path = path;
-  this->pathSize = pathSize;
+  matchCount = 0;
+  matchLevel = newMatchLevel;
+  path = (char **)p->tagNames;
+  pathSize = p->num;
+  if (subLevel == 0) sub = p->sub;
 #ifdef MINIXPATH_DEBUG	
-  Serial.printf("setPath: pathsiz=%d stat=%02d lev=%d matchcnt=%d matchlev=%d path=%s\n", 
-                 pathSize, state, level, matchCount, matchLevel, pathSize == 0 ? "" : path[pathSize-1]);
+  Serial.printf("setPath: tagLev=%d sub=%d subLev=%d paSize=%d paMatched=%d stat=%02d matchCnt=%d pos=%d path=%s\n", 
+                  tagLevel, sub, subLevel, pathSize, matchLevel, state, matchCount, position, pathSize == 0 ? "" : path[pathSize - 1]);
   Serial.flush();
+  delay(2);
 #endif									
 }
 
-bool MiniXPath::findValue(char charToParse, bool subTree)
+bool MiniXPath::findValue(char charToParse)
 {
-  return find(charToParse, subTree) && state == XML_PARSER_ELEMENT_CONTENT;
+  return find(charToParse, false) && state == XML_PARSER_ELEMENT_CONTENT;
 }
 
 bool MiniXPath::getValue(char charToParse, String *result, String *attrib, bool subTree) 
@@ -58,29 +64,27 @@ bool MiniXPath::getValue(char charToParse, String *result, String *attrib, bool 
     if (subTree) {
       if (treeFlag) {
         *result += charToParse;    
-        if (state == XML_PARSER_END_TAG && level == matchLevel) {
+        if (state == XML_PARSER_END_TAG && tagLevel - subLevel == matchLevel) {
           if (result->endsWith("</")) result->remove(result->length() - 2);
           result->trim();
           return true;
         }    
       }
     }
-    // Ignore sub elements
-    else if (level == matchLevel) {
-      if (state == XML_PARSER_ELEMENT_CONTENT) {
-        // "position > 0" means that we skip the tag-end character and any trailing whitespace
-        if (position > 0) {
-          *result += charToParse;
-        }
+    // ignoring sub elements
+    else if (pathSize == matchLevel) {
+      if (state == XML_PARSER_ELEMENT_CONTENT &&        
+          position > 0) { // skips the tag-start/end characters and trailing whitespace
+        *result += charToParse;
       }
       else if (state == XML_PARSER_END_TAG && position == 0) {
-        result->trim();                       // Remove trailing whitespace
+        result->trim();
         return true;
       }
     }
-    // Getting attribute data
-    if (attrib != NULL && position > 0 && matchLevel > 0 && level == matchLevel - 1 &&
-             (state == XML_PARSER_ATTRIBUTES || state == XML_PARSER_ATTRIBUTE_VALUE)) {
+    // getting attribute data
+    if (attrib != NULL && (state == XML_PARSER_ATTRIBUTES || state == XML_PARSER_ATTRIBUTE_VALUE) && 
+        position > 0 && matchLevel > 0 && (tagLevel - subLevel == matchLevel - 1)) {
       if (charToParse == '\t' || charToParse == '\r' || charToParse == '\n') {
         *attrib += ' ';
       }  
@@ -89,27 +93,27 @@ bool MiniXPath::getValue(char charToParse, String *result, String *attrib, bool 
       }  
     }
   }
-  else {
-    if (level == matchLevel && state == XML_PARSER_START_TAG && position == 0) {
-      // Make sure we start clean
-      if (attrib != NULL) *attrib = "";
-      *result = "";
-    }
+  else if (tagLevel - subLevel == matchLevel && state == XML_PARSER_START_TAG && position == 0) {
+    // making sure we start clean
+    if (attrib != NULL) *attrib = "";
+    *result = "";
+#ifdef MINIXPATH_DEBUG	
+    Serial.println("getValue: clear attrib & result");
+#endif
   }
   return false;
 }
 
 bool MiniXPath::find(char charToParse, bool subTree)
 {
-  // Start parsing when the first "<" character is stumbled upon
+  // parsing starts with first "<" character
   if (state == XML_PARSER_UNINITIATED && charToParse == '<') state = XML_PARSER_ROOT;
-  if (state >= XML_PARSER_COMPLETE && charToParse > ' ') {
-  }
+  if (state >= XML_PARSER_COMPLETE && charToParse > ' ') {}
   else if (state > XML_PARSER_UNINITIATED && state < XML_PARSER_COMPLETE) {
     switch (charToParse) {
       // Tag start
       case '<':
-        if (level < pathSize) treeFlag = false;
+        if (matchLevel < pathSize) treeFlag = false;
         else if (subTree) treeFlag = true;
         if (state == XML_PARSER_ROOT || state == XML_PARSER_ELEMENT_CONTENT) {
           state = XML_PARSER_START_TAG;
@@ -119,16 +123,23 @@ bool MiniXPath::find(char charToParse, bool subTree)
         break;
       // Tag end
       case '>':
-        if (level < pathSize) treeFlag = false;
+        if (matchLevel < pathSize) treeFlag = false;
         if (state == XML_PARSER_START_TAG_NAME || state == XML_PARSER_ATTRIBUTES) {
-          if (elementPathMatch()) matchLevel++;
-          level++;
+          if (elementPathMatch()) {
+            matchLevel++;
+            if (sub) {
+              sub = false;
+              subLevel = tagLevel; 
+            }
+          }
+          tagLevel++;
           state = XML_PARSER_ELEMENT_CONTENT;
         }
         else if (state == XML_PARSER_END_TAG) {
-          if (level == matchLevel) matchLevel--;
-          level--;
-          if (level > 0) {
+          if (tagLevel - subLevel == matchLevel && matchLevel > 0) 
+            matchLevel--;
+          tagLevel--;
+          if (tagLevel > 0) {
             state = XML_PARSER_ELEMENT_CONTENT;
           }
           else {
@@ -136,19 +147,19 @@ bool MiniXPath::find(char charToParse, bool subTree)
             state = XML_PARSER_ROOT;
           }  
         }
-        else if (level == 0 && state == XML_PARSER_PROLOG_END) {
+        else if (tagLevel == 0 && state == XML_PARSER_PROLOG_END) {
           state = XML_PARSER_ROOT;
         }
         else if (state == XML_PARSER_COMMENT) {
-          state = (level == 0) ? XML_PARSER_ROOT : XML_PARSER_ELEMENT_CONTENT;
+          state = (tagLevel == 0) ? XML_PARSER_ROOT : XML_PARSER_ELEMENT_CONTENT;
         }
         position = 0;
         matchCount = 0;
         break;
       // Prolog start and end character
       case '?':
-        if (level < pathSize) treeFlag = false;
-        if (state == XML_PARSER_START_TAG && level == 0) {
+        if (matchLevel < pathSize) treeFlag = false;
+        if (state == XML_PARSER_START_TAG && tagLevel == 0) {
           state = XML_PARSER_PROLOG_TAG;
         }
         else if (state == XML_PARSER_PROLOG_TAG_NAME || state == XML_PARSER_PROLOG_ATTRIBUTES) {
@@ -157,36 +168,15 @@ bool MiniXPath::find(char charToParse, bool subTree)
         break;
       // Comment start character
       case '!':
-        //if (level < pathSize) treeFlag = false;
+        //if (tagLevel < pathSize) treeFlag = false;
         if (state == XML_PARSER_START_TAG) {
           state = XML_PARSER_COMMENT;
-        }
-        break;
-      // Whitespace
-      case ' ':
-      case '\t':
-      case '\r':
-      case '\n':
-        if (level < pathSize) treeFlag = false;
-        switch (state) {
-          case XML_PARSER_START_TAG_NAME:
-            if (elementPathMatch()) matchLevel++;
-            state = XML_PARSER_ATTRIBUTES;
-            position = 0;
-            break;
-          case XML_PARSER_PROLOG_TAG_NAME:
-            state = XML_PARSER_PROLOG_ATTRIBUTES;
-            break;
-          case XML_PARSER_ATTRIBUTES:
-          case XML_PARSER_ATTRIBUTE_VALUE:
-            position++;
-            break;
         }
         break;
       // Attribute start character and end character        
       case '"':
       case '\'':
-        if (level < pathSize) treeFlag = false;
+        if (tagLevel < pathSize) treeFlag = false;
         position++;
         switch (state)
         {
@@ -205,27 +195,65 @@ bool MiniXPath::find(char charToParse, bool subTree)
         if (state == XML_PARSER_START_TAG) {
           state = XML_PARSER_END_TAG;
         }
-        else if (state == XML_PARSER_START_TAG_NAME || state == XML_PARSER_ATTRIBUTES) {
-          level++;
+        else if (state == XML_PARSER_START_TAG_NAME) {
+          if (elementPathMatch()) {
+            matchLevel++;
+            position = 0;
+            if (sub) {
+              sub = false;
+              subLevel = tagLevel; 
+            }
+          }            
+          tagLevel++;
           state = XML_PARSER_END_TAG;
         }
+        else if (state == XML_PARSER_ATTRIBUTES) {
+          tagLevel++;
+          state = XML_PARSER_END_TAG;          
+        }
+        else if (state == XML_PARSER_ELEMENT_CONTENT)
+          position++;
         break;
+      // Whitespace
+      case ' ':
+      case '\t':
+      case '\r':
+      case '\n':
+        if (tagLevel - subLevel < pathSize) treeFlag = false;
+        switch (state) {
+          case XML_PARSER_START_TAG_NAME:
+            if (elementPathMatch()) {
+              matchLevel++;
+              if (sub) {
+                sub = false;
+                subLevel = tagLevel; 
+              }
+            }
+            state = XML_PARSER_ATTRIBUTES;
+            position = 0;
+            break;
+          case XML_PARSER_PROLOG_TAG_NAME:
+            state = XML_PARSER_PROLOG_ATTRIBUTES;
+            break;
+          case XML_PARSER_ATTRIBUTES:
+          case XML_PARSER_ATTRIBUTE_VALUE:
+            position++;
+            break;
+        }
+        break;        
       // All other characters
       default:
-        if (level < pathSize || 
-            (subTree && state == XML_PARSER_END_TAG && level == matchLevel)) {
+        if (tagLevel - subLevel < pathSize ||
+            (subTree && state == XML_PARSER_END_TAG && tagLevel - subLevel == matchLevel)) {
           treeFlag = false;
-        }  
+        }
+        else if (subTree && matchLevel == pathSize) treeFlag = true;  
         if (state == XML_PARSER_START_TAG) state = XML_PARSER_START_TAG_NAME;
-        if (state == XML_PARSER_PROLOG_TAG) state = XML_PARSER_PROLOG_TAG_NAME;
-        if (state == XML_PARSER_START_TAG_NAME) {
-          if (level == matchLevel &&
-              matchCount == position &&
-              level < pathSize &&
-              position < strlen(path[level]) &&
-              charToParse == path[level][position]) {
-            matchCount++;
-          }
+        else if (state == XML_PARSER_PROLOG_TAG) state = XML_PARSER_PROLOG_TAG_NAME;
+        if (state == XML_PARSER_START_TAG_NAME && matchCount == position && 
+            (sub ? true : (tagLevel - subLevel < pathSize)) &&
+            position < strlen(path[matchLevel]) && charToParse == path[matchLevel][position]) {
+          matchCount++;
         }
         position++;
         break;
@@ -235,17 +263,16 @@ bool MiniXPath::find(char charToParse, bool subTree)
   // TEST
   //if (pathSize == 1 && (*(path[0]) == 'c' || *(path[0]) == 'i')) {
   char charTP = (charToParse < 0x20) ? '.' : charToParse;
-  Serial.printf("'%c' pathsiz=%d stat=%02d lev=%d matchcnt=%d matchlev=%d pos=%d treeFlg=%d ret=%d\n", 
-                  charTP, pathSize, state, level, matchCount, matchLevel, position, treeFlag, matchLevel == pathSize);  
+  Serial.printf("'%c' tagLev=%d sub=%d subLev=%d paSize=%d paMatched=%d stat=%02d matchCnt=%d pos=%d treeFlg=%d ret=%d\n", 
+                  charTP, tagLevel, (int)sub, (int)subLevel, pathSize, matchLevel, state, matchCount, position, treeFlag, matchLevel == pathSize);  
   //}                
 #endif									
-  return matchLevel == pathSize;
+  return (matchLevel == pathSize);
 }
 
 bool MiniXPath::elementPathMatch()
 {
-  return level == matchLevel &&
-         //position == matchCount &&
-         level < pathSize &&
-         matchCount == strlen(path[level]);
+  return (matchLevel < pathSize) && (matchCount == position) && 
+         (sub ? true : (tagLevel - subLevel < pathSize)) &&
+         (matchCount == strlen(path[matchLevel]));
 }

@@ -6,9 +6,9 @@
   The parameters needed for download must be set manually further down. You find 
   a snapshot in directory doc, showing you how to use VLC to find proper values.
 
-  SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
+  Chip Select (CS) Signal of SD card module/shield is attached to GPIO 10.
     
-  Last updated 2023-10-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2024-11-21, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -32,7 +32,7 @@ const char pass[] = "MyPassword";
 #define FILE_NAME_ON_SD    "/myFile.mp3"
 #define READ_BUFFER_SIZE   5000
 
-#define GPIO_SDCS   5
+#define GPIO_SDCS   10
 
 WiFiClient client;
 SoapESP32 soap(&client);

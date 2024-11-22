@@ -1,6 +1,6 @@
 /*
   SoapESP32, a simple library for accessing DLNA media servers with ESP32 devices
-	
+  
   Copyright (c) 2021 Thomas Jentzsch
 
   Permission is hereby granted, free of charge, to any person
@@ -53,7 +53,7 @@
 #define SSDP_SCAN_DURATION           60   // seconds, default network scan duration for seekServer()
 #define SSDP_LOCATION_BUF_SIZE      150
 #define SSDP_M_SEARCH_REPEATS         2
-#define SSDP_M_SEARCH                "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: 5\r\nST: "
+#define SSDP_M_SEARCH                "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: 4\r\nST: "
 #define SSDP_DEVICE_TYPE_MS          "urn:schemas-upnp-org:device:MediaServer:1"
 #define SSDP_DEVICE_TYPE_RD          "upnp:rootdevice"
 #define SSDP_SERVICE_TYPE_CD         "urn:schemas-upnp-org:service:ContentDirectory:1"                                   

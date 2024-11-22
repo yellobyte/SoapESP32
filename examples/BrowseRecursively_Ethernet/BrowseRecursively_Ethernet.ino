@@ -16,7 +16,7 @@
   multiple times, each time with a higher starting index (0, 100, 200,...). 
   Have a look at example "BrowseBigDirectories_WiFi.ino" where this is demonstrated.
     
-  Last updated 2023-11-23, ThJ <yellobyte@bluewin.ch>
+  Last updated 2024-11-21, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -54,6 +54,8 @@
 //    Port: 8200,  Control Url: "ctl/ContentDir"
 // 11) Mezzmo on Windows
 //    Port: 53168, Control Url: "ContentDirectory/control"
+// 12) Denon-HEOS Server on AV-Receiver (e.g. Denon DRA-x00H)
+//    Port: 60006, Control Url: "upnp/control/ams_dvc/ContentDirectory"
 	
 #define SERVER_IP          192,168,...,...
 #define SERVER_PORT        ...
@@ -84,7 +86,7 @@ void printServerContent(SoapESP32 *soap, int servNum, String objectId, int numTa
   else {
     for (unsigned int i = 0; i < browseResult.size(); i++) {
       // go through each item in list
-      for (uint8_t j=0; j<numTabs; j++) {
+      for (uint8_t j = 0; j < numTabs; j++) {
         Serial.print("  ");                 // indentation
       }
       // print name of item

@@ -2,7 +2,7 @@
 
 This Arduino library provides basic UPnP/SOAP functionality, enabling an ESP32 device to scan the local network for DLNA media servers, browse their content and finally download files.
 
-The library has been successfully tested so far with the following DLNA media servers: **DiXim**, **Twonky**, **UMS** (Universal Media Server), **Jellyfin**, **Emby**, **Kodi**, **Plex**, **Serviio**, **Subsonic**, **MinimServer**, **QNAP-DLNA**, **Mezzmo** and **Windows Media Player**.
+The library has been successfully tested so far with the following DLNA media servers: **DiXim**, **Twonky**, **UMS** (Universal Media Server), **Jellyfin**, **Emby**, **Kodi**, **Plex**, **Serviio**, **Subsonic**, **MinimServer**, **QNAP-DLNA**, **Mezzmo**, **Windows Media Player** and **Denon-HEOS**.
 
 Integrating this library into your ESP32 Arduino projects is easy. For detailed infos have a look at the many [examples](https://github.com/yellobyte/soapESP32/blob/main/examples) included. Below the basics for searching and printing media servers in your local network. 
 ```c
@@ -17,7 +17,6 @@ soapServer_t srv;
 unsigned int srvNum = 0;
 
 setup() {
-  // setting up Wifi, serial output, etc.
   ...
   // scan the local network for media servers (default scan duration is 60 sec)
   // - passing an integer value 5...120 to seekServer() changes the scan duration, 
@@ -40,7 +39,7 @@ To install the library into your **IDE** open the **Library Manager**, search fo
 
 Always make sure you have one of the latest versions of **Arduino core for ESP32** installed. Older versions might produce build errors with some examples.
 
-Most DLNA media servers I tested the library with showed some oddities. All compatibility issues I ran across have been fixed. Please note the following:
+Most DLNA media servers I tested the library with showed some oddities. However, all compatibility issues I ran across have been fixed. Please note the following:
 
 - As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP content search requests to media servers asking for a list of objects that match certain criterias, e.g. the objects property _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP content search requests though. More info below.
 
@@ -124,15 +123,15 @@ All the following titles would match above criteria: "Wind", "Winds of change", 
 9) Or **album folder** and **title**:  
    **upnp:class derivedfrom "object.container.album" and dc:title contains "Songs"**
 
-Some servers even accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
+Some servers (e.g. Twonky) even accepted optional **sort criterias**. They define the sort order of the items returned (if any). Successfully tested sort criterias were:
 1) Name of title, ascending (default) --> sort criteria: **"+dc:title"**
 2) Name of title, descending --> sort criteria: **"-dc:title"**
 
-Above list of possible search/sort criterias is far from being complete. However, those were the ones I needed in a project and therefore only tested.
+Above list of possible search/sort criterias is far from being complete. Those were simply the ones I needed in a project and therefore only tested.
 
 The provided example sketches _SearchServerExample.....ino_ and the accompanying log files _SearchServerExample...log_ demonstrate the usage of the search function **_searchServer()_**. The function simply sends a UPnP search request (containing up to two search criterias and an optional sort criteria) to a media server and waits for the server to reply with a list of matching items.  
 
-File _SoapESP32.h_ provides a limited number of predefined search/sort criterias. Some of them get used in the software examples. You can of course pass any other criteria(s) you want to give a try to function _searchServer()_. Some servers I tested have answered with _500 Internal Server Error_ and others with a simple browse response (with or without results) to unknown/unaccepted search requests or search criterias.
+File _SoapESP32.h_ provides a limited number of predefined search/sort criterias. Some of them get used in the software examples. Of course you can pass any other criteria(s) you want to give a try to function _searchServer()_. Some servers I tested have answered with _500 Internal Server Error_, some with an unwanted complete title list and others with a not accepted browse response (with or without useful results) instead of a search response to certain or all search requests or search criterias. Actually you have to try it out on your particular media server before you can rely on it.
 
 Just to give you a better idea, running example _SearchServerExample1_WiFi.ino_ in my home network and searching for all files/folders whose title contains the string "words" (search criteria: **dc:title contains "words"**) produced the following stripped-down result:
 ```c

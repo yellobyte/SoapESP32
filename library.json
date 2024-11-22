@@ -1,6 +1,6 @@
 {
   "name": "SoapESP32",
-  "version": "1.3.2", 
+  "version": "1.4.0", 
   "platforms":
   [
     "espressif32"
@@ -34,7 +34,9 @@
     "Plex",
     "MinimServer",
     "QNAP",
-    "Mezzmo"
+    "Mezzmo",
+    "Denon",
+    "HEOS"
   ],
   "description": "Enables ESP32 devices to scan the local network for DLNA media servers, browse their content and download files.",
   "authors":

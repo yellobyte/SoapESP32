@@ -1,0 +1,176 @@
+--- Terminal on COM5 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+02:12:17.810 > [   404][I][esp32-hal-psram.c:96] psramInit(): PSRAM enabled
+02:12:17.833 > 
+02:12:17.833 > Connecting to WiFi network .
+02:12:18.388 > Connected successfully. IP address: 192.168.1.36
+02:12:18.388 >
+02:12:18.388 > Initializing SD card...done. Opening file on SD was successful.
+02:12:18.448 > Scanning local network for DLNA media servers...
+02:12:18.454 > [  1041][I][SoapESP32.cpp:555] seekServer(): SSDP search for media servers started, scan duration: 60 sec
+02:12:18.471 > [  1064][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.40, port=32469, loc="DeviceDescription.xml"
+02:12:18.484 > [  1077][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.40, port=53168, loc="desc"
+02:12:18.495 > [  1090][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.40, port=1557, loc="DeviceDescription.xml"
+02:12:18.526 > [  1122][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+02:12:18.809 > [  1405][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.40, port=8096, loc="dlna/5737229bc09f48d88c7d1bd4881c073e/description.xml"
+02:12:19.117 > [  1713][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.40, port=2869, loc="upnphost/udhisapi.dll?content=uuid:5f8237e2-e279-46e6-91a1-16662dae9ac3"
+02:12:19.426 > [  2022][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.35, port=60006, loc="upnp/desc/aios_device/aios_device.xml"
+02:12:20.045 > [  2640][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.40, port=8895, loc="deviceDescription/c94b8d03-f90c-3a2a-9206-ee956125fcec"
+02:12:20.355 > [  2948][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.40, port=5001, loc="dev/3cc205b3-c950-4f0b-ba30-cd115f8b070e/desc"
+02:12:21.372 > [  3967][I][SoapESP32.cpp:347] soapSSDPquery(): server added to list ip=192.168.1.11, port=9791, loc="0f0f4c9f-a3fb-4863-a5ef-d4d602225748/Upnp/device.xml"
+02:13:18.470 > [ 61064][I][SoapESP32.cpp:558] seekServer(): SSDP query discovered 10 media servers
+02:13:18.475 > [ 61071][I][SoapESP32.cpp:561] seekServer(): checking all discovered media servers for service ContentDirectory
+02:13:18.497 > [ 61091][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.40:32469
+02:13:18.515 > [ 61112][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:19.944 > [ 62538][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.40:53168
+02:13:19.962 > [ 62556][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:19.981 > [ 62576][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.40:1557
+02:13:20.002 > [ 62595][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:20.016 > [ 62611][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.11:9000
+02:13:20.032 > [ 62629][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:20.070 > [ 62664][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.40:8096
+02:13:20.087 > [ 62683][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:20.103 > [ 62699][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.40:2869
+02:13:20.123 > [ 62720][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:20.148 > [ 62743][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.35:60006
+02:13:20.181 > [ 62775][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:20.198 > [ 62793][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.40:8895
+02:13:20.215 > [ 62810][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:20.235 > [ 62828][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.40:5001
+02:13:20.253 > [ 62848][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:20.270 > [ 62865][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.11:9791
+02:13:20.288 > [ 62881][I][SoapESP32.cpp:642] seekServer(): ok, this server delivers media content
+02:13:20.297 > Number of discovered servers that deliver content: 10
+02:13:20.300 >
+02:13:20.300 > Please be patient, searching audio file on server: Denon DRA-900H
+02:13:20.302 > [ 62890][I][SoapESP32.cpp:988] soapProcessRequest(): browse server: "Denon DRA-900H", objectId: "0"
+02:13:20.323 > [ 62920][I][SoapESP32.cpp:1000] soapProcessRequest(): connected successfully to server 192.168.1.35:60006
+02:13:20.337 > [ 62931][I][SoapESP32.cpp:1026] soapProcessRequest(): scan answer from media server:
+02:13:20.351 > [ 62944][I][SoapESP32.cpp:773] soapScanContainer(): "inputs/" attribute searchable=0
+02:13:20.356 > [ 62951][I][SoapESP32.cpp:793] soapScanContainer(): "Audio Inputs" (id: "inputs/", childCount: 10) added to list
+02:13:20.370 > [ 62967][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "childCount=" missing.
+02:13:20.379 > [ 62975][I][SoapESP32.cpp:793] soapScanContainer(): "USB Media" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd", childCount: 0) added to list
+02:13:20.399 > [ 62992][I][SoapESP32.cpp:1098] soapProcessRequest(): found 2 folders and 0 files
+02:13:20.402 > [ 63000][I][SoapESP32.cpp:988] soapProcessRequest(): browse server: "Denon DRA-900H", objectId: "inputs/"
+02:13:20.431 > [ 63025][I][SoapESP32.cpp:1000] soapProcessRequest(): connected successfully to server 192.168.1.35:60006
+02:13:20.441 > [ 63036][I][SoapESP32.cpp:1026] soapProcessRequest(): scan answer from media server:
+02:13:20.464 > [ 63057][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.466 > [ 63064][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.476 > [ 63072][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.487 > [ 63080][I][SoapESP32.cpp:961] soapScanItem(): "CBL/SAT" (id: "inputs/cable_sat", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.508 > [ 63103][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.514 > [ 63110][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.524 > [ 63117][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.532 > [ 63126][I][SoapESP32.cpp:961] soapScanItem(): "Media Player" (id: "inputs/mediaplayer", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.556 > [ 63149][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.561 > [ 63156][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.570 > [ 63164][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.579 > [ 63172][I][SoapESP32.cpp:961] soapScanItem(): "Blu-ray" (id: "inputs/bluray", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.598 > [ 63196][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.608 > [ 63203][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.617 > [ 63211][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.623 > [ 63219][I][SoapESP32.cpp:961] soapScanItem(): "Game" (id: "inputs/game", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.647 > [ 63240][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.652 > [ 63248][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.662 > [ 63255][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.671 > [ 63264][I][SoapESP32.cpp:961] soapScanItem(): "AUX1" (id: "inputs/aux1", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.692 > [ 63286][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.698 > [ 63293][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.704 > [ 63300][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.716 > [ 63309][I][SoapESP32.cpp:961] soapScanItem(): "AUX2" (id: "inputs/aux2", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.737 > [ 63332][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.742 > [ 63339][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.752 > [ 63347][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.762 > [ 63355][I][SoapESP32.cpp:961] soapScanItem(): "TV Audio" (id: "inputs/tvaudio", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.782 > [ 63376][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.787 > [ 63384][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.797 > [ 63391][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.804 > [ 63399][I][SoapESP32.cpp:961] soapScanItem(): "CD" (id: "inputs/cd", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.824 > [ 63421][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.831 > [ 63428][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.841 > [ 63435][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.849 > [ 63444][I][SoapESP32.cpp:961] soapScanItem(): "Phono" (id: "inputs/phono", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.870 > [ 63467][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "size=" missing.
+02:13:20.879 > [ 63474][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:20.885 > [ 63482][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:20.897 > [ 63490][I][SoapESP32.cpp:961] soapScanItem(): "Tuner" (id: "inputs/tuner", size: 0, sizeMissing: true, type: audio) added to list
+02:13:20.908 > [ 63504][I][SoapESP32.cpp:1098] soapProcessRequest(): found 0 folders and 10 files
+02:13:20.916 > [ 63512][I][SoapESP32.cpp:988] soapProcessRequest(): browse server: "Denon DRA-900H", objectId: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd"
+02:13:20.946 > [ 63539][I][SoapESP32.cpp:1000] soapProcessRequest(): connected successfully to server 192.168.1.35:60006
+02:13:20.952 > [ 63550][I][SoapESP32.cpp:1026] soapProcessRequest(): scan answer from media server:
+02:13:20.970 > [ 63563][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "childCount=" missing.
+02:13:20.975 > [ 63571][I][SoapESP32.cpp:793] soapScanContainer(): "All" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all", childCount: 0) added to list
+02:13:20.996 > [ 63589][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "childCount=" missing.
+02:13:20.999 > [ 63597][I][SoapESP32.cpp:793] soapScanContainer(): "Artists" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/art", childCount: 0) added to list
+02:13:21.021 > [ 63616][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "childCount=" missing.
+02:13:21.029 > [ 63624][I][SoapESP32.cpp:793] soapScanContainer(): "Albums" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/alb", childCount: 0) added to list
+02:13:21.048 > [ 63642][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "childCount=" missing.
+02:13:21.053 > [ 63650][I][SoapESP32.cpp:793] soapScanContainer(): "Genres" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/gen", childCount: 0) added to list
+02:13:21.075 > [ 63668][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "childCount=" missing.
+02:13:21.080 > [ 63676][I][SoapESP32.cpp:793] soapScanContainer(): "Playlists" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/pla", childCount: 0) added to list
+02:13:21.099 > [ 63694][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "childCount=" missing.
+02:13:21.104 > [ 63702][I][SoapESP32.cpp:773] soapScanContainer(): "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/fol" attribute searchable=0
+02:13:21.118 > [ 63712][I][SoapESP32.cpp:793] soapScanContainer(): "Browse Folders" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/fol", childCount: 0) added to list
+02:13:21.137 > [ 63730][I][SoapESP32.cpp:1098] soapProcessRequest(): found 6 folders and 0 files
+02:13:21.142 > [ 63738][I][SoapESP32.cpp:988] soapProcessRequest(): browse server: "Denon DRA-900H", objectId: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all"
+02:13:21.182 > [ 63776][I][SoapESP32.cpp:1000] soapProcessRequest(): connected successfully to server 192.168.1.35:60006
+02:13:21.192 > [ 63786][I][SoapESP32.cpp:1026] soapProcessRequest(): scan answer from media server:
+02:13:21.215 > [ 63812][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.225 > [ 63820][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.232 > [ 63829][I][SoapESP32.cpp:961] soapScanItem(): "An Ocean in Between the Waves" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-13", size: 10429725, sizeMissing: false, type: audio) added to list
+02:13:21.266 > [ 63861][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.271 > [ 63868][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.283 > [ 63878][I][SoapESP32.cpp:961] soapScanItem(): "Bright Eyes" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-1", size: 5730788, sizeMissing: false, type: audio) added to list
+02:13:21.316 > [ 63909][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.318 > [ 63917][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.332 > [ 63926][I][SoapESP32.cpp:961] soapScanItem(): "Carolina" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-12", size: 6462430, sizeMissing: false, type: audio) added to list
+02:13:21.363 > [ 63956][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.366 > [ 63964][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.376 > [ 63973][I][SoapESP32.cpp:961] soapScanItem(): "Let Love In" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-11", size: 7408565, sizeMissing: false, type: audio) added to list
+02:13:21.407 > [ 64005][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.417 > [ 64012][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.425 > [ 64021][I][SoapESP32.cpp:961] soapScanItem(): "Metal Heart" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-2", size: 6906365, sizeMissing: false, type: audio) added to list
+02:13:21.457 > [ 64052][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.464 > [ 64059][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.469 > [ 64068][I][SoapESP32.cpp:961] soapScanItem(): "Pulse VI" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-5", size: 6237326, sizeMissing: false, type: audio) added to list
+02:13:21.504 > [ 64100][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.512 > [ 64107][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.520 > [ 64117][I][SoapESP32.cpp:961] soapScanItem(): "The Days of Pearly Spencer" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-3", size: 8550180, sizeMissing: false, type: audio) added to list
+02:13:21.553 > [ 64148][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.557 > [ 64155][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.569 > [ 64164][I][SoapESP32.cpp:961] soapScanItem(): "The Night We Met" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-8", size: 5031129, sizeMissing: false, type: audio) added to list
+02:13:21.603 > [ 64196][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.608 > [ 64204][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.619 > [ 64213][I][SoapESP32.cpp:961] soapScanItem(): "Utopia" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-7", size: 5783723, sizeMissing: false, type: audio) added to list
+02:13:21.649 > [ 64242][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.654 > [ 64250][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.665 > [ 64259][I][SoapESP32.cpp:961] soapScanItem(): "Valley" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-6", size: 5814578, sizeMissing: false, type: audio) added to list
+02:13:21.697 > [ 64290][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.703 > [ 64298][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.712 > [ 64307][I][SoapESP32.cpp:961] soapScanItem(): "Vieux Farka Tourè et Khruangbin - Savanne" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-14", size: 7534591, sizeMissing: false, type: audio) added to list
+02:13:21.747 > [ 64340][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.752 > [ 64348][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.763 > [ 64357][I][SoapESP32.cpp:961] soapScanItem(): "Weekend" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-4", size: 4618197, sizeMissing: false, type: audio) added to list
+02:13:21.790 > [ 64388][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "bitrate=" missing.
+02:13:21.798 > [ 64395][I][SoapESP32.cpp:715] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+02:13:21.808 > [ 64404][I][SoapESP32.cpp:961] soapScanItem(): "Witness" (id: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-10", size: 6797834, sizeMissing: false, type: audio) added to list
+02:13:21.829 > [ 64422][I][SoapESP32.cpp:1098] soapProcessRequest(): found 0 folders and 13 files
+02:13:21.833 > Audio file was found:
+02:13:21.833 >  name: "Bright Eyes", id: m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/all/t-1, size: 5730788
+02:13:21.846 >  URI: m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/t-1
+02:13:21.849 > [ 64440][I][SoapESP32.cpp:1267] readStart(): server ip: 192.168.1.35, port: 8015, uri: "m-3c3080d2-9e42-24a7-6bf3-ad40d6c206cd/t-1"
+02:13:21.892 > Download request granted from server, announced file size: 5730788
+02:13:21.898 > Start copying file from server to SD, please wait.
+02:13:21.903 > ............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+02:13:37.926 > 
+02:13:37.926 > File download was successful.
+02:13:37.926 > Closing file on SD.
+02:13:37.941 > 
+02:13:37.941 > Some ESP32 memory stats after running this sketch:
+02:13:37.941 >  1) minimum ever free memory of all regions [in bytes]: 273312
+02:13:37.946 >  2) minimum ever free heap size [in bytes]:             2300399
+02:13:37.951 >  3) minimum ever stack size of this task [in bytes]:    4936
+02:13:37.956 > 
+02:13:37.956 > Sketch finished.

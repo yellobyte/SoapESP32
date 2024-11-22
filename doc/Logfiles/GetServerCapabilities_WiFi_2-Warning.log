@@ -1,188 +1,274 @@
-20:00:33.138 > ets Jun  8 2016 00:22:57
-20:00:33.141 > 
-20:00:33.141 > rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-20:00:33.145 > configsip: 0, SPIWP:0xee
-20:00:33.148 > clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-20:00:33.154 > mode:DIO, clock div:2
-20:00:33.156 > load:0x3fff0030,len:1184
-20:00:33.158 > load:0x40078000,len:13192
-20:00:33.160 > load:0x40080400,len:3028
-20:00:33.162 > entry 0x400805e4
-20:00:33.528 > 
-20:00:33.528 > Connecting to WiFi network .E (617) wifi:Association refused temporarily, comeback time 1024 mSec
-20:00:34.161 > ....[  2233][W][WiFiGeneric.cpp:955] _eventCallback(): Reason: 203 - ASSOC_FAIL
-20:00:36.161 > 
-20:00:36.161 > Connected successfully. IP address: 192.168.1.46
-20:00:36.166 > 
-20:00:36.167 > Scanning local network for DLNA media servers...
-20:01:46.570 > Number of discovered servers that deliver content: 8
-20:01:46.575 > 
-20:01:46.575 > Server[0]: IP address: 192.168.1.40, port: 53168, name: Mezzmo
-20:01:46.613 > server has reported search capabilities: 4
-20:01:46.616 >  id
-20:01:46.616 >  dc:title
-20:01:46.618 >  upnp:artist
-20:01:46.619 >  upnp:album
-20:01:46.621 > 
-20:01:46.648 > server has reported sort capabilities: 2
-20:01:46.653 >  dc:title
-20:01:46.653 >  upnp:originalTrackNumber
-20:01:46.655 >
-20:01:46.655 > Server[1]: IP address: 192.168.1.40, port: 1557, name: Kodi (Virtual-Win10)
-20:01:46.711 > server has reported search capabilities: 1
-20:01:46.715 >  upnp:class
-20:01:46.717 >
-20:01:46.759 > server has reported sort capabilities: 18
-20:01:46.763 >  res@duration
-20:01:46.763 >  res@size
-20:01:46.764 >  res@bitrate
-20:01:46.766 >  dc:date
-20:01:46.767 >  dc:title
-20:01:46.768 >  dc:size
-20:01:46.769 >  upnp:album
-20:01:46.770 >  upnp:artist
-20:01:46.771 >  upnp:albumArtist
-20:01:46.773 >  upnp:episodeNumber
-20:01:46.775 >  upnp:genre
-20:01:46.776 >  upnp:originalTrackNumber
-20:01:46.778 >  upnp:rating
-20:01:46.779 >  upnp:episodeCount
-20:01:46.781 >  upnp:episodeSeason
-20:01:46.783 >  xbmc:rating
-20:01:46.784 >  xbmc:dateadded
-20:01:46.786 >  xbmc:votes
-20:01:46.787 >
-20:01:46.787 > Server[2]: IP address: 192.168.1.40, port: 32469, name: Plex Media Server: Plex (Virtual-Win10)
-20:01:46.824 > server has reported search capabilities: 0
-20:01:46.829 >
-20:01:46.829 >
-20:01:46.829 > Server[3]: IP address: 192.168.1.40, port: 8895, name: Serviio (Virtual-Win10)
-20:01:49.860 > [ 76388][E][SoapESP32.cpp:1168] getServerCapabilities(): soapReadXML() returned: -1 (likely EOF)
-20:01:49.869 > server has reported search capabilities: 0
-20:01:49.874 >
-20:01:49.874 >
-20:01:49.874 > Server[4]: IP address: 192.168.1.11, port: 9791, name: MinimServer[QNAP-TS253D]
-20:01:49.911 > server has reported search capabilities: 11
-20:01:49.915 >  upnp:class
-20:01:49.917 >  dc:title
-20:01:49.917 >  dc:creator
-20:01:49.919 >  upnp:artist
-20:01:49.921 >  upnp:album
-20:01:49.922 >  upnp:genre
-20:01:49.923 >  dc:date
-20:01:49.923 >  res
-20:01:49.923 >  @refID
-20:01:49.924 >  upnp:artist[@role="AlbumArtist"]
-20:01:49.927 >  upnp:artist[@role="Composer"]
-20:01:49.931 >
-20:01:49.957 > server has reported sort capabilities: 0
-20:01:49.962 >
-20:01:49.962 > Server[5]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
-20:01:49.997 > server has reported search capabilities: 6
-20:01:50.001 >  upnp:class
-20:01:50.002 >  dc:title
-20:01:50.003 >  dc:creator
-20:01:50.004 >  upnp:artist
-20:01:50.007 >  upnp:album
-20:01:50.008 >  upnp:genre
-20:01:50.009 >
-20:01:50.029 > server has reported sort capabilities: 0
-20:01:50.032 >
-20:01:50.032 > Server[6]: IP address: 192.168.1.11, port: 9000, name: Twonky [QNAP-TS253D]
-20:01:50.064 > server has reported search capabilities: 32
-20:01:50.068 >  @id
-20:01:50.070 >  upnp:class
-20:01:50.070 >  @refID
-20:01:50.072 >  dc:title
-20:01:50.072 >  dc:creator
-20:01:50.073 >  upnp:artist
-20:01:50.075 >  upnp:actor
-20:01:50.075 >  upnp:author
-20:01:50.076 >  upnp:genre
-20:01:50.077 >  upnp:album
-20:01:50.080 >  dc:description
-20:01:50.081 >  pv:rating
-20:01:50.082 >  dc:date
-20:01:50.082 >  pv:avKeywords
-20:01:50.083 >  res@duration
-20:01:50.085 >  res@resolution
-20:01:50.086 >  pv:capturedate
-20:01:50.088 >  pv:custom
-20:01:50.089 >  upnp:channelName
-20:01:50.090 >  upnp:channelNr
-20:01:50.093 >  upnp:seriesTitle
-20:01:50.094 >  upnp:episodeNumber
-20:01:50.095 >  upnp:longDescription
-20:01:50.097 >  upnp:director
-20:01:50.099 >  upnp:rating
-20:01:50.101 >  pv:album_furigana
-20:01:50.102 >  pv:albumartist_furigana
-20:01:50.104 >  pv:artist_furigana
-20:01:50.107 >  pv:title_furigana
-20:01:50.108 >  pv:media360
-20:01:50.110 >  pv:audioenc
-20:01:50.111 >  @protocolInfo
-20:01:50.112 >
-20:01:50.136 > server has reported sort capabilities: 24
-20:01:50.140 >  dc:title
-20:01:50.141 >  dc:creator
-20:01:50.142 >  upnp:artist
-20:01:50.143 >  upnp:actor
-20:01:50.146 >  upnp:author
-20:01:50.147 >  upnp:genre
-20:01:50.147 >  upnp:album
-20:01:50.148 >  upnp:albumArtist
-20:01:50.150 >  dc:description
-20:01:50.152 >  upnp:originalTrackNumber
-20:01:50.154 >  pv:playcount
-20:01:50.155 >  pv:rating
-20:01:50.156 >  dc:date
-20:01:50.157 >  pv:modificationTime
-20:01:50.160 >  pv:addedTime
-20:01:50.161 >  pv:lastPlayedTime
-20:01:50.162 >  pv:lastUpdated
-20:01:50.164 >  res@duration
-20:01:50.165 >  pv:extension
-20:01:50.167 >  upnp:seriesTitle
-20:01:50.168 >  upnp:seriesID
-20:01:50.170 >  upnp:episodeCount
-20:01:50.171 >  upnp:episodeNumber
-20:01:50.172 >  upnp:rating
-20:01:50.173 >
-20:01:50.174 > Server[7]: IP address: 192.168.1.40, port: 8096, name: Jellyfin - VIRTUAL-WIN10
-20:01:50.212 > server has reported search capabilities: 17
-20:01:50.216 >  res@resolution
-20:01:50.219 >  res@size
-20:01:50.220 >  res@duration
-20:01:50.220 >  dc:title
-20:01:50.221 >  dc:creator
-20:01:50.222 >  upnp:actor
-20:01:50.223 >  upnp:artist
-20:01:50.224 >  upnp:genre
-20:01:50.227 >  upnp:album
-20:01:50.228 >  dc:date
-20:01:50.229 >  upnp:class
-20:01:50.229 >  @id
-20:01:50.229 >  @refID
-20:01:50.230 >  @protocolInfo
-20:01:50.231 >  upnp:author
-20:01:50.234 >  dc:description
-20:01:50.234 >  pv:avKeywords
-20:01:50.235 >
-20:01:50.265 > server has reported sort capabilities: 13
-20:01:50.269 >  res@duration
-20:01:50.271 >  res@size
-20:01:50.272 >  res@bitrate
-20:01:50.274 >  dc:date
-20:01:50.274 >  dc:title
-20:01:50.274 >  dc:size
-20:01:50.275 >  upnp:album
-20:01:50.276 >  upnp:artist
-20:01:50.278 >  upnp:albumArtist
-20:01:50.280 >  upnp:episodeNumber
-20:01:50.282 >  upnp:genre
-20:01:50.282 >  upnp:originalTrackNumber
-20:01:50.284 >  upnp:rating
-20:01:50.286 >
-20:01:50.286 >
-20:01:50.286 > Sketch finished.
+--- Terminal on COM5 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+00:05:48.969 > 
+00:05:48.969 > Connecting to WiFi network .
+00:05:49.518 > Connected successfully. IP address: 192.168.1.36
+00:05:49.518 >
+00:05:49.518 > Scanning local network for DLNA media servers...
+00:06:19.827 > Number of discovered servers that deliver content: 10
+00:06:19.827 >
+00:06:19.827 > Server[0]: IP address: 192.168.1.40, port: 1557, name: Kodi (Virtual-Win10)
+00:06:19.862 > Server has reported search capabilities: 1
+00:06:19.863 >  upnp:class
+00:06:19.863 >
+00:06:19.877 > Server has reported sort capabilities: 18
+00:06:19.877 >  res@duration
+00:06:19.877 >  res@size
+00:06:19.877 >  res@bitrate
+00:06:19.877 >  dc:date
+00:06:19.877 >  dc:title
+00:06:19.877 >  dc:size
+00:06:19.877 >  upnp:album
+00:06:19.877 >  upnp:artist
+00:06:19.890 >  upnp:albumArtist
+00:06:19.893 >  upnp:episodeNumber
+00:06:19.893 >  upnp:genre
+00:06:19.894 >  upnp:originalTrackNumber
+00:06:19.894 >  upnp:rating
+00:06:19.894 >  upnp:episodeCount
+00:06:19.894 >  upnp:episodeSeason
+00:06:19.894 >  xbmc:rating
+00:06:19.894 >  xbmc:dateadded
+00:06:19.894 >  xbmc:votes
+00:06:19.906 > 
+00:06:19.906 > Server[1]: IP address: 192.168.1.40, port: 53168, name: Mezzmo
+00:06:19.926 > Server has reported search capabilities: 4
+00:06:19.927 >  id
+00:06:19.927 >  dc:title
+00:06:19.927 >  upnp:artist
+00:06:19.927 >  upnp:album
+00:06:19.927 >
+00:06:19.944 > Server has reported sort capabilities: 2
+00:06:19.944 >  dc:title
+00:06:19.944 >  upnp:originalTrackNumber
+00:06:19.944 >
+00:06:19.944 > Server[2]: IP address: 192.168.1.40, port: 32469, name: Plex Media Server: Plex (Virtual-Win10)
+00:06:19.960 > Server has reported search capabilities: 0
+00:06:19.975 >
+00:06:19.975 >
+00:06:19.975 > Server[3]: IP address: 192.168.1.11, port: 9000, name: TwonkyServer [QNAP-TS253D]
+00:06:19.994 > Server has reported search capabilities: 32
+00:06:19.994 >  @id
+00:06:19.994 >  upnp:class
+00:06:19.994 >  @refID
+00:06:19.994 >  dc:title
+00:06:19.994 >  dc:creator
+00:06:19.994 >  upnp:artist
+00:06:19.994 >  upnp:actor
+00:06:19.994 >  upnp:author
+00:06:19.994 >  upnp:genre
+00:06:19.994 >  upnp:album
+00:06:20.008 >  dc:description
+00:06:20.008 >  pv:rating
+00:06:20.011 >  dc:date
+00:06:20.011 >  pv:avKeywords
+00:06:20.011 >  res@duration
+00:06:20.011 >  res@resolution
+00:06:20.011 >  pv:capturedate
+00:06:20.011 >  pv:custom
+00:06:20.011 >  upnp:channelName
+00:06:20.011 >  upnp:channelNr
+00:06:20.011 >  upnp:seriesTitle
+00:06:20.011 >  upnp:episodeNumber
+00:06:20.024 >  upnp:longDescription
+00:06:20.024 >  upnp:director
+00:06:20.027 >  upnp:rating
+00:06:20.027 >  pv:album_furigana
+00:06:20.027 >  pv:albumartist_furigana
+00:06:20.027 >  pv:artist_furigana
+00:06:20.027 >  pv:title_furigana
+00:06:20.027 >  pv:media360
+00:06:20.027 >  pv:audioenc
+00:06:20.040 >  @protocolInfo
+00:06:20.040 >
+00:06:20.044 > Server has reported sort capabilities: 24
+00:06:20.058 >  dc:title
+00:06:20.058 >  dc:creator
+00:06:20.061 >  upnp:artist
+00:06:20.061 >  upnp:actor
+00:06:20.061 >  upnp:author
+00:06:20.061 >  upnp:genre
+00:06:20.061 >  upnp:album
+00:06:20.061 >  upnp:albumArtist
+00:06:20.061 >  dc:description
+00:06:20.061 >  upnp:originalTrackNumber
+00:06:20.061 >  pv:playcount
+00:06:20.061 >  pv:rating
+00:06:20.075 >  dc:date
+00:06:20.075 >  pv:modificationTime
+00:06:20.077 >  pv:addedTime
+00:06:20.078 >  pv:lastPlayedTime
+00:06:20.078 >  pv:lastUpdated
+00:06:20.078 >  res@duration
+00:06:20.078 >  pv:extension
+00:06:20.078 >  upnp:seriesTitle
+00:06:20.078 >  upnp:seriesID
+00:06:20.078 >  upnp:episodeCount
+00:06:20.078 >  upnp:episodeNumber
+00:06:20.078 >  upnp:rating
+00:06:20.091 >
+00:06:20.091 > Server[4]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
+00:06:20.110 > Server has reported search capabilities: 6
+00:06:20.110 >  upnp:class
+00:06:20.110 >  dc:title
+00:06:20.124 >  dc:creator
+00:06:20.124 >  upnp:artist
+00:06:20.124 >  upnp:album
+00:06:20.124 >  upnp:genre
+00:06:20.124 >
+00:06:20.144 > Server has reported sort capabilities: 0
+00:06:20.144 >
+00:06:20.144 > Server[5]: IP address: 192.168.1.11, port: 9791, name: MinimServer[QNAP-TS253D]
+00:06:20.161 > Server has reported search capabilities: 11
+00:06:20.161 >  upnp:class
+00:06:20.161 >  dc:title
+00:06:20.161 >  dc:creator
+00:06:20.161 >  upnp:artist
+00:06:20.161 >  upnp:album
+00:06:20.161 >  upnp:genre
+00:06:20.161 >  dc:date
+00:06:20.175 >  res
+00:06:20.175 >  @refID
+00:06:20.175 >  upnp:artist[@role="AlbumArtist"]
+00:06:20.177 >  upnp:artist[@role="Composer"]
+00:06:20.177 >
+00:06:20.190 > Server has reported sort capabilities: 0
+00:06:20.193 >
+00:06:20.193 > Server[6]: IP address: 192.168.1.35, port: 60006, name: Denon DRA-900H
+00:06:20.210 > Server has reported search capabilities: 7
+00:06:20.210 >  upnp:class
+00:06:20.210 >  dc:title
+00:06:20.210 >  dc:creator
+00:06:20.210 >  upnp:artist
+00:06:20.210 >  upnp:album
+00:06:20.210 >  upnp:genre
+00:06:20.210 >  upnp:region
+00:06:20.223 >
+00:06:20.239 > Server has reported sort capabilities: 0
+00:06:20.241 >
+00:06:20.241 > Server[7]: IP address: 192.168.1.40, port: 8895, name: Serviio (Virtual-Win10)
+00:06:23.259 > Server has reported search capabilities: 0
+00:06:23.275 >
+00:06:23.275 >
+00:06:23.275 > Server[8]: IP address: 192.168.1.40, port: 2869, name: VIRTUAL-WIN10: MediaPlayerVM:
+00:06:23.307 > Server has reported search capabilities: 40
+00:06:23.307 >  @id
+00:06:23.307 >  @refID
+00:06:23.307 >  dc:title
+00:06:23.307 >  upnp:class
+00:06:23.307 >  upnp:genre
+00:06:23.307 >  upnp:artist
+00:06:23.307 >  upnp:author
+00:06:23.307 >  upnp:author@role
+00:06:23.307 >  upnp:album
+00:06:23.307 >  dc:creator
+00:06:23.307 >  res@size
+00:06:23.307 >  res@duration
+00:06:23.324 >  res@protocolInfo
+00:06:23.324 >  res@protection
+00:06:23.327 >  dc:publisher
+00:06:23.327 >  dc:language
+00:06:23.327 >  upnp:originalTrackNumber
+00:06:23.327 >  dc:date
+00:06:23.327 >  upnp:producer
+00:06:23.327 >  upnp:rating
+00:06:23.327 >  upnp:actor
+00:06:23.327 >  upnp:director
+00:06:23.327 >  upnp:toc
+00:06:23.327 >  dc:description
+00:06:23.341 >  microsoft:userRatingInStars
+00:06:23.341 >  microsoft:userEffectiveRatingInStars
+00:06:23.343 >  microsoft:userRating
+00:06:23.343 >  microsoft:userEffectiveRating
+00:06:23.343 >  microsoft:serviceProvider
+00:06:23.343 >  microsoft:artistAlbumArtist
+00:06:23.343 >  microsoft:artistPerformer
+00:06:23.357 >  microsoft:artistConductor
+00:06:23.360 >  microsoft:authorComposer
+00:06:23.360 >  microsoft:authorOriginalLyricist
+00:06:23.360 >  microsoft:authorWriter
+00:06:23.360 >  upnp:userAnnotation
+00:06:23.360 >  upnp:channelName
+00:06:23.360 >  upnp:longDescription
+00:06:23.374 >  upnp:programTitle
+00:06:23.374 >  upnp:episodeNumber
+00:06:23.377 >
+00:06:23.391 > Server has reported sort capabilities: 34
+00:06:23.394 >  dc:title
+00:06:23.394 >  upnp:genre
+00:06:23.394 >  upnp:album
+00:06:23.394 >  dc:creator
+00:06:23.394 >  res@size
+00:06:23.394 >  res@duration
+00:06:23.394 >  res@bitrate
+00:06:23.394 >  dc:publisher
+00:06:23.394 >  dc:language
+00:06:23.394 >  upnp:originalTrackNumber
+00:06:23.394 >  dc:date
+00:06:23.408 >  upnp:producer
+00:06:23.408 >  upnp:rating
+00:06:23.410 >  upnp:actor
+00:06:23.410 >  upnp:director
+00:06:23.410 >  upnp:toc
+00:06:23.410 >  dc:description
+00:06:23.410 >  microsoft:year
+00:06:23.410 >  microsoft:userRatingInStars
+00:06:23.410 >  microsoft:userEffectiveRatingInStars
+00:06:23.410 >  microsoft:userRating
+00:06:23.424 >  microsoft:userEffectiveRating
+00:06:23.427 >  microsoft:serviceProvider
+00:06:23.427 >  microsoft:artistAlbumArtist
+00:06:23.427 >  microsoft:artistPerformer
+00:06:23.427 >  microsoft:artistConductor
+00:06:23.427 >  microsoft:authorComposer
+00:06:23.438 >  microsoft:authorWriter
+00:06:23.441 >  microsoft:sourceUrl
+00:06:23.443 >  upnp:userAnnotation
+00:06:23.443 >  upnp:channelName
+00:06:23.443 >  upnp:longDescription
+00:06:23.443 >  upnp:programTitle
+00:06:23.443 >  upnp:episodeNumber
+00:06:23.443 >
+00:06:23.443 > Server[9]: IP address: 192.168.1.40, port: 8096, name: Jellyfin - VIRTUAL-WIN10
+00:06:23.475 > Server has reported search capabilities: 17
+00:06:23.477 >  res@resolution
+00:06:23.477 >  res@size
+00:06:23.477 >  res@duration
+00:06:23.477 >  dc:title
+00:06:23.477 >  dc:creator
+00:06:23.477 >  upnp:actor
+00:06:23.477 >  upnp:artist
+00:06:23.477 >  upnp:genre
+00:06:23.477 >  upnp:album
+00:06:23.489 >  dc:date
+00:06:23.489 >  upnp:class
+00:06:23.489 >  @id
+00:06:23.492 >  @refID
+00:06:23.492 >  @protocolInfo
+00:06:23.492 >  upnp:author
+00:06:23.494 >  dc:description
+00:06:23.494 >  pv:avKeywords
+00:06:23.494 >
+00:06:23.510 > Server has reported sort capabilities: 13
+00:06:23.510 >  res@duration
+00:06:23.510 >  res@size
+00:06:23.510 >  res@bitrate
+00:06:23.510 >  dc:date
+00:06:23.510 >  dc:title
+00:06:23.510 >  dc:size
+00:06:23.510 >  upnp:album
+00:06:23.510 >  upnp:artist
+00:06:23.510 >  upnp:albumArtist
+00:06:23.524 >  upnp:episodeNumber
+00:06:23.524 >  upnp:genre
+00:06:23.527 >  upnp:originalTrackNumber
+00:06:23.527 >  upnp:rating
+00:06:23.527 >
+00:06:23.527 > Some ESP32 memory stats after running this sketch:
+00:06:23.527 >  1) minimum ever free memory of all regions [in bytes]: 289940
+00:06:23.541 >  2) minimum ever free heap size [in bytes]:             2348651
+00:06:23.544 >  3) minimum ever stack size of this task [in bytes]:    5516
+00:06:23.544 >
+00:06:23.544 > Sketch finished.

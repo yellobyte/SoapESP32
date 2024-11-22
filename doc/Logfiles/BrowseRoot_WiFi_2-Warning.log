@@ -1,0 +1,85 @@
+00:32:07.328 > ESP-ROM:esp32s3-20210327
+00:32:07.328 > Build:Mar 27 2021
+00:32:07.333 > rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+00:32:07.338 > SPIWP:0xee
+00:32:07.338 > mode:DIO, clock div:1
+00:32:07.338 > load:0x3fce3808,len:0x4bc
+00:32:07.344 > load:0x403c9700,len:0xbd8
+00:32:07.344 > load:0x403cc700,len:0x2a0c
+00:32:07.344 > entry 0x403c98d0
+00:32:07.737 > 
+00:32:07.737 > Connecting to WiFi network .
+00:32:08.291 > Connected successfully. IP address: 192.168.1.36
+00:32:08.294 >
+00:32:08.294 > Scanning local network for DLNA media servers...
+00:32:20.020 > Number of discovered servers that deliver content: 10
+00:32:20.023 >
+00:32:20.023 > Server[0]: IP address: 192.168.1.40, port: 32469, name: Plex Media Server: Plex (Virtual-Win10)
+00:32:20.052 > Browsing root directory. Number of sub-directories: 3
+00:32:20.059 >  Video (child count: missing)
+00:32:20.062 >  Music (child count: missing)
+00:32:20.063 >  Photos (child count: missing)
+00:32:20.063 >
+00:32:20.063 > Server[1]: IP address: 192.168.1.40, port: 53168, name: Mezzmo
+00:32:20.109 > Browsing root directory. Number of sub-directories: 3
+00:32:20.109 >  Musik (child count: 12)
+00:32:20.115 >  Video (child count: 15)
+00:32:20.116 >  Fotos (child count: 6)
+00:32:20.120 >
+00:32:20.120 > Server[2]: IP address: 192.168.1.11, port: 9000, name: TwonkyServer [QNAP-TS253D]
+00:32:20.146 > Browsing root directory. Number of sub-directories: 2
+00:32:20.147 >  Music (child count: 4)
+00:32:20.147 >  Videos (child count: 4)
+00:32:20.152 >
+00:32:20.152 > Server[3]: IP address: 192.168.1.35, port: 60006, name: Denon DRA-900H
+00:32:20.206 > Browsing root directory. Number of sub-directories: 2
+00:32:20.209 >  Audio Inputs (child count: 10)
+00:32:20.212 >  USB Media (child count: missing)
+00:32:20.214 >
+00:32:20.214 > Server[4]: IP address: 192.168.1.40, port: 8895, name: Serviio (Virtual-Win10)
+00:32:20.243 > Browsing root directory. Number of sub-directories: 3
+00:32:20.243 >  Audio (child count: 13)
+00:32:20.248 >  Image (child count: 7)
+00:32:20.248 >  Video (child count: 12)
+00:32:20.253 >
+00:32:20.253 > Server[5]: IP address: 192.168.1.40, port: 8096, name: Jellyfin - VIRTUAL-WIN10
+00:32:20.319 > Browsing root directory. Number of sub-directories: 2
+00:32:20.325 >  Movies (child count: 6)
+00:32:20.325 >  Music (child count: 10)
+00:32:20.330 >
+00:32:20.330 > Server[6]: IP address: 192.168.1.40, port: 5001, name: Universal Media Server
+00:32:20.392 > Browsing root directory. Number of sub-directories: 2
+00:32:20.393 >  Medienbibliothek (child count: 3)
+00:32:20.397 >  Media (child count: 1)
+00:32:20.397 >
+00:32:20.397 > Server[7]: IP address: 192.168.1.11, port: 9791, name: MinimServer[QNAP-TS253D]
+00:32:20.448 > Browsing root directory. Number of sub-directories: 10
+00:32:20.448 >  191 albums (child count: missing)
+00:32:20.454 >  13187 items (child count: missing)
+00:32:20.459 >  5 playlists (child count: missing)
+00:32:20.459 >  Artist (child count: missing)
+00:32:20.464 >  Date (child count: missing)
+00:32:20.464 >  Genre (child count: missing)
+00:32:20.471 >  All Artists (child count: missing)
+00:32:20.473 >  Composer (child count: missing)
+00:32:20.475 >  [untagged] (child count: missing)
+00:32:20.479 >  [folder view] (child count: missing)
+00:32:20.479 >
+00:32:20.479 > Server[8]: IP address: 192.168.1.40, port: 1557, name: Kodi (Virtual-Win10)
+00:32:20.514 > Browsing root directory. Number of sub-directories: 2
+00:32:20.516 >  Music Library (child count: missing)
+00:32:20.520 >  Video Library (child count: missing)
+00:32:20.526 >
+00:32:20.526 > Server[9]: IP address: 192.168.1.40, port: 2869, name: VIRTUAL-WIN10: MediaPlayerVM:
+00:32:20.591 > Browsing root directory. Number of sub-directories: 4
+00:32:20.591 >  Bilder (child count: 7)
+00:32:20.596 >  Musik (child count: 10)
+00:32:20.596 >  Videos (child count: 8)
+00:32:20.602 >  Wiedergabelisten (child count: 2)
+00:32:20.606 >
+00:32:20.606 > Some ESP32 memory stats after running this sketch:
+00:32:20.609 >  1) minimum ever free memory of all regions [in bytes]: 288240
+00:32:20.615 >  2) minimum ever free heap size [in bytes]:             2342295
+00:32:20.620 >  3) minimum ever stack size of this task [in bytes]:    5272
+00:32:20.625 >
+00:32:20.628 > Sketch finished.

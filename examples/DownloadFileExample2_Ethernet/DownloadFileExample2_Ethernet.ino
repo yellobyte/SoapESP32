@@ -5,10 +5,10 @@
   for a small audio file. If found, the file is copied to SD card. 
   We use a Wiznet W5x00 Ethernet module/shield attached to ESP32 instead of WiFi.
 
-  Ethernet module/shield is attached to GPIO 18, 19, 23 and GPIO 25 (CS).
-  SD card module/shield is attached to GPIO 18, 19, 23 and GPIO 5 (CS).
+  Chip Select (CS) Signal of Ethernet module/shield is attached to GPIO 25.
+  Chip Select (CS) Signal of SD card module/shield is attached to GPIO 10.
     
-  Last updated 2023-11-29, ThJ <yellobyte@bluewin.ch>
+  Last updated 2024-11-21, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -35,7 +35,7 @@
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
 #define GPIO_ETHCS 25
-#define GPIO_SDCS  5
+#define GPIO_SDCS  10
 
 EthernetClient client;
 EthernetUDP udp;

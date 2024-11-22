@@ -1,0 +1,229 @@
+--- Terminal on COM5 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+01:17:34.475 > 
+01:17:34.475 > Connecting to WiFi network .
+01:17:35.030 > Connected successfully. IP address: 192.168.1.36
+01:17:35.030 >
+01:17:35.030 > ----> server content follows:
+01:17:35.170 > Audio Inputs/
+01:17:35.291 >   CBL/SAT   item size: missing, audio
+01:17:35.297 >   Media Player   item size: missing, audio
+01:17:35.297 >   Blu-ray   item size: missing, audio
+01:17:35.302 >   Game   item size: missing, audio
+01:17:35.304 >   AUX1   item size: missing, audio
+01:17:35.311 >   AUX2   item size: missing, audio
+01:17:35.314 >   TV Audio   item size: missing, audio
+01:17:35.317 >   CD   item size: missing, audio
+01:17:35.319 >   Phono   item size: missing, audio
+01:17:35.322 >   Tuner   item size: missing, audio
+01:17:35.325 > USB Media/
+01:17:35.369 >   All/
+01:17:35.641 >     An Ocean in Between the Waves   item size: 10429725, audio
+01:17:35.646 >     Bright Eyes   item size: 5730788, audio
+01:17:35.652 >     Carolina   item size: 6462430, audio
+01:17:35.653 >     Let Love In   item size: 7408565, audio
+01:17:35.659 >     Metal Heart   item size: 6906365, audio
+01:17:35.662 >     Pulse VI   item size: 6237326, audio
+01:17:35.664 >     The Days of Pearly Spencer   item size: 8550180, audio
+01:17:35.672 >     The Night We Met   item size: 5031129, audio
+01:17:35.677 >     Utopia   item size: 5783723, audio
+01:17:35.678 >     Valley   item size: 5814578, audio
+01:17:35.683 >     Vieux Farka Tourè et Khruangbin - Savanne   item size: 7534591, audio
+01:17:35.691 >     Weekend   item size: 4618197, audio
+01:17:35.691 >     Witness   item size: 6797834, audio
+01:17:35.696 >   Artists/
+01:17:35.770 >     Art Garfunkel/
+01:17:35.809 >       All/
+01:17:35.845 >         Bright Eyes   item size: 5730788, audio
+01:17:35.849 >       Car-CD 7/
+01:17:35.889 >         Bright Eyes   item size: 5730788, audio
+01:17:35.892 >     Dave Gahan, Soulsavers/
+01:17:35.919 >       All/
+01:17:35.956 >         Metal Heart   item size: 6906365, audio
+01:17:35.959 >       Car-CD 7/
+01:17:35.998 >         Metal Heart   item size: 6906365, audio
+01:17:35.998 >     David McWilliams/
+01:17:36.031 >       All/
+01:17:36.071 >         The Days of Pearly Spencer   item size: 8550180, audio
+01:17:36.074 >       Car-CD 7/
+01:17:36.112 >         The Days of Pearly Spencer   item size: 8550180, audio
+01:17:36.115 >     Earth and Fire/
+01:17:36.144 >       All/
+01:17:36.191 >         Weekend   item size: 4618197, audio
+01:17:36.193 >       Car-CD 7/
+01:17:36.228 >         Weekend   item size: 4618197, audio
+01:17:36.234 >     Kerala Dust/
+01:17:36.264 >       All/
+01:17:36.305 >         Pulse VI   item size: 6237326, audio
+01:17:36.309 >       Car-CD 7/
+01:17:36.344 >         Pulse VI   item size: 6237326, audio
+01:17:36.344 >     Kevin Morby/
+01:17:36.376 >       All/
+01:17:36.411 >         Valley   item size: 5814578, audio
+01:17:36.419 >       Car-CD 7/
+01:17:36.455 >         Valley   item size: 5814578, audio
+01:17:36.458 >     Lie Ning/
+01:17:36.494 >       All/
+01:17:36.535 >         Utopia   item size: 5783723, audio
+01:17:36.540 >       Car-CD 7/
+01:17:36.576 >         Utopia   item size: 5783723, audio
+01:17:36.581 >     Lord Huron/
+01:17:36.609 >       All/
+01:17:36.650 >         The Night We Met   item size: 5031129, audio
+01:17:36.653 >       Car-CD 7/
+01:17:36.692 >         The Night We Met   item size: 5031129, audio
+01:17:36.696 >     Sarah McLachlan/
+01:17:36.731 >       All/
+01:17:36.774 >         Witness   item size: 6797834, audio
+01:17:36.778 >       Car-CD 7/
+01:17:36.819 >         Witness   item size: 6797834, audio
+01:17:36.822 >     Skånes Dansteater, Big Fox, Anna Brånhede/
+01:17:36.855 >       All/
+01:17:36.899 >         Let Love In   item size: 7408565, audio
+01:17:36.902 >       Car-CD 7/
+01:17:36.942 >         Let Love In   item size: 7408565, audio
+01:17:36.942 >     Taylor Swift/
+01:17:36.983 >       All/
+01:17:37.036 >         Carolina   item size: 6462430, audio
+01:17:37.039 >       Car-CD 7/
+01:17:37.077 >         Carolina   item size: 6462430, audio
+01:17:37.080 >     The War on Drugs/
+01:17:37.119 >       All/
+01:17:37.161 >         An Ocean in Between the Waves   item size: 10429725, audio
+01:17:37.167 >       Car-CD 7/
+01:17:37.206 >         An Ocean in Between the Waves   item size: 10429725, audio
+01:17:37.211 >     Unknown Artist/
+01:17:37.237 >       All/
+01:17:37.264 >     Vieux Farka Tourè/
+01:17:37.300 >       All/
+01:17:37.343 >         Vieux Farka Tourè et Khruangbin - Savanne   item size: 7534591, audio
+01:17:37.349 >       Car-CD 7/
+01:17:37.387 >         Vieux Farka Tourè et Khruangbin - Savanne   item size: 7534591, audio
+01:17:37.393 >   Albums/
+01:17:37.416 >     Car-CD 7/
+01:17:37.641 >       An Ocean in Between the Waves   item size: 10429725, audio
+01:17:37.651 >       Bright Eyes   item size: 5730788, audio
+01:17:37.654 >       Carolina   item size: 6462430, audio
+01:17:37.654 >       Let Love In   item size: 7408565, audio
+01:17:37.658 >       Metal Heart   item size: 6906365, audio
+01:17:37.663 >       Pulse VI   item size: 6237326, audio
+01:17:37.671 >       The Days of Pearly Spencer   item size: 8550180, audio
+01:17:37.676 >       The Night We Met   item size: 5031129, audio
+01:17:37.677 >       Utopia   item size: 5783723, audio
+01:17:37.682 >       Valley   item size: 5814578, audio
+01:17:37.687 >       Vieux Farka Tourè et Khruangbin - Savanne   item size: 7534591, audio
+01:17:37.692 >       Witness   item size: 6797834, audio
+01:17:37.698 >       Weekend   item size: 4618197, audio
+01:17:37.702 >   Genres/
+01:17:37.724 >     Unknown Genre/
+01:17:37.802 >       All/
+01:17:38.036 >         An Ocean in Between the Waves   item size: 10429725, audio
+01:17:38.041 >         Bright Eyes   item size: 5730788, audio
+01:17:38.041 >         Carolina   item size: 6462430, audio
+01:17:38.046 >         Let Love In   item size: 7408565, audio
+01:17:38.053 >         Metal Heart   item size: 6906365, audio
+01:17:38.058 >         Pulse VI   item size: 6237326, audio
+01:17:38.060 >         The Days of Pearly Spencer   item size: 8550180, audio
+01:17:38.065 >         The Night We Met   item size: 5031129, audio
+01:17:38.073 >         Utopia   item size: 5783723, audio
+01:17:38.074 >         Valley   item size: 5814578, audio
+01:17:38.079 >         Vieux Farka Tourè et Khruangbin - Savanne   item size: 7534591, audio
+01:17:38.086 >         Weekend   item size: 4618197, audio
+01:17:38.089 >         Witness   item size: 6797834, audio
+01:17:38.093 >       Art Garfunkel/
+01:17:38.133 >         All/
+01:17:38.133 >         Car-CD 7/
+01:17:38.136 >       Dave Gahan, Soulsavers/
+01:17:38.170 >         All/
+01:17:38.170 >         Car-CD 7/
+01:17:38.174 >       David McWilliams/
+01:17:38.204 >         All/
+01:17:38.204 >         Car-CD 7/
+01:17:38.208 >       Earth and Fire/
+01:17:38.245 >         All/
+01:17:38.245 >         Car-CD 7/
+01:17:38.248 >       Kerala Dust/
+01:17:38.281 >         All/
+01:17:38.281 >         Car-CD 7/
+01:17:38.283 >       Kevin Morby/
+01:17:38.317 >         All/
+01:17:38.317 >         Car-CD 7/
+01:17:38.320 >       Lie Ning/
+01:17:38.348 >         All/
+01:17:38.348 >         Car-CD 7/
+01:17:38.352 >       Lord Huron/
+01:17:38.381 >         All/
+01:17:38.381 >         Car-CD 7/
+01:17:38.388 >       Sarah McLachlan/
+01:17:38.415 >         All/
+01:17:38.415 >         Car-CD 7/
+01:17:38.420 >       Skånes Dansteater, Big Fox, Anna Brånhede/
+01:17:38.452 >         All/
+01:17:38.381 >         All/
+01:17:38.381 >         Car-CD 7/
+01:17:38.388 >       Sarah McLachlan/
+01:17:38.415 >         All/
+01:17:38.415 >         Car-CD 7/
+01:17:38.420 >       Skånes Dansteater, Big Fox, Anna Brånhede/
+01:17:38.452 >         All/
+01:17:38.381 >         Car-CD 7/
+01:17:38.388 >       Sarah McLachlan/
+01:17:38.415 >         All/
+01:17:38.415 >         Car-CD 7/
+01:17:38.420 >       Skånes Dansteater, Big Fox, Anna Brånhede/
+01:17:38.452 >         All/
+01:17:38.388 >       Sarah McLachlan/
+01:17:38.415 >         All/
+01:17:38.415 >         Car-CD 7/
+01:17:38.420 >       Skånes Dansteater, Big Fox, Anna Brånhede/
+01:17:38.452 >         All/
+01:17:38.452 >         Car-CD 7/
+01:17:38.415 >         All/
+01:17:38.415 >         Car-CD 7/
+01:17:38.420 >       Skånes Dansteater, Big Fox, Anna Brånhede/
+01:17:38.452 >         All/
+01:17:38.452 >         Car-CD 7/
+01:17:38.455 >       Taylor Swift/
+01:17:38.452 >         All/
+01:17:38.452 >         Car-CD 7/
+01:17:38.455 >       Taylor Swift/
+01:17:38.452 >         Car-CD 7/
+01:17:38.455 >       Taylor Swift/
+01:17:38.455 >       Taylor Swift/
+01:17:38.481 >         All/
+01:17:38.486 >         Car-CD 7/
+01:17:38.489 >       The War on Drugs/
+01:17:38.520 >         All/
+01:17:38.521 >         Car-CD 7/
+01:17:38.524 >       Unknown Artist/
+01:17:38.556 >         All/
+01:17:38.556 >       Vieux Farka Tourè/
+01:17:38.596 >         All/
+01:17:38.596 >         Car-CD 7/
+01:17:38.597 >   Playlists/
+01:17:38.622 >   Browse Folders/
+01:17:38.659 >     System Volume Information/
+01:17:38.677 >     FOUND.000/
+01:17:38.706 >     Car-CD7/
+01:17:38.975 >       Bright Eyes   item size: 5730788, audio
+01:17:38.980 >       Metal Heart   item size: 6906365, audio
+01:17:38.980 >       The Days of Pearly Spencer   item size: 8550180, audio
+01:17:38.986 >       Weekend   item size: 4618197, audio
+01:17:38.991 >       Pulse VI   item size: 6237326, audio
+01:17:38.997 >       Valley   item size: 5814578, audio
+01:17:38.997 >       Utopia   item size: 5783723, audio
+01:17:39.005 >       The Night We Met   item size: 5031129, audio
+01:17:39.008 >       Witness   item size: 6797834, audio
+01:17:39.013 >       Let Love In   item size: 7408565, audio
+01:17:39.015 >       Carolina   item size: 6462430, audio
+01:17:39.022 >       An Ocean in Between the Waves   item size: 10429725, audio
+01:17:39.026 >       Vieux Farka Tourè et Khruangbin - Savanne   item size: 7534591, audio
+01:17:39.031 >
+01:17:39.031 > Some ESP32 memory stats after running this sketch:
+01:17:39.038 >  1) minimum ever free memory of all regions [in bytes]: 278240
+01:17:39.042 >  2) minimum ever free heap size [in bytes]:             2346127
+01:17:39.045 >  3) minimum ever stack size of this task [in bytes]:    5208
+01:17:39.056 >
+01:17:39.056 > Sketch finished.
