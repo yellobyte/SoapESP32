@@ -7,7 +7,7 @@
   We use a Wiznet W5x00 Ethernet module/shield instead of builtin WiFi. 
   It's attached to GPIO 18, 19, 23 and GPIO 25 (Chip Select).
 
-  Last updated 2023-11-22, ThJ <yellobyte@bluewin.ch>
+  Last updated 2024-11-22, ThJ <yellobyte@bluewin.ch>
 */
 
 #include <Arduino.h>
@@ -35,12 +35,10 @@ void setup() {
   Ethernet.init(GPIO_ETHCS);
   Serial.print("\nInitializing Ethernet...");
 
-  if (Ethernet.begin(mac))
-  {
+  if (Ethernet.begin(mac)) {
     Serial.println("DHCP ok.");
   }
-  else
-  {
+  else {
     Serial.println("DHCP error !");
     while (true) {
       // no point to continue

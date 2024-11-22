@@ -123,12 +123,10 @@ void setup() {
   Ethernet.init(GPIO_ETHCS);
   Serial.print("\nInitializing Ethernet...");
 
-  if (Ethernet.begin(mac))
-  {
+  if (Ethernet.begin(mac)) {
     Serial.println("DHCP ok.");
   }
-  else
-  {
+  else {
     Serial.println("DHCP error !");
     while (true) {
       // no point to continue
