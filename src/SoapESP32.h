@@ -149,6 +149,7 @@
 #define DIDL_ATTR_SIZE         "size="
 #define DIDL_ATTR_BITRATE      "bitrate="
 #define DIDL_ATTR_SAMPLEFREQU  "sampleFrequency="
+#define DIDL_ATTR_PROT_INFO    "protocolInfo="
 
 // for replacing predefined XML entities in server reply
 enum eXmlReplaceState { xmlPassthrough = 0, xmlAmpDetected, xmlTakeFromBuffer };
@@ -182,6 +183,7 @@ struct soapObject_t
   String artist;            // for music files
   String album;             // for music files (sometimes folder name when picture file)
   String genre;             // for audio/video files
+  String protInfo;          // for audio/video files, determines the media type (mp3, mp4, etc.)
   String uri;               // item URI on server, needed for download with readStart()
   IPAddress downloadIp;     // download IP can differ from server IP
   uint16_t downloadPort;    // download port can differ from server control port

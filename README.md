@@ -41,6 +41,8 @@ Always make sure you have one of the latest versions of **Arduino core for ESP32
 
 Most DLNA media servers I tested the library with showed some oddities. However, all compatibility issues I ran across have been fixed. Please note the following:
 
+- As of V1.4.0 struct *soapObject_t* has a new string member *protInfo*. If neither url nor id of a media item come with an extension (e.g. on Denon-HEOS media servers) like ".mp3" and the items media type is unclear then this member comes to your rescue. Here an example for a typical protocol info: "http-get:*:audio/mpeg:DLNA.ORG_PN=**MP3**;DLNA.ORG_FLAGS=01700000000000000000000000000000". 
+
 - As of V1.3.0 a new function _searchServer()_ is available. The function sends UPnP content search requests to media servers asking for a list of objects that match certain criterias, e.g. the objects property _title_ must contain the string "xyz" or the files property _album_ must contain the string "abc", etc. Not all media servers support UPnP content search requests though. More info below.
 
 - Some media servers do not answer SSDP M-SEARCH requests but instead broadcast NOTIFY messages regularly, e.g. every minute or less. Therefore as of V1.2.0 the default network scan time of function _seekServer()_ has been increased from 5s to 60s, the scan section of this function has been improved and the function now accepts an integer value (5...120) for setting a specific scan duration (in sec) if needed.
