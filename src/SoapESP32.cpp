@@ -942,8 +942,8 @@ bool SoapESP32::soapScanItem(const String *parentId,
           log_d("sampleFrequency=%d", info.sampleFrequency);
         }  
       }  
-
-      // media protocol info, gets important when extension e.g. ".mp3" is missing in id and url
+#if !defined(NO_PROTOCOL_INFO)
+      // info about media format, gets important when extension e.g. ".mp3" is missing in id and url
       if (soapScanAttribute(&strAttr, &str, DIDL_ATTR_PROT_INFO)) {
         info.protInfo = str;
         if (info.protInfo.length() == 0) {
@@ -953,7 +953,7 @@ bool SoapESP32::soapScanItem(const String *parentId,
           log_d("protocolInfo=\"%s\"", info.protInfo.c_str());
         }  
       }  
-
+#endif
       gotRes = true;
     }
     i++;

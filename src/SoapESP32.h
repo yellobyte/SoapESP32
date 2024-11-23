@@ -183,7 +183,9 @@ struct soapObject_t
   String artist;            // for music files
   String album;             // for music files (sometimes folder name when picture file)
   String genre;             // for audio/video files
-  String protInfo;          // for audio/video files, determines the media type (mp3, mp4, etc.)
+#if !defined(NO_PROTOCOL_INFO)
+  String protInfo;          // for audio/video files, holds info about media format (mp3, aac, etc.)
+#endif
   String uri;               // item URI on server, needed for download with readStart()
   IPAddress downloadIp;     // download IP can differ from server IP
   uint16_t downloadPort;    // download port can differ from server control port
