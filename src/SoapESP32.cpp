@@ -339,7 +339,7 @@ bool SoapESP32::soapSSDPquery(soapServerVect_t *result, int msWait)
         if (i < result->size()) goto CONT;
 
         // new server found: add to list
-        soapServer_t srv = {.ip = ip, .port = (uint16_t)port, .location = location};
+        soapServer_t srv = {.ip = ip, .port = (uint16_t)port, .location = location, .friendlyName = "", .controlURL = "" };
         result->push_back(srv);
         log_i("server added to list ip=%s, port=%d, loc=\"%s\"", ip.toString().c_str(), port, location);
       }
@@ -573,7 +573,7 @@ unsigned int SoapESP32::seekServer(unsigned int scanDuration)
     log_i("connected successfully to server %s:%d", rcvd[j].ip.toString().c_str(), rcvd[j].port);
 
     // connection established
-    srv = { .ip = rcvd[j].ip, .port = rcvd[j].port, .location = rcvd[j].location, .friendlyName = "" };
+    srv = { .ip = rcvd[j].ip, .port = rcvd[j].port, .location = rcvd[j].location, .friendlyName = "", .controlURL = "" };
     gotFriendlyName = false;
     gotServiceType = false;
 
@@ -1226,7 +1226,8 @@ bool SoapESP32::getServerCapabilities(const unsigned int srv, eCapabilityType ca
   }
 
   if (strCaps.length()) {
-    unsigned int start = 0, index;
+    unsigned int start = 0;
+    int index;
     String strItem((char *)0);
 
     // itemize the comma separated list of capabilities

@@ -79,39 +79,40 @@
 #define HEADER_EMPTY_LINE               "\r\n"
 
 // SOAP tag data
-// TEST
-//#define SOAP_ENVELOPE_START       "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" " \
-//                                  "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n"
-//
-#define SOAP_ENVELOPE_START        "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" " \
-                                   "s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\r\n"
-#define SOAP_ENVELOPE_END          "</s:Envelope>\r\n\r\n"
-#define SOAP_BODY_START            "<s:Body>\r\n"
-#define SOAP_BODY_END              "</s:Body>\r\n"
-#define SOAP_BROWSE_START          "<u:Browse xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
-#define SOAP_BROWSE_END            "</u:Browse>\r\n"
-#define SOAP_SEARCH_START          "<u:Search xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
-#define SOAP_SEARCH_END            "</u:Search>\r\n"
-#define SOAP_GETSEARCHCAP_START    "<u:GetSearchCapabilities xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
-#define SOAP_GETSEARCHCAP_END      "</u:GetSearchCapabilities>\r\n"
-#define SOAP_GETSORTCAP_START      "<u:GetSortCapabilities xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
-#define SOAP_GETSORTCAP_END        "</u:GetSortCapabilities>\r\n"
-#define SOAP_OBJECTID_START        "<ObjectID>"
-#define SOAP_OBJECTID_END          "</ObjectID>\r\n"
-#define SOAP_CONTAINERID_START     "<ContainerID>"
-#define SOAP_CONTAINERID_END       "</ContainerID>\r\n"
-#define SOAP_BROWSEFLAG_START      "<BrowseFlag>"
-#define SOAP_BROWSEFLAG_END        "</BrowseFlag>\r\n"
-#define SOAP_FILTER_START          "<Filter>"
-#define SOAP_FILTER_END            "</Filter>\r\n"
-#define SOAP_STARTINGINDEX_START   "<StartingIndex>"
-#define SOAP_STARTINGINDEX_END     "</StartingIndex>\r\n"
-#define SOAP_REQUESTEDCOUNT_START  "<RequestedCount>"
-#define SOAP_REQUESTEDCOUNT_END    "</RequestedCount>\r\n"
-#define SOAP_SEARCHCRITERIA_START  "<SearchCriteria>"
-#define SOAP_SEARCHCRITERIA_END    "</SearchCriteria>\r\n"
-#define SOAP_SORTCRITERIA_START    "<SortCriteria>"
-#define SOAP_SORTCRITERIA_END      "</SortCriteria>\r\n"
+#if 0                             // TEST
+#define SOAP_ENVELOPE_START       "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" " \
+                                  "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n"
+#else
+#define SOAP_ENVELOPE_START       "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" " \
+                                  "s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\r\n"
+#endif
+#define SOAP_ENVELOPE_END         "</s:Envelope>\r\n\r\n"
+#define SOAP_BODY_START           "<s:Body>\r\n"
+#define SOAP_BODY_END             "</s:Body>\r\n"
+#define SOAP_BROWSE_START         "<u:Browse xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
+#define SOAP_BROWSE_END           "</u:Browse>\r\n"
+#define SOAP_SEARCH_START         "<u:Search xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
+#define SOAP_SEARCH_END           "</u:Search>\r\n"
+#define SOAP_GETSEARCHCAP_START   "<u:GetSearchCapabilities xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
+#define SOAP_GETSEARCHCAP_END     "</u:GetSearchCapabilities>\r\n"
+#define SOAP_GETSORTCAP_START     "<u:GetSortCapabilities xmlns:u=\"urn:schemas-upnp-org:service:ContentDirectory:1\">\r\n"
+#define SOAP_GETSORTCAP_END       "</u:GetSortCapabilities>\r\n"
+#define SOAP_OBJECTID_START       "<ObjectID>"
+#define SOAP_OBJECTID_END         "</ObjectID>\r\n"
+#define SOAP_CONTAINERID_START    "<ContainerID>"
+#define SOAP_CONTAINERID_END      "</ContainerID>\r\n"
+#define SOAP_BROWSEFLAG_START     "<BrowseFlag>"
+#define SOAP_BROWSEFLAG_END       "</BrowseFlag>\r\n"
+#define SOAP_FILTER_START         "<Filter>"
+#define SOAP_FILTER_END           "</Filter>\r\n"
+#define SOAP_STARTINGINDEX_START  "<StartingIndex>"
+#define SOAP_STARTINGINDEX_END    "</StartingIndex>\r\n"
+#define SOAP_REQUESTEDCOUNT_START "<RequestedCount>"
+#define SOAP_REQUESTEDCOUNT_END   "</RequestedCount>\r\n"
+#define SOAP_SEARCHCRITERIA_START "<SearchCriteria>"
+#define SOAP_SEARCHCRITERIA_END   "</SearchCriteria>\r\n"
+#define SOAP_SORTCRITERIA_START   "<SortCriteria>"
+#define SOAP_SORTCRITERIA_END     "</SortCriteria>\r\n"
 
 // UPnP/SOAP browse/search default parameters
 #define UPNP_URN_SCHEMA_CONTENT_DIRECTORY SSDP_SERVICE_TYPE_CD
