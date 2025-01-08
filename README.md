@@ -217,6 +217,9 @@ This is because the SPI Master Driver is not thread safe as documented in sectio
 
 Therefore wrapping all function calls that use SPI with a global/project wide mutex lock (realized within this library with the aid of *claimSPI()/releaseSPI()*) completely wiped out all those problems. See example [*UsingMutexLocks_Ethernet.ino*](https://github.com/yellobyte/SoapESP32/tree/main/examples/UsingMutexLocks_Ethernet/UsingMutexLocks_Ethernet.ino) for more details.
 
+**Please note:**  
+The Arduino Library "Ethernet" is not compatible with the newest Arduino ESP32 Core 3.x.x. The library "EthernetESP32" is a good alternative and requires only a few more lines of code. Have a look at example *ScanForMediaServers_Ethernet.ino* to see the implementation.
+
 ### :hammer_and_wrench: Setting compiler/build options:
 
 All examples were build & tested with various versions of ArduinoIDE and VSCode/PlatformIO.
