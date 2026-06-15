@@ -130,55 +130,57 @@ SoapESP32::SoapESP32(WiFiClient *client, WiFiUDP *udp)
 // broadcast 3 WOL packets carrying a specified MAC address
 // - parameter is a pointer to a C string in the format "00:1:23:Aa:bC:D4" as an unusual example
 //
-#define WOL_PACKET_SIZE 102
 bool SoapESP32::wakeUpServer(const char *macAddress)
 {
   uint8_t packetBuffer[WOL_PACKET_SIZE];
-  int mac[6];
+  int i, mac[6];
   char lower[20];
 
   if (!m_udp) return false;
+  if (strlen(macAddress) <= 10 || strlen(macAddress) >= 18) {
+    log_e("parameter MAC is invalid");
+    return false;
+  }
 
-  if (strlen(macAddress) > 10 && strlen(macAddress) < 18) {
-    int i;
-    for (i = 0; i < strlen(macAddress); i++) {
-      lower[i] = tolower(macAddress[i]);
-    }
-    lower[i] = 0;
-    if (sscanf(lower, "%x:%x:%x:%x:%x:%x%*c",
-               &mac[0], &mac[1], &mac[2],
-               &mac[3], &mac[4], &mac[5]) != 6) {
-      log_e("could not parse parameter MAC \"%s\"", macAddress);
-      return false;
-    }
-    // build WOL udp packet: 6 bytes 0xFF followed by 16 x mac of target device
-    memset(packetBuffer, 0xFF, sizeof(packetBuffer));
-    for (i = 6; i < WOL_PACKET_SIZE; i++) {
-      packetBuffer[i] = (uint8_t)*(mac + (i % 6));
-    }
-    // broadcast 3 WOL packets (destination IP 255.255.255.255, port 9)
-    for (i = 0; i < 3; i++) {
+  for (i = 0; i < strlen(macAddress); i++) {
+    lower[i] = tolower(macAddress[i]);
+  }
+  lower[i] = 0;
+  if (sscanf(lower, "%x:%x:%x:%x:%x:%x%*c",
+              &mac[0], &mac[1], &mac[2],
+              &mac[3], &mac[4], &mac[5]) != 6) {
+    log_e("could not parse parameter MAC \"%s\"", macAddress);
+    return false;
+  }
+
+  // build WOL udp packet: 6 bytes 0xFF followed by 16 x mac of target device
+  memset(packetBuffer, 0xFF, sizeof(packetBuffer));
+  for (i = 6; i < WOL_PACKET_SIZE; i++) {
+    packetBuffer[i] = (uint8_t)*(mac + (i % 6));
+  }
+
+  // broadcast WOL_MAX_PACKETS packets to ip: 255.255.255.255, port: 9
+  for (i = 0; i < WOL_MAX_PACKETS; i++) {
+    claimSPI();
+    m_udp->begin(9);
+    int ret = m_udp->beginPacket(IPAddress(255,255,255,255), 9);
+    releaseSPI();
+    if (ret) {
       claimSPI();
-      m_udp->begin(9);
-      int ret = m_udp->beginPacket(IPAddress(255,255,255,255), 9);
-      releaseSPI();
-      if (ret) {
-        claimSPI();
-        m_udp->write(packetBuffer, WOL_PACKET_SIZE);
-        m_udp->endPacket();
+      if (!m_udp->write(packetBuffer, WOL_PACKET_SIZE) ||
+          !m_udp->endPacket()) {
         m_udp->stop();
         releaseSPI();
-        continue;
+        break;
       }
-      break;
+      m_udp->stop();
+      releaseSPI();
+      continue;
     }
-    if (i == 3) return true;
-  }
-  else {
-    log_e("parameter MAC is invalid");
+    break;
   }
 
-  return false;
+  return (i == WOL_MAX_PACKETS);
 }
 
 //
@@ -664,7 +666,7 @@ bool SoapESP32::addServer(IPAddress ip, uint16_t port, const char *controlURL, c
   // some basic checks
   if (!ip || !port || !name || !controlURL ||
       strlen(name) == 0 || strlen(controlURL) == 0) {
-    log_e("at least on parameter is invalid");
+    log_e("at least one parameter is invalid");
     return false;
   }
 

@@ -43,6 +43,10 @@
 #define TMP_BUFFER_SIZE_400         400
 #define TMP_BUFFER_SIZE_1000       1000
 
+// WOL wake on LAN 
+#define WOL_PACKET_SIZE             102
+#define WOL_MAX_PACKETS               3   // number of WOL packets sent
+
 // network communication timeouts
 #define SERVER_RESPONSE_TIMEOUT    3000   // ms
 #define SERVER_READ_TIMEOUT        3000   // ms
@@ -57,6 +61,7 @@
 #define SSDP_DEVICE_TYPE_MS          "urn:schemas-upnp-org:device:MediaServer:1"
 #define SSDP_DEVICE_TYPE_RD          "upnp:rootdevice"
 #define SSDP_SERVICE_TYPE_CD         "urn:schemas-upnp-org:service:ContentDirectory:1"                                   
+#define SSDP_SERVICE_TYPE_CD_        "urn:schemas-upnp-org:service:ContentDirectory:"  // to allow for higher versions                
 #define SSDP_LOCATION                "Location: http://"
 #define SSDP_NOTIFICATION            "NOTIFY * HTTP/1.1"
 #define SSDP_NOTIFICATION_SUB_TYPE   "ssdp:alive"
@@ -115,7 +120,7 @@
 #define SOAP_SORTCRITERIA_END     "</SortCriteria>\r\n"
 
 // UPnP/SOAP browse/search default parameters
-#define UPNP_URN_SCHEMA_CONTENT_DIRECTORY SSDP_SERVICE_TYPE_CD
+#define UPNP_URN_SCHEMA_CONTENT_DIRECTORY    SSDP_SERVICE_TYPE_CD_
 #define SOAP_DEFAULT_BROWSE_FLAG             "BrowseDirectChildren"
 #define SOAP_DEFAULT_BROWSE_FILTER           "*"
 #define SOAP_DEFAULT_BROWSE_SORT_CRITERIA    ""
