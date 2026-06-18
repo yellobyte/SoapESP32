@@ -1,0 +1,349 @@
+--- Terminal on COM10 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+--- RTS inactive ---
+--- RTS active ---
+--- DTR inactive ---
+--- DTR active ---
+23:10:08.627 > ESP-ROM:esp32s3-20210327
+23:10:08.635 > Build:Mar 27 2021
+23:10:08.641 > rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+23:10:08.641 > SPIWP:0xee
+23:10:08.641 > mode:DIO, clock div:1
+23:10:08.646 > load:0x3fce2820,len:0x10cc
+23:10:08.647 > load:0x403c8700,len:0xc2c
+23:10:08.647 > load:0x403cb700,len:0x30c0
+23:10:08.648 > entry 0x403c88b8
+23:10:09.046 > [     2][I][esp32-hal-psram.c:106] psramAddToHeap(): PSRAM added to the heap.
+23:10:09.062 > 
+23:10:09.111 > Connecting to WiFi network ...
+23:10:10.617 > Connected successfully. IP address: 192.168.1.64
+23:10:10.617 > 
+23:10:10.622 > ----> server content follows:
+23:10:10.627 > [  1573][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "0"
+23:10:10.648 > [  1604][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:10.658 > [  1614][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:10.679 > [  1635][I][SoapESP32.cpp:793] soapScanContainer(): "Files & Folders" (id: "Filesystem", childCount: 3) added to list
+23:10:10.699 > [  1655][I][SoapESP32.cpp:793] soapScanContainer(): "Music" (id: "virtual-parent:object.item.audioItem.musicTrack", childCount: 5) added to list
+23:10:10.723 > [  1679][I][SoapESP32.cpp:793] soapScanContainer(): "Pictures" (id: "virtual-parent:object.item.imageItem.photo", childCount: 2) added to list
+23:10:10.742 > [  1698][I][SoapESP32.cpp:758] soapScanContainer(): container "virtual-parent:object.item.playlistItem" child count=0
+23:10:10.753 > [  1709][I][SoapESP32.cpp:793] soapScanContainer(): "Playlists" (id: "virtual-parent:object.item.playlistItem", childCount: 0) added to list
+23:10:10.768 > [  1724][I][SoapESP32.cpp:1108] soapProcessRequest(): found 4 folders and 0 files
+23:10:10.776 > Files & Folders/
+23:10:10.782 > [  1733][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "Filesystem"
+23:10:10.800 > [  1756][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:10.810 > [  1766][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:10.831 > [  1787][I][SoapESP32.cpp:793] soapScanContainer(): "Music" (id: "04cba3d046b8081b93c0e9af177123d3", childCount: 1) added to list
+23:10:10.850 > [  1806][I][SoapESP32.cpp:758] soapScanContainer(): container "70568e7ac05197620be6bde1b562db78" child count=0
+23:10:10.860 > [  1816][I][SoapESP32.cpp:793] soapScanContainer(): "Pictures" (id: "70568e7ac05197620be6bde1b562db78", childCount: 0) added to list
+23:10:10.881 > [  1837][I][SoapESP32.cpp:758] soapScanContainer(): container "6a362fa46a5fa986d340aec7cc7b6de9" child count=0
+23:10:10.891 > [  1847][I][SoapESP32.cpp:793] soapScanContainer(): "Videos" (id: "6a362fa46a5fa986d340aec7cc7b6de9", childCount: 0) added to list
+23:10:10.906 > [  1862][I][SoapESP32.cpp:1108] soapProcessRequest(): found 3 folders and 0 files
+23:10:10.914 >   Music/
+23:10:10.920 > [  1871][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "04cba3d046b8081b93c0e9af177123d3"
+23:10:10.941 > [  1897][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:10.951 > [  1907][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:10.972 > [  1928][I][SoapESP32.cpp:793] soapScanContainer(): "Aqualung" (id: "dca55f42b89eef88237d0f5927376c02", childCount: 13) added to list
+23:10:10.986 > [  1942][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+23:10:10.994 >     Aqualung/
+23:10:11.000 > [  1951][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "dca55f42b89eef88237d0f5927376c02"
+23:10:11.029 > [  1985][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:11.040 > [  1996][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:11.068 > [  2024][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.077 > [  2033][I][SoapESP32.cpp:973] soapScanItem(): "Aqualung" (id: "1a85263a8faf7868b4c88af169118699", size: 12772731, sizeMissing: false, type: audio) added to list
+23:10:11.109 > [  2065][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.118 > [  2074][I][SoapESP32.cpp:973] soapScanItem(): "Cheap Day Return" (id: "1c72678d7bd0621a874abcc8686e3e0b", size: 2725038, sizeMissing: false, type: audio) added to list
+23:10:11.152 > [  2108][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.161 > [  2117][I][SoapESP32.cpp:973] soapScanItem(): "Cross-Eyed Mary" (id: "9a2c0d76c17667e5e59f375bca4d4b0e", size: 8035595, sizeMissing: false, type: audio) added to list
+23:10:11.192 > [  2148][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.201 > [  2157][I][SoapESP32.cpp:973] soapScanItem(): "Hymn 43" (id: "e4d169c002796d735c456887a3477727", size: 6426436, sizeMissing: false, type: audio) added to list
+23:10:11.235 > [  2191][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.244 > [  2200][I][SoapESP32.cpp:973] soapScanItem(): "Lick Your Fingers Clean [bonus track]" (id: "13bec77bcacaf45893a06210f0ca3cc7", size: 5377451, sizeMissing: false, type: audio) added to list
+23:10:11.278 > [  2235][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.287 > [  2243][I][SoapESP32.cpp:973] soapScanItem(): "Locomotive Breath" (id: "9b7d8088a572abf30bc1e7436901e5d9", size: 8581454, sizeMissing: false, type: audio) added to list
+23:10:11.319 > [  2275][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.328 > [  2284][I][SoapESP32.cpp:973] soapScanItem(): "Mother Goose" (id: "254e0dfdf42c38df3b2d56a146575e9a", size: 7524039, sizeMissing: false, type: audio) added to list
+23:10:11.361 > [  2317][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.369 > [  2326][I][SoapESP32.cpp:973] soapScanItem(): "My God" (id: "fc3917d712f2878c109c6f5c0e7b83d0", size: 13909576, sizeMissing: false, type: audio) added to list
+23:10:11.401 > [  2357][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.411 > [  2367][I][SoapESP32.cpp:973] soapScanItem(): "Slipstream" (id: "7e5bba453d51c6cee2ffbfa8e2500897", size: 2403197, sizeMissing: false, type: audio) added to list
+23:10:11.443 > [  2399][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.451 > [  2407][I][SoapESP32.cpp:973] soapScanItem(): "Up To Me" (id: "f52173a57d178b0bf439cf7db7ed500c", size: 6288512, sizeMissing: false, type: audio) added to list
+23:10:11.483 > [  2439][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.492 > [  2448][I][SoapESP32.cpp:973] soapScanItem(): "Wind-Up" (id: "b50d7502563dec1c16767dcecd1e4553", size: 11825665, sizeMissing: false, type: audio) added to list
+23:10:11.522 > [  2478][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.531 > [  2487][I][SoapESP32.cpp:973] soapScanItem(): "Wond'ring Aloud" (id: "d1776ac80e81961585dce077dd5fd3b2", size: 3759905, sizeMissing: false, type: audio) added to list
+23:10:11.556 > [  2512][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:11.563 > [  2519][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+23:10:11.572 > [  2528][I][SoapESP32.cpp:973] soapScanItem(): "folder" (id: "b7cb79290a61a13a9fcb6510c41cf8b1", size: 51344, sizeMissing: false, type: picture) added to list
+23:10:11.589 > [  2545][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 13 files
+23:10:11.597 >       Aqualung   item size: 12772731, audio
+23:10:11.603 >       Cheap Day Return   item size: 2725038, audio
+23:10:11.609 >       Cross-Eyed Mary   item size: 8035595, audio
+23:10:11.609 >       Hymn 43   item size: 6426436, audio
+23:10:11.614 >       Lick Your Fingers Clean [bonus track]   item size: 5377451, audio
+23:10:11.620 >       Locomotive Breath   item size: 8581454, audio
+23:10:11.625 >       Mother Goose   item size: 7524039, audio
+23:10:11.631 >       My God   item size: 13909576, audio
+23:10:11.636 >       Slipstream   item size: 2403197, audio
+23:10:11.637 >       Up To Me   item size: 6288512, audio
+23:10:11.642 >       Wind-Up   item size: 11825665, audio
+23:10:11.647 >       Wond'ring Aloud   item size: 3759905, audio
+23:10:11.648 >       folder   item size: 51344, picture
+23:10:11.653 >   Pictures/
+23:10:11.658 > [  2600][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "70568e7ac05197620be6bde1b562db78"
+23:10:11.768 > [  2724][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:11.778 > [  2734][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:11.788 > [  2744][I][SoapESP32.cpp:1097] soapProcessRequest(): XML scanned, no elements announced
+23:10:11.797 > [  2752][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 0 files
+23:10:11.805 >   Videos/
+23:10:11.811 > [  2762][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "6a362fa46a5fa986d340aec7cc7b6de9"
+23:10:11.835 > [  2790][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:11.845 > [  2801][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:11.855 > [  2811][I][SoapESP32.cpp:1097] soapProcessRequest(): XML scanned, no elements announced
+23:10:11.863 > [  2819][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 0 files
+23:10:11.871 > Music/
+23:10:11.877 > [  2828][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-parent:object.item.audioItem.musicTrack"
+23:10:11.899 > [  2855][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:11.909 > [  2865][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:11.929 > [  2885][I][SoapESP32.cpp:793] soapScanContainer(): "Album" (id: "virtual-container:ec5a58723574dec5c54aa3e6244288dc", childCount: 1) added to list
+23:10:11.954 > [  2910][I][SoapESP32.cpp:793] soapScanContainer(): "All" (id: "virtual-container:d62b16c1951debeb97d8df3e8aac458e", childCount: 12) added to list
+23:10:11.978 > [  2934][I][SoapESP32.cpp:793] soapScanContainer(): "Artist" (id: "virtual-container:03175772d86e56ec01957cbcd43066cf", childCount: 1) added to list
+23:10:12.003 > [  2958][I][SoapESP32.cpp:793] soapScanContainer(): "Genre" (id: "virtual-container:7091dd25b33c76058e551b5d0c6be2dc", childCount: 1) added to list
+23:10:12.026 > [  2982][I][SoapESP32.cpp:793] soapScanContainer(): "Year" (id: "virtual-container:1ad0c0638ac2e9c06027592f14d12382", childCount: 1) added to list
+23:10:12.041 > [  2997][I][SoapESP32.cpp:1108] soapProcessRequest(): found 5 folders and 0 files
+23:10:12.049 >   Album/
+23:10:12.055 > [  3006][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:ec5a58723574dec5c54aa3e6244288dc"
+23:10:12.077 > [  3032][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:12.087 > [  3043][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:12.108 > [  3063][I][SoapESP32.cpp:793] soapScanContainer(): "Aqualung [remastered 1996]" (id: "virtual-container:9d1862c293d0c41f07abb12f0992237c", childCount: 12) added to list
+23:10:12.125 > [  3081][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+23:10:12.133 >     Aqualung [remastered 1996]/
+23:10:12.139 > [  3090][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:9d1862c293d0c41f07abb12f0992237c"
+23:10:12.164 > [  3120][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:12.174 > [  3130][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:12.206 > [  3161][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.214 > [  3170][I][SoapESP32.cpp:973] soapScanItem(): "Aqualung" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:1a85263a8faf7868b4c88af169118699", size: 12772731, sizeMissing: false, type: audio) added to list
+23:10:12.254 > [  3210][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.263 > [  3219][I][SoapESP32.cpp:973] soapScanItem(): "Cross-Eyed Mary" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:9a2c0d76c17667e5e59f375bca4d4b0e", size: 8035595, sizeMissing: false, type: audio) added to list
+23:10:12.303 > [  3259][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.312 > [  3268][I][SoapESP32.cpp:973] soapScanItem(): "Cheap Day Return" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:1c72678d7bd0621a874abcc8686e3e0b", size: 2725038, sizeMissing: false, type: audio) added to list
+23:10:12.352 > [  3308][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.360 > [  3317][I][SoapESP32.cpp:973] soapScanItem(): "Mother Goose" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:254e0dfdf42c38df3b2d56a146575e9a", size: 7524039, sizeMissing: false, type: audio) added to list
+23:10:12.399 > [  3355][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.409 > [  3365][I][SoapESP32.cpp:973] soapScanItem(): "Wond'ring Aloud" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:d1776ac80e81961585dce077dd5fd3b2", size: 3759905, sizeMissing: false, type: audio) added to list
+23:10:12.448 > [  3404][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.457 > [  3413][I][SoapESP32.cpp:973] soapScanItem(): "Up To Me" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:f52173a57d178b0bf439cf7db7ed500c", size: 6288512, sizeMissing: false, type: audio) added to list
+23:10:12.496 > [  3452][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.505 > [  3461][I][SoapESP32.cpp:973] soapScanItem(): "My God" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:fc3917d712f2878c109c6f5c0e7b83d0", size: 13909576, sizeMissing: false, type: audio) added to list
+23:10:12.544 > [  3500][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.554 > [  3509][I][SoapESP32.cpp:973] soapScanItem(): "Hymn 43" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:e4d169c002796d735c456887a3477727", size: 6426436, sizeMissing: false, type: audio) added to list
+23:10:12.592 > [  3548][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.602 > [  3558][I][SoapESP32.cpp:973] soapScanItem(): "Slipstream" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:7e5bba453d51c6cee2ffbfa8e2500897", size: 2403197, sizeMissing: false, type: audio) added to list
+23:10:12.642 > [  3597][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.650 > [  3606][I][SoapESP32.cpp:973] soapScanItem(): "Locomotive Breath" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:9b7d8088a572abf30bc1e7436901e5d9", size: 8581454, sizeMissing: false, type: audio) added to list
+23:10:12.690 > [  3646][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.698 > [  3655][I][SoapESP32.cpp:973] soapScanItem(): "Wind-Up" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:b50d7502563dec1c16767dcecd1e4553", size: 11825665, sizeMissing: false, type: audio) added to list
+23:10:12.737 > [  3693][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.746 > [  3702][I][SoapESP32.cpp:973] soapScanItem(): "Lick Your Fingers Clean [bonus track]" (id: "virtual-id:9d1862c293d0c41f07abb12f0992237c:13bec77bcacaf45893a06210f0ca3cc7", size: 5377451, sizeMissing: false, type: audio) added to list
+23:10:12.769 > [  3725][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 12 files
+23:10:12.777 >       Aqualung   item size: 12772731, audio
+23:10:12.783 >       Cross-Eyed Mary   item size: 8035595, audio
+23:10:12.788 >       Cheap Day Return   item size: 2725038, audio
+23:10:12.794 >       Mother Goose   item size: 7524039, audio
+23:10:12.794 >       Wond'ring Aloud   item size: 3759905, audio
+23:10:12.800 >       Up To Me   item size: 6288512, audio
+23:10:12.805 >       My God   item size: 13909576, audio
+23:10:12.806 >       Hymn 43   item size: 6426436, audio
+23:10:12.811 >       Slipstream   item size: 2403197, audio
+23:10:12.816 >       Locomotive Breath   item size: 8581454, audio
+23:10:12.822 >       Wind-Up   item size: 11825665, audio
+23:10:12.827 >       Lick Your Fingers Clean [bonus track]   item size: 5377451, audio
+23:10:12.828 >   All/
+23:10:12.833 > [  3780][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:d62b16c1951debeb97d8df3e8aac458e"
+23:10:12.855 > [  3810][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:12.865 > [  3821][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:12.896 > [  3852][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.905 > [  3861][I][SoapESP32.cpp:973] soapScanItem(): "Aqualung" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:1a85263a8faf7868b4c88af169118699", size: 12772731, sizeMissing: false, type: audio) added to list
+23:10:12.945 > [  3901][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:12.954 > [  3910][I][SoapESP32.cpp:973] soapScanItem(): "Cheap Day Return" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:1c72678d7bd0621a874abcc8686e3e0b", size: 2725038, sizeMissing: false, type: audio) added to list
+23:10:12.994 > [  3950][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.003 > [  3959][I][SoapESP32.cpp:973] soapScanItem(): "Cross-Eyed Mary" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:9a2c0d76c17667e5e59f375bca4d4b0e", size: 8035595, sizeMissing: false, type: audio) added to list
+23:10:13.043 > [  3998][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.051 > [  4007][I][SoapESP32.cpp:973] soapScanItem(): "Hymn 43" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:e4d169c002796d735c456887a3477727", size: 6426436, sizeMissing: false, type: audio) added to list
+23:10:13.091 > [  4047][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.100 > [  4056][I][SoapESP32.cpp:973] soapScanItem(): "Lick Your Fingers Clean [bonus track]" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:13bec77bcacaf45893a06210f0ca3cc7", size: 5377451, sizeMissing: false, type: audio) added to list
+23:10:13.142 > [  4097][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.150 > [  4106][I][SoapESP32.cpp:973] soapScanItem(): "Locomotive Breath" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:9b7d8088a572abf30bc1e7436901e5d9", size: 8581454, sizeMissing: false, type: audio) added to list
+23:10:13.191 > [  4146][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.199 > [  4155][I][SoapESP32.cpp:973] soapScanItem(): "Mother Goose" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:254e0dfdf42c38df3b2d56a146575e9a", size: 7524039, sizeMissing: false, type: audio) added to list
+23:10:13.238 > [  4194][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.246 > [  4202][I][SoapESP32.cpp:973] soapScanItem(): "My God" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:fc3917d712f2878c109c6f5c0e7b83d0", size: 13909576, sizeMissing: false, type: audio) added to list
+23:10:13.285 > [  4241][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.295 > [  4251][I][SoapESP32.cpp:973] soapScanItem(): "Slipstream" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:7e5bba453d51c6cee2ffbfa8e2500897", size: 2403197, sizeMissing: false, type: audio) added to list
+23:10:13.335 > [  4290][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.343 > [  4299][I][SoapESP32.cpp:973] soapScanItem(): "Up To Me" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:f52173a57d178b0bf439cf7db7ed500c", size: 6288512, sizeMissing: false, type: audio) added to list
+23:10:13.382 > [  4338][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.391 > [  4347][I][SoapESP32.cpp:973] soapScanItem(): "Wind-Up" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:b50d7502563dec1c16767dcecd1e4553", size: 11825665, sizeMissing: false, type: audio) added to list
+23:10:13.429 > [  4385][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.438 > [  4394][I][SoapESP32.cpp:973] soapScanItem(): "Wond'ring Aloud" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:d1776ac80e81961585dce077dd5fd3b2", size: 3759905, sizeMissing: false, type: audio) added to list
+23:10:13.459 > [  4415][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 12 files
+23:10:13.467 >     Aqualung   item size: 12772731, audio
+23:10:13.473 >     Cheap Day Return   item size: 2725038, audio
+23:10:13.478 >     Cross-Eyed Mary   item size: 8035595, audio
+23:10:13.479 >     Hymn 43   item size: 6426436, audio
+23:10:13.484 >     Lick Your Fingers Clean [bonus track]   item size: 5377451, audio
+23:10:13.490 >     Locomotive Breath   item size: 8581454, audio
+23:10:13.495 >     Mother Goose   item size: 7524039, audio
+23:10:13.501 >     My God   item size: 13909576, audio
+23:10:13.501 >     Slipstream   item size: 2403197, audio
+23:10:13.506 >     Up To Me   item size: 6288512, audio
+23:10:13.512 >     Wind-Up   item size: 11825665, audio
+23:10:13.512 >     Wond'ring Aloud   item size: 3759905, audio
+23:10:13.518 >   Artist/
+23:10:13.523 > [  4470][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:03175772d86e56ec01957cbcd43066cf"
+23:10:13.545 > [  4501][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:13.555 > [  4511][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:13.576 > [  4532][I][SoapESP32.cpp:793] soapScanContainer(): "Jethro Tull" (id: "virtual-container:367569ca22f3cbd984d7567333b6c602", childCount: 1) added to list
+23:10:13.592 > [  4548][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+23:10:13.600 >     Jethro Tull/
+23:10:13.606 > [  4557][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:367569ca22f3cbd984d7567333b6c602"
+23:10:13.634 > [  4590][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:13.644 > [  4600][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:13.665 > [  4621][I][SoapESP32.cpp:793] soapScanContainer(): "Aqualung [remastered 1996]" (id: "virtual-container:75a3d60a7954194af3129d94b2561158", childCount: 12) added to list
+23:10:13.683 > [  4639][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+23:10:13.691 >       Aqualung [remastered 1996]/
+23:10:13.692 >   Genre/
+23:10:13.697 > [  4648][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:7091dd25b33c76058e551b5d0c6be2dc"
+23:10:13.723 > [  4679][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:13.734 > [  4690][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:13.755 > [  4710][I][SoapESP32.cpp:793] soapScanContainer(): "Progressive Rock" (id: "virtual-container:78cdf10ee6bd565c8fd13aeae545ac45", childCount: 12) added to list
+23:10:13.771 > [  4727][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+23:10:13.779 >     Progressive Rock/
+23:10:13.785 > [  4736][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:78cdf10ee6bd565c8fd13aeae545ac45"
+23:10:13.810 > [  4766][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:13.821 > [  4777][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:13.852 > [  4808][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.861 > [  4817][I][SoapESP32.cpp:973] soapScanItem(): "Aqualung" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:1a85263a8faf7868b4c88af169118699", size: 12772731, sizeMissing: false, type: audio) added to list
+23:10:13.900 > [  4856][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.909 > [  4865][I][SoapESP32.cpp:973] soapScanItem(): "Cheap Day Return" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:1c72678d7bd0621a874abcc8686e3e0b", size: 2725038, sizeMissing: false, type: audio) added to list
+23:10:13.949 > [  4905][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:13.958 > [  4914][I][SoapESP32.cpp:973] soapScanItem(): "Cross-Eyed Mary" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:9a2c0d76c17667e5e59f375bca4d4b0e", size: 8035595, sizeMissing: false, type: audio) added to list
+23:10:13.998 > [  4954][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.007 > [  4963][I][SoapESP32.cpp:973] soapScanItem(): "Hymn 43" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:e4d169c002796d735c456887a3477727", size: 6426436, sizeMissing: false, type: audio) added to list
+23:10:14.045 > [  5002][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.055 > [  5011][I][SoapESP32.cpp:973] soapScanItem(): "Lick Your Fingers Clean [bonus track]" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:13bec77bcacaf45893a06210f0ca3cc7", size: 5377451, sizeMissing: false, type: audio) added to list
+23:10:14.097 > [  5053][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.106 > [  5062][I][SoapESP32.cpp:973] soapScanItem(): "Locomotive Breath" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:9b7d8088a572abf30bc1e7436901e5d9", size: 8581454, sizeMissing: false, type: audio) added to list
+23:10:14.145 > [  5101][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.154 > [  5110][I][SoapESP32.cpp:973] soapScanItem(): "Mother Goose" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:254e0dfdf42c38df3b2d56a146575e9a", size: 7524039, sizeMissing: false, type: audio) added to list
+23:10:14.193 > [  5149][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.202 > [  5158][I][SoapESP32.cpp:973] soapScanItem(): "My God" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:fc3917d712f2878c109c6f5c0e7b83d0", size: 13909576, sizeMissing: false, type: audio) added to list
+23:10:14.241 > [  5197][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.251 > [  5207][I][SoapESP32.cpp:973] soapScanItem(): "Slipstream" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:7e5bba453d51c6cee2ffbfa8e2500897", size: 2403197, sizeMissing: false, type: audio) added to list
+23:10:14.290 > [  5246][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.299 > [  5255][I][SoapESP32.cpp:973] soapScanItem(): "Up To Me" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:f52173a57d178b0bf439cf7db7ed500c", size: 6288512, sizeMissing: false, type: audio) added to list
+23:10:14.338 > [  5294][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.347 > [  5303][I][SoapESP32.cpp:973] soapScanItem(): "Wind-Up" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:b50d7502563dec1c16767dcecd1e4553", size: 11825665, sizeMissing: false, type: audio) added to list
+23:10:14.385 > [  5341][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.394 > [  5350][I][SoapESP32.cpp:973] soapScanItem(): "Wond'ring Aloud" (id: "virtual-id:78cdf10ee6bd565c8fd13aeae545ac45:d1776ac80e81961585dce077dd5fd3b2", size: 3759905, sizeMissing: false, type: audio) added to list
+23:10:14.416 > [  5372][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 12 files
+23:10:14.425 >       Aqualung   item size: 12772731, audio
+23:10:14.430 >       Cheap Day Return   item size: 2725038, audio
+23:10:14.436 >       Cross-Eyed Mary   item size: 8035595, audio
+23:10:14.436 >       Hymn 43   item size: 6426436, audio
+23:10:14.441 >       Lick Your Fingers Clean [bonus track]   item size: 5377451, audio
+23:10:14.447 >       Locomotive Breath   item size: 8581454, audio
+23:10:14.452 >       Mother Goose   item size: 7524039, audio
+23:10:14.458 >       My God   item size: 13909576, audio
+23:10:14.463 >       Slipstream   item size: 2403197, audio
+23:10:14.464 >       Up To Me   item size: 6288512, audio
+23:10:14.469 >       Wind-Up   item size: 11825665, audio
+23:10:14.474 >       Wond'ring Aloud   item size: 3759905, audio
+23:10:14.475 >   Year/
+23:10:14.480 > [  5427][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:1ad0c0638ac2e9c06027592f14d12382"
+23:10:14.509 > [  5465][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:14.519 > [  5475][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:14.540 > [  5496][I][SoapESP32.cpp:793] soapScanContainer(): "1971" (id: "virtual-container:39b8d4983a67b322fd07837caa1fa740", childCount: 12) added to list
+23:10:14.555 > [  5511][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+23:10:14.563 >     1971/
+23:10:14.569 > [  5520][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:39b8d4983a67b322fd07837caa1fa740"
+23:10:14.592 > [  5548][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:14.602 > [  5558][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:14.633 > [  5589][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.643 > [  5598][I][SoapESP32.cpp:973] soapScanItem(): "Aqualung" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:1a85263a8faf7868b4c88af169118699", size: 12772731, sizeMissing: false, type: audio) added to list
+23:10:14.681 > [  5638][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.691 > [  5647][I][SoapESP32.cpp:973] soapScanItem(): "Cheap Day Return" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:1c72678d7bd0621a874abcc8686e3e0b", size: 2725038, sizeMissing: false, type: audio) added to list
+23:10:14.730 > [  5686][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.740 > [  5696][I][SoapESP32.cpp:973] soapScanItem(): "Cross-Eyed Mary" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:9a2c0d76c17667e5e59f375bca4d4b0e", size: 8035595, sizeMissing: false, type: audio) added to list
+23:10:14.779 > [  5735][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.788 > [  5744][I][SoapESP32.cpp:973] soapScanItem(): "Hymn 43" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:e4d169c002796d735c456887a3477727", size: 6426436, sizeMissing: false, type: audio) added to list
+23:10:14.825 > [  5781][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.835 > [  5791][I][SoapESP32.cpp:973] soapScanItem(): "Lick Your Fingers Clean [bonus track]" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:13bec77bcacaf45893a06210f0ca3cc7", size: 5377451, sizeMissing: false, type: audio) added to list
+23:10:14.877 > [  5833][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.886 > [  5842][I][SoapESP32.cpp:973] soapScanItem(): "Locomotive Breath" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:9b7d8088a572abf30bc1e7436901e5d9", size: 8581454, sizeMissing: false, type: audio) added to list
+23:10:14.926 > [  5882][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.935 > [  5891][I][SoapESP32.cpp:973] soapScanItem(): "Mother Goose" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:254e0dfdf42c38df3b2d56a146575e9a", size: 7524039, sizeMissing: false, type: audio) added to list
+23:10:14.973 > [  5930][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:14.982 > [  5938][I][SoapESP32.cpp:973] soapScanItem(): "My God" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:fc3917d712f2878c109c6f5c0e7b83d0", size: 13909576, sizeMissing: false, type: audio) added to list
+23:10:15.022 > [  5978][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:15.032 > [  5988][I][SoapESP32.cpp:973] soapScanItem(): "Slipstream" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:7e5bba453d51c6cee2ffbfa8e2500897", size: 2403197, sizeMissing: false, type: audio) added to list
+23:10:15.072 > [  6028][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:15.080 > [  6037][I][SoapESP32.cpp:973] soapScanItem(): "Up To Me" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:f52173a57d178b0bf439cf7db7ed500c", size: 6288512, sizeMissing: false, type: audio) added to list
+23:10:15.120 > [  6075][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:15.128 > [  6084][I][SoapESP32.cpp:973] soapScanItem(): "Wind-Up" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:b50d7502563dec1c16767dcecd1e4553", size: 11825665, sizeMissing: false, type: audio) added to list
+23:10:15.167 > [  6123][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:15.176 > [  6132][I][SoapESP32.cpp:973] soapScanItem(): "Wond'ring Aloud" (id: "virtual-id:39b8d4983a67b322fd07837caa1fa740:d1776ac80e81961585dce077dd5fd3b2", size: 3759905, sizeMissing: false, type: audio) added to list
+23:10:15.197 > [  6153][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 12 files
+23:10:15.205 >       Aqualung   item size: 12772731, audio
+23:10:15.211 >       Cheap Day Return   item size: 2725038, audio
+23:10:15.216 >       Cross-Eyed Mary   item size: 8035595, audio
+23:10:15.217 >       Hymn 43   item size: 6426436, audio
+23:10:15.222 >       Lick Your Fingers Clean [bonus track]   item size: 5377451, audio
+23:10:15.228 >       Locomotive Breath   item size: 8581454, audio
+23:10:15.233 >       Mother Goose   item size: 7524039, audio
+23:10:15.239 >       My God   item size: 13909576, audio
+23:10:15.244 >       Slipstream   item size: 2403197, audio
+23:10:15.244 >       Up To Me   item size: 6288512, audio
+23:10:15.250 >       Wind-Up   item size: 11825665, audio
+23:10:15.255 >       Wond'ring Aloud   item size: 3759905, audio
+23:10:15.256 > Pictures/
+23:10:15.261 > [  6208][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-parent:object.item.imageItem.photo"
+23:10:15.283 > [  6239][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:15.293 > [  6249][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:15.313 > [  6269][I][SoapESP32.cpp:793] soapScanContainer(): "All" (id: "virtual-container:149f47dee7c69184bb5f8099e34ce2f1", childCount: 1) added to list
+23:10:15.337 > [  6293][I][SoapESP32.cpp:793] soapScanContainer(): "Year" (id: "virtual-container:8aad605e3167ddf75e5a2dc4b405a9d5", childCount: 1) added to list
+23:10:15.352 > [  6308][I][SoapESP32.cpp:1108] soapProcessRequest(): found 2 folders and 0 files
+23:10:15.360 >   All/
+23:10:15.366 > [  6317][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:149f47dee7c69184bb5f8099e34ce2f1"
+23:10:15.384 > [  6339][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:15.394 > [  6350][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:15.416 > [  6372][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:15.423 > [  6379][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+23:10:15.432 > [  6388][I][SoapESP32.cpp:973] soapScanItem(): "folder" (id: "virtual-id:149f47dee7c69184bb5f8099e34ce2f1:b7cb79290a61a13a9fcb6510c41cf8b1", size: 51344, sizeMissing: false, type: picture) added to list
+23:10:15.453 > [  6409][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 1 files
+23:10:15.461 >     folder   item size: 51344, picture
+23:10:15.462 >   Year/
+23:10:15.467 > [  6418][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:8aad605e3167ddf75e5a2dc4b405a9d5"
+23:10:15.493 > [  6448][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:15.503 > [  6459][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:15.523 > [  6479][I][SoapESP32.cpp:793] soapScanContainer(): "2020" (id: "virtual-container:ccb085ad2340b356e57503200c03d6e8", childCount: 1) added to list
+23:10:15.539 > [  6495][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+23:10:15.547 >     2020/
+23:10:15.553 > [  6504][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-container:ccb085ad2340b356e57503200c03d6e8"
+23:10:15.590 > [  6546][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:15.601 > [  6557][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:15.623 > [  6579][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+23:10:15.630 > [  6586][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "sampleFrequency=" missing.
+23:10:15.639 > [  6595][I][SoapESP32.cpp:973] soapScanItem(): "folder" (id: "virtual-id:ccb085ad2340b356e57503200c03d6e8:b7cb79290a61a13a9fcb6510c41cf8b1", size: 51344, sizeMissing: false, type: picture) added to list
+23:10:15.660 > [  6616][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 1 files
+23:10:15.668 >       folder   item size: 51344, picture
+23:10:15.669 > Playlists/
+23:10:15.674 > [  6625][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "My Media Server", objectId: "virtual-parent:object.item.playlistItem"
+23:10:15.696 > [  6652][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+23:10:15.706 > [  6662][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+23:10:15.716 > [  6672][I][SoapESP32.cpp:1097] soapProcessRequest(): XML scanned, no elements announced
+23:10:15.725 > [  6681][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 0 files
+23:10:15.730 > 
+23:10:15.730 > Sketch finished.

@@ -1,0 +1,125 @@
+--- Terminal on COM10 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+22:34:07.212 > ESP-ROM:esp32s3-20210327
+22:34:07.212 > Build:Mar 27 2021
+22:34:07.212 > rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+22:34:07.212 > SPIWP:0xee
+22:34:07.212 > mode:DIO, clock div:1
+22:34:07.212 > load:0x3fce2820,len:0x10cc
+22:34:07.212 > load:0x403c8700,len:0xc2c
+22:34:07.212 > load:0x403cb700,len:0x30c0
+22:34:07.212 > entry 0x403c88b8
+22:34:07.524 > [     2][I][esp32-hal-psram.c:106] psramAddToHeap(): PSRAM added to the heap.
+22:34:07.541 > 
+22:34:07.591 > Connecting to WiFi network ...
+22:34:09.097 > Connected successfully. IP address: 192.168.1.64
+22:34:09.097 > 
+22:34:09.098 > Initializing SD card...done. Opening file on SD was successful.
+22:34:09.250 > Scanning local network for DLNA media servers...
+22:34:09.254 > [  1723][I][SoapESP32.cpp:555] seekServer(): SSDP search for media servers started, scan duration: 10 sec
+22:34:09.368 > [  1846][I][SoapESP32.cpp:346] soapSSDPquery(): server added to list ip=192.168.1.32, port=60006, loc="upnp/desc/aios_device/aios_device.xml"
+22:34:09.663 > [  2141][I][SoapESP32.cpp:346] soapSSDPquery(): server added to list ip=192.168.1.11, port=9791, loc="0f0f4c9f-a3fb-4863-a5ef-d4d602225748/Upnp/device.xml"
+22:34:10.548 > [  3025][I][SoapESP32.cpp:346] soapSSDPquery(): server added to list ip=192.168.1.11, port=9000, loc="dev0/desc.xml"
+22:34:10.573 > [  3051][I][SoapESP32.cpp:346] soapSSDPquery(): server added to list ip=192.168.1.66, port=46949, loc="f8956bfc-5e5d-4b58-beb0-b93685671af3.xml"
+22:34:19.263 > [ 11741][I][SoapESP32.cpp:558] seekServer(): SSDP query discovered 4 media servers
+22:34:19.271 > [ 11749][I][SoapESP32.cpp:561] seekServer(): checking all discovered media servers for service ContentDirectory
+22:34:19.707 > [ 12185][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.32:60006
+22:34:19.740 > [ 12218][I][SoapESP32.cpp:640] seekServer(): ok, this server delivers media content
+22:34:19.761 > [ 12238][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.11:9791
+22:34:19.777 > [ 12255][I][SoapESP32.cpp:640] seekServer(): ok, this server delivers media content
+22:34:19.793 > [ 12270][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.11:9000
+22:34:19.811 > [ 12289][I][SoapESP32.cpp:640] seekServer(): ok, this server delivers media content
+22:34:19.834 > [ 12311][I][SoapESP32.cpp:575] seekServer(): connected successfully to server 192.168.1.66:46949
+22:34:19.849 > [ 12326][I][SoapESP32.cpp:640] seekServer(): ok, this server delivers media content
+22:34:19.857 > Number of discovered servers that deliver content: 4
+22:34:19.857 > 
+22:34:19.862 > Please be patient, searching audio file on server: Moudi Lee's media on linux-mint-vm
+22:34:19.874 > [ 12346][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "Moudi Lee's media on linux-mint-vm", objectId: "0"
+22:34:19.891 > [ 12369][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+22:34:19.902 > [ 12380][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+22:34:19.923 > [ 12400][I][SoapESP32.cpp:793] soapScanContainer(): "Files & Folders" (id: "Filesystem", childCount: 3) added to list
+22:34:19.943 > [ 12420][I][SoapESP32.cpp:793] soapScanContainer(): "Music" (id: "virtual-parent:object.item.audioItem.musicTrack", childCount: 5) added to list
+22:34:19.966 > [ 12444][I][SoapESP32.cpp:793] soapScanContainer(): "Pictures" (id: "virtual-parent:object.item.imageItem.photo", childCount: 2) added to list
+22:34:19.985 > [ 12463][I][SoapESP32.cpp:758] soapScanContainer(): container "virtual-parent:object.item.playlistItem" child count=0
+22:34:19.996 > [ 12474][I][SoapESP32.cpp:793] soapScanContainer(): "Playlists" (id: "virtual-parent:object.item.playlistItem", childCount: 0) added to list
+22:34:20.011 > [ 12489][I][SoapESP32.cpp:1108] soapProcessRequest(): found 4 folders and 0 files
+22:34:20.020 > [ 12498][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "Moudi Lee's media on linux-mint-vm", objectId: "Filesystem"
+22:34:20.047 > [ 12525][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+22:34:20.058 > [ 12536][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+22:34:20.078 > [ 12556][I][SoapESP32.cpp:793] soapScanContainer(): "Music" (id: "04cba3d046b8081b93c0e9af177123d3", childCount: 1) added to list
+22:34:20.097 > [ 12576][I][SoapESP32.cpp:758] soapScanContainer(): container "70568e7ac05197620be6bde1b562db78" child count=0
+22:34:20.108 > [ 12586][I][SoapESP32.cpp:793] soapScanContainer(): "Pictures" (id: "70568e7ac05197620be6bde1b562db78", childCount: 0) added to list
+22:34:20.128 > [ 12606][I][SoapESP32.cpp:758] soapScanContainer(): container "6a362fa46a5fa986d340aec7cc7b6de9" child count=0
+22:34:20.138 > [ 12616][I][SoapESP32.cpp:793] soapScanContainer(): "Videos" (id: "6a362fa46a5fa986d340aec7cc7b6de9", childCount: 0) added to list
+22:34:20.152 > [ 12630][I][SoapESP32.cpp:1108] soapProcessRequest(): found 3 folders and 0 files
+22:34:20.161 > [ 12639][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "Moudi Lee's media on linux-mint-vm", objectId: "04cba3d046b8081b93c0e9af177123d3"
+22:34:20.188 > [ 12666][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+22:34:20.199 > [ 12677][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+22:34:20.219 > [ 12697][I][SoapESP32.cpp:793] soapScanContainer(): "Aqualung" (id: "dca55f42b89eef88237d0f5927376c02", childCount: 13) added to list
+22:34:20.234 > [ 12712][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+22:34:20.243 > [ 12721][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "Moudi Lee's media on linux-mint-vm", objectId: "70568e7ac05197620be6bde1b562db78"
+22:34:20.267 > [ 12745][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+22:34:20.278 > [ 12756][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+22:34:20.287 > [ 12765][I][SoapESP32.cpp:1097] soapProcessRequest(): XML scanned, no elements announced
+22:34:20.296 > [ 12774][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 0 files
+22:34:20.305 > [ 12783][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "Moudi Lee's media on linux-mint-vm", objectId: "6a362fa46a5fa986d340aec7cc7b6de9"
+22:34:20.327 > [ 12805][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+22:34:20.338 > [ 12815][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+22:34:20.347 > [ 12825][I][SoapESP32.cpp:1097] soapProcessRequest(): XML scanned, no elements announced
+22:34:20.356 > [ 12834][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 0 files
+22:34:20.365 > [ 12843][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "Moudi Lee's media on linux-mint-vm", objectId: "virtual-parent:object.item.audioItem.musicTrack"
+22:34:20.394 > [ 12872][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+22:34:20.404 > [ 12882][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+22:34:20.425 > [ 12903][I][SoapESP32.cpp:793] soapScanContainer(): "Album" (id: "virtual-container:ec5a58723574dec5c54aa3e6244288dc", childCount: 1) added to list
+22:34:20.449 > [ 12927][I][SoapESP32.cpp:793] soapScanContainer(): "All" (id: "virtual-container:d62b16c1951debeb97d8df3e8aac458e", childCount: 12) added to list
+22:34:20.473 > [ 12950][I][SoapESP32.cpp:793] soapScanContainer(): "Artist" (id: "virtual-container:03175772d86e56ec01957cbcd43066cf", childCount: 1) added to list
+22:34:20.496 > [ 12974][I][SoapESP32.cpp:793] soapScanContainer(): "Genre" (id: "virtual-container:7091dd25b33c76058e551b5d0c6be2dc", childCount: 1) added to list
+22:34:20.520 > [ 12998][I][SoapESP32.cpp:793] soapScanContainer(): "Year" (id: "virtual-container:1ad0c0638ac2e9c06027592f14d12382", childCount: 1) added to list
+22:34:20.535 > [ 13013][I][SoapESP32.cpp:1108] soapProcessRequest(): found 5 folders and 0 files
+22:34:20.544 > [ 13022][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "Moudi Lee's media on linux-mint-vm", objectId: "virtual-container:ec5a58723574dec5c54aa3e6244288dc"
+22:34:20.569 > [ 13046][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+22:34:20.579 > [ 13057][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+22:34:20.600 > [ 13078][I][SoapESP32.cpp:793] soapScanContainer(): "Aqualung [remastered 1996]" (id: "virtual-container:9d1862c293d0c41f07abb12f0992237c", childCount: 12) added to list
+22:34:20.617 > [ 13095][I][SoapESP32.cpp:1108] soapProcessRequest(): found 1 folders and 0 files
+22:34:20.626 > [ 13104][I][SoapESP32.cpp:1006] soapProcessRequest(): browse server: "Moudi Lee's media on linux-mint-vm", objectId: "virtual-container:d62b16c1951debeb97d8df3e8aac458e"
+22:34:20.659 > [ 13137][I][SoapESP32.cpp:1018] soapProcessRequest(): connected successfully to server 192.168.1.66:46949
+22:34:20.670 > [ 13147][I][SoapESP32.cpp:1044] soapProcessRequest(): scan answer from media server:
+22:34:20.701 > [ 13178][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:20.710 > [ 13187][I][SoapESP32.cpp:973] soapScanItem(): "Aqualung" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:1a85263a8faf7868b4c88af169118699", size: 12772731, sizeMissing: false, type: audio) added to list
+22:34:20.749 > [ 13227][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:20.758 > [ 13236][I][SoapESP32.cpp:973] soapScanItem(): "Cheap Day Return" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:1c72678d7bd0621a874abcc8686e3e0b", size: 2725038, sizeMissing: false, type: audio) added to list
+22:34:20.798 > [ 13276][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:20.807 > [ 13285][I][SoapESP32.cpp:973] soapScanItem(): "Cross-Eyed Mary" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:9a2c0d76c17667e5e59f375bca4d4b0e", size: 8035595, sizeMissing: false, type: audio) added to list
+22:34:20.847 > [ 13324][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:20.856 > [ 13333][I][SoapESP32.cpp:973] soapScanItem(): "Hymn 43" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:e4d169c002796d735c456887a3477727", size: 6426436, sizeMissing: false, type: audio) added to list
+22:34:20.895 > [ 13373][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:20.904 > [ 13382][I][SoapESP32.cpp:973] soapScanItem(): "Lick Your Fingers Clean [bonus track]" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:13bec77bcacaf45893a06210f0ca3cc7", size: 5377451, sizeMissing: false, type: audio) added to list
+22:34:20.945 > [ 13423][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:20.955 > [ 13432][I][SoapESP32.cpp:973] soapScanItem(): "Locomotive Breath" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:9b7d8088a572abf30bc1e7436901e5d9", size: 8581454, sizeMissing: false, type: audio) added to list
+22:34:20.994 > [ 13472][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:21.003 > [ 13481][I][SoapESP32.cpp:973] soapScanItem(): "Mother Goose" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:254e0dfdf42c38df3b2d56a146575e9a", size: 7524039, sizeMissing: false, type: audio) added to list
+22:34:21.042 > [ 13520][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:21.052 > [ 13529][I][SoapESP32.cpp:973] soapScanItem(): "My God" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:fc3917d712f2878c109c6f5c0e7b83d0", size: 13909576, sizeMissing: false, type: audio) added to list
+22:34:21.090 > [ 13568][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:21.100 > [ 13578][I][SoapESP32.cpp:973] soapScanItem(): "Slipstream" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:7e5bba453d51c6cee2ffbfa8e2500897", size: 2403197, sizeMissing: false, type: audio) added to list
+22:34:21.140 > [ 13617][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:21.148 > [ 13626][I][SoapESP32.cpp:973] soapScanItem(): "Up To Me" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:f52173a57d178b0bf439cf7db7ed500c", size: 6288512, sizeMissing: false, type: audio) added to list
+22:34:21.187 > [ 13665][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:21.196 > [ 13674][I][SoapESP32.cpp:973] soapScanItem(): "Wind-Up" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:b50d7502563dec1c16767dcecd1e4553", size: 11825665, sizeMissing: false, type: audio) added to list
+22:34:21.234 > [ 13712][I][SoapESP32.cpp:713] soapScanAttribute(): attribute: "bitrate=" missing.
+22:34:21.243 > [ 13721][I][SoapESP32.cpp:973] soapScanItem(): "Wond'ring Aloud" (id: "virtual-id:d62b16c1951debeb97d8df3e8aac458e:d1776ac80e81961585dce077dd5fd3b2", size: 3759905, sizeMissing: false, type: audio) added to list
+22:34:21.264 > [ 13742][I][SoapESP32.cpp:1108] soapProcessRequest(): found 0 folders and 12 files
+22:34:21.273 > Audio file was found:
+22:34:21.278 >  name: "Cheap Day Return", id: virtual-id:d62b16c1951debeb97d8df3e8aac458e:1c72678d7bd0621a874abcc8686e3e0b, size: 2725038
+22:34:21.289 >  URI: MediaExport/i/dmlydHVhbC1pZDpkNjJiMTZjMTk1MWRlYmViOTdkOGRmM2U4YWFjNDU4ZToxYzcyNjc4ZDdiZDA2MjFhODc0YWJjYzg2ODZlM2UwYg%3D%3D/res/primary_http.mp3
+22:34:21.300 > [ 13774][I][SoapESP32.cpp:1274] readStart(): server ip: 192.168.1.66, port: 46949, uri: "MediaExport/i/dmlydHVhbC1pZDpkNjJiMTZjMTk1MWRlYmViOTdkOGRmM2U4YWFjNDU4ZToxYzcyNjc4ZDdiZDA2MjFhODc0YWJjYzg2ODZlM2UwYg%3D%3D/res/primary_http.mp3"
+22:34:21.337 > Download request granted from server, announced file size: 2725038
+22:34:21.342 > Start copying file from server to SD, please wait.
+22:34:21.364 > ...........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+22:34:29.760 > 
+22:34:29.760 > File download was successful.
+22:34:29.760 > Closing file on SD.
+22:34:29.775 > 
+22:34:29.776 > Sketch finished.
