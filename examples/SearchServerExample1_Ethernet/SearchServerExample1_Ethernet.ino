@@ -13,7 +13,7 @@
   The Arduino Library "Ethernet" won't build with Arduino ESP32 core >= V3.x.x
   and therefore has been replaced by Library "EthernetESP32".
 
-  Last updated 2025-01-08, ThJ <yellobyte@bluewin.ch>
+  Last updated 2026-11-21, ThJ <yellobyte@bluewin.ch>
  */
 
 #include <Arduino.h>
@@ -40,7 +40,6 @@ void setup() {
 
   // getting Ethernet up and running
   Ethernet.init(driver);
-  Ethernet.begin(1000);
   Serial.print("\nInitializing Ethernet...");
 
   if (Ethernet.begin(mac)) {
