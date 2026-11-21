@@ -37,7 +37,6 @@ void setup() {
   Serial.begin(115200);
 
   Ethernet.init(driver);
-  Ethernet.begin(1000);
   Serial.print("\nInitializing Ethernet...");
 
   if (Ethernet.begin(mac)) {
